@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<events>
+  <Contenuto>
+    <IDcontenuto>1389</IDcontenuto>
+    <Nome>Pausa</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE82A6</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.05.08</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1390</IDcontenuto>
+    <Nome>Stop</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE827E</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.05.26</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1388</IDcontenuto>
+    <Nome>Play</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE7A20</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.05.29</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1392</IDcontenuto>
+    <Nome />
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Risorsa</Tipologia>
+    <RfidTag>E004010017FE82AD</RfidTag>
+    <NomeRisorsamultimediale>03_Livin On My Own (1993 Radio Mix).mp3</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.05.36</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1389</IDcontenuto>
+    <Nome>Pausa</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE82A6</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.05.40</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1392</IDcontenuto>
+    <Nome />
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Risorsa</Tipologia>
+    <RfidTag>E004010017FE82AD</RfidTag>
+    <NomeRisorsamultimediale>03_Livin On My Own (1993 Radio Mix).mp3</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.05.43</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1390</IDcontenuto>
+    <Nome>Stop</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE827E</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.06.05</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1388</IDcontenuto>
+    <Nome>Play</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE7A20</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.06.08</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1389</IDcontenuto>
+    <Nome>Pausa</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE82A6</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.06.32</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1392</IDcontenuto>
+    <Nome />
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Risorsa</Tipologia>
+    <RfidTag>E004010017FE82AD</RfidTag>
+    <NomeRisorsamultimediale>03_Livin On My Own (1993 Radio Mix).mp3</NomeRisorsamultimediale>
+    <NomePoster>Cicciolina1</NomePoster>
+    <Data>01/04/2009 19.06.41</Data>
+  </Contenuto>
+</events>
