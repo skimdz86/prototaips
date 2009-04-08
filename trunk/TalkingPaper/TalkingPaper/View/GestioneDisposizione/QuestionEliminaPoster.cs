@@ -136,8 +136,8 @@ namespace TalkingPaper.GestioneDisposizione
                 wr.WriteStartDocument();
                 wr.WriteStartElement("PosterCreatiConAuthoring");
                 //wr.WriteStartElement("Configurazione", textBox1.Text);
-                int indice = 0;
-                bool trovato = false;
+                //int indice = 0;
+                //bool trovato = false;
                 try
                 {
                     for (int i = 0; i < poster_creati.Count; i = i + 4)

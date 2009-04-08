@@ -14,22 +14,6 @@ using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Media;
 using QuartzTypeLib;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Collections;
-using System.Data.OleDb;
-using MySql.Data.MySqlClient;
-using MySql.Data.Types;
-using System.IO;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Media;
-using QuartzTypeLib;
 using NHibernate;
 using NHibernate.Cfg;
 using RFIDlibrary;
@@ -343,7 +327,7 @@ namespace TalkingPaper.Postering
             foreach (int id_page in page_text)
             {
                 string nome_text;
-                int id_in_text;
+                //int id_in_text;
                 MySqlConnection connection5;
                 connection5 = new MySqlConnection("server=localhost; username=root; password=root; database=" + database);
                 connection5.Open();
@@ -720,7 +704,7 @@ namespace TalkingPaper.Postering
             else if (e.Node.SelectedImageIndex == 2)
             {
                 int riga = 0;
-                int id_presentation = -1;
+                //int id_presentation = -1;
                 ElencoContenuti.Visible = true;
                 //mostre = new ArrayList();
                 //mostre = (ArrayList)mostre_sel;
@@ -840,7 +824,7 @@ namespace TalkingPaper.Postering
                     int indice_inf = -1;
                     bool trovato = false;
                     bool trovato2 = false;
-                    string header = "";
+                    //string header = "";
                     int i = e.RowIndex - 1;
                     int j = e.RowIndex + 1;
                     while (trovato == false)

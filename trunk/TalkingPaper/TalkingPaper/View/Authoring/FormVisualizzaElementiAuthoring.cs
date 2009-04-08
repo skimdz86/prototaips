@@ -32,7 +32,7 @@ namespace TalkingPaper.Authoring
         private string database;
         private int cod_mostra;
         private string directory_principale;
-        private ArrayList componenti;
+        /*private ArrayList componenti;
         private bool esecuzione = false;
         private QuartzTypeLib.FilgraphManager graphManager;
         private QuartzTypeLib.IMediaControl mc = null;
@@ -41,7 +41,7 @@ namespace TalkingPaper.Authoring
         private IMediaPosition m_objMediaPosition = null;
         private IMediaControl m_objMediaControl = null;
         private bool paused = false;
-        private int riga_pausa;
+        private int riga_pausa;*/
         private Bitmap play_audio;
         private Bitmap modifica;
         private Bitmap elimina;

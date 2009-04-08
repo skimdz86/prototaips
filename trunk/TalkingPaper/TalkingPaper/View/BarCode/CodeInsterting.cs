@@ -35,7 +35,7 @@ namespace TalkingPaper.BarCode
         //private DataGridView ElencoRisorse;
         //private int riga;
         //private int colonna;
-        private NHibernateManager nh_manager;
+        //private NHibernateManager nh_manager;
         private Bitmap taggato;
         private TalkingPaper.Postering.ComponentiDelPoster componenti_pos;
         private TalkingPaper.Postering.BenvenutoPostering benvenuto_pos;

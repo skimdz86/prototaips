@@ -17,7 +17,7 @@ namespace TalkingPaper.BarCode
         private string directoryprincipale;
         private BenvenutoBarCode FormBenvenuto;
         private ArrayList mostre;
-        private Bitmap image;
+        //private Bitmap image;
         private string database;
         private Bitmap immagine_modifica_mostra;
         //private Bitmap elimina;

@@ -25,8 +25,8 @@ namespace TalkingPaper.GestioneDisposizione
         private int rfid_num;
         private string oldId = "0"; // serve per capire se il tag è quello del precedente o no
         private NHibernateManager nh_mng;
-        private int riga_scritta = 1;
-        private int colonna_scritta = 1;
+        //private int riga_scritta = 1;
+        //private int colonna_scritta = 1;
         private int riga = 1;
         private int colonna = 1;
         private ArrayList inseriti = new ArrayList();
@@ -35,10 +35,10 @@ namespace TalkingPaper.GestioneDisposizione
         private string selezionato = "No";
         private int riga_sel = -1;
         private int colonna_sel = -1;
-        private QuestionEliminaTag el;
+        //private QuestionEliminaTag el;
         private string directory_principale;
         private bool selected1 = false;
-        private bool selected2 = false;
+        //private bool selected2 = false;
         private BenvenutoGestioneDisposizione benvenuto;
         private FormAmministrazione amministrazione;
 
@@ -68,7 +68,7 @@ namespace TalkingPaper.GestioneDisposizione
                     //Qualcosa non ha funzionato, rifare...
                     MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    string error = "Errore in costruttore FormEsecuzione: probabilmente l'RFID reader non è correttamente collegato al computer";
+                    //string error = "Errore in costruttore FormEsecuzione: probabilmente l'RFID reader non è correttamente collegato al computer";
                     //arrayError.Add(error);
                     //arrayErrorData.Add(DateTime.Now);
                     //this.richTextBox1.Text += "\n" + error;
@@ -84,7 +84,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
             {
                 Console.WriteLine("Problema nel recupero delle informazioni del RFID");
-                string error = "problema nel recupero delle informazioni del RFID";
+                //string error = "problema nel recupero delle informazioni del RFID";
                 //arrayError.Add(error);
                 //arrayErrorData.Add(DateTime.Now);
                 //this.richTextBox1.Text += "\n" + error;
@@ -112,9 +112,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             {
                 string nome_file = directory_principale + "PannelliTaggati" + ".xml";
                 XmlTextReader iscritto = new XmlTextReader(nome_file);
-                bool fine = false;
+                //bool fine = false;
                 int i = -1;
-                int j = 1;
+                //int j = 1;
                 while ((iscritto.Read()))
                 {
                     if (iscritto.NodeType == XmlNodeType.Element)

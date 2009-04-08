@@ -17,7 +17,7 @@ namespace TalkingPaper
 {
     public partial class FormEsecuzioneBarcodePoster : Form
     {
-        private int cont_barcode;
+        //private int cont_barcode;
         private const int LENGHT_CODE = 7; // valore costate 
         private Utente u_current;
         private bool attivo; // variabile che identifica lo status del sistema

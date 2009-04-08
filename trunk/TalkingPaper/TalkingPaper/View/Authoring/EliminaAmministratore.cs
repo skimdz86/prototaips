@@ -5,13 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
 using System.Collections;
 using System.IO;
 using RFIDlibrary;
@@ -88,9 +81,9 @@ namespace TalkingPaper.Authoring
             {
                 string nome_file = directoryprincipale + "UtentiAmministratori" + ".xml";
                 XmlTextReader iscritto = new XmlTextReader(nome_file);
-                bool fine = false;
+                //bool fine = false;
                 int i = -1;
-                int j = 1;
+                //int j = 1;
                 while ((iscritto.Read()))
                 {
                     if (iscritto.NodeType == XmlNodeType.Element)

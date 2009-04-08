@@ -370,7 +370,7 @@ namespace TalkingPaper.Postering
                                     contenuto.Livello = 0;
                                     contenuto.Ordine = 0;
                                     Contenuto conte = new Contenuto();
-                                    IList conte_sel;
+                                    //IList conte_sel;
                                     contenuto.Rfidtag = "0";
                                     contenuto.Barcode = "0";
                                     if ((id_compooo != -1)&&(modifica==true))
@@ -508,8 +508,8 @@ namespace TalkingPaper.Postering
                                         testo_risorsa.Tipo = "testo";
                                         //tempS.Save(testo_risorsa);
                                         //tempS.Flush();
-                                        bool esiste_gia = true;
-                                        int numm = 0;
+                                        //bool esiste_gia = true;
+                                        //int numm = 0;
                                         ok_testo = true;
                                         try
                                         {

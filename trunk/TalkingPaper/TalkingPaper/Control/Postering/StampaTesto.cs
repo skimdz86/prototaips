@@ -18,7 +18,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using RFIDlibrary;
 using System.Drawing.Printing;
-using Microsoft.Office.Interop.Word;
+using Word = Microsoft.Office.Interop.Word;
 using System.Reflection;
 
 namespace TalkingPaper.Postering

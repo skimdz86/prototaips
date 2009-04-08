@@ -17,19 +17,6 @@ using QuartzTypeLib;
 using NHibernate;
 using NHibernate.Cfg;
 using RFIDlibrary;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Collections;
-using System.IO;
-using RFIDlibrary;
-using NHibernate;
-using NHibernate.Cfg;
-using QuartzTypeLib;
 using System.Xml;
 
 namespace TalkingPaper
@@ -221,7 +208,7 @@ namespace TalkingPaper
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //add by mac
-            if (pictureBoxPost2.Visible = true)
+            if (pictureBoxPost2.Visible == true)
             {
                 pictureBoxPost2.Visible = false;
                 textBoxPost.Visible = false;
