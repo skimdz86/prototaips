@@ -33,14 +33,14 @@ namespace TalkingPaper.BarCode
         private Bitmap immagine_modifica_code;*/
         private ArrayList componenti;
         private bool esecuzione = false;
-        private QuartzTypeLib.FilgraphManager graphManager;
+        //private QuartzTypeLib.FilgraphManager graphManager;
         private QuartzTypeLib.IMediaControl mc=null;
-        private IMediaEvent m_objMediaEvent = null;
+        /*private IMediaEvent m_objMediaEvent = null;
         private IMediaEventEx m_objMediaEventEx = null;
         private IMediaPosition m_objMediaPosition = null;
         private IMediaControl m_objMediaControl = null;
         private bool paused = false;
-        private int riga_pausa;
+        private int riga_pausa;*/
         private Bitmap play_audio;
         private Bitmap modifica;
         private Bitmap elimina;

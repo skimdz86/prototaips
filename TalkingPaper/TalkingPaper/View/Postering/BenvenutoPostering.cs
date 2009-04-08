@@ -13,7 +13,7 @@ namespace TalkingPaper.Postering
     public partial class BenvenutoPostering : FormSchema
     {
         private string directoryprincipale;
-        private string database = "talkingpaper2";
+        //private string database = "talkingpaper2";
         private Welcome inizio;
         private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;

@@ -27,7 +27,7 @@ namespace TalkingPaper
         private IList posterList;
         private IList mostraList;
         private int indiceMostra;
-        private int posizione_current;
+        //private int posizione_current;
         private int indicePoster;
         private Mostra selected_mostra;
         private IList new_posterList;
@@ -42,7 +42,7 @@ namespace TalkingPaper
             afterPosterList = new ArrayList();
             new_posterList = new ArrayList();
             selected_mostra = new Mostra();
-            posizione_current = 0;
+            //posizione_current = 0;
             indiceMostra = 0;
             nh_mng = new NHibernateManager();
             mostraList = get_mostre();
@@ -326,7 +326,7 @@ namespace TalkingPaper
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //add by mac
-            if (pictureBoxPost2.Visible = true)
+            if (pictureBoxPost2.Visible == true)
             {
                 pictureBoxPost2.Visible = false;
                 textBoxPost.Visible = false;

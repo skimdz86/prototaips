@@ -176,8 +176,8 @@ namespace TalkingPaper.Authoring
                 wr.WriteString(configurazione);
                 wr.WriteEndElement();
                 wr.WriteEndElement();
-                int indice = 0;
-                bool trovato = false;
+                //int indice = 0;
+                //bool trovato = false;
                 try
                 {
                     for (int i = 0; i < poster_authoring.Count; i=i+4)
@@ -366,9 +366,9 @@ namespace TalkingPaper.Authoring
             {
                 string nome_file = directory_principale + "PannelliTaggati" + ".xml";
                 XmlTextReader iscritto = new XmlTextReader(nome_file);
-                bool fine = false;
+                //bool fine = false;
                 int i = -1;
-                int j = 1;
+                //int j = 1;
                 while ((iscritto.Read()))
                 {
                     if (iscritto.NodeType == XmlNodeType.Element)
@@ -409,7 +409,7 @@ namespace TalkingPaper.Authoring
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int riga = 2;
+            //int riga = 2;
             bool trovato = false;
             string selezionato = comboBox1.SelectedItem.ToString();
             nome_combo = comboBox1.SelectedItem.ToString();
@@ -879,7 +879,7 @@ namespace TalkingPaper.Authoring
                 lab.BackColor = System.Drawing.Color.Orange;
 
             ((Label)sender).BackColor = System.Drawing.Color.Red;
-            int riga = 2;
+            //int riga = 2;
             bool trovato = false;
             string selezionato = ((Label)sender).Text;
 
@@ -947,7 +947,7 @@ namespace TalkingPaper.Authoring
                 lab.BackColor = System.Drawing.Color.Orange;
 
             ((Label)sender).BackColor = System.Drawing.Color.Red;
-            int riga = 2;
+            //int riga = 2;
             bool trovato = false;
             
 

@@ -38,10 +38,10 @@ namespace TalkingPaper.GestioneDisposizione
         private string directory_principale;
         private string nome_poster;
         private TalkingPaper.NHibernateManager nh_manager;
-        private bool audio;
+        /*private bool audio;
         private bool video;
         private bool testo;
-        private bool immagine;
+        private bool immagine;*/
         private bool modifica;
         private int id_contenuto;
         private string nome_contenuto;
@@ -428,13 +428,13 @@ namespace TalkingPaper.GestioneDisposizione
                         int indice5;
                         int indice_ufficiale2;
                         string nome_risorsa = "";
-                        string tipo = "";
+                        //string tipo = "";
                         string descrizione_tipologia = "";
                         string path = "";
                         string estensione = "";
                         if ((textBox2.Text != null) && (textBox2.Text.CompareTo("") != 0))
                         {
-                            tipo = "audio";
+                            //tipo = "audio";
                             path = "\\audio";
                             indice = textBox2.Text.LastIndexOf("\\");
                             indice5 = textBox2.Text.LastIndexOf("/");
@@ -463,7 +463,7 @@ namespace TalkingPaper.GestioneDisposizione
                         }
                         else
                         {
-                            tipo = "video";
+                            //tipo = "video";
                             path = "\\video";
                             descrizione_tipologia = "Video";
                             indice = textBox4.Text.LastIndexOf("\\");
@@ -490,7 +490,7 @@ namespace TalkingPaper.GestioneDisposizione
                                 this.Close();*/
                             }
                         }
-                        IList risorse_sel;
+                        //IList risorse_sel;
                         Risorsamultimediale risorsa = new Risorsamultimediale();
                         //Risorsamultimediale risorsa2 = new Risorsamultimediale();
                         risorsa.Nome = nome_risorsa;

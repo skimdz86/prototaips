@@ -99,9 +99,9 @@ namespace TalkingPaper.GestioneDisposizione
             {
                 string nome_file = directory_principale + "PannelliTaggati" + ".xml";
                 XmlTextReader iscritto = new XmlTextReader(nome_file);
-                bool fine = false;
+                //bool fine = false;
                 int i = -1;
-                int j = 1;
+                //int j = 1;
                 while ((iscritto.Read()))
                 {
                     if (iscritto.NodeType == XmlNodeType.Element)

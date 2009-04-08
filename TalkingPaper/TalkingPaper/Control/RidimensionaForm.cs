@@ -16,11 +16,11 @@ namespace TalkingPaper
         private double resO;
         private double FV;
         private double FO;
-        private double rapportoHV;
+        //private double rapportoHV;
         private double rapV;
         private double rapO;
-        private Boolean LavoraSulVerticale;
-        private Single k;
+        //private Boolean LavoraSulVerticale;
+        //private Single k;
         private SizeF nuovo_size;
 
         public RidimensionaForm(Form f, int percentuale, bool ridimensiona)

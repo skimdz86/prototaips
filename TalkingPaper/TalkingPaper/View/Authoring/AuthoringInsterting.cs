@@ -29,7 +29,7 @@ namespace TalkingPaper.Authoring
         private FormVisualizzaElementiAuthoring elenco_elementi;
         private FormScegliPosterAuthoring scelta_poster;
         private BenvenutoAuthoring partenza;
-        private TalkingPaper.Config.RfidProperties rfid_prop;
+        //private TalkingPaper.Config.RfidProperties rfid_prop;
         private TalkingPaper.Config.Config_manager rfid_mng;
         private int rfid_num;
         private RFIDConfigurator rfid_cfg;
@@ -41,7 +41,7 @@ namespace TalkingPaper.Authoring
         private string database;
         private Bitmap immagine_modifica_code;
         private Bitmap immagine_code;
-        private string oldid;
+        //private string oldid;
         private string id_pannello;
         private string nome_pannello;
         private bool esiste;
@@ -67,7 +67,7 @@ namespace TalkingPaper.Authoring
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
-            oldid = " ";
+            //oldid = " ";
             //this.matrice = matrice;
             this.configurazione=configurazione;
             this.id_pannello = id_pannello;

@@ -33,7 +33,7 @@ namespace TalkingPaper.RfidCode
         private string esetensione_risorsa;
         private string database;
         private TalkingPaper.NHibernateManager nh_manager;
-        private IList contenuti_sel;
+        //private IList contenuti_sel;
         private Contenuto contenuto_sel;
         
         public FormVisualizzaInfoRFID(FormVisualizzaElementiRFID visualizza_elementi, int id_contenuto, string directoryprincipale, string database)

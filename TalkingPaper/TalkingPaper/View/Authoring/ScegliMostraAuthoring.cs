@@ -20,7 +20,7 @@ namespace TalkingPaper.Authoring
         private string directoryprincipale;
         private BenvenutoAuthoring FormBenvenuto;
         private ArrayList mostre;
-        private Bitmap image;
+        //private Bitmap image;
         private string database;
         private TalkingPaper.NHibernateManager nh_manager;
         private IList mostra_sel;

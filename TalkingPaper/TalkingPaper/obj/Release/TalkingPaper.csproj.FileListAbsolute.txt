@@ -109,3 +109,18 @@ C:\Users\Marco\Desktop\Progetto HCI\Talking Paper\TalkingPaper\TalkingPaper\obj\
 C:\Users\Marco\Desktop\Progetto HCI\Talking Paper\TalkingPaper\TalkingPaper\obj\Release\TalkingPaper.RfidCode.QuestionRFID.resources
 C:\Users\Marco\Desktop\Progetto HCI\Talking Paper\TalkingPaper\TalkingPaper\obj\Release\TalkingPaper.Welcome.resources
 C:\Users\Marco\Desktop\Progetto HCI\Talking Paper\TalkingPaper\TalkingPaper\obj\Release\TalkingPaper.csproj.GenerateResource.Cache
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.LCC11.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.MsoEuro.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.MSORUNLib.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.MSOSOAPLib30.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.MSXML2.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.Microsoft.Office.Interop.SmartTag.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.VBIDE.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.VSTOLoaderLib.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.VSTOPersistLib.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.VSTOStgLib.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.VSTOStorage.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.WinInetConnectorLib.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\Interop.Microsoft.Office.Interop.Word.dll
+C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\TalkingPaper\TalkingPaper\obj\Release\TalkingPaper.csproj.ResolveComReference.cache

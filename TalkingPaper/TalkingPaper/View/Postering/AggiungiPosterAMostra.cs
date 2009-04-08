@@ -29,7 +29,7 @@ namespace TalkingPaper.Postering
         private PosterDellaMostra poster;
         private BenvenutoPostering benvenuto;
         private string directory_principale;
-        private bool taggato = false;
+        //private bool taggato = false;
         private int id_mostra = 0;
         private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
@@ -61,7 +61,7 @@ namespace TalkingPaper.Postering
                 {
                     //Tipologia tipo = new Tipologia();
                     Poster posterr = new Poster();
-                    //bool taggato = false;
+                    bool taggato = false;
                     //Contenuto da_eliminare = new Contenuto();
                     IQuery q = tempS.CreateQuery("FROM Poster as pt WHERE pt.IDposter=:Pos");
                     q.SetParameter("Pos", id_poster);
