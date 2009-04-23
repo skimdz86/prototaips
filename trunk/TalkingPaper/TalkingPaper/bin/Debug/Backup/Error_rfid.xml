@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Errors>
+  <Error>
+    <Message>Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione dell'insieme.
+Nome parametro: index</Message>
+    <Data>11/06/2008 10.51.24</Data>
+  </Error>
+</Errors>

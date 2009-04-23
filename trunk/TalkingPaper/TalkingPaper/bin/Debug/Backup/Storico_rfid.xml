@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<events>
+  <Contenuto>
+    <IDcontenuto>1386</IDcontenuto>
+    <Nome>suono2</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Risorsa</Tipologia>
+    <RfidTag>E004010017FE9158</RfidTag>
+    <NomeRisorsamultimediale>02 Brano 2.wma</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.50.08</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1385</IDcontenuto>
+    <Nome>Stop</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE9130</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.50.32</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1383</IDcontenuto>
+    <Nome>Play</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE9140</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.50.39</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1384</IDcontenuto>
+    <Nome>Pausa</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE9138</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.50.46</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1385</IDcontenuto>
+    <Nome>Stop</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE9130</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.50.51</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1387</IDcontenuto>
+    <Nome>video2</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Risorsa</Tipologia>
+    <RfidTag>E004010017FE9150</RfidTag>
+    <NomeRisorsamultimediale>Bear.wmv</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.51.55</Data>
+  </Contenuto>
+  <Contenuto>
+    <IDcontenuto>1385</IDcontenuto>
+    <Nome>Stop</Nome>
+    <Livello>0</Livello>
+    <Ordine>0</Ordine>
+    <Tipologia>Controllo</Tipologia>
+    <RfidTag>E004010017FE9130</RfidTag>
+    <NomeRisorsamultimediale>nessuna risorsa</NomeRisorsamultimediale>
+    <NomePoster>cartellone2</NomePoster>
+    <Data>11/06/2008 10.52.01</Data>
+  </Contenuto>
+</events>
