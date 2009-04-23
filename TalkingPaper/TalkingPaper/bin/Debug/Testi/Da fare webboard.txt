@@ -1,6 +1,0 @@
-POST con:
--nome gruppo
--Talking paper tangible interaction #2
--Capogruppo
--altri membri
--alcune righe sull'idea
