@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <reader>
-    <port>8</port>
-    <comunication_frame>8E1</comunication_frame>
-    <baud_rate>38400</baud_rate>
-    <time_out>1000</time_out>
-  </reader>
-</parameters>
