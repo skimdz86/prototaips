@@ -1,0 +1,10 @@
+Contenuto:
+Librerie utilizzate dal TalkingPaper, utili per risolvere problemi di caricamento delle librerie.
+
+Problema:
+Viene lanciata dal programma un'eccezione in cui Nhibernet non trova il file di configurazione oppure vengono lanciate eccezione in cui si dice che è impossibile caricare il modulo specificato
+
+Soluzione:
+Copiare le librerie qui presenti nella cartella bin e nella cartella \bin\debug. (estrarre questo anrchivio nella directory del TalkingPaper e quando richiesto sovrescrivvere i file già presenti)
+
+created by Mac

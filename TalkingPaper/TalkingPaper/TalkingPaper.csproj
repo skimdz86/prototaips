@@ -1,0 +1,1268 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TalkingPaper</RootNamespace>
+    <AssemblyName>TalkingPaper</AssemblyName>
+    <ManifestCertificateThumbprint>82C7E1D989CA11678245870734AA4470FC40D109</ManifestCertificateThumbprint>
+    <ManifestKeyFile>TalkingPaper_TemporaryKey.pfx</ManifestKeyFile>
+    <GenerateManifests>true</GenerateManifests>
+    <SignManifests>true</SignManifests>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>D:\Documents and Settings\IO\Desktop\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.swISCReader, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\TESIIIIII!!!!!!\tesiPortatile\RFID\RFId\Museum_Application_Game\bin\Release\AxInterop.swISCReader.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.QuartzTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\TaggingPhase2\TaggingPhase2\bin\Debug\Interop.QuartzTypeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Programmi\NHibernate\bin\net-2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=10.0.4504.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\Nuova cartella\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=5.0.8.1, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="NHibernate, Version=1.2.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Programmi\NHibernate\bin\net-2.0\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Mapping.Attributes, Version=1.2.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Programmi\NHibernate\bin\net-2.0\NHibernate.Mapping.Attributes.dll</HintPath>
+    </Reference>
+    <Reference Include="RFIDlibrary, Version=1.0.2886.29054, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\TESIIIIII!!!!!!\tesiPortatile\RFID\RFId\RFIDlibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Altrarisorsa.cs" />
+    <Compile Include="Authoring\AuthoringInsterting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\AuthoringInsterting.Designer.cs">
+      <DependentUpon>AuthoringInsterting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\BenvenutoAuthoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\BenvenutoAuthoring.Designer.cs">
+      <DependentUpon>BenvenutoAuthoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\ElementoGriglia.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Authoring\EliminaAmministratore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\EliminaAmministratore.Designer.cs">
+      <DependentUpon>EliminaAmministratore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\FormScegliConfigurazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\FormScegliConfigurazione.Designer.cs">
+      <DependentUpon>FormScegliConfigurazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\FormScegliPosterAuthoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\FormScegliPosterAuthoring.Designer.cs">
+      <DependentUpon>FormScegliPosterAuthoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\FormVisualizzaElementiAuthoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\FormVisualizzaElementiAuthoring.Designer.cs">
+      <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\QCambiaGriglia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\QCambiaGriglia.Designer.cs">
+      <DependentUpon>QCambiaGriglia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\QuestionAuthoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\QuestionAuthoring.Designer.cs">
+      <DependentUpon>QuestionAuthoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\QuestionAuthoring2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\QuestionAuthoring2.Designer.cs">
+      <DependentUpon>QuestionAuthoring2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\QuestionEliminaTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\QuestionEliminaTag.Designer.cs">
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Authoring\ScegliMostraAuthoring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Authoring\ScegliMostraAuthoring.Designer.cs">
+      <DependentUpon>ScegliMostraAuthoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\BenvenutoBarCode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\BenvenutoBarCode.Designer.cs">
+      <DependentUpon>BenvenutoBarCode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\CodeInsterting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\CodeInsterting.Designer.cs">
+      <DependentUpon>CodeInsterting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\FormScegliPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\FormScegliPoster.Designer.cs">
+      <DependentUpon>FormScegliPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\FormVisualizzaElementi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\FormVisualizzaElementi.Designer.cs">
+      <DependentUpon>FormVisualizzaElementi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\FormVisualizzaInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\FormVisualizzaInfo.Designer.cs">
+      <DependentUpon>FormVisualizzaInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\Question.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\Question.Designer.cs">
+      <DependentUpon>Question.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\Question2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\Question2.Designer.cs">
+      <DependentUpon>Question2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\QuestionEliminaTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\QuestionEliminaTag.Designer.cs">
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarCode\ScegliMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarCode\ScegliMostra.Designer.cs">
+      <DependentUpon>ScegliMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\Config_manager.cs" />
+    <Compile Include="Config\FormRfidConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\FormRfidConfig.Designer.cs">
+      <DependentUpon>FormRfidConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\FormRfidConfigHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Config\FormRfidConfigHelp.Designer.cs">
+      <DependentUpon>FormRfidConfigHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Config\RfidProperties.cs" />
+    <Compile Include="Contenuto.cs" />
+    <Compile Include="ControlButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ControlButton.Designer.cs">
+      <DependentUpon>ControlButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEsecuzioneBarcodePoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEsecuzioneBarcodePoster.designer.cs">
+      <DependentUpon>FormEsecuzioneBarcodePoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\BenvenutoGestioneDisposizione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\BenvenutoGestioneDisposizione.Designer.cs">
+      <DependentUpon>BenvenutoGestioneDisposizione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\NuovoPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\NuovoPoster.Designer.cs">
+      <DependentUpon>NuovoPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaComponente.Designer.cs">
+      <DependentUpon>QuestionEliminaComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaMostra.Designer.cs">
+      <DependentUpon>QuestionEliminaMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaPoster.Designer.cs">
+      <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionEliminaTag.Designer.cs">
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionPostering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\QuestionPostering.Designer.cs">
+      <DependentUpon>QuestionPostering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\TaggingDellaParete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\TaggingDellaParete.Designer.cs">
+      <DependentUpon>TaggingDellaParete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\TagRigaColonna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\TagRigaColonna.Designer.cs">
+      <DependentUpon>TagRigaColonna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalVar.cs" />
+    <Compile Include="MainButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainButton.Designer.cs">
+      <DependentUpon>MainButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElencoPosterEsecuzioneSingoloModello.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElencoPosterEsecuzioneSingoloModello.Designer.cs">
+      <DependentUpon>ElencoPosterEsecuzioneSingoloModello.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSchema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSchema.Designer.cs">
+      <DependentUpon>FormSchema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\AggiungiPosterAMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\AggiungiPosterAMostra.Designer.cs">
+      <DependentUpon>AggiungiPosterAMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\BenvenutoPostering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\BenvenutoPostering.Designer.cs">
+      <DependentUpon>BenvenutoPostering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\NuovoPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\NuovoPoster.Designer.cs">
+      <DependentUpon>NuovoPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAmministrazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAmministrazione.Designer.cs">
+      <DependentUpon>FormAmministrazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginAdmin.Designer.cs">
+      <DependentUpon>LoginAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NuovoAmministratore.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NuovoAmministratore.Designer.cs">
+      <DependentUpon>NuovoAmministratore.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\ScegliMostraRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\ScegliMostraRFID.Designer.cs">
+      <DependentUpon>ScegliMostraRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome2.Designer.cs">
+      <DependentUpon>Welcome2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElencoPosterEsecuzioneSingolo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElencoPosterEsecuzioneSingolo.Designer.cs">
+      <DependentUpon>ElencoPosterEsecuzioneSingolo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FiltroStorie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FiltroStorie.Designer.cs">
+      <DependentUpon>FiltroStorie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormErroreStorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormErroreStorico.designer.cs">
+      <DependentUpon>FormErroreStorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEsecuzione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEsecuzione.Designer.cs">
+      <DependentUpon>FormEsecuzione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEsecuzioneBarcode.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEsecuzioneBarcode.designer.cs">
+      <DependentUpon>FormEsecuzioneBarcode.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEsecuzioneRfidPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEsecuzioneRfidPoster.designer.cs">
+      <DependentUpon>FormEsecuzioneRfidPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOrdinaPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrdinaPoster.designer.cs">
+      <DependentUpon>FormOrdinaPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProvaNH3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProvaNH3.Designer.cs">
+      <DependentUpon>FormProvaNH3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStorico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStorico.Designer.cs">
+      <DependentUpon>FormStorico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVideo.Designer.cs">
+      <DependentUpon>FormVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\AggiungiControllo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\AggiungiControllo.Designer.cs">
+      <DependentUpon>AggiungiControllo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\AggiungiPosterAMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\AggiungiPosterAMostra.Designer.cs">
+      <DependentUpon>AggiungiPosterAMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ComponentiDelPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ComponentiDelPoster.Designer.cs">
+      <DependentUpon>ComponentiDelPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\CreaNuovaMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\CreaNuovaMostra.Designer.cs">
+      <DependentUpon>CreaNuovaMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\CreaNuovaMostraPerSingolo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\CreaNuovaMostraPerSingolo.Designer.cs">
+      <DependentUpon>CreaNuovaMostraPerSingolo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\EccoLaStoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\EccoLaStoria.Designer.cs">
+      <DependentUpon>EccoLaStoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\NuovoComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\NuovoComponente.Designer.cs">
+      <DependentUpon>NuovoComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\NuovoPosterDaStoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\NuovoPosterDaStoria.Designer.cs">
+      <DependentUpon>NuovoPosterDaStoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PannelliConfigurazione.cs" />
+    <Compile Include="GestioneDisposizione\PlayAudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PlayAudio.Designer.cs">
+      <DependentUpon>PlayAudio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PlayVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PlayVideo.Designer.cs">
+      <DependentUpon>PlayVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PosterDaStoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PosterDaStoria.Designer.cs">
+      <DependentUpon>PosterDaStoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PosterDellaMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\PosterDellaMostra.Designer.cs">
+      <DependentUpon>PosterDellaMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ScegliConfigurazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ScegliConfigurazione.Designer.cs">
+      <DependentUpon>ScegliConfigurazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ScegliMostraPostering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ScegliMostraPostering.Designer.cs">
+      <DependentUpon>ScegliMostraPostering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ScegliPannelloPerConfigurazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\ScegliPannelloPerConfigurazione.Designer.cs">
+      <DependentUpon>ScegliPannelloPerConfigurazione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\SetDisposizione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GestioneDisposizione\SetDisposizione.Designer.cs">
+      <DependentUpon>SetDisposizione.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GestioneDisposizione\StampaImmagine.cs" />
+    <Compile Include="GestioneDisposizione\StampaTesto.cs" />
+    <Compile Include="Mostra.cs" />
+    <Compile Include="NHibernateManager.cs" />
+    <Compile Include="Poster.cs" />
+    <Compile Include="Postering\AggiungiControllo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\AggiungiControllo.Designer.cs">
+      <DependentUpon>AggiungiControllo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\ComponentiDelPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\ComponentiDelPoster.Designer.cs">
+      <DependentUpon>ComponentiDelPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\CreaNuovaMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\CreaNuovaMostra.Designer.cs">
+      <DependentUpon>CreaNuovaMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\CreaNuovaMostraPerSingolo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\CreaNuovaMostraPerSingolo.Designer.cs">
+      <DependentUpon>CreaNuovaMostraPerSingolo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\EccoLaStoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\EccoLaStoria.Designer.cs">
+      <DependentUpon>EccoLaStoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\NuovoComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\NuovoComponente.Designer.cs">
+      <DependentUpon>NuovoComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\NuovoPosterDaStoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\NuovoPosterDaStoria.Designer.cs">
+      <DependentUpon>NuovoPosterDaStoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\PlayAudio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\PlayAudio.Designer.cs">
+      <DependentUpon>PlayAudio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\PlayVideo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\PlayVideo.Designer.cs">
+      <DependentUpon>PlayVideo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\PosterDaStoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\PosterDaStoria.Designer.cs">
+      <DependentUpon>PosterDaStoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\PosterDellaMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\PosterDellaMostra.Designer.cs">
+      <DependentUpon>PosterDellaMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\PreviewImmagine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\PreviewImmagine.Designer.cs">
+      <DependentUpon>PreviewImmagine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\PulisciStringa.cs" />
+    <Compile Include="Postering\QuestionEliminaComponente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\QuestionEliminaComponente.Designer.cs">
+      <DependentUpon>QuestionEliminaComponente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\QuestionEliminaMostra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\QuestionEliminaMostra.Designer.cs">
+      <DependentUpon>QuestionEliminaMostra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\QuestionEliminaPoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\QuestionEliminaPoster.Designer.cs">
+      <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\QuestionPostering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\QuestionPostering.Designer.cs">
+      <DependentUpon>QuestionPostering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\QuestionPosterTaggato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\QuestionPosterTaggato.Designer.cs">
+      <DependentUpon>QuestionPosterTaggato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\ScegliMostraPostering.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Postering\ScegliMostraPostering.Designer.cs">
+      <DependentUpon>ScegliMostraPostering.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Postering\StampaImmagine.cs" />
+    <Compile Include="Postering\StampaTesto.cs" />
+    <Compile Include="Profilo.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TalkingPaper_TemporaryKey.pfx" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="RfidCode\BenvenutoRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\BenvenutoRFID.Designer.cs">
+      <DependentUpon>BenvenutoRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\QuestionEliminaTag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\QuestionEliminaTag.Designer.cs">
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\QuestionRFID2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\QuestionRFID2.Designer.cs">
+      <DependentUpon>QuestionRFID2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\RFIDInsterting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\RFIDInsterting.Designer.cs">
+      <DependentUpon>RFIDInsterting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\FormScegliPosterRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\FormScegliPosterRFID.Designer.cs">
+      <DependentUpon>FormScegliPosterRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\FormVisualizzaElementiRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\FormVisualizzaElementiRFID.Designer.cs">
+      <DependentUpon>FormVisualizzaElementiRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\FormVisualizzaInfoRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\FormVisualizzaInfoRFID.Designer.cs">
+      <DependentUpon>FormVisualizzaInfoRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RfidCode\QuestionRFID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RfidCode\QuestionRFID.Designer.cs">
+      <DependentUpon>QuestionRFID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RidimensionaForm.cs" />
+    <Compile Include="Risorsamultimediale.cs" />
+    <Compile Include="Tipologia.cs" />
+    <Compile Include="Utente.cs" />
+    <Compile Include="Welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Welcome.Designer.cs">
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\Mostra.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Poster.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Profilo.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Risorsamultimediale.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Tipologia.hbm.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Authoring\QCambiaGriglia.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QCambiaGriglia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\AuthoringInsterting.resx">
+      <DependentUpon>AuthoringInsterting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\BenvenutoAuthoring.resx">
+      <DependentUpon>BenvenutoAuthoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\EliminaAmministratore.resx">
+      <DependentUpon>EliminaAmministratore.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\FormScegliConfigurazione.resx">
+      <DependentUpon>FormScegliConfigurazione.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\FormScegliPosterAuthoring.resx">
+      <DependentUpon>FormScegliPosterAuthoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\FormVisualizzaElementiAuthoring.resx">
+      <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\QuestionAuthoring.resx">
+      <DependentUpon>QuestionAuthoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\QuestionAuthoring2.resx">
+      <DependentUpon>QuestionAuthoring2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\QuestionEliminaTag.resx">
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Authoring\ScegliMostraAuthoring.resx">
+      <DependentUpon>ScegliMostraAuthoring.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\QuestionEliminaTag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlButton.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ControlButton.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEsecuzioneBarcodePoster.resx">
+      <DependentUpon>FormEsecuzioneBarcodePoster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\BenvenutoGestioneDisposizione.resx">
+      <DependentUpon>BenvenutoGestioneDisposizione.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\NuovoPoster.resx">
+      <DependentUpon>NuovoPoster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\QuestionEliminaComponente.resx">
+      <DependentUpon>QuestionEliminaComponente.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\QuestionEliminaMostra.resx">
+      <DependentUpon>QuestionEliminaMostra.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\QuestionEliminaPoster.resx">
+      <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\QuestionEliminaTag.resx">
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\QuestionPostering.resx">
+      <DependentUpon>QuestionPostering.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\TaggingDellaParete.resx">
+      <DependentUpon>TaggingDellaParete.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\TagRigaColonna.resx">
+      <DependentUpon>TagRigaColonna.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainButton.resx">
+      <DependentUpon>MainButton.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElencoPosterEsecuzioneSingoloModello.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ElencoPosterEsecuzioneSingoloModello.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSchema.resx">
+      <DependentUpon>FormSchema.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\AggiungiPosterAMostra.resx">
+      <DependentUpon>AggiungiPosterAMostra.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\BenvenutoPostering.resx">
+      <DependentUpon>BenvenutoPostering.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\NuovoPoster.resx">
+      <DependentUpon>NuovoPoster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAmministrazione.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormAmministrazione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProvaNH3.resx">
+      <DependentUpon>FormProvaNH3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginAdmin.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>LoginAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NuovoAmministratore.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NuovoAmministratore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <SubType>Designer</SubType>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\ScegliMostraRFID.resx">
+      <DependentUpon>ScegliMostraRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome2.resx">
+      <DependentUpon>Welcome2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElencoPosterEsecuzioneSingolo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ElencoPosterEsecuzioneSingolo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FiltroStorie.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FiltroStorie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormErroreStorico.resx">
+      <DependentUpon>FormErroreStorico.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEsecuzioneBarcode.resx">
+      <DependentUpon>FormEsecuzioneBarcode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEsecuzioneRfidPoster.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEsecuzioneRfidPoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrdinaPoster.resx">
+      <DependentUpon>FormOrdinaPoster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormVideo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\AggiungiControllo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AggiungiControllo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\AggiungiPosterAMostra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AggiungiPosterAMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\ComponentiDelPoster.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ComponentiDelPoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\CreaNuovaMostra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreaNuovaMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\CreaNuovaMostraPerSingolo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreaNuovaMostraPerSingolo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\EccoLaStoria.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EccoLaStoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\NuovoComponente.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NuovoComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\NuovoPosterDaStoria.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NuovoPosterDaStoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\PlayAudio.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlayAudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\PlayVideo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlayVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\PosterDaStoria.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PosterDaStoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\PosterDellaMostra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PosterDellaMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\ScegliConfigurazione.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScegliConfigurazione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\ScegliMostraPostering.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScegliMostraPostering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\ScegliPannelloPerConfigurazione.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScegliPannelloPerConfigurazione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GestioneDisposizione\SetDisposizione.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>SetDisposizione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Altrarisorsa.hbm.xml" />
+    <EmbeddedResource Include="BarCode\BenvenutoBarCode.resx">
+      <DependentUpon>BenvenutoBarCode.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\CodeInsterting.resx">
+      <DependentUpon>CodeInsterting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\FormScegliPoster.resx">
+      <DependentUpon>FormScegliPoster.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\FormVisualizzaElementi.resx">
+      <DependentUpon>FormVisualizzaElementi.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\FormVisualizzaInfo.resx">
+      <DependentUpon>FormVisualizzaInfo.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\Question.resx">
+      <DependentUpon>Question.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\Question2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Question2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarCode\ScegliMostra.resx">
+      <DependentUpon>ScegliMostra.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\FormRfidConfig.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormRfidConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Config\FormRfidConfigHelp.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormRfidConfigHelp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEsecuzione.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEsecuzione.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStorico.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormStorico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mappings\Utente.hbm.xml" />
+    <EmbeddedResource Include="Mappings\Contenuto.hbm.xml" />
+    <EmbeddedResource Include="Postering\AggiungiControllo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>AggiungiControllo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\ComponentiDelPoster.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ComponentiDelPoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\CreaNuovaMostra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreaNuovaMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\CreaNuovaMostraPerSingolo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>CreaNuovaMostraPerSingolo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\EccoLaStoria.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>EccoLaStoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\NuovoComponente.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NuovoComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\NuovoPosterDaStoria.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>NuovoPosterDaStoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\PlayAudio.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlayAudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\PlayVideo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PlayVideo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\PosterDaStoria.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PosterDaStoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\PosterDellaMostra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PosterDellaMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\PreviewImmagine.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>PreviewImmagine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\QuestionEliminaComponente.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionEliminaComponente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\QuestionEliminaMostra.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionEliminaMostra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\QuestionEliminaPoster.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\QuestionPostering.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionPostering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\QuestionPosterTaggato.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionPosterTaggato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Postering\ScegliMostraPostering.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ScegliMostraPostering.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\BenvenutoRFID.resx">
+      <DependentUpon>BenvenutoRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\QuestionEliminaTag.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\QuestionRFID2.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuestionRFID2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\RFIDInsterting.resx">
+      <DependentUpon>RFIDInsterting.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\FormScegliPosterRFID.resx">
+      <DependentUpon>FormScegliPosterRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\FormVisualizzaElementiRFID.resx">
+      <DependentUpon>FormVisualizzaElementiRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\FormVisualizzaInfoRFID.resx">
+      <DependentUpon>FormVisualizzaInfoRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RfidCode\QuestionRFID.resx">
+      <DependentUpon>QuestionRFID.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Welcome.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="LCC11">
+      <Guid>{EDCD5812-6A06-43C3-AFAC-46EF5D14E22C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper">
+      <Guid>{4ABEF68D-9E05-37AB-9FE9-EF4849758F77}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MsoEuro">
+      <Guid>{76F6F3F5-9937-11D2-93BB-00105A994D2C}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MSORUNLib">
+      <Guid>{B35FBDE9-7042-11D3-9C0F-00C04F72DD5F}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MSOSOAPLib30">
+      <Guid>{67EA4C27-A47C-11D6-9500-00065B874123}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="MSXML2">
+      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="SmartTagLib">
+      <Guid>{9B92EB61-CBC1-11D3-8C2D-00A0CC37B591}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSTOLoaderLib">
+      <Guid>{26413EE5-FB0F-4A5C-9081-D31DF95AEC26}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSTOPersistLib">
+      <Guid>{0A6AAF7B-E625-4F32-B859-902827B0A390}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSTOStgLib">
+      <Guid>{AB1E997C-5EC7-4A2D-BB74-4BA1B09CB73A}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VSTOStorage">
+      <Guid>{17B6448A-3361-4B4C-8ACC-6EF12BBDDBB1}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="WinInetConnectorLib">
+      <Guid>{FEE17FA9-A46F-11D6-9500-00065B874123}</Guid>
+      <VersionMajor>3</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BarCode\Images\" />
+    <Folder Include="Postering\Images\" />
+    <Folder Include="RfidCode\Images\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
