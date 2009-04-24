@@ -32,12 +32,12 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private ProgressBar progress_bar;
 
-        public ScegliMostraPostering(BenvenutoGestioneDisposizione benvenuto, string directory_principale, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, ProgressBar progress_bar)
+        public ScegliMostraPostering(BenvenutoGestioneDisposizione benvenuto, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, ProgressBar progress_bar)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
@@ -48,7 +48,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             immagine_modifica_mostra = new Bitmap(directory_principale + @"/Images/Icons/modifica3.gif");
@@ -194,7 +194,7 @@ namespace TalkingPaper.GestioneDisposizione
             {
                 //this.Visible = false;
                 this.Cursor = Cursors.WaitCursor;
-                PosterDellaMostra nuova = new PosterDellaMostra(benvenuto, this, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, benvenuto_aut,visualizza_aut,null,null,null);
+                PosterDellaMostra nuova = new PosterDellaMostra(benvenuto, this, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, visualizza_aut,null,null,null);
                 nuova.Show();
                 this.Cursor = Cursors.Default;
                 this.Visible = false;
@@ -203,7 +203,7 @@ namespace TalkingPaper.GestioneDisposizione
             {
                 //this.Visible = false;
                 this.Cursor = Cursors.WaitCursor;
-                QuestionEliminaMostra nuovaaa = new QuestionEliminaMostra(this, (int)ElencoRisorse[0, e.RowIndex].Value, benvenuto, directory_principale, benvenuto_aut,visualizza_aut);
+                QuestionEliminaMostra nuovaaa = new QuestionEliminaMostra(this, (int)ElencoRisorse[0, e.RowIndex].Value, benvenuto, directory_principale, visualizza_aut);
                 nuovaaa.Show();
                 this.Cursor = Cursors.Default;
                 this.Visible = false;
@@ -225,7 +225,7 @@ namespace TalkingPaper.GestioneDisposizione
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            QuestionPostering richiesta = new QuestionPostering(benvenuto, global.home, null, benvenuto_aut, visualizza_aut);
+            QuestionPostering richiesta = new QuestionPostering(benvenuto, global.home, null,  visualizza_aut);
             richiesta.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;

@@ -25,7 +25,7 @@ namespace TalkingPaper.Authoring
         private int id_mostra;
         private int id_poster;
         private string nome_poster;
-        private BenvenutoAuthoring partenza;
+        //private BenvenutoAuthoring partenza;
         private GestioneDisposizione.PosterDellaMostra scelta_poster;
         private int indice_combo;
         private string nome_combo;
@@ -42,7 +42,7 @@ namespace TalkingPaper.Authoring
         private ArrayList configList = new ArrayList();
         private ArrayList configList2 = new ArrayList();
 
-        public FormScegliConfigurazione(BenvenutoAuthoring partenza, GestioneDisposizione.PosterDellaMostra scelta_poster,int id_mostra,int id_poster,string nome_poster, string directory_principale, string provenienza, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
+        public FormScegliConfigurazione(/*BenvenutoAuthoring partenza,*/ GestioneDisposizione.PosterDellaMostra scelta_poster,int id_mostra,int id_poster,string nome_poster, string directory_principale, string provenienza, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
@@ -51,7 +51,7 @@ namespace TalkingPaper.Authoring
             this.directory_principale = directory_principale;
             this.id_poster = id_poster;
             this.nome_poster = nome_poster;
-            this.partenza = partenza;
+            //this.partenza = partenza;
             this.scelta_poster = scelta_poster;
             this.benvenuto_ges = benvenuto_ges;
             this.id_mostra = id_mostra;
@@ -753,10 +753,10 @@ namespace TalkingPaper.Authoring
             CreaMatrice();
             CreaFilePosterCreati();
             ScriviFileXml();
-            //FormVisualizzaElementiAuthoring n = new FormVisualizzaElementiAuthoring(scelta_poster, partenza, id_poster, nome_poster, -1, directory_principale,null,null,null,id_pannello,nome_pannello,configurazione,null,benvenuto_ges);
-            //n.Show();
-            GestioneDisposizione.ComponentiDelPoster n = new TalkingPaper.GestioneDisposizione.ComponentiDelPoster(benvenuto_ges, scelta_poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, null, null,id_pannello,nome_pannello,configurazione);
+            FormVisualizzaElementiAuthoring n = new FormVisualizzaElementiAuthoring(/*null,*/  id_poster, nome_poster, -1, directory_principale, "talkingpaper2", benvenuto_ges, id_pannello, nome_pannello, configurazione, null, benvenuto_ges, provenienza, id_mostra, scelta_poster);
             n.Show();
+            //GestioneDisposizione.ComponentiDelPoster n = new TalkingPaper.GestioneDisposizione.ComponentiDelPoster(benvenuto_ges, scelta_poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, null,id_pannello,nome_pannello,configurazione);
+            //n.Show();
             this.Cursor = Cursors.Default;
             this.Close();
         }
@@ -812,9 +812,9 @@ namespace TalkingPaper.Authoring
             else if (benvenuto_ges != null) {
                 benvenuto_ges.Visible = true;
             }
-            else if (partenza != null) { 
+            /*else if (partenza != null) { 
                 partenza.Visible=true;
-            }
+            }*/
             this.Cursor = Cursors.Default;
             this.Close();
         }
@@ -862,10 +862,10 @@ namespace TalkingPaper.Authoring
             {
                 benvenuto_ges.Visible = true;
             }
-            else if (partenza != null)
+            /*else if (partenza != null)
             {
                 partenza.Visible = true;
-            }
+            }*/
             this.Cursor = Cursors.Default;
             this.Close();
         }

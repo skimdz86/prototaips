@@ -27,8 +27,8 @@ namespace TalkingPaper.Authoring
         private int tag_per_riga;
         private int tag_per_colonna;
         private FormVisualizzaElementiAuthoring elenco_elementi;
-        private FormScegliPosterAuthoring scelta_poster;
-        private BenvenutoAuthoring partenza;
+        //private FormScegliPosterAuthoring scelta_poster;
+        //private BenvenutoAuthoring partenza;
         private TalkingPaper.Config.RfidProperties rfid_prop;
         private TalkingPaper.Config.Config_manager rfid_mng;
         private int rfid_num;
@@ -52,7 +52,7 @@ namespace TalkingPaper.Authoring
         //private int colonna;
         private NHibernateManager nh_manager;
         private Bitmap taggato;
-        private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
+        //private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
         private TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private ElementoGriglia[,] matrice;
@@ -63,7 +63,7 @@ namespace TalkingPaper.Authoring
         //private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
 
         //FormVisualizzaElementi elenco_elementi,int id_componente,FormScegliPoster scelta_poster,BenvenutoBarCode partenza,int poster,string nome_poster,int cod_mostra,string directory_principale,string database
-        public AuthoringInsterting(FormVisualizzaElementiAuthoring elenco_elementi, int id_componente, string nome_componente, FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza, int poster, string nome_poster, int cod_mostra, string directory_principale, string database, TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos, TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
+        public AuthoringInsterting(FormVisualizzaElementiAuthoring elenco_elementi, int id_componente, string nome_componente, /*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
@@ -77,11 +77,11 @@ namespace TalkingPaper.Authoring
             rfid_mng = new TalkingPaper.Config.Config_manager();
             this.elenco_elementi = elenco_elementi;
             this.benvenuto_pos = benvenuto_pos;
-            this.componenti_pos = componenti_pos;
+            //this.componenti_pos = componenti_pos;
             this.id_componente = id_componente;
             this.nome_componente = nome_componente;
-            this.scelta_poster = scelta_poster;
-            this.partenza = partenza;
+            //this.scelta_poster = scelta_poster;
+            //this.partenza = partenza;
             this.poster = poster;
             this.nome_poster = nome_poster;
             this.cod_mostra = cod_mostra;
@@ -460,7 +460,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             this.Cursor = Cursors.WaitCursor;
-            FormVisualizzaElementiAuthoring n = new FormVisualizzaElementiAuthoring(scelta_poster, partenza, poster, nome_poster, cod_mostra, directory_principale, database, componenti_pos, benvenuto_pos, id_pannello, nome_pannello, configurazione, this,benvenuto_ges);
+            FormVisualizzaElementiAuthoring n = new FormVisualizzaElementiAuthoring(poster, nome_poster, cod_mostra, directory_principale, database, benvenuto_pos, id_pannello, nome_pannello, configurazione, this,benvenuto_ges);
             n.Show();
             //this.Visible = false;
             this.Close();
@@ -710,12 +710,12 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             this.Close();
         }
 
-        private void Menu_Click(object sender, EventArgs e)
+        /*private void Menu_Click(object sender, EventArgs e)
         {
             QuestionCambiaGriglia richiesta = new QuestionCambiaGriglia(partenza, global.home);
             richiesta.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
-        }
+        }*/
     }
 }

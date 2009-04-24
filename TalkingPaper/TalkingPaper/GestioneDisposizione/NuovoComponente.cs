@@ -49,8 +49,8 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private string id_pannello;
         private string nome_pannello;
@@ -61,7 +61,7 @@ namespace TalkingPaper.GestioneDisposizione
         public NuovoComponente() { }
 
 //        public NuovoComponente(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, ComponentiDelPoster componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione,int tag_per_riga, int tag_per_colonna)
-        public NuovoComponente(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, Authoring.FormVisualizzaElementiAuthoring componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione, int tag_per_riga, int tag_per_colonna)
+        public NuovoComponente(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, Authoring.FormVisualizzaElementiAuthoring componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione, int tag_per_riga, int tag_per_colonna)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 70, true);
@@ -76,7 +76,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.benvenuto = benvenuto;
             this.nome_contenuto = nome_contenuto;
@@ -323,7 +323,7 @@ namespace TalkingPaper.GestioneDisposizione
             int lenght = textBox2.Text.Length - (indice + 1);
             string nome_file = textBox2.Text.Substring(indice + 1, lenght);
             this.Enabled = false;
-            PlayAudio nuovo = new PlayAudio(textBox2.Text, this, null, null, null, null);
+            PlayAudio nuovo = new PlayAudio(textBox2.Text, this, /*null, null, null,*/ null);
             nuovo.Show();
             this.Cursor = Cursors.Default;
         }
@@ -335,7 +335,7 @@ namespace TalkingPaper.GestioneDisposizione
             int lenght = textBox4.Text.Length - (indice + 1);
             string nome_file = textBox4.Text.Substring(indice + 1, lenght);
             this.Enabled = false;
-            PlayVideo nuovo = new PlayVideo(textBox4.Text, this, null, null, null, null);
+            PlayVideo nuovo = new PlayVideo(textBox4.Text, this, /*null, null, null,*/ null);
             nuovo.Show();
             this.Cursor = Cursors.Default;
         }
@@ -872,8 +872,10 @@ namespace TalkingPaper.GestioneDisposizione
                         {
                             ModificaFileXml();
                         }
-                        ComponentiDelPoster nuovaa = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza,benvenuto_aut,visualizza_aut,id_pannello,nome_pannello,configurazione);
-                        nuovaa.Show();
+                        Authoring.FormVisualizzaElementiAuthoring n = new Authoring.FormVisualizzaElementiAuthoring(/*null,*/  id_poster, nome_poster, -1, directory_principale, "talkingpaper2", benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto, provenienza, id_mostra, poster);
+                        n.Show();
+                        //ComponentiDelPoster nuovaa = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza,visualizza_aut,id_pannello,nome_pannello,configurazione);
+                        //nuovaa.Show();
                         if (componenti_poster!=null)
                             componenti_poster.Close();
                         this.Cursor = Cursors.Default;

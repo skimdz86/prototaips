@@ -36,8 +36,8 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private string id_pannello;
         private string nome_pannello;
@@ -47,13 +47,13 @@ namespace TalkingPaper.GestioneDisposizione
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private Authoring.ElementoGriglia[,] matrice;
 
-        public QuestionEliminaComponente(ComponentiDelPoster componenti_poster, int id_componente, BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, int id_mostra, int id_poster, string nome_poster, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione)
+        public QuestionEliminaComponente(ComponentiDelPoster componenti_poster, int id_componente, BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, int id_mostra, int id_poster, string nome_poster, string directory_principale, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 45, true);
             //this.visualizza_bar = visualizza_bar;
             //this.visualizza_rfid = visualizza_rfid;
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.provenienza = provenienza;
             this.id_pannello = id_pannello;
@@ -292,7 +292,7 @@ namespace TalkingPaper.GestioneDisposizione
                     tempS.Close();
                 }
             }
-            ComponentiDelPoster nuovas = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, benvenuto_aut,visualizza_aut,id_pannello,nome_pannello,configurazione);
+            ComponentiDelPoster nuovas = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, visualizza_aut,id_pannello,nome_pannello,configurazione);
             nuovas.Show();
             componenti_poster.Close();
             this.Cursor = Cursors.Default;

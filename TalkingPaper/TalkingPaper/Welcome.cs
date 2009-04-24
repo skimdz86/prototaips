@@ -31,7 +31,7 @@ namespace TalkingPaper
             RidimensionaForm n = new RidimensionaForm(this, 80, true);
 
             this.directoryprincipale = Directory.GetCurrentDirectory();
-            button1.Cursor = Cursors.Hand;
+            
             button2.Cursor = Cursors.Hand;
             Admin.Cursor = Cursors.Hand;
             Esci.Cursor = Cursors.Hand;
@@ -42,73 +42,11 @@ namespace TalkingPaper
             this.Close();
         }
 
-        private void postering_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            TalkingPaper.Postering.BenvenutoPostering nuov = new TalkingPaper.Postering.BenvenutoPostering(this,null,null,null,null,directoryprincipale);
-            nuov.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-        private void BarCodeTagging_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            TalkingPaper.BarCode.BenvenutoBarCode n = new TalkingPaper.BarCode.BenvenutoBarCode(this);
-            n.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-        private void RFIDTagging_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            TalkingPaper.RfidCode.BenvenutoRFID nu = new TalkingPaper.RfidCode.BenvenutoRFID(this);
-            nu.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-        private void EsecuzioneBarCodePoster_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            ElencoPosterEsecuzioneSingolo el = new ElencoPosterEsecuzioneSingolo(null, this, -1, null, null, directoryprincipale, database, "barcode");
-            //FormEsecuzioneBarcodePoster nuova = new FormEsecuzioneBarcodePoster(1,this);
-            el.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-        private void EsecuzioneRFIDPoster_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            ElencoPosterEsecuzioneSingolo el = new ElencoPosterEsecuzioneSingolo(null, this, -1, null, null, directoryprincipale, database, "rfid");
-            //FormEsecuzioneRfidPoster nuov = new FormEsecuzioneRfidPoster(2,this);
-            el.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            //Welcome2 n = new Welcome2(this,directoryprincipale);
-            TalkingPaper.Postering.BenvenutoPostering n = new TalkingPaper.Postering.BenvenutoPostering(this, null, null, null, null, directoryprincipale);
-            n.Show();
-            this.Visible = false;
-            this.Cursor = Cursors.Default;
-
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
            this.Cursor = Cursors.WaitCursor;
-           TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione n = new TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione(this, null, null, directoryprincipale);
+           TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione n = new TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione(this, null, directoryprincipale);
            n.Show();
            this.Cursor = Cursors.Default;
            this.Visible = false;
@@ -123,28 +61,19 @@ namespace TalkingPaper
             this.Cursor = Cursors.Default;
         }
 
-        private void parlaLibero_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            ElencoPosterEsecuzioneSingolo el;
-            if (global.rfid == false) //barcode
-                el = new ElencoPosterEsecuzioneSingolo(null, this, -1, null, null, directoryprincipale, database, "barcode");
-            else //rfid
-                el = new ElencoPosterEsecuzioneSingolo(null, this, -1, null, null, directoryprincipale, database, "rfid");
-            el.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-        private void parlaSchema_Click(object sender, EventArgs e)
+       private void parlaSchema_Click(object sender, EventArgs e)
         {
             if (global.rfid == true) //rfid
             {
                 this.Cursor = Cursors.WaitCursor;
-                ElencoPosterEsecuzioneSingoloModello el = new ElencoPosterEsecuzioneSingoloModello(null, this, -1, null, null, directoryprincipale, database, "rfid");
-                el.Show();
+                ElencoPosterEsecuzioneSingoloModello el = new ElencoPosterEsecuzioneSingoloModello(/*null,*/ this, -1, null, null, directoryprincipale, database, "rfid");
+                if (!(el.IsDisposed))
+                {
+                    el.Show();
+                    this.Visible = false;
+                }
                 this.Cursor = Cursors.Default;
-                this.Visible = false;
+                
             }
 
         }

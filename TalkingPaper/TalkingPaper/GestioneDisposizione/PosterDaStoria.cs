@@ -30,15 +30,15 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private TalkingPaper.GestioneDisposizione.ComponentiDelPoster visualizza_poster;
         private string id_pannello;
         private string nome_pannello;
         private string configurazione;
 
-        public PosterDaStoria(string directory_principale, BenvenutoGestioneDisposizione benvenuto, bool modifica, int id_poster, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, TalkingPaper.GestioneDisposizione.ComponentiDelPoster visualizza_poster, string id_pannello, string nome_pannello, string configurazione)
+        public PosterDaStoria(string directory_principale, BenvenutoGestioneDisposizione benvenuto, bool modifica, int id_poster, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, TalkingPaper.GestioneDisposizione.ComponentiDelPoster visualizza_poster, string id_pannello, string nome_pannello, string configurazione)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
@@ -50,7 +50,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.provenienza = provenienza;
             this.directory_principale = directory_principale;
@@ -192,7 +192,7 @@ namespace TalkingPaper.GestioneDisposizione
             {
                 //this.Visible = false;
                 this.Cursor = Cursors.WaitCursor;
-                EccoLaStoria nuova = new EccoLaStoria((int)ElencoStorie[0, e.RowIndex].Value, directory_principale, this, benvenuto, modifica, id_poster, provenienza, benvenuto_aut,visualizza_aut, visualizza_poster,id_pannello,nome_pannello,configurazione);
+                EccoLaStoria nuova = new EccoLaStoria((int)ElencoStorie[0, e.RowIndex].Value, directory_principale, this, benvenuto, modifica, id_poster, provenienza, /*benvenuto_aut,*/ visualizza_aut, visualizza_poster,id_pannello,nome_pannello,configurazione);
                 nuova.Show();
                 this.Cursor = Cursors.Default;
                 this.Visible = false;
@@ -218,7 +218,7 @@ namespace TalkingPaper.GestioneDisposizione
 
         private void Menu_Click(object sender, EventArgs e)
         {
-            QuestionPostering richiesta = new QuestionPostering(benvenuto, global.home, null, benvenuto_aut, visualizza_aut);
+            QuestionPostering richiesta = new QuestionPostering(benvenuto, global.home, null, visualizza_aut);
             richiesta.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;

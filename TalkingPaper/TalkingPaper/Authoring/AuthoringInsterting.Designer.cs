@@ -193,7 +193,7 @@ namespace TalkingPaper.Authoring
             this.Menu.Text = "Menu";
             this.Menu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Menu.UseVisualStyleBackColor = false;
-            this.Menu.Click += new System.EventHandler(this.Menu_Click);
+            //this.Menu.Click += new System.EventHandler(this.Menu_Click);
             // 
             // AuthoringInsterting
             // 

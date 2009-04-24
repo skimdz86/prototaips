@@ -18,12 +18,12 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private string directory_principale;
 
-        public BenvenutoGestioneDisposizione(Welcome inizio, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut,string directory_principale)
+        public BenvenutoGestioneDisposizione(Welcome inizio, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut,string directory_principale)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 70, true);
@@ -34,22 +34,22 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             Menu.Cursor = Cursors.Hand;
-            button2.Cursor = Cursors.Hand;
+            //button2.Cursor = Cursors.Hand;
             //SingoloPoster.Cursor = Cursors.Hand;
             ModificaSingoli.Cursor = Cursors.Hand;
-            TagNuovoPannello.Cursor = Cursors.Hand;
-            NuovaConfigurazione.Cursor = Cursors.Hand;
+            //TagNuovoPannello.Cursor = Cursors.Hand;
+            //NuovaConfigurazione.Cursor = Cursors.Hand;
             button1.Cursor = Cursors.Hand;
-            button3.Cursor = Cursors.Hand;
-            progressBar1.Visible = false;
+            
+            /*progressBar1.Visible = false;
             TagNuovoPannello.Visible = false;
             TagNuovoPannello.Enabled = false;
             NuovaConfigurazione.Visible = false;
             gB.Visible = false;
-            NuovaConfigurazione.Enabled = false;
+            NuovaConfigurazione.Enabled = false;*/
         }
 
         private void BenvenutoPostering_Load(object sender, EventArgs e)
@@ -69,15 +69,7 @@ namespace TalkingPaper.GestioneDisposizione
 
         }
 
-        private void Entra_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            CreaNuovaMostra nuova = new CreaNuovaMostra(this, directory_principale, benvenuto_aut,visualizza_aut);
-            nuova.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
+        
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -114,7 +106,7 @@ namespace TalkingPaper.GestioneDisposizione
             //progressBar1.Value = progressBar1.Minimum;
             //progressBar1.Visible = false;
             this.Cursor = Cursors.WaitCursor;
-            NuovoPoster n = new NuovoPoster(inizio,null, this, null, -1, null, directory_principale, benvenuto_aut, visualizza_aut);
+            NuovoPoster n = new NuovoPoster(inizio,null, this, /*null,*/ -1, null, directory_principale,  visualizza_aut);
             n.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
@@ -123,7 +115,7 @@ namespace TalkingPaper.GestioneDisposizione
         private void SingoloPoster_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            NuovoPoster nuovo = new NuovoPoster(this.inizio,null, this, null, -1, null, directory_principale, benvenuto_aut,visualizza_aut);
+            NuovoPoster nuovo = new NuovoPoster(this.inizio,null, this, /*null,*/ -1, null, directory_principale, visualizza_aut);
             //this.Visible = false;
             nuovo.Show();
             this.Cursor = Cursors.Default;
@@ -133,7 +125,7 @@ namespace TalkingPaper.GestioneDisposizione
         private void ModificaSingoli_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            PosterDellaMostra nuova = new PosterDellaMostra(this, null, -1, null, directory_principale, benvenuto_aut,visualizza_aut,null,null,null);
+            PosterDellaMostra nuova = new PosterDellaMostra(this, /*null,*/ -1, null, directory_principale, visualizza_aut,null,null,null);
             //this.Visible = false;
             nuova.Show();
             this.Cursor = Cursors.Default;
@@ -145,66 +137,10 @@ namespace TalkingPaper.GestioneDisposizione
             return inizio;
         }
 
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
+       
 
-        }
+        
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            /* progressBar1.Increment(1);
-             if (progressBar1.Value == progressBar1.Maximum) {
-                 progressBar1.Value = progressBar1.Minimum;
-             }*/
-            /*if (cpb3.Value == cpb3.Maximum)
-                cpb3.Value = cpb3.Minimum;*/
-        }
-
-        private void NuovaConfigurazione_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            ScegliPannelloPerConfigurazione n = new ScegliPannelloPerConfigurazione(directory_principale, this,null);
-            n.Show();
-            this.Visible = false;
-            this.Cursor = Cursors.Default;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            //Authoring.BenvenutoAuthoring n = new TalkingPaper.Authoring.BenvenutoAuthoring(inizio,directoryprincipale);
-            Authoring.FormScegliPosterAuthoring n = new TalkingPaper.Authoring.FormScegliPosterAuthoring(null, null, -1, null, null, directory_principale, database, this);
-            n.Show();
-            this.Visible = false;
-            this.Cursor = Cursors.Default;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            this.Cursor = Cursors.WaitCursor;
-            ElencoPosterEsecuzioneSingoloModello el = new ElencoPosterEsecuzioneSingoloModello(null, inizio, -1, null, null, directory_principale, database, "rfid");
-            //FormEsecuzioneRfidPoster nuov = new FormEsecuzioneRfidPoster(2,this);
-            el.Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
-        }
-
-
+        
     }
 }

@@ -28,29 +28,29 @@ namespace TalkingPaper.GestioneDisposizione
         private System.Windows.Forms.MenuItem menuItem5;
         private string file;
         private string path;
-        private ComponentiDelPoster elenco_poster;
+        //private ComponentiDelPoster elenco_poster;
         private NuovoComponente nuovo_componente;
-        private BarCode.FormVisualizzaElementi elementi;
+        ///private BarCode.FormVisualizzaElementi elementi;
         //private RfidCode.FormVisualizzaElementiRFID elementi_rfid;
         private Authoring.FormVisualizzaElementiAuthoring elementi_rfid;
-        private EccoLaStoria storia;
+        //private EccoLaStoria storia;
 
         enum MediaStatus { None, Stopped, Paused, Running };
 
         private MediaStatus m_CurrentStatus = MediaStatus.None;
 
 
-        public PlayVideo(string path, NuovoComponente componente_nuovo, ComponentiDelPoster elenco_componenti, BarCode.FormVisualizzaElementi elementi, EccoLaStoria storia, Authoring.FormVisualizzaElementiAuthoring elementi_rfid)
+        public PlayVideo(string path, NuovoComponente componente_nuovo, /*ComponentiDelPoster elenco_componenti, BarCode.FormVisualizzaElementi elementi, EccoLaStoria storia,*/ Authoring.FormVisualizzaElementiAuthoring elementi_rfid)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 75, true);
             //this.nome_file = nome_file;
             this.path = path;
-            this.elenco_poster = elenco_componenti;
+            //this.elenco_poster = elenco_componenti;
             this.nuovo_componente = componente_nuovo;
-            this.elementi = elementi;
+            ///this.elementi = elementi;
             this.elementi_rfid = elementi_rfid;
-            this.storia = storia;
+            //this.storia = storia;
             UpdateStatusBar();
             UpdateToolBar();
             int indice = path.LastIndexOf("\\");
@@ -212,22 +212,22 @@ namespace TalkingPaper.GestioneDisposizione
                 case 3: m_objMediaControl.Stop();
                     m_objMediaPosition.CurrentPosition = 0;
                     m_CurrentStatus = MediaStatus.Stopped;
-                    if (elenco_poster != null)
+                    /*if (elenco_poster != null)
                     {
                         elenco_poster.Enabled = true;
                     }
-                    else if (nuovo_componente != null)
+                    else*/ if (nuovo_componente != null)
                     {
                         nuovo_componente.Enabled = true;
                     }
-                    else if (elementi != null)
+                    /*else if (elementi != null)
                     {
                         elementi.Enabled = true;
-                    }
-                    else if (storia != null)
+                    }*/
+                    /*else if (storia != null)
                     {
                         storia.Enabled = true;
-                    }
+                    }*/
                     else if (elementi_rfid != null)
                     {
                         elementi_rfid.Enabled = true;

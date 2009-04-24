@@ -27,10 +27,10 @@ namespace TalkingPaper.GestioneDisposizione
         private IMediaControl m_objMediaControl = null;
         private System.Windows.Forms.MenuItem menuItem5;
         private string file;
-        private ComponentiDelPoster elenco_componenti;
+        //private ComponentiDelPoster elenco_componenti;
         private NuovoComponente componente_nuovo;
-        private EccoLaStoria la_storia;
-        private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_elementi;
+        //private EccoLaStoria la_storia;
+        ///private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_elementi;
         //private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_elementi_rfid;
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_elementi_rfid;
         private string path;
@@ -40,17 +40,17 @@ namespace TalkingPaper.GestioneDisposizione
         private MediaStatus m_CurrentStatus = MediaStatus.None;
 
 
-        public PlayAudio(string path, NuovoComponente componente_nuovo, ComponentiDelPoster elenco_componenti, BarCode.FormVisualizzaElementi visualizza_elementi, EccoLaStoria la_storia,Authoring.FormVisualizzaElementiAuthoring visualizza_elementi_rfid)
+        public PlayAudio(string path, NuovoComponente componente_nuovo, /*ComponentiDelPoster elenco_componenti,BarCode.FormVisualizzaElementi visualizza_elementi, EccoLaStoria la_storia,*/Authoring.FormVisualizzaElementiAuthoring visualizza_elementi_rfid)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 50, true);
             //this.nome_file = nome_file;
             this.path = path;
             this.componente_nuovo = componente_nuovo;
-            this.elenco_componenti = elenco_componenti;
-            this.visualizza_elementi = visualizza_elementi;
+            //this.elenco_componenti = elenco_componenti;
+            ///this.visualizza_elementi = visualizza_elementi;
             this.visualizza_elementi_rfid = visualizza_elementi_rfid;
-            this.la_storia = la_storia;
+            //this.la_storia = la_storia;
             UpdateStatusBar();
             UpdateToolBar();
             int indice = path.LastIndexOf("\\");
@@ -134,22 +134,22 @@ namespace TalkingPaper.GestioneDisposizione
                 case 3: m_objMediaControl.Stop();
                     m_objMediaPosition.CurrentPosition = 0;
                     m_CurrentStatus = MediaStatus.Stopped;
-                    if (elenco_componenti != null)
+                    /*if (elenco_componenti != null)
                     {
                         elenco_componenti.Enabled = true;
                     }
-                    else if (componente_nuovo != null)
+                    else*/ if (componente_nuovo != null)
                     {
                         componente_nuovo.Enabled = true;
                     }
-                    else if (visualizza_elementi != null)
+                    /*else if (visualizza_elementi != null)
                     {
                         visualizza_elementi.Enabled = true;
-                    }
-                    else if (la_storia != null)
+                    }*/
+                    /*else if (la_storia != null)
                     {
                         la_storia.Enabled = true;
-                    }
+                    }*/
                     else if (visualizza_elementi_rfid != null)
                     {
                         visualizza_elementi_rfid.Enabled = true;

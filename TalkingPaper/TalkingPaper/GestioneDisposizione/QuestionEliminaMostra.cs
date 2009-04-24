@@ -22,19 +22,19 @@ namespace TalkingPaper.GestioneDisposizione
 {
     public partial class QuestionEliminaMostra : Form
     {
-        private ScegliMostraPostering elenco_mostre;
+        //private ScegliMostraPostering elenco_mostre;
         private int id_mostra;
         private BenvenutoGestioneDisposizione benvenuto;
         private string directory_principale;
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private TalkingPaper.NHibernateManager nh_manager;
 
-        public QuestionEliminaMostra(ScegliMostraPostering elenco_mostre, int id_mostra, BenvenutoGestioneDisposizione benvenuto, string directory_principale, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
+        public QuestionEliminaMostra(/*ScegliMostraPostering elenco_mostre,*/ int id_mostra, BenvenutoGestioneDisposizione benvenuto, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 45, true);
@@ -43,9 +43,9 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
-            this.elenco_mostre = elenco_mostre;
+            //this.elenco_mostre = elenco_mostre;
             this.id_mostra = id_mostra;
             this.benvenuto = benvenuto;
             this.directory_principale = directory_principale;
@@ -82,7 +82,7 @@ namespace TalkingPaper.GestioneDisposizione
                 finally
                 {
                     tempS.Close();
-                    ScegliMostraPostering nuovaaa = new ScegliMostraPostering(benvenuto, directory_principale, benvenuto_aut,visualizza_aut, null);
+                    ScegliMostraPostering nuovaaa = new ScegliMostraPostering(benvenuto, directory_principale, visualizza_aut, null);
                     elenco_mostre.Close();
                     nuovaaa.Show();
                     this.Cursor = Cursors.Default;

@@ -60,8 +60,8 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private string id_pannello;
         private string nome_pannello;
@@ -71,7 +71,7 @@ namespace TalkingPaper.GestioneDisposizione
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private string provenienza;
 
-        public ComponentiDelPoster(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, int id_mostra, int id_poster, string nome_poster, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut,string id_pannello, string nome_pannello,string configurazione)
+        public ComponentiDelPoster(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, int id_mostra, int id_poster, string nome_poster, string directory_principale, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut,string id_pannello, string nome_pannello,string configurazione)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 99, true);
@@ -87,7 +87,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto = benvenuto;
             //this.benvenuto_bar = benvenuto_bar;
             //this.benvenuto_rfid = benvenuto_rfid;
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.poster = poster;
             this.id_mostra = id_mostra;
@@ -165,7 +165,7 @@ namespace TalkingPaper.GestioneDisposizione
         private void ComponentiDelPoster_Load(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            Authoring.FormVisualizzaElementiAuthoring n = new TalkingPaper.Authoring.FormVisualizzaElementiAuthoring(null, benvenuto_aut, id_poster, nome_poster, -1, directory_principale, database, this, benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto,provenienza, id_mostra, poster);
+            Authoring.FormVisualizzaElementiAuthoring n = new TalkingPaper.Authoring.FormVisualizzaElementiAuthoring(/*null,*/  id_poster, nome_poster, -1, directory_principale, database, this, benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto,provenienza, id_mostra, poster);
             n.Show();
             this.Cursor = Cursors.Default;
             this.Close();
@@ -590,7 +590,7 @@ namespace TalkingPaper.GestioneDisposizione
             if ((e.ColumnIndex == 4) && (e.RowIndex == 2))
             {
                 this.Cursor = Cursors.WaitCursor;
-                QuestionEliminaComponente nuovo = new QuestionEliminaComponente(this, (int)ElencoControlli1[0, 0].Value, benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, benvenuto_aut,visualizza_aut,id_pannello,nome_pannello,configurazione);
+                QuestionEliminaComponente nuovo = new QuestionEliminaComponente(this, (int)ElencoControlli1[0, 0].Value, benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, visualizza_aut,id_pannello,nome_pannello,configurazione);
                 //this.Visible = false;
                 nuovo.Show();
                 this.Cursor = Cursors.Default;
@@ -650,7 +650,7 @@ namespace TalkingPaper.GestioneDisposizione
             if ((e.ColumnIndex == 4) && (e.RowIndex == 2))
             {
                 this.Cursor = Cursors.WaitCursor;
-                QuestionEliminaComponente nuovo = new QuestionEliminaComponente(this, (int)ElencoControlli2[0, 0].Value, benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, benvenuto_aut,visualizza_aut,id_pannello,nome_pannello,configurazione);
+                QuestionEliminaComponente nuovo = new QuestionEliminaComponente(this, (int)ElencoControlli2[0, 0].Value, benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, visualizza_aut,id_pannello,nome_pannello,configurazione);
                 //this.Visible = false;
                 nuovo.Show();
                 this.Cursor = Cursors.Default;
@@ -712,7 +712,7 @@ namespace TalkingPaper.GestioneDisposizione
             if ((e.ColumnIndex == 4) && (e.RowIndex == 2))
             {
                 this.Cursor = Cursors.WaitCursor;
-                QuestionEliminaComponente nuovo = new QuestionEliminaComponente(this, (int)ElencoControlli3[0, 0].Value, benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, benvenuto_aut,visualizza_aut,id_pannello,nome_pannello,configurazione);
+                QuestionEliminaComponente nuovo = new QuestionEliminaComponente(this, (int)ElencoControlli3[0, 0].Value, benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, visualizza_aut,id_pannello,nome_pannello,configurazione);
                 //this.Visible = false;
                 nuovo.Show();
                 this.Cursor = Cursors.Default;
@@ -830,13 +830,13 @@ namespace TalkingPaper.GestioneDisposizione
             this.Cursor = Cursors.WaitCursor;
             if ((benvenuto != null) && (benvenuto.GetInizio() != null))
             {
-                QuestionPostering n = new QuestionPostering(benvenuto, benvenuto.GetInizio(), this, benvenuto_aut,visualizza_aut);
+                QuestionPostering n = new QuestionPostering(benvenuto, benvenuto.GetInizio(), this, visualizza_aut);
                 this.Visible = false;
                 n.Show();
             }
             else
             {
-                QuestionPostering n = new QuestionPostering(benvenuto, null, this, benvenuto_aut,visualizza_aut);
+                QuestionPostering n = new QuestionPostering(benvenuto, null, this, visualizza_aut);
                 this.Visible = false;
                 n.Show();
             }

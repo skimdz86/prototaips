@@ -56,7 +56,7 @@ namespace TalkingPaper.GestioneDisposizione
     public partial class PosterDellaMostra : FormSchema
     {
         private BenvenutoGestioneDisposizione benvenuto;
-        private ScegliMostraPostering elenco_mostre;
+        //private ScegliMostraPostering elenco_mostre;
         private int id_mostra;
         private string nome_mostra;
         private string directory_principale;
@@ -67,16 +67,16 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
         // private ArrayList poster;
         // private Mostra mostra_sel;
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private string id_pannello;
         private string nome_pannello;
         private string configurazione;
 
-        public PosterDellaMostra(BenvenutoGestioneDisposizione benvenuto, ScegliMostraPostering elenco_mostre, int id_mostra, string nome_mostra, string directory_principale, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione)
+        public PosterDellaMostra(BenvenutoGestioneDisposizione benvenuto, /*ScegliMostraPostering elenco_mostre,*/ int id_mostra, string nome_mostra, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
@@ -84,7 +84,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.id_mostra = id_mostra;
             this.nome_mostra = nome_mostra;
             this.directory_principale = directory_principale;
-            this.elenco_mostre = elenco_mostre;
+            //this.elenco_mostre = elenco_mostre;
             this.id_pannello = id_pannello;
             this.nome_pannello = nome_pannello;
             this.configurazione = configurazione;
@@ -92,16 +92,16 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
-            immagine_modifica_poster = new Bitmap(directory_principale + @"/Images/Icons/modifica3.gif");
+            immagine_modifica_poster = new System.Drawing.Bitmap(directory_principale + @"/Images/Icons/modifica3.gif");
             elimina = new Bitmap(directory_principale + @"/Images/Icons/elimina_cestino.gif");
            // label1.Text = "Ecco i poster della mostra " + '"' + nome_mostra + '"';
             //textBox1.Select(0, 0);
             button1.Cursor = Cursors.Hand;
             button2.Cursor = Cursors.Hand;
-            if ((elenco_mostre == null) && (id_mostra == -1))
+            if (/*(elenco_mostre == null) && */(id_mostra == -1))
             {
                 label2.Text = "Non sono presenti Poster Singoli";
              //   label1.Text = "Ecco i Poster Singoli";
@@ -170,7 +170,7 @@ namespace TalkingPaper.GestioneDisposizione
 
         private void InterrogaDB()
         {
-            if ((elenco_mostre != null) || (id_mostra != -1))
+            if (/*(elenco_mostre != null) ||*/ (id_mostra != -1))
             {
                 using (ISession tempS = nh_manager.Session)
                 using (ITransaction tempT = tempS.BeginTransaction())
@@ -248,7 +248,7 @@ namespace TalkingPaper.GestioneDisposizione
                     }
                 }
             }
-            else if ((elenco_mostre == null) && (id_mostra == -1))
+            else if (/*(elenco_mostre == null) &&*/ (id_mostra == -1))
             {
                 using (ISession tempS = nh_manager.Session)
                 using (ITransaction tempT = tempS.BeginTransaction())
@@ -375,7 +375,8 @@ namespace TalkingPaper.GestioneDisposizione
                 this.Cursor = Cursors.WaitCursor;
                 //ComponentiDelPoster nuova = new ComponentiDelPoster(benvenuto, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra", benvenuto_aut, visualizza_aut);
                 //nuova.Show();
-                ComponentiDelPoster n = new ComponentiDelPoster(benvenuto, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra", benvenuto_aut, visualizza_aut, (string)ElencoRisorse[11, e.RowIndex].Value, (string)ElencoRisorse[6, e.RowIndex].Value, (string)ElencoRisorse[8, e.RowIndex].Value);
+                Authoring.FormVisualizzaElementiAuthoring n = new Authoring.FormVisualizzaElementiAuthoring(/*null,*/  (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, -1, directory_principale, "talkingpaper2", benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto, "posterdellamostra", id_mostra, this);
+                ///ComponentiDelPoster n = new ComponentiDelPoster(benvenuto, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra",  visualizza_aut, (string)ElencoRisorse[11, e.RowIndex].Value, (string)ElencoRisorse[6, e.RowIndex].Value, (string)ElencoRisorse[8, e.RowIndex].Value);
                 //Authoring.FormScegliConfigurazione n = new TalkingPaper.Authoring.FormScegliConfigurazione(null, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra", benvenuto);
                 n.Show();
                 this.Cursor = Cursors.Default;
@@ -385,7 +386,7 @@ namespace TalkingPaper.GestioneDisposizione
             {
                 //this.Visible = false;
                 this.Cursor = Cursors.WaitCursor;
-                QuestionEliminaPoster nuova = new QuestionEliminaPoster(this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, benvenuto, elenco_mostre, nome_mostra, directory_principale, benvenuto_aut, visualizza_aut, (string)ElencoRisorse[11, e.RowIndex].Value, (string)ElencoRisorse[6, e.RowIndex].Value, (string)ElencoRisorse[8, e.RowIndex].Value);
+                QuestionEliminaPoster nuova = new QuestionEliminaPoster(this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, benvenuto, nome_mostra, directory_principale,  visualizza_aut, (string)ElencoRisorse[11, e.RowIndex].Value, (string)ElencoRisorse[6, e.RowIndex].Value, (string)ElencoRisorse[8, e.RowIndex].Value);
                 nuova.Show();
                 this.Cursor = Cursors.Default;
                 this.Visible = false;
@@ -395,17 +396,17 @@ namespace TalkingPaper.GestioneDisposizione
         private void button2_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            if ((elenco_mostre == null) && (id_mostra == -1))
+            if (/*(elenco_mostre == null) &&*/ (id_mostra == -1))
             {
                 //this.Close();
                 benvenuto.Visible = true;
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
-            else if (elenco_mostre == null)
+            /*else /*if (elenco_mostre == null)
             {
                 //this.Close();
-                ScegliMostraPostering nuova = new ScegliMostraPostering(benvenuto, directory_principale,benvenuto_aut,visualizza_aut, null);
+                ScegliMostraPostering nuova = new ScegliMostraPostering(benvenuto, directory_principale,visualizza_aut, null);
                 nuova.Show();
                 this.Cursor = Cursors.Default;
                 this.Close();
@@ -416,14 +417,14 @@ namespace TalkingPaper.GestioneDisposizione
                elenco_mostre.Visible = true;
                this.Cursor = Cursors.Default;
                this.Close();
-            }
+            }*/
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             //this.Visible = false;
             this.Cursor = Cursors.WaitCursor;
-            NuovoPoster nuovo = new NuovoPoster(null,this, benvenuto, elenco_mostre, id_mostra, nome_mostra, directory_principale, benvenuto_aut,visualizza_aut);
+            NuovoPoster nuovo = new NuovoPoster(null,this, benvenuto, id_mostra, nome_mostra, directory_principale, visualizza_aut);
             nuovo.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
