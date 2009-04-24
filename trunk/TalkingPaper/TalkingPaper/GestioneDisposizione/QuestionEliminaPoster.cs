@@ -25,7 +25,7 @@ namespace TalkingPaper.GestioneDisposizione
     {
         private PosterDellaMostra elenco_poster;
         private BenvenutoGestioneDisposizione benvenuto;
-        private ScegliMostraPostering elenco_mostre;
+        //private ScegliMostraPostering elenco_mostre;
         private TalkingPaper.NHibernateManager nh_manager;
         private int id_mostra;
         private int id_poster;
@@ -35,15 +35,15 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private ArrayList poster_creati = new ArrayList();
         private string id_pannello2;
         private string nome_pannello;
         private string configurazione;
 
-        public QuestionEliminaPoster(PosterDellaMostra elenco_poster, int id_mostra, int id_poster, string nome_poster, BenvenutoGestioneDisposizione benvenuto, ScegliMostraPostering elenco_mostre, string nome_mostra, string directory_principale, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut,string id_pannello2,string nome_pannello,string configurazione)
+        public QuestionEliminaPoster(PosterDellaMostra elenco_poster, int id_mostra, int id_poster, string nome_poster, BenvenutoGestioneDisposizione benvenuto, /*ScegliMostraPostering elenco_mostre,*/ string nome_mostra, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello2, string nome_pannello, string configurazione)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 45, true);
@@ -55,14 +55,14 @@ namespace TalkingPaper.GestioneDisposizione
             this.id_poster = id_poster;
             this.nome_poster = nome_poster;
             this.benvenuto = benvenuto;
-            this.elenco_mostre = elenco_mostre;
+            //this.elenco_mostre = elenco_mostre;
             this.nome_mostra = nome_mostra;
             this.directory_principale = directory_principale;
             /*this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;
             this.benvenuto_bar = benvenuto_bar;
             this.benvenuto_rfid = benvenuto_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             Si.Cursor = Cursors.Hand;
@@ -451,7 +451,7 @@ namespace TalkingPaper.GestioneDisposizione
                 finally
                 {
                     tempS.Close();
-                    PosterDellaMostra poster_mostra = new PosterDellaMostra(benvenuto, elenco_mostre, id_mostra, nome_mostra, directory_principale, benvenuto_aut, visualizza_aut,null,null,null);
+                    PosterDellaMostra poster_mostra = new PosterDellaMostra(benvenuto, id_mostra, nome_mostra, directory_principale, visualizza_aut,null,null,null);
                     //this.Close();
                     elenco_poster.Close();
                     poster_mostra.Show();

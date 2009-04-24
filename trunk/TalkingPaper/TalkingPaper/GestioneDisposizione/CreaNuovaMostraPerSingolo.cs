@@ -33,11 +33,11 @@ namespace TalkingPaper.GestioneDisposizione
        /* private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
 
-        public CreaNuovaMostraPerSingolo(BenvenutoGestioneDisposizione benvenuto, AggiungiPosterAMostra aggiunta, ComponentiDelPoster componenti, int id_poster, PosterDellaMostra poster, string directory_principale, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
+        public CreaNuovaMostraPerSingolo(BenvenutoGestioneDisposizione benvenuto, AggiungiPosterAMostra aggiunta, ComponentiDelPoster componenti, int id_poster, PosterDellaMostra poster, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 50, true);
@@ -47,7 +47,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_bar = benvenuto_bar;
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_rfid = visualizza_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             this.aggiunta = aggiunta;
@@ -99,7 +99,7 @@ namespace TalkingPaper.GestioneDisposizione
                         tempT.Commit();
                         tempS.Flush();
                         MessageBox.Show("Mostra creata");
-                        AggiungiPosterAMostra nuovaaa = new AggiungiPosterAMostra(benvenuto, componenti, id_poster, poster, directory_principale,benvenuto_aut,visualizza_aut );
+                        AggiungiPosterAMostra nuovaaa = new AggiungiPosterAMostra(benvenuto, componenti, id_poster, poster, directory_principale,visualizza_aut );
                         aggiunta.Close();
                         //this.Close();
                         nuovaaa.Show();

@@ -36,14 +36,14 @@ namespace TalkingPaper.GestioneDisposizione
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private string id_pannello;
         private string nome_pannello;
         private string configurazione;
 
-        public AggiungiControllo(ComponentiDelPoster componenti, BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, int id_mostra, int id_poster, string nome_poster, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut,string id_pannello, string nome_pannello,string configurazione)
+        public AggiungiControllo(ComponentiDelPoster componenti, BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, int id_mostra, int id_poster, string nome_poster, string directory_principale, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 40, true);
@@ -56,7 +56,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;
             this.benvenuto_rfid = benvenuto_rfid;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.benvenuto = benvenuto;
             this.poster = poster;
@@ -199,7 +199,7 @@ namespace TalkingPaper.GestioneDisposizione
                     con.Poster = pos;
                     tempS.Save(con);
                     tempT.Commit();
-                    ComponentiDelPoster nuovas = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza,benvenuto_aut,visualizza_aut,id_pannello,nome_pannello,configurazione);
+                    ComponentiDelPoster nuovas = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza,visualizza_aut,id_pannello,nome_pannello,configurazione);
                     //componenti.Close();
                     //this.Close();
                     nuovas.Show();

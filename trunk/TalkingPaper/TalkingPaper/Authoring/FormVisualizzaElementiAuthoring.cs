@@ -25,8 +25,8 @@ namespace TalkingPaper.Authoring
     {
         private int tag_per_riga;
         private int tag_per_colonna;
-        private FormScegliPosterAuthoring scelta_poster;
-        private BenvenutoAuthoring partenza;
+        //private FormScegliPosterAuthoring scelta_poster;
+        //private BenvenutoAuthoring partenza;
         private int poster;
         private string nome_poster;
         private string database;
@@ -54,12 +54,12 @@ namespace TalkingPaper.Authoring
         private Bitmap taggato;
         private Bitmap non_taggato;
         private NHibernateManager nh_manager;
-        private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
+        //private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
         private TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos;
         private string id_pannello;
         private string nome_pannello;
         private string configurazione;
-        private AuthoringInsterting inserimento;
+        //private AuthoringInsterting inserimento;
         private GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private bool esiste;
@@ -79,7 +79,7 @@ namespace TalkingPaper.Authoring
 
 
 
-        public FormVisualizzaElementiAuthoring(FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza, int poster, string nome_poster, int cod_mostra, string directory_principale, string database, TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos, TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, AuthoringInsterting inserimento, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges, String provenienza, int id_mostra, GestioneDisposizione.PosterDellaMostra posterMostra)
+        public FormVisualizzaElementiAuthoring(/*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, AuthoringInsterting inserimento, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges, String provenienza, int id_mostra, GestioneDisposizione.PosterDellaMostra posterMostra)
         {
             InitializeComponent();
             this.id_mosta=id_mostra;
@@ -96,12 +96,12 @@ namespace TalkingPaper.Authoring
             ElencoControlli2.Size = el2Size;
             ElencoControlli3.Size = el3Size;
             this.nh_manager = new NHibernateManager();
-            this.componenti_pos = componenti_pos;
-            this.inserimento = inserimento;
+            //this.componenti_pos = componenti_pos;
+            //this.inserimento = inserimento;
             this.configurazione = configurazione;
             this.benvenuto_pos = benvenuto_pos;
-            this.scelta_poster = scelta_poster;
-            this.partenza = partenza;
+            //this.scelta_poster = scelta_poster;
+            //this.partenza = partenza;
             this.poster = poster;
             this.cod_mostra = cod_mostra;
             this.nome_poster = nome_poster;
@@ -149,7 +149,7 @@ namespace TalkingPaper.Authoring
         }
 
 
-        public FormVisualizzaElementiAuthoring(FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza, int poster, string nome_poster, int cod_mostra, string directory_principale, string database, TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos, TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, AuthoringInsterting inserimento, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
+        public FormVisualizzaElementiAuthoring(/*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, AuthoringInsterting inserimento, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
         {
             InitializeComponent();
             this.id_mosta = 0;
@@ -157,12 +157,12 @@ namespace TalkingPaper.Authoring
 
             RidimensionaForm n = new RidimensionaForm(this, 99, true);
             this.nh_manager = new NHibernateManager();
-            this.componenti_pos = componenti_pos;
-            this.inserimento = inserimento;
+            //this.componenti_pos = componenti_pos;
+            //this.inserimento = inserimento;
             this.configurazione = configurazione;
             this.benvenuto_pos = benvenuto_pos;
-            this.scelta_poster = scelta_poster;
-            this.partenza = partenza;
+            //this.scelta_poster = scelta_poster;
+            //this.partenza = partenza;
             this.poster = poster;
             this.cod_mostra = cod_mostra;
             this.nome_poster = nome_poster;
@@ -313,7 +313,7 @@ namespace TalkingPaper.Authoring
                     if (poster_sel.ContenutoLista.Count == 0)
                     {
                         MessageBox.Show("Non è presente nessun contenuto");
-                        scelta_poster.Visible = true;
+                        //scelta_poster.Visible = true;
                         tempT.Commit();
                     }
                     else if (contenuti == false)
@@ -989,13 +989,13 @@ namespace TalkingPaper.Authoring
                         {
                             if ((con_sel.RisorsaMultimediale.Path.CompareTo("\\audio") == 0) || (con_sel.RisorsaMultimediale.Path.CompareTo("/audio") == 0))
                             {
-                                TalkingPaper.GestioneDisposizione.PlayAudio nuovo = new TalkingPaper.GestioneDisposizione.PlayAudio(directory_principale + con_sel.RisorsaMultimediale.Path + "\\" + con_sel.RisorsaMultimediale.Nome, null, null, null, null, this);
+                                TalkingPaper.GestioneDisposizione.PlayAudio nuovo = new TalkingPaper.GestioneDisposizione.PlayAudio(directory_principale + con_sel.RisorsaMultimediale.Path + "\\" + con_sel.RisorsaMultimediale.Nome, null, /*null, null, null,*/ this);
                                 this.Enabled = false;
                                 nuovo.Show();
                             }
                             else if ((con_sel.RisorsaMultimediale.Path.CompareTo("\\video") == 0) || (con_sel.RisorsaMultimediale.Path.CompareTo("/video") == 0))
                             {
-                                TalkingPaper.GestioneDisposizione.PlayVideo nuovo = new TalkingPaper.GestioneDisposizione.PlayVideo(directory_principale + con_sel.RisorsaMultimediale.Path + "\\" + con_sel.RisorsaMultimediale.Nome, null, null, null, null, this);
+                                TalkingPaper.GestioneDisposizione.PlayVideo nuovo = new TalkingPaper.GestioneDisposizione.PlayVideo(directory_principale + con_sel.RisorsaMultimediale.Path + "\\" + con_sel.RisorsaMultimediale.Nome, null, /*null, /*null, null,*/ this);
                                 this.Enabled = false;
                                 nuovo.Show();
                             }
@@ -1067,8 +1067,8 @@ namespace TalkingPaper.Authoring
                             if (a.Tipo.CompareTo("testo") == 0)
                             {
                                 string estensione = a.Nome.Substring(a.Nome.Length - 4);
-                                Postering.NuovoComponente nuovoo = new TalkingPaper.Postering.NuovoComponente();
-                                Postering.StampaTesto nuovo = new TalkingPaper.Postering.StampaTesto(directory_principale + a.Path + "\\" + a.Nome, estensione, nuovoo);
+                                GestioneDisposizione.NuovoComponente nuovoo = new GestioneDisposizione.NuovoComponente();
+                                GestioneDisposizione.StampaTesto nuovo = new GestioneDisposizione.StampaTesto(directory_principale + a.Path + "\\" + a.Nome, estensione, nuovoo);
                                 //visualizzato = false;
                             }
                         }
@@ -1100,7 +1100,7 @@ namespace TalkingPaper.Authoring
                     }
                     else
                     {*/
-                        AuthoringInsterting codice = new AuthoringInsterting(this, (int)ElencoRisorse[0, e.RowIndex].Value,(string) ElencoRisorse[2, e.RowIndex].Value, scelta_poster, partenza, poster, nome_poster, cod_mostra, directory_principale, database, componenti_pos, benvenuto_pos, id_pannello, nome_pannello, configurazione,benvenuto_ges);
+                        AuthoringInsterting codice = new AuthoringInsterting(this, (int)ElencoRisorse[0, e.RowIndex].Value,(string) ElencoRisorse[2, e.RowIndex].Value, poster, nome_poster, cod_mostra, directory_principale, database, benvenuto_pos, id_pannello, nome_pannello, configurazione,benvenuto_ges);
                         this.Visible = false;
                         codice.Show();
                     /*}
@@ -1457,25 +1457,25 @@ namespace TalkingPaper.Authoring
              this.Close();*/
             this.Cursor = Cursors.WaitCursor;
             Salvataggio();
-            if (componenti_pos == null)
+            /*if (componenti_pos == null)
             {
                 scelta_poster.Visible = true;
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
             else
-            {
-                componenti_pos.Visible = true;
+            {*/
+                //componenti_pos.Visible = true;
                 this.Cursor = Cursors.Default;
                 this.Close();
-            }
+            //}
         }
 
         #endregion
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if ((componenti_pos != null) && (componenti_pos.GetBenvenuto() != null))
+            /*if ((componenti_pos != null) && (componenti_pos.GetBenvenuto() != null))
             {
                 this.Cursor = Cursors.WaitCursor;
                 Salvataggio();
@@ -1486,7 +1486,7 @@ namespace TalkingPaper.Authoring
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
-            else if ((partenza != null) && (partenza.getInizio() != null))
+            /*else if ((partenza != null) && (partenza.getInizio() != null))
             {
                 this.Cursor = Cursors.WaitCursor;
                 Salvataggio();
@@ -1496,6 +1496,7 @@ namespace TalkingPaper.Authoring
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
+             
             else if ((benvenuto_pos != null) && (benvenuto_pos.GetInizio() != null))
             {
                 this.Cursor = Cursors.WaitCursor;
@@ -1506,7 +1507,7 @@ namespace TalkingPaper.Authoring
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
-            else if ((benvenuto_ges != null) && (benvenuto_ges.GetInizio() != null))
+            else*/ if ((benvenuto_ges != null) && (benvenuto_ges.GetInizio() != null))
             {
                 this.Cursor = Cursors.WaitCursor;
                 Salvataggio();
@@ -1518,28 +1519,7 @@ namespace TalkingPaper.Authoring
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            Salvataggio();
-            if (componenti_pos != null)
-            {
-                componenti_pos.Close();
-            }
-            if (benvenuto_pos != null)
-            {
-                TalkingPaper.GestioneDisposizione.ComponentiDelPoster n = new TalkingPaper.GestioneDisposizione.ComponentiDelPoster(benvenuto_pos, null, cod_mostra, poster, nome_poster, directory_principale, "rfid", partenza, this,id_pannello,nome_pannello,configurazione);
-                //this.Close();
-                n.Show();
-            }
-            else if (benvenuto_ges != null) {
-                TalkingPaper.GestioneDisposizione.ComponentiDelPoster n = new TalkingPaper.GestioneDisposizione.ComponentiDelPoster(benvenuto_ges, null, cod_mostra, poster, nome_poster, directory_principale, "rfid", partenza, this,id_pannello,nome_pannello,configurazione);
-                //this.Close();
-                n.Show();
-            }
-            this.Cursor = Cursors.Default;
-            this.Close();
-        }
+        
 
         #region Gestione Posizionamento
 
@@ -2322,29 +2302,29 @@ namespace TalkingPaper.Authoring
             Salvataggio();
             this.Cursor = Cursors.WaitCursor;
             //this.Visible = false;
-            TalkingPaper.GestioneDisposizione.NuovoComponente nuovo = new TalkingPaper.GestioneDisposizione.NuovoComponente(benvenuto_ges, posterMostra, null, nome_poster, this.id_mosta, poster, false, -1, "", directory_principale, provenienza, partenza, this, id_pannello, nome_pannello, configurazione, tag_per_riga, tag_per_colonna);
+            TalkingPaper.GestioneDisposizione.NuovoComponente nuovo = new TalkingPaper.GestioneDisposizione.NuovoComponente(benvenuto_ges, posterMostra, null, nome_poster, this.id_mosta, poster, false, -1, "", directory_principale, provenienza,  this, id_pannello, nome_pannello, configurazione, tag_per_riga, tag_per_colonna);
             nuovo.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        /*private void button3_Click(object sender, EventArgs e)
         {
             Salvataggio();
             this.Cursor = Cursors.WaitCursor;
-            TalkingPaper.GestioneDisposizione.PosterDaStoria nuovo = new TalkingPaper.GestioneDisposizione.PosterDaStoria(directory_principale, benvenuto_ges, true, poster, provenienza, partenza, this, null, id_pannello, nome_pannello, configurazione);
+            TalkingPaper.GestioneDisposizione.PosterDaStoria nuovo = new TalkingPaper.GestioneDisposizione.PosterDaStoria(directory_principale, benvenuto_ges, true, poster, provenienza, this, null, id_pannello, nome_pannello, configurazione);
             nuovo.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
-        }
+        }*/
 
-        private void Menu_Click(object sender, EventArgs e)
+        /*private void Menu_Click(object sender, EventArgs e)
         {
             QuestionCambiaGriglia richiesta = new QuestionCambiaGriglia(partenza, global.home);
             richiesta.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
-        }
+        }*/
 
         private void Menu_Click_1(object sender, EventArgs e)
         {
@@ -2368,7 +2348,7 @@ namespace TalkingPaper.Authoring
             
         }
 
-        private void cambiaGriglia_Click(object sender, EventArgs e)
+        /*private void cambiaGriglia_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
             Salvataggio();
@@ -2376,7 +2356,7 @@ namespace TalkingPaper.Authoring
             n.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
-        }
+        }*/
 
         private void Riempi(String nome_file, Font font)
         {

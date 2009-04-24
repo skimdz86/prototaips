@@ -20,7 +20,7 @@ namespace TalkingPaper
     public partial class ElencoPosterEsecuzioneSingoloModello : FormSchema
     {
         private string directoryprincipale;
-        private TalkingPaper.RfidCode.ScegliMostraRFID FormMostre;
+        ///private TalkingPaper.RfidCode.ScegliMostraRFID FormMostre;
         private Welcome partenza;
         private int cod_mostra;
         private string nome_mostra;
@@ -38,11 +38,11 @@ namespace TalkingPaper
 
 
 
-        public ElencoPosterEsecuzioneSingoloModello(TalkingPaper.RfidCode.ScegliMostraRFID FormMostre, Welcome partenza, int cod_mostra, string nome_mostra, string autore_mostra, string directory_principale, string database, string bar_rfid)
+        public ElencoPosterEsecuzioneSingoloModello(/*TalkingPaper.RfidCode.ScegliMostraRFID FormMostre,*/ Welcome partenza, int cod_mostra, string nome_mostra, string autore_mostra, string directory_principale, string database, string bar_rfid)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
-            this.FormMostre = FormMostre;
+            ///this.FormMostre = FormMostre;
             this.partenza = partenza;
             this.cod_mostra = cod_mostra;
             this.nome_mostra = nome_mostra;
@@ -246,15 +246,7 @@ namespace TalkingPaper
                 /*this.Visible = false;
                 FormVisualizzaElementiRFID nuova = new FormVisualizzaElementiRFID(this, partenza, (int)ElencoPoster[0, e.RowIndex].Value, (string)ElencoPoster[2, e.RowIndex].Value, cod_mostra, directoryprincipale, database);
                 nuova.Show();*/
-                if (bar_rfid.CompareTo("barcode") == 0)
-                {
-                    //this.Close();
-                    FormEsecuzioneBarcodePoster nu = new FormEsecuzioneBarcodePoster((int)ElencoPoster[0, e.RowIndex].Value, partenza);
-                    this.Close();
-                    nu.Show();
-                }
-                else
-                {
+                
                     //this.Close();
                     try
                     {
@@ -268,7 +260,7 @@ namespace TalkingPaper
                         this.Close();
                         partenza.Close();
                     }
-                }
+                
             }
         }
 
@@ -289,14 +281,14 @@ namespace TalkingPaper
 
         private void Indietro_Click(object sender, EventArgs e)
         {
-            if (FormMostre != null)
+            /*if (FormMostre != null)
             {
                 FormMostre.Visible = true;
             }
             else
-            {
+            {*/
                 partenza.Visible = true;
-            }
+            //}
             this.Close();
         }
         #endregion

@@ -20,7 +20,7 @@ namespace TalkingPaper
     public partial class ElencoPosterEsecuzioneSingolo : FormSchema
     {
         private string directoryprincipale;
-        private TalkingPaper.RfidCode.ScegliMostraRFID FormMostre;
+        ///private TalkingPaper.RfidCode.ScegliMostraRFID FormMostre;
         private Welcome partenza;
         private int cod_mostra;
         private string nome_mostra;
@@ -38,11 +38,11 @@ namespace TalkingPaper
 
 
 
-        public ElencoPosterEsecuzioneSingolo(TalkingPaper.RfidCode.ScegliMostraRFID FormMostre, Welcome partenza, int cod_mostra, string nome_mostra, string autore_mostra, string directory_principale, string database,string bar_rfid)
+        public ElencoPosterEsecuzioneSingolo(/*TalkingPaper.RfidCode.ScegliMostraRFID FormMostre,*/ Welcome partenza, int cod_mostra, string nome_mostra, string autore_mostra, string directory_principale, string database,string bar_rfid)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
-            this.FormMostre = FormMostre;
+            ///this.FormMostre = FormMostre;
             this.partenza = partenza;
             this.cod_mostra = cod_mostra;
             this.nome_mostra = nome_mostra;
@@ -286,14 +286,14 @@ namespace TalkingPaper
 
         private void Indietro_Click(object sender, EventArgs e)
         {
-            if (FormMostre != null)
+            /*if (FormMostre != null)
             {
                 FormMostre.Visible = true;
             }
             else
-            {
+            {*/
                 partenza.Visible = true;
-            }
+            //}
             this.Close();
         }
         #endregion

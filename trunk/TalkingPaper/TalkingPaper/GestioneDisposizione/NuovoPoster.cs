@@ -38,7 +38,7 @@ namespace TalkingPaper.GestioneDisposizione
     {
         private PosterDellaMostra mostra;
         private BenvenutoGestioneDisposizione benvenuto;
-        ScegliMostraPostering elenco_mostre;
+        //ScegliMostraPostering elenco_mostre;
         private int id_mostra;
         private string nome_mostra;
         private string directory_principale;
@@ -48,18 +48,18 @@ namespace TalkingPaper.GestioneDisposizione
        /* private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;*/
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;
+        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
+        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
         private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
         private Welcome inizio;
 
-        public NuovoPoster(Welcome inizio,PosterDellaMostra mostra, BenvenutoGestioneDisposizione benvenuto, ScegliMostraPostering elenco_mostre, int id_mostra, string nome_mostra, string directory_principale, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
+        public NuovoPoster(Welcome inizio, PosterDellaMostra mostra, BenvenutoGestioneDisposizione benvenuto, /*ScegliMostraPostering elenco_mostre,*/ int id_mostra, string nome_mostra, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 50, true);
             this.mostra = mostra;
             this.benvenuto = benvenuto;
-            this.elenco_mostre = elenco_mostre;
+            //this.elenco_mostre = elenco_mostre;
             this.id_mostra = id_mostra;
             this.nome_mostra = nome_mostra;
             this.inizio = inizio;
@@ -68,20 +68,17 @@ namespace TalkingPaper.GestioneDisposizione
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_rfid = visualizza_rfid;
             this.visualizza_bar = visualizza_bar;*/
-            this.benvenuto_aut = benvenuto_aut;
+            //this.benvenuto_aut = benvenuto_aut;
             this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             label4.Visible = false;
             Ordine.Visible = false;
-            immagine_modifica_poster = new Bitmap(directory_principale + @"/Images/Icons/modifica.gif");
+            //immagine_modifica_poster = new Bitmap(directory_principale + "\\Images\\Icons\\modifica.gif");
             label1.Text = label1.Text + " " + nome_mostra;
             button1.Cursor = Cursors.Hand;
             button2.Cursor = Cursors.Hand;
             //textBox1.Select(0,0);
-            if (elenco_mostre == null)
-            {
-                label1.Text = "Inserisci nome e descrizione di un nuovo cartellone";
-            }
+            
             /*try
             {
                 XmlTextReader iscritto = new XmlTextReader(directory_principale + "PosterAuthoring" + ".xml");
@@ -144,7 +141,7 @@ namespace TalkingPaper.GestioneDisposizione
             {
                 MessageBox.Show("Inserisci l'ordine");
             }*/
-            else if ((elenco_mostre != null))
+            /*else if ((elenco_mostre != null))
             {
                 try
                 {
@@ -242,8 +239,8 @@ namespace TalkingPaper.GestioneDisposizione
                 {
                     MessageBox.Show("Nella casella ordine deve essere presente un numero intero");
                 }
-            }
-            else if (elenco_mostre == null)
+            }*/
+            else 
             {
                 using (ISession tempS = nh_manager.Session)
                 using (ITransaction tempT = tempS.BeginTransaction())
@@ -361,7 +358,7 @@ namespace TalkingPaper.GestioneDisposizione
                         {
 
                         }*/
-                        Authoring.FormScegliConfigurazione nuov = new TalkingPaper.Authoring.FormScegliConfigurazione(benvenuto_aut, null, -1, eccolo.IDposter, eccolo.Nome, directory_principale, null, benvenuto);
+                        Authoring.FormScegliConfigurazione nuov = new TalkingPaper.Authoring.FormScegliConfigurazione(null, -1, eccolo.IDposter, eccolo.Nome, directory_principale, null, benvenuto);
                         nuov.Show();
                         this.Cursor = Cursors.Default;
                         this.Close();

@@ -30,14 +30,12 @@ namespace TalkingPaper
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Welcome));
             this.Esci = new TalkingPaper.ControlButton();
-            this.button1 = new TalkingPaper.MainButton();
             this.button2 = new TalkingPaper.MainButton();
             this.Admin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.parlaSchema = new TalkingPaper.MainButton();
             this.label4 = new System.Windows.Forms.Label();
-            this.parlaLibero = new TalkingPaper.MainButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
@@ -74,22 +72,6 @@ namespace TalkingPaper
             this.Esci.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Esci.UseVisualStyleBackColor = false;
             this.Esci.Click += new System.EventHandler(this.Esci_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(284, 58);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 88);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Cartellone Libero";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // button2
             // 
@@ -128,7 +110,6 @@ namespace TalkingPaper
             this.groupBox1.BackColor = System.Drawing.Color.Orange;
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Location = new System.Drawing.Point(28, 172);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(540, 195);
@@ -173,22 +154,6 @@ namespace TalkingPaper
             this.label4.TabIndex = 13;
             this.label4.Text = "Fai parlare il tuo cartellone";
             // 
-            // parlaLibero
-            // 
-            this.parlaLibero.BackColor = System.Drawing.Color.Yellow;
-            this.parlaLibero.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("parlaLibero.BackgroundImage")));
-            this.parlaLibero.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.parlaLibero.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.parlaLibero.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.parlaLibero.Location = new System.Drawing.Point(284, 73);
-            this.parlaLibero.Name = "parlaLibero";
-            this.parlaLibero.Size = new System.Drawing.Size(180, 88);
-            this.parlaLibero.TabIndex = 1;
-            this.parlaLibero.Text = "Parla - Cartellone Libero";
-            this.parlaLibero.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.parlaLibero.UseVisualStyleBackColor = false;
-            this.parlaLibero.Click += new System.EventHandler(this.parlaLibero_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.DarkOrange;
@@ -205,7 +170,6 @@ namespace TalkingPaper
             this.groupBox2.BackColor = System.Drawing.Color.Orange;
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.parlaSchema);
-            this.groupBox2.Controls.Add(this.parlaLibero);
             this.groupBox2.Location = new System.Drawing.Point(28, 396);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(540, 195);
@@ -217,7 +181,7 @@ namespace TalkingPaper
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.ClientSize = new System.Drawing.Size(1136, 739);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);
@@ -251,13 +215,11 @@ namespace TalkingPaper
         #endregion
 
         private ControlButton Esci;
-        private MainButton button1;
         private MainButton button2;
         private System.Windows.Forms.Button Admin;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private MainButton parlaLibero;
         private MainButton parlaSchema;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;

@@ -4,14 +4,14 @@
   <description asmv2:publisher="Microsoft" asmv2:product="TalkingPaper" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" mapFileExtensions="true" />
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TalkingPaper.exe.manifest" size="18251">
+    <dependentAssembly dependencyType="install" codebase="TalkingPaper.exe.manifest" size="19588">
       <assemblyIdentity name="TalkingPaper.exe" version="1.0.0.3" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>JILZBcCDP2+nI1MOCP6wlAFTU0M=</dsig:DigestValue>
+        <dsig:DigestValue>f7lAtcjGCkqpr5H1KJkB3eDcxpc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
