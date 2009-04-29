@@ -247,18 +247,18 @@ namespace TalkingPaper
                 nuova.Show();*/
                 
                     //this.Close();
-                    try
+                    //try
                     {
                         FormEsecuzioneRfidPoster n = new FormEsecuzioneRfidPoster((int)ElencoPoster[0, e.RowIndex].Value, partenza,directoryprincipale);
                         n.Show();
                         this.Close();
                         
                     }
-                    catch
+                    /*catch
                     {
                         this.Close();
                         partenza.Close();
-                    }
+                    }*/
                 
             }
         }

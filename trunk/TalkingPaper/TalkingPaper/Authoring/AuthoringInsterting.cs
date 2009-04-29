@@ -65,7 +65,7 @@ namespace TalkingPaper.Authoring
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
             oldid = " ";
-            reader = new Reader.RfidReader();
+            reader = new Reader.DumbReader();
             reader.connect();
             //this.matrice = matrice;
             this.configurazione=configurazione;

@@ -28,7 +28,7 @@ namespace TalkingPaper.Config
             //cfgmng = new Config_manager(currentPath);
             
             Console.WriteLine("Creo il cfgmng, con currentPath = " + currentPath);
-            reader = new Reader.RfidReader();
+            reader = new Reader.DumbReader();
         }
 
         private void cancel_Click(object sender, EventArgs e)

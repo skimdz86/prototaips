@@ -63,6 +63,10 @@ namespace TalkingPaper.Reader
             return config_manager.configParameter(Convert.ToInt32(parameters[0]), parameters[1], parameters[2], Convert.ToInt16(parameters[3]));
         }
 
+        bool IReader.close()
+        {
+            return true;
+        }
     }
 
 }

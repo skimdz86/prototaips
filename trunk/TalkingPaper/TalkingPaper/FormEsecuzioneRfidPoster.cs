@@ -76,7 +76,7 @@ namespace TalkingPaper
             oldId = "";
             storicoFilePath = directory_principale + @"\Backup\";
             nh_mng = new NHibernateManager();
-            
+            reader = new Reader.DumbReader();
                 rfid_num = reader.connect();
                 if (rfid_num <= 0)
                 {
