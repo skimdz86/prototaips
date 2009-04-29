@@ -8,7 +8,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Xml;
 using System.Collections;
-using RFIDlibrary;
 using NHibernate;
 using NHibernate.Cfg;
 using QuartzTypeLib;

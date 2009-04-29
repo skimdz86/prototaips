@@ -6,14 +6,12 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using RFIDlibrary;
 
 namespace TalkingPaper.Config
 {
     public partial class FormRfidConfig : FormSchema
     {
-        private Config_manager cfgmng;
-        private RFIDlibrary.RFIDConfigurator cfgRfid;
+        private Reader.IReader reader;
         private FormAmministrazione amministrazione;
         /**
          * 
@@ -28,9 +26,9 @@ namespace TalkingPaper.Config
             string currentPath = Directory.GetCurrentDirectory();
             this.amministrazione = amministrazione;
             //cfgmng = new Config_manager(currentPath);
-            cfgmng = new Config_manager();
+            
             Console.WriteLine("Creo il cfgmng, con currentPath = " + currentPath);
-            cfgRfid = new RFIDConfigurator();
+            reader = new Reader.RfidReader();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -47,7 +45,7 @@ namespace TalkingPaper.Config
             //  Ma come posso fare per capire se almeno una volta è stato settato??
 
 
-            if(cfgmng.configParameter(Convert.ToInt32(port_number_val.Text), cFrame_val.Text, bRate_val.Text, (short)Convert.ToInt16(to_val.Text)))
+            if(reader.saveConfiguration(port_number_val.Text, cFrame_val.Text, bRate_val.Text, to_val.Text))
             {
                 Console.WriteLine("File di Rfid Configurazione scritto correttamente");
                 MessageBox.Show("Scrittura File","File di Rfid Configurazione scritto correttamente", MessageBoxButtons.OK , MessageBoxIcon.Information);
@@ -85,7 +83,8 @@ namespace TalkingPaper.Config
             this.Button_Salva.Enabled = false;
             try
             {
-                handlerRfid = cfgRfid.connect(Convert.ToInt32(port_number_val.Text), cFrame_val.Text, bRate_val.Text, (short)Convert.ToInt16(to_val.Text));
+                handlerRfid = reader.connect();
+                //handlerRfid = reader.configure(Convert.ToInt32(port_number_val.Text), cFrame_val.Text, bRate_val.Text, (short)Convert.ToInt16(to_val.Text));
                 if (handlerRfid <= 0)
                 {
                     Console.WriteLine("Connessione NON avvenuta!!!!Hanlder = " + handlerRfid);

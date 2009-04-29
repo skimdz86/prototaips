@@ -16,7 +16,6 @@ using System.Media;
 using QuartzTypeLib;
 using NHibernate;
 using NHibernate.Cfg;
-using RFIDlibrary;
 using System.Xml;
 
 
@@ -29,10 +28,8 @@ namespace TalkingPaper.Authoring
         private FormVisualizzaElementiAuthoring elenco_elementi;
         //private FormScegliPosterAuthoring scelta_poster;
         //private BenvenutoAuthoring partenza;
-        private TalkingPaper.Config.RfidProperties rfid_prop;
-        private TalkingPaper.Config.Config_manager rfid_mng;
         private int rfid_num;
-        private RFIDConfigurator rfid_cfg;
+        private Reader.IReader reader;
         private int id_componente;
         private int poster;
         private string nome_poster;
@@ -68,13 +65,13 @@ namespace TalkingPaper.Authoring
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
             oldid = " ";
+            reader = new Reader.RfidReader();
+            reader.connect();
             //this.matrice = matrice;
             this.configurazione=configurazione;
             this.id_pannello = id_pannello;
             this.nome_pannello = nome_pannello;
             this.benvenuto_ges = benvenuto_ges;
-            rfid_cfg = new RFIDConfigurator();
-            rfid_mng = new TalkingPaper.Config.Config_manager();
             this.elenco_elementi = elenco_elementi;
             this.benvenuto_pos = benvenuto_pos;
             //this.componenti_pos = componenti_pos;
@@ -572,8 +569,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         void timer_Tick(object sender, EventArgs e)
         {
-            rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
-            int tag_letto = rfid_cfg.letturaID(rfid_num);
+            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
+            //rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
+            //int tag_letto = rfid_cfg.letturaID(rfid_num);
             //Console.WriteLine("In timer_tick, tag_letto = " + tag_letto +"\nvediamo un po'...");
             //this.richTextBox1.Text += "\aciao\r";
             //this.textBox1.Focus();

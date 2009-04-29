@@ -4,12 +4,12 @@ using System.Text;
 using System.Xml;
 using System.IO;
 
-namespace TalkingPaper.Config
+namespace TalkingPaper.Reader
 {    
     /// <summary>
     /// Classe per la gestione del file di configurazione
     /// </summary>
-    class Config_manager
+    class RFidConfigManager
     {
         private XmlWriterSettings settings;
         private string path;
@@ -17,11 +17,11 @@ namespace TalkingPaper.Config
         /// <summary>
         /// Costruttore
         /// </summary>
-        public Config_manager(string path)
+        public RFidConfigManager(string path)
         {
             this.path = path;
         }
-        public Config_manager()
+        public RFidConfigManager()
         {
             path = Directory.GetCurrentDirectory() + @"\Config\";
         }
@@ -49,16 +49,16 @@ namespace TalkingPaper.Config
                             switch (rdr.Name)
                             {
                                 case "port":
-                                    prop.PortReader = rdr.ReadElementString();
+                                    prop.port = Convert.ToInt32(rdr.ReadElementString());
                                     break;
                                 case "comunication_frame":
-                                    prop.ComunicationframeReader = rdr.ReadElementString();
+                                    prop.communicationFrame = rdr.ReadElementString();
                                     break;
                                 case "baud_rate":
-                                    prop.BaudrateReader = rdr.ReadElementString();
+                                    prop.baudRate = rdr.ReadElementString();
                                     break;
                                 case "time_out":
-                                    prop.TimeoutReader = rdr.ReadElementString();
+                                    prop.timeout = Convert.ToInt16(rdr.ReadElementString());
                                     break;
                                 default: rdr.Read();
                                     break;
