@@ -7,7 +7,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using RFIDlibrary;
 using NHibernate;
 using NHibernate.Cfg;
 using QuartzTypeLib;
@@ -18,15 +17,13 @@ namespace TalkingPaper
 {
     public partial class FormEsecuzioneRfidPoster : Form
     {
-        private RFIDConfigurator rfid_cfg;
+        private Reader.IReader reader;
         private Utente u_current;
         private bool attivo; // variabile che identifica lo status del sistema
         private string storicoFilePath;
         private string oldId; // serve per capire se il tag è quello del precedente o no
         private Contenuto cont_current;
         //Devo pensare ad una struttura dati che mi contenga lo storico...
-        private TalkingPaper.Config.RfidProperties rfid_prop;
-        private TalkingPaper.Config.Config_manager rfid_mng;
         private int rfid_num;
         //private int cont_storico;
         private NHibernateManager nh_mng;
@@ -79,13 +76,8 @@ namespace TalkingPaper
             oldId = "";
             storicoFilePath = directory_principale + @"\Backup\";
             nh_mng = new NHibernateManager();
-            rfid_cfg = new RFIDConfigurator();
-            rfid_mng = new TalkingPaper.Config.Config_manager(directory_principale + @"\Config\");
-            if (rfid_mng.exist() == true)
-            {
-                rfid_prop = rfid_mng.read_config_rfid_xml();
-                rfid_num = rfid_cfg.connect(Convert.ToInt32(rfid_prop.PortReader), rfid_prop.ComunicationframeReader,
-                    rfid_prop.BaudrateReader, (short)Convert.ToInt16(rfid_prop.TimeoutReader));
+            
+                rfid_num = reader.connect();
                 if (rfid_num <= 0)
                 {
                     //Qualcosa non ha funzionato, rifare...
@@ -103,23 +95,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     Console.WriteLine("SONO in costruttore di FormEsecuzione, tutto ok");
                     this.richTextBox1.Text += "\nInizializzazione Form: OK ";
                 }
-            }
-            else
-            {
-                Console.WriteLine("Problema nel recupero delle informazioni del RFID");
-                string error = "problema nel recupero delle informazioni del RFID";
-                arrayError.Add(error);
-                arrayErrorData.Add(DateTime.Now);
-                this.richTextBox1.Text += "\n" + error;
-
-                /*
-                 * Si potrebbe far aprire la Rfid Configurator Form...
-                 * */
-                TalkingPaper.Config.FormRfidConfig nuova = new TalkingPaper.Config.FormRfidConfig(null,directoryPath);
-                nuova.Show();
-                this.Close();
-          
-            }
+            
 
             UpdateStatusBar();
 
@@ -461,8 +437,10 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         void timer_Tick(object sender, EventArgs e)
         {
-            rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
-            int tag_letto = rfid_cfg.letturaID(rfid_num);
+            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
+            
+            //rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
+            //int tag_letto = rfid_cfg.letturaID(rfid_num);
             //Console.WriteLine("In timer_tick, tag_letto = " + tag_letto +"\nvediamo un po'...");
             //this.richTextBox1.Text += "\aciao\r";
         }

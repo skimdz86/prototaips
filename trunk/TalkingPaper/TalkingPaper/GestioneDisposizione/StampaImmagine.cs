@@ -16,7 +16,6 @@ using System.Media;
 using QuartzTypeLib;
 using NHibernate;
 using NHibernate.Cfg;
-using RFIDlibrary;
 using System.Drawing.Printing;
 using Microsoft.Office.Interop.Word;
 using System.Reflection;

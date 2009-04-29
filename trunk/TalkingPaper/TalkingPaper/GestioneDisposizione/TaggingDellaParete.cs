@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
-using RFIDlibrary;
 using NHibernate;
 using NHibernate.Cfg;
 using QuartzTypeLib;
@@ -19,9 +18,7 @@ namespace TalkingPaper.GestioneDisposizione
     {
         private int tag_per_riga;
         private int tag_per_colonna;
-        private RFIDConfigurator rfid_cfg;
-        private TalkingPaper.Config.RfidProperties rfid_prop;
-        private TalkingPaper.Config.Config_manager rfid_mng;
+        private Reader.IReader reader;
         private int rfid_num;
         private string oldId = "0"; // serve per capire se il tag è quello del precedente o no
         private NHibernateManager nh_mng;
@@ -56,48 +53,21 @@ namespace TalkingPaper.GestioneDisposizione
             button1.Cursor = Cursors.Hand;
             button2.Cursor = Cursors.Hand;
             nh_mng = new NHibernateManager();
-            rfid_cfg = new RFIDConfigurator();
-            rfid_mng = new TalkingPaper.Config.Config_manager();
-            if (rfid_mng.exist() == true)
+            reader = new Reader.RfidReader();
+            rfid_num = reader.connect();
+            if (rfid_num <= 0)
             {
-                rfid_prop = rfid_mng.read_config_rfid_xml();
-                rfid_num = rfid_cfg.connect(Convert.ToInt32(rfid_prop.PortReader), rfid_prop.ComunicationframeReader,
-                    rfid_prop.BaudrateReader, (short)Convert.ToInt16(rfid_prop.TimeoutReader));
-                if (rfid_num <= 0)
-                {
-                    //Qualcosa non ha funzionato, rifare...
-                    MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
+                //Qualcosa non ha funzionato, rifare...
+                MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    string error = "Errore in costruttore FormEsecuzione: probabilmente l'RFID reader non è correttamente collegato al computer";
-                    //arrayError.Add(error);
-                    //arrayErrorData.Add(DateTime.Now);
-                    //this.richTextBox1.Text += "\n" + error;
-                    //this.Close();
-                    //inizio.Close();
-                }
-                else
-                {
-                    Console.WriteLine("SONO in costruttore di FormEsecuzione, tutto ok");
-                    //this.richTextBox1.Text += "\nInizializzazione Form: OK ";
-                }
+                string error = "Errore in costruttore FormEsecuzione: probabilmente l'RFID reader non è correttamente collegato al computer";
+                
             }
             else
             {
-                Console.WriteLine("Problema nel recupero delle informazioni del RFID");
-                string error = "problema nel recupero delle informazioni del RFID";
-                //arrayError.Add(error);
-                //arrayErrorData.Add(DateTime.Now);
-                //this.richTextBox1.Text += "\n" + error;
-
-                /*
-                 * Si potrebbe far aprire la Rfid Configurator Form...
-                 * */
-                //TalkingPaper.Config.FormRfidConfig nuova = new TalkingPaper.Config.FormRfidConfig();
-                //nuova.Show();
-                //this.Close();
-
+                Console.WriteLine("SONO in costruttore di FormEsecuzione, tutto ok");
+                //this.richTextBox1.Text += "\nInizializzazione Form: OK ";
             }
-
             InizializzaDataGrid();
             CaricaPosterConfigurazioni();
             this.Show();
@@ -184,8 +154,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         void timer1_Tick(object sender, EventArgs e)
         {
-            rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
-            int tag_letto = rfid_cfg.letturaID(rfid_num);
+            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
+            //rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
+            //int tag_letto = rfid_cfg.letturaID(rfid_num);
         }
 
         void rfid_StatusUpdateEvent(string id)

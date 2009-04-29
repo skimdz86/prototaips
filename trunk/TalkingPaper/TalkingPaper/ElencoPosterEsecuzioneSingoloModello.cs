@@ -11,7 +11,6 @@ using MySql.Data.MySqlClient;
 using MySql.Data.Types;
 using NHibernate;
 using NHibernate.Cfg;
-using RFIDlibrary;
 using System.Xml;
 
 
