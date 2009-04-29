@@ -113,11 +113,13 @@
     <Compile Include="Authoring\FormVisualizzaElementiAuthoring.Designer.cs">
       <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reader\DumbReader.cs" />
+    <Compile Include="Reader\IReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Reader\RFidConfigManager.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Reader\IReader.cs" />
-    <Compile Include="Reader\RfidReader.cs" />
     <Compile Include="Config\FormRfidConfig.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +293,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reader\RfidReader.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="RidimensionaForm.cs" />
     <Compile Include="Risorsamultimediale.cs" />

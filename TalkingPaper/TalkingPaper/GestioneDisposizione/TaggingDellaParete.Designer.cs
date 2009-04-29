@@ -129,7 +129,7 @@ namespace TalkingPaper.GestioneDisposizione
             // textBox1
             // 
             this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Location = new System.Drawing.Point(764, 143);
+            this.textBox1.Location = new System.Drawing.Point(781, 143);
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(292, 20);
@@ -171,10 +171,10 @@ namespace TalkingPaper.GestioneDisposizione
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(12, 9);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 111);
+            this.button1.Size = new System.Drawing.Size(180, 88);
             this.button1.TabIndex = 3;
             this.button1.Text = "OK";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -188,10 +188,10 @@ namespace TalkingPaper.GestioneDisposizione
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.button2.Location = new System.Drawing.Point(244, 9);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(226, 111);
+            this.button2.Size = new System.Drawing.Size(180, 88);
             this.button2.TabIndex = 4;
             this.button2.Text = "Annulla";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -237,10 +237,10 @@ namespace TalkingPaper.GestioneDisposizione
             this.Indietro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Indietro.BackgroundImage")));
             this.Indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.Indietro.Location = new System.Drawing.Point(225, 19);
             this.Indietro.Name = "Indietro";
-            this.Indietro.Size = new System.Drawing.Size(120, 62);
+            this.Indietro.Size = new System.Drawing.Size(96, 49);
             this.Indietro.TabIndex = 46;
             this.Indietro.Text = "Indietro";
             this.Indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -252,7 +252,7 @@ namespace TalkingPaper.GestioneDisposizione
             this.AcceptButton = this.button1;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.ClientSize = new System.Drawing.Size(1136, 739);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);

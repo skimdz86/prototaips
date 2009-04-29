@@ -14,6 +14,8 @@ namespace TalkingPaper.Reader
 
         bool configure();
 
+        bool close();
+
         bool saveConfiguration(params string[] parameters);
 
         event ReaderDelegate readerStatusUpdate;

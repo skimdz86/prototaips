@@ -53,7 +53,7 @@ namespace TalkingPaper.GestioneDisposizione
             button1.Cursor = Cursors.Hand;
             button2.Cursor = Cursors.Hand;
             nh_mng = new NHibernateManager();
-            reader = new Reader.RfidReader();
+            reader = new Reader.DumbReader();
             rfid_num = reader.connect();
             if (rfid_num <= 0)
             {
@@ -281,10 +281,15 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             //colonna++;
                             
                             //if (colonna > tag_per_colonna)
-                            if (colonna > tag_per_riga)
+                            if (colonna > tag_per_colonna)
                             {
                                 riga++;
                                 colonna = 1;
+                            }
+                            if (riga > tag_per_riga)
+                            {
+                                riga_sel = -1;
+                                colonna_sel = -1;
                             }
                         }
                     }
