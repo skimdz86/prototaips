@@ -113,6 +113,7 @@
     <Compile Include="Authoring\FormVisualizzaElementiAuthoring.Designer.cs">
       <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contenuto.cs" />
     <Compile Include="DataHandlerInterface.cs" />
     <Compile Include="Griglia.cs" />
     <Compile Include="InterfacciaPassoPasso.cs" />
@@ -137,7 +138,7 @@
       <DependentUpon>FormRfidConfigHelp.cs</DependentUpon>
     </Compile>
     <Compile Include="Reader\RfidProperties.cs" />
-    <Compile Include="Contenuto.cs" />
+    <Compile Include="Contenuto2.cs" />
     <Compile Include="ControlButton.cs">
       <SubType>Component</SubType>
     </Compile>

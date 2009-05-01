@@ -7,20 +7,20 @@ namespace TalkingPaper
 {
     class Griglia
     {
-        private String nome;
+        private String nomeGriglia;
         private int numRighe;
         private int numColonne;
         private List<String> tagRFID;
 
         public Griglia(String nome, int numRighe, int numColonne)
         {
-            this.nome = nome;
+            this.nomeGriglia = nome;
             this.numRighe = numRighe;
             this.numColonne = numColonne;
             tagRFID = new List<String>(numRighe*numColonne);
         }
 
-        public String getNome() { return nome; }
+        public String getNome() { return nomeGriglia; }
         public int getNumRighe() { return numRighe; }
         public int getNumColonne() { return numColonne; }
         
@@ -30,10 +30,24 @@ namespace TalkingPaper
         //ATTENZIONE: l'index parte da ZERO: A1 -> 0, A2 -> 1
         public int getIndexFromCoord(char x, char y) 
         {
-            int index = (x - 'A') * numColonne + (y - 1);
+            int index = (x - 'A') * numColonne + (y - '1');
             return index;
         }
 
+        //Work in progress
+        /*
+        public String getCoordFromIndex(int index)
+        {
+            char x, y;
+            int offset = 'A';
+            x = (char)((int)(index / numColonne) + offset);
+            //y = index % numColonne;
+            return x + y;
+        }
+        */
+
+
+        //se è più comodo, si può fare getTag(x,y)
         public String getTagFromIndex(int index)
         {
             return tagRFID[index];

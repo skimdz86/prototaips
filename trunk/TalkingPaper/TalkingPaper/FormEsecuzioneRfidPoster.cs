@@ -22,7 +22,7 @@ namespace TalkingPaper
         private bool attivo; // variabile che identifica lo status del sistema
         private string storicoFilePath;
         private string oldId; // serve per capire se il tag è quello del precedente o no
-        private Contenuto cont_current;
+        private Contenuto2 cont_current;
         //Devo pensare ad una struttura dati che mi contenga lo storico...
         private int rfid_num;
         //private int cont_storico;
@@ -65,7 +65,7 @@ namespace TalkingPaper
             //this.inizio2 = inizio2;
             f_video = new FormVideo();
             u_current = new Utente();
-            cont_current = new Contenuto(); ;
+            cont_current = new Contenuto2(); ;
             arrayStorico = new ArrayList();
             arrayStoricoData = new ArrayList();
             arrayError = new ArrayList();
@@ -145,7 +145,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                         q.SetParameter("rfid", id);
                         q.SetParameter("post", cod_poster );
-                        cont_current = (Contenuto)q.List()[0];
+                        cont_current = (Contenuto2)q.List()[0];
                         //tempT.Commit();
                         Console.WriteLine("Query di ricerca Contenuto by id ok, commit");
                         try
@@ -627,7 +627,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 int indice = 0;
                 if (arrayStorico.Count != 0)
                 {
-                    foreach (Contenuto c in arrayStorico)
+                    foreach (Contenuto2 c in arrayStorico)
                     {
                         wr.WriteStartElement("Contenuto");
                         wr.WriteElementString("IDcontenuto", Convert.ToString(c.IDcontenuto));
@@ -692,7 +692,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 int indice = 0;
                 if (arrayStorico.Count != 0)
                 {
-                    foreach (Contenuto c in arrayStorico)
+                    foreach (Contenuto2 c in arrayStorico)
                     {
                         wr.WriteStartElement("Contenuto");
                         wr.WriteElementString("IDcontenuto", Convert.ToString(c.IDcontenuto));

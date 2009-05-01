@@ -117,10 +117,10 @@ namespace TalkingPaper.GestioneDisposizione
                 {
                     try
                     {
-                        Contenuto conte = new Contenuto();
+                        Contenuto2 conte = new Contenuto2();
                         IQuery q = tempS.CreateQuery("FROM Contenuto as cont WHERE cont.IDcontenuto=:Con");
                         q.SetParameter("Con", id_contenuto);
-                        conte = (Contenuto)q.List()[0];
+                        conte = (Contenuto2)q.List()[0];
                         if (conte.Tipo.Descrizione.CompareTo("Musica") == 0)
                         {
                             textBox2.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
@@ -638,7 +638,7 @@ namespace TalkingPaper.GestioneDisposizione
                         testo.ContenutoLista.Add(content);*/
                         if (modifica == false)
                         {
-                            Contenuto contenuto = new Contenuto();
+                            Contenuto2 contenuto = new Contenuto2();
                             contenuto.AltrarisorsaLista = new ArrayList();
                             if ((textBox5.Text != null) && (textBox5.Text.CompareTo("") != 0))
                             {
@@ -657,12 +657,12 @@ namespace TalkingPaper.GestioneDisposizione
                             contenuto.RisorsaMultimediale = risorsa;
                             contenuto.Tipo = tipologia;
                             contenuto.Poster = poster2;
-                            Contenuto content = new Contenuto();
+                            Contenuto2 content = new Contenuto2();
                             IList contenuti_selz;
                             IQuery q3 = tempS.CreateQuery("FROM Contenuto as cont");
                             //q3.SetParameter("Pos", id_poster);
                             contenuti_selz = q3.List();
-                            foreach (Contenuto c in contenuti_selz)
+                            foreach (Contenuto2 c in contenuti_selz)
                             {
                                 content = c;
                             }
@@ -692,10 +692,10 @@ namespace TalkingPaper.GestioneDisposizione
                         }
                         else
                         {
-                            Contenuto contenuto = new Contenuto();
+                            Contenuto2 contenuto = new Contenuto2();
                             IQuery q4 = tempS.CreateQuery("FROM Contenuto as Cont WHERE Cont.IDcontenuto=:Con");
                             q4.SetParameter("Con", id_contenuto);
-                            contenuto = (Contenuto)q4.List()[0];
+                            contenuto = (Contenuto2)q4.List()[0];
                             contenuto.AltrarisorsaLista = new ArrayList();
                             if ((textBox5.Text != null) && (textBox5.Text.CompareTo("") != 0))
                             {

@@ -340,12 +340,12 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     {
                         for (int h = 0; h < cont_modificati.Count; h++)
                         {
-                            Contenuto contenuto = new Contenuto();
+                            Contenuto2 contenuto = new Contenuto2();
                             int con = (int)cont_modificati[h];
                             IQuery q = tempS.CreateQuery("FROM Contenuto as cont WHERE cont.IDcontenuto=:content AND cont.Poster.IDposter = :poster");
                             q.SetParameter("content", (int)cont_modificati[h]);
                             q.SetParameter("poster", poster);
-                            contenuto = (Contenuto)q.List()[0];
+                            contenuto = (Contenuto2)q.List()[0];
                             contenuto.Rfidtag = "0";
                             //devo controllare che non sia già stato inserito uno stesso tag per lo stesso poster
                             tempS.Update(contenuto);
@@ -414,11 +414,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             {
                                 try
                                 {
-                                    Contenuto contenuto = new Contenuto();
+                                    Contenuto2 contenuto = new Contenuto2();
                                     IQuery q = tempS.CreateQuery("FROM Contenuto as cont WHERE cont.IDcontenuto=:content AND cont.Poster.IDposter = :poster");
                                     q.SetParameter("content", el.GetIdContenuto());
                                     q.SetParameter("poster", poster);
-                                    contenuto = (Contenuto)q.List()[0];
+                                    contenuto = (Contenuto2)q.List()[0];
                                     if (el.GetTagContenuto().CompareTo("Non Usato") != 0)
                                     {
                                         contenuto.Rfidtag = el.GetTagContenuto();

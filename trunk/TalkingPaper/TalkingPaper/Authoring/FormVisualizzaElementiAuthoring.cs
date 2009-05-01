@@ -302,7 +302,7 @@ namespace TalkingPaper.Authoring
                     tempT.Commit();
                     //contenuti_sel = poster_sel.ContenutoLista;
                     bool contenuti = false;
-                    foreach (Contenuto c in poster_sel.ContenutoLista)
+                    foreach (Contenuto2 c in poster_sel.ContenutoLista)
                     {
                         if (c.Tipo.Tipo.CompareTo("Controllo") != 0)
                         {
@@ -481,7 +481,7 @@ namespace TalkingPaper.Authoring
                     q.SetParameter("Pos", poster);
                     poster_sel = (Poster3)q.List()[0];
                     tempS.Flush();
-                    foreach (Contenuto c in poster_sel.ContenutoLista)
+                    foreach (Contenuto2 c in poster_sel.ContenutoLista)
                     {
                         
                         if (c.Tipo.Tipo.CompareTo("Controllo") != 0)
@@ -979,10 +979,10 @@ namespace TalkingPaper.Authoring
                 {
                     try
                     {
-                        Contenuto con_sel;
+                        Contenuto2 con_sel;
                         IQuery q = tempS.CreateQuery("FROM Contenuto as comt WHERE comt.IDcontenuto=:Con");
                         q.SetParameter("Con", ElencoRisorse[0, e.RowIndex].Value);
-                        con_sel = (Contenuto)q.List()[0];
+                        con_sel = (Contenuto2)q.List()[0];
                         tempS.Flush();
                         if (con_sel != null)
                         {
@@ -1021,10 +1021,10 @@ namespace TalkingPaper.Authoring
                 {
                     try
                     {
-                        Contenuto con_sel;
+                        Contenuto2 con_sel;
                         IQuery q = tempS.CreateQuery("FROM Contenuto as comt WHERE comt.IDcontenuto=:Con");
                         q.SetParameter("Con", ElencoRisorse[0, e.RowIndex].Value);
-                        con_sel = (Contenuto)q.List()[0];
+                        con_sel = (Contenuto2)q.List()[0];
                         tempS.Flush();
                         foreach (Altrarisorsa a in con_sel.AltrarisorsaLista)
                         {
@@ -1056,10 +1056,10 @@ namespace TalkingPaper.Authoring
                 {
                     try
                     {
-                        Contenuto con_sel;
+                        Contenuto2 con_sel;
                         IQuery q = tempS.CreateQuery("FROM Contenuto as comt WHERE comt.IDcontenuto=:Con");
                         q.SetParameter("Con", ElencoRisorse[0, e.RowIndex].Value);
-                        con_sel = (Contenuto)q.List()[0];
+                        con_sel = (Contenuto2)q.List()[0];
                         tempS.Flush();
                         foreach (Altrarisorsa a in con_sel.AltrarisorsaLista)
                         {
@@ -2003,12 +2003,12 @@ namespace TalkingPaper.Authoring
                 {
                     for (int h = 0; h < cont_modificati.Count; h++)
                     {
-                        Contenuto contenuto = new Contenuto();
+                        Contenuto2 contenuto = new Contenuto2();
                         int con = (int)cont_modificati[h];
                         IQuery q = tempS.CreateQuery("FROM Contenuto as cont WHERE cont.IDcontenuto=:content AND cont.Poster.IDposter = :poster");
                         q.SetParameter("content", (int)cont_modificati[h]);
                         q.SetParameter("poster", poster);
-                        contenuto = (Contenuto)q.List()[0];
+                        contenuto = (Contenuto2)q.List()[0];
                         contenuto.Rfidtag = "0";
                         //devo controllare che non sia già stato inserito uno stesso tag per lo stesso poster
                         tempS.Update(contenuto);
@@ -2077,11 +2077,11 @@ namespace TalkingPaper.Authoring
                             {
                                 try
                                 {
-                                    Contenuto contenuto = new Contenuto();
+                                    Contenuto2 contenuto = new Contenuto2();
                                     IQuery q = tempS.CreateQuery("FROM Contenuto as cont WHERE cont.IDcontenuto=:content AND cont.Poster.IDposter = :poster");
                                     q.SetParameter("content", el.GetIdContenuto());
                                     q.SetParameter("poster", poster);
-                                    contenuto = (Contenuto)q.List()[0];
+                                    contenuto = (Contenuto2)q.List()[0];
                                     if (el.GetTagContenuto().CompareTo("Non Usato") != 0)
                                     {
                                         contenuto.Rfidtag = el.GetTagContenuto();

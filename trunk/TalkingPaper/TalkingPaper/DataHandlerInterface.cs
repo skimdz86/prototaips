@@ -38,8 +38,7 @@ namespace TalkingPaper
         //hp: nomeGriglia univoco
         Griglia getGriglia(String nomeGriglia);
 
-        //ritorna i nomi di tutte le griglie presenti (utile quando bisogna avere la lista)
-        //hp: nomeGriglia univoco
+        //ritorna la lista degli oggetti Griglia
         List<Griglia> getListaGriglia();
 
         /* ----- SEZIONE POSTER ----- */
@@ -51,8 +50,7 @@ namespace TalkingPaper
         //hp: nomePoster univoco
         Poster getPoster(String nomePoster);
         
-        //ritorna i nomi di tutti i poster presenti (utile quando bisogna avere la lista)
-        //hp: nomePoster univoco
+        //ritorna la lista degli oggetti Poster
         List<Poster> getListaPoster();
 
         /*
