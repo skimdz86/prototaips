@@ -43,9 +43,9 @@ namespace TalkingPaper
         // y appartiene a {1,2,..} e indica la coordinata orizzontale
         //...funziona quindi come le matrici
         //ATTENZIONE: l'index parte da ZERO: A1 -> 0, A2 -> 1
-        public int getIndexFromCoord(char x, char y)
+        public int getIndexFromCoord(String coord)
         {
-            int index = (x - 'A') * numColonne + (y - '1');
+            int index = (coord[0] - 'A') * numColonne + (coord[1] - '1');
             return index;
         }
 
