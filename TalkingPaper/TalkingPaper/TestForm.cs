@@ -19,7 +19,7 @@ namespace TalkingPaper
         {
             Griglia g = new Griglia("test", 3, 4);
             String s = g.getCoordFromIndex(6);
-            int t = g.getIndexFromCoord('B', '3');
+            int t = g.getIndexFromCoord("B3");
             labelTest1.Text = "indice: 6 --> coord: " + s;
             labelTest2.Text = "coord: B3 --> indice: " + t.ToString();
         }
@@ -28,5 +28,6 @@ namespace TalkingPaper
         {
 
         }
+
     }
 }

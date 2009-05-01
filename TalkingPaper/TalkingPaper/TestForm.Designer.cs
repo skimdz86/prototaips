@@ -35,7 +35,7 @@
             // 
             // buttonTest
             // 
-            this.buttonTest.Location = new System.Drawing.Point(55, 43);
+            this.buttonTest.Location = new System.Drawing.Point(55, 25);
             this.buttonTest.Name = "buttonTest";
             this.buttonTest.Size = new System.Drawing.Size(75, 23);
             this.buttonTest.TabIndex = 0;
@@ -46,19 +46,17 @@
             // labelTest1
             // 
             this.labelTest1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelTest1.Location = new System.Drawing.Point(40, 79);
-            this.labelTest1.MaximumSize = new System.Drawing.Size(100, 100);
+            this.labelTest1.Location = new System.Drawing.Point(23, 69);
             this.labelTest1.Name = "labelTest1";
-            this.labelTest1.Size = new System.Drawing.Size(100, 15);
+            this.labelTest1.Size = new System.Drawing.Size(137, 15);
             this.labelTest1.TabIndex = 1;
             // 
             // labelTest2
             // 
             this.labelTest2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.labelTest2.Location = new System.Drawing.Point(40, 103);
-            this.labelTest2.MaximumSize = new System.Drawing.Size(100, 100);
+            this.labelTest2.Location = new System.Drawing.Point(23, 95);
             this.labelTest2.Name = "labelTest2";
-            this.labelTest2.Size = new System.Drawing.Size(100, 15);
+            this.labelTest2.Size = new System.Drawing.Size(137, 15);
             this.labelTest2.TabIndex = 2;
             // 
             // TestForm

@@ -28,14 +28,15 @@ namespace TalkingPaper
         public void setNome(String nome) { this.nomeGriglia = nome; }
         public void setNumRighe(int numRighe) { this.numRighe = numRighe; }
         public void setNumColonne(int numColonne) { this.numColonne = numColonne; }
+        public void setListaTag(List<String> tagRFID) { this.tagRFID = tagRFID; }
         
         // x appartiene a {A,B,..} e indica la coordinata verticale
         // y appartiene a {1,2,..} e indica la coordinata orizzontale
         //...funziona quindi come le matrici
         //ATTENZIONE: l'index parte da ZERO: A1 -> 0, A2 -> 1
-        public int getIndexFromCoord(char x, char y) 
+        public int getIndexFromCoord(String coord) 
         {
-            int index = (x - 'A') * numColonne + (y - '1');
+            int index = (coord[0] - 'A') * numColonne + (coord[1] - '1');
             return index;
         }
 
