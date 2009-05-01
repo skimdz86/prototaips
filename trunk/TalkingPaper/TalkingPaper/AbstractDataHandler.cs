@@ -26,32 +26,38 @@ namespace TalkingPaper
 
         public bool isAdmin(String username)
         {
-            return false;
+            bool b = ut.isAdmin(username);
+            return b;
         }
 
         public bool registraUtente(String username, String password)
         {
-            return false;
+            bool b = ut.registraUtente(username, password);
+            return b;
         }
 
-        public List<String> getListaUtenti()
+        public List<User> getListaUtenti()
         {
-            return new List<String>();
+            List<User> l = ut.getListaUtenti();
+            return l;
         }
 
         public bool setGriglia(Griglia griglia)
         {
-            return false;
+            bool b = gr.setGriglia(griglia);
+            return b;
         }
 
         public Griglia getGriglia(String nomeGriglia)
         {
-            return new Griglia("",0,0);
+            Griglia g = gr.getGriglia(nomeGriglia);
+            return g;
         }
 
-        public List<Griglia> getListaGriglia()
+        public List<Griglia> getListaGriglie()
         {
-            return new List<Griglia>();
+            List<String> l = gr.getListaGriglie();
+            return l;
         }
 
         public bool setPoster(Poster poster)

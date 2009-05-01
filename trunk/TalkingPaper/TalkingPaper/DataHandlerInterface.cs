@@ -27,7 +27,7 @@ namespace TalkingPaper
         //di chiamare questo metodo
         bool registraUtente(String username, String password);
 
-        List<String> getListaUtenti();
+        List<User> getListaUtenti();
 
         /* ----- SEZIONE GRIGLIA ----- */
 
