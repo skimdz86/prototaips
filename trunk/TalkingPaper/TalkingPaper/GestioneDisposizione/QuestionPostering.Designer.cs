@@ -1,4 +1,4 @@
-namespace TalkingPaper.GestioneDisposizione
+namespace TalkingPaper.Authoring
 {
     partial class QuestionPostering
     {

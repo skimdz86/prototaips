@@ -7,7 +7,7 @@ using System.Collections;
  * NOTA BENE: hp == suppongo
  */
 
-namespace TalkingPaper
+namespace TalkingPaper.DataAccess
 {
     interface DataHandlerInterface
     {

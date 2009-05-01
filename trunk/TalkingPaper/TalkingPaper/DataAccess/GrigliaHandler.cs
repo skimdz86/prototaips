@@ -5,7 +5,7 @@ using System.Xml;
 using System.IO;
 using System.Collections;
 
-namespace TalkingPaper
+namespace TalkingPaper.DataAccess
 {
     class GrigliaHandler : AbstractDataHandler
     {

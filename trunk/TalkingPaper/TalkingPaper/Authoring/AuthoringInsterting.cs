@@ -25,10 +25,10 @@ namespace TalkingPaper.Authoring
     {
         private int tag_per_riga;
         private int tag_per_colonna;
-        private FormVisualizzaElementiAuthoring elenco_elementi;
+        private PosizionaComponentiForm elenco_elementi;
         //private FormScegliPosterAuthoring scelta_poster;
         //private BenvenutoAuthoring partenza;
-        private int rfid_num;
+        
         private Reader.IReader reader;
         private int id_componente;
         private int poster;
@@ -38,7 +38,7 @@ namespace TalkingPaper.Authoring
         private string database;
         private Bitmap immagine_modifica_code;
         private Bitmap immagine_code;
-        private string oldid;
+        
         private string id_pannello;
         private string nome_pannello;
         private bool esiste;
@@ -50,21 +50,21 @@ namespace TalkingPaper.Authoring
         private NHibernateManager nh_manager;
         private Bitmap taggato;
         //private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
-        private TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos;
+        private TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private ElementoGriglia[,] matrice;
         private int num = 0;
         private ArrayList cont_modificati = new ArrayList();
-        private GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges;
+        private Authoring.BenvenutoGestioneDisposizione benvenuto_ges;
         //private ElementoGriglia[,] matrice;
         //private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
 
         //FormVisualizzaElementi elenco_elementi,int id_componente,FormScegliPoster scelta_poster,BenvenutoBarCode partenza,int poster,string nome_poster,int cod_mostra,string directory_principale,string database
-        public AuthoringInsterting(FormVisualizzaElementiAuthoring elenco_elementi, int id_componente, string nome_componente, /*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, GestioneDisposizione.BenvenutoGestioneDisposizione benvenuto_ges)
+        public AuthoringInsterting(PosizionaComponentiForm elenco_elementi, int id_componente, string nome_componente, /*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, Authoring.BenvenutoGestioneDisposizione benvenuto_ges)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
-            oldid = " ";
+            
             reader = new Reader.DumbReader();
             reader.connect();
             //this.matrice = matrice;
@@ -457,7 +457,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
             this.Cursor = Cursors.WaitCursor;
-            FormVisualizzaElementiAuthoring n = new FormVisualizzaElementiAuthoring(poster, nome_poster, cod_mostra, directory_principale, database, benvenuto_pos, id_pannello, nome_pannello, configurazione, this,benvenuto_ges);
+            PosizionaComponentiForm n = new PosizionaComponentiForm(poster, nome_poster, cod_mostra, directory_principale, database, benvenuto_pos, id_pannello, nome_pannello, configurazione, this,benvenuto_ges);
             n.Show();
             //this.Visible = false;
             this.Close();

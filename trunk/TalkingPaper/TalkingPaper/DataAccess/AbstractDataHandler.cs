@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TalkingPaper
+namespace TalkingPaper.DataAccess
 {
     class AbstractDataHandler : DataHandlerInterface
     {
