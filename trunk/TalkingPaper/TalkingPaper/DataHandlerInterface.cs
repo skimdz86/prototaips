@@ -38,7 +38,7 @@ namespace TalkingPaper
         //hp: nomeGriglia univoco
         Griglia getGriglia(String nomeGriglia);
 
-        //ritorna la lista degli oggetti Griglia
+        //ritorna la lista degli oggetti Griglia con solo nome/righe/colonne
         List<Griglia> getListaGriglie();
 
         /* ----- SEZIONE POSTER ----- */

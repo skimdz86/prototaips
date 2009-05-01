@@ -26,18 +26,20 @@ namespace TalkingPaper
             this.griglia = griglia;
             this.numRighe = griglia.getNumRighe();
             this.numColonne = griglia.getNumColonne();
-            contenuti = new List<Contenuto>(numRighe * numColonne);
+            contenuti = null;
         }
 
         public String getNome() { return nomePoster; }
         public String getDescrizione() { return descrizione; }
         public String getUsername() { return username; }
         public Griglia getGriglia() { return griglia; }
+        public List<Contenuto> getContenuti() { return contenuti; }
 
         public void setNome(String nome) { this.nomePoster = nome; }
         public void setDescrizione(String desc) { this.descrizione = desc; }
         public void setUsername(String username) { this.username = username; }
         public void setGriglia(Griglia griglia) { this.griglia = griglia; }
+        public void setContenuti(List<Contenuto> contenuti) { this.contenuti = contenuti; }
 
         // x appartiene a {A,B,..} e indica la coordinata verticale
         // y appartiene a {1,2,..} e indica la coordinata orizzontale
