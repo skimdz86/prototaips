@@ -23,6 +23,7 @@ namespace TalkingPaper
         public String getNome() { return nomeGriglia; }
         public int getNumRighe() { return numRighe; }
         public int getNumColonne() { return numColonne; }
+        public List<String> getListaTag() { return tagRFID; }
 
         public void setNome(String nome) { this.nomeGriglia = nome; }
         public void setNumRighe(int numRighe) { this.numRighe = numRighe; }

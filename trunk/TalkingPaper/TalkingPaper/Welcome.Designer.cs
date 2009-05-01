@@ -33,6 +33,7 @@ namespace TalkingPaper
             this.button2 = new TalkingPaper.MainButton();
             this.Admin = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.test_button = new TalkingPaper.MainButton();
             this.label3 = new System.Windows.Forms.Label();
             this.parlaSchema = new TalkingPaper.MainButton();
             this.label4 = new System.Windows.Forms.Label();
@@ -108,6 +109,7 @@ namespace TalkingPaper
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Orange;
+            this.groupBox1.Controls.Add(this.test_button);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Location = new System.Drawing.Point(28, 172);
@@ -115,6 +117,22 @@ namespace TalkingPaper
             this.groupBox1.Size = new System.Drawing.Size(540, 195);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
+            // 
+            // test_button
+            // 
+            this.test_button.BackColor = System.Drawing.Color.Yellow;
+            this.test_button.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("test_button.BackgroundImage")));
+            this.test_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.test_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.test_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.test_button.Location = new System.Drawing.Point(278, 48);
+            this.test_button.Name = "test_button";
+            this.test_button.Size = new System.Drawing.Size(180, 88);
+            this.test_button.TabIndex = 14;
+            this.test_button.Text = "TEST";
+            this.test_button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.test_button.UseVisualStyleBackColor = false;
+            this.test_button.Click += new System.EventHandler(this.test_button_Click);
             // 
             // label3
             // 
@@ -223,5 +241,6 @@ namespace TalkingPaper
         private MainButton parlaSchema;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private MainButton test_button;
     }
 }
