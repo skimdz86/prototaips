@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TalkingPaper
 {
-    public partial class Registrazione : Form
+    public partial class RegistrationForm : Form
     {
-        public Registrazione()
+        public RegistrationForm()
         {
             InitializeComponent();
         }

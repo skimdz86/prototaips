@@ -40,8 +40,6 @@ namespace TalkingPaper
             return index;
         }
 
-        
-        // ATTENZIONE: NON L'HO ANCORA TESTATA
         public String getCoordFromIndex(int index)
         {
             char x, y;
@@ -50,8 +48,7 @@ namespace TalkingPaper
             y = (char) ((index % numColonne) + '1');
             return x.ToString() + y.ToString();
         }
-       
-
+        
         //se è più comodo, si può fare getTag(x,y)
         public String getTagFromIndex(int index)
         {

@@ -96,7 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AbstractDataHandler.cs" />
+    <Compile Include="DataAccess\AbstractDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\AuthoringInsterting.cs">
       <SubType>Form</SubType>
@@ -119,18 +119,18 @@
     <Compile Include="Authoring\FormVisualizzaElementiAuthoring.Designer.cs">
       <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
     </Compile>
-    <Compile Include="Contenuto.cs" />
-    <Compile Include="DataHandlerInterface.cs" />
-    <Compile Include="Griglia.cs" />
-    <Compile Include="GrigliaHandler.cs" />
-    <Compile Include="Index.cs">
+    <Compile Include="Model\Contenuto.cs" />
+    <Compile Include="DataAccess\DataHandlerInterface.cs" />
+    <Compile Include="Model\Griglia.cs" />
+    <Compile Include="DataAccess\GrigliaHandler.cs" />
+    <Compile Include="Form\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Index.Designer.cs">
-      <DependentUpon>Index.cs</DependentUpon>
+    <Compile Include="Form\IndexForm.Designer.cs">
+      <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Poster.cs" />
-    <Compile Include="PosterHandler.cs" />
+    <Compile Include="Model\Poster.cs" />
+    <Compile Include="DataAccess\PosterHandler.cs" />
     <Compile Include="Reader\DumbReader.cs" />
     <Compile Include="Reader\IReader.cs">
       <SubType>Code</SubType>
@@ -315,11 +315,11 @@
     <Compile Include="Reader\RfidReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Registrazione.cs">
+    <Compile Include="Form\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registrazione.Designer.cs">
-      <DependentUpon>Registrazione.cs</DependentUpon>
+    <Compile Include="Form\RegistrationForm.Designer.cs">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RidimensionaForm.cs" />
     <Compile Include="Risorsamultimediale.cs" />
@@ -330,8 +330,8 @@
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Tipologia.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserHandler.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="DataAccess\UserHandler.cs" />
     <Compile Include="Utente.cs" />
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
@@ -411,8 +411,8 @@
       <DependentUpon>TagRigaColonna.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Index.resx">
-      <DependentUpon>Index.cs</DependentUpon>
+    <EmbeddedResource Include="Form\IndexForm.resx">
+      <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainButton.resx">
       <DependentUpon>MainButton.cs</DependentUpon>
@@ -470,8 +470,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Utente.hbm.xml" />
     <EmbeddedResource Include="Mappings\Contenuto.hbm.xml" />
-    <EmbeddedResource Include="Registrazione.resx">
-      <DependentUpon>Registrazione.cs</DependentUpon>
+    <EmbeddedResource Include="Form\RegistrationForm.resx">
+      <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>

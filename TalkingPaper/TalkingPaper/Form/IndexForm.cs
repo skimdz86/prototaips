@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TalkingPaper
 {
-    public partial class Index : Form
+    public partial class IndexForm : Form
     {
-        public Index()
+        public IndexForm()
         {
             InitializeComponent();
         }
