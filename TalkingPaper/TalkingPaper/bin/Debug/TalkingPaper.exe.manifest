@@ -266,14 +266,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TalkingPaper.exe" size="389632">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TalkingPaper.exe" size="397312">
       <assemblyIdentity name="TalkingPaper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LBOOPKdvqgfl8VxlDrYcAbeLOwg=</dsig:DigestValue>
+        <dsig:DigestValue>rqEsi+vXrv8nJXQ5q1BpJ9Igk1E=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

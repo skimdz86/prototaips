@@ -84,6 +84,12 @@ namespace TalkingPaper
             global.inizio = this;
         }
 
+        private void test_button_Click(object sender, EventArgs e)
+        {
+            TalkingPaper.TestForm f = new TalkingPaper.TestForm();
+            f.Show();
+        }
+
         
 
     }
