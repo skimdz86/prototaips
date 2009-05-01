@@ -17,7 +17,7 @@ namespace TalkingPaper.Reader
         private string BaudRate;
         private Int16 Timeout;
 
-        private ISessionFactory sessionfactory = null;
+        
 
         public RfidProperties()
         { }

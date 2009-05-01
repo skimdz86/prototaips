@@ -12,14 +12,14 @@ namespace TalkingPaper.Config
     public partial class FormRfidConfig : FormSchema
     {
         private Reader.IReader reader;
-        private FormAmministrazione amministrazione;
+        private Administration.AdminHomeForm amministrazione;
         /**
          * 
          * Nella FormRfidConfig mettere dei controlli se ciò che è inserito è corretto: 
          * ricorda errore non gestito se metti COM4 invece che 4 !!!
          * 
          * */
-        public FormRfidConfig(FormAmministrazione amministrazione, string directory_principale)
+        public FormRfidConfig(Administration.AdminHomeForm amministrazione, string directory_principale)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, false);

@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -96,6 +96,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authoring\PannelliConfigurazione.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataAccess\AbstractDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\AuthoringInsterting.cs">
@@ -107,26 +110,29 @@
     <Compile Include="Authoring\ElementoGriglia.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Authoring\FormScegliConfigurazione.cs">
+    <Compile Include="Authoring\ScegliGrigliaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authoring\FormScegliConfigurazione.Designer.cs">
-      <DependentUpon>FormScegliConfigurazione.cs</DependentUpon>
+    <Compile Include="Authoring\ScegliGrigliaForm.Designer.cs">
+      <DependentUpon>ScegliGrigliaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Authoring\FormVisualizzaElementiAuthoring.cs">
+    <Compile Include="Authoring\PosizionaComponentiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Authoring\FormVisualizzaElementiAuthoring.Designer.cs">
-      <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
+    <Compile Include="Authoring\PosizionaComponentiForm.Designer.cs">
+      <DependentUpon>PosizionaComponentiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalVariables.cs">
+      <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Contenuto.cs" />
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
     <Compile Include="Model\Griglia.cs" />
     <Compile Include="DataAccess\GrigliaHandler.cs" />
-    <Compile Include="Form\IndexForm.cs">
+    <Compile Include="Welcome\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\IndexForm.Designer.cs">
+    <Compile Include="Welcome\IndexForm.Designer.cs">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Poster.cs" />
@@ -158,11 +164,11 @@
     <Compile Include="ControlButton.Designer.cs">
       <DependentUpon>ControlButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="ElencoPosterEsecuzioneSingoloModello.cs">
+    <Compile Include="Execution\ElencoCartelloniForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ElencoPosterEsecuzioneSingoloModello.Designer.cs">
-      <DependentUpon>ElencoPosterEsecuzioneSingoloModello.cs</DependentUpon>
+    <Compile Include="Execution\ElencoCartelloniForm.Designer.cs">
+      <DependentUpon>ElencoCartelloniForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -182,69 +188,56 @@
     <Compile Include="FormStorico.Designer.cs">
       <DependentUpon>FormStorico.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\BenvenutoGestioneDisposizione.cs">
+    <Compile Include="Authoring\BenvenutoGestioneDisposizione.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\BenvenutoGestioneDisposizione.Designer.cs">
+    <Compile Include="Authoring\BenvenutoGestioneDisposizione.Designer.cs">
       <DependentUpon>BenvenutoGestioneDisposizione.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\NuovoPoster.cs">
+    <Compile Include="Authoring\NuovoCartelloneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\NuovoPoster.Designer.cs">
-      <DependentUpon>NuovoPoster.cs</DependentUpon>
+    <Compile Include="Authoring\NuovoCartelloneForm.Designer.cs">
+      <DependentUpon>NuovoCartelloneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\PulisciStringa.cs">
+    <Compile Include="Authoring\PulisciStringa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\QuestionEliminaPoster.cs">
+    <Compile Include="Administration\QuestionEliminaPoster.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\QuestionEliminaPoster.Designer.cs">
+    <Compile Include="Administration\QuestionEliminaPoster.Designer.cs">
       <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\QuestionEliminaTag.cs">
+    <Compile Include="Administration\QuestionEliminaTag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\QuestionEliminaTag.Designer.cs">
+    <Compile Include="Administration\QuestionEliminaTag.Designer.cs">
       <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\QuestionPostering.cs">
+    <Compile Include="Administration\TaggaGrigliaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\QuestionPostering.Designer.cs">
-      <DependentUpon>QuestionPostering.cs</DependentUpon>
+    <Compile Include="Administration\TaggaGrigliaForm.Designer.cs">
+      <DependentUpon>TaggaGrigliaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\TaggingDellaParete.cs">
+    <Compile Include="Administration\NuovaGrigliaForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\TaggingDellaParete.Designer.cs">
-      <DependentUpon>TaggingDellaParete.cs</DependentUpon>
+    <Compile Include="Administration\NuovaGrigliaForm.Designer.cs">
+      <DependentUpon>NuovaGrigliaForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\TagRigaColonna.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GestioneDisposizione\TagRigaColonna.Designer.cs">
-      <DependentUpon>TagRigaColonna.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GlobalVar.cs" />
     <Compile Include="MainButton.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="MainButton.Designer.cs">
       <DependentUpon>MainButton.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormAmministrazione.cs">
+    <Compile Include="Administration\AdminHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAmministrazione.Designer.cs">
-      <DependentUpon>FormAmministrazione.cs</DependentUpon>
-    </Compile>
-    <Compile Include="LoginAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LoginAdmin.Designer.cs">
-      <DependentUpon>LoginAdmin.cs</DependentUpon>
+    <Compile Include="Administration\AdminHomeForm.Designer.cs">
+      <DependentUpon>AdminHomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -257,11 +250,11 @@
     <Compile Include="FormErroreStorico.designer.cs">
       <DependentUpon>FormErroreStorico.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormEsecuzioneRfidPoster.cs">
+    <Compile Include="Execution\EsecuzioneCartelloneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormEsecuzioneRfidPoster.designer.cs">
-      <DependentUpon>FormEsecuzioneRfidPoster.cs</DependentUpon>
+    <Compile Include="Execution\EsecuzioneCartelloneForm.designer.cs">
+      <DependentUpon>EsecuzioneCartelloneForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FormVideo.cs">
       <SubType>Form</SubType>
@@ -269,33 +262,32 @@
     <Compile Include="FormVideo.Designer.cs">
       <DependentUpon>FormVideo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\NuovoComponente.cs">
+    <Compile Include="Authoring\AggiungiComponenteForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\NuovoComponente.Designer.cs">
-      <DependentUpon>NuovoComponente.cs</DependentUpon>
+    <Compile Include="Authoring\AggiungiComponenteForm.Designer.cs">
+      <DependentUpon>AggiungiComponenteForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\PannelliConfigurazione.cs" />
-    <Compile Include="GestioneDisposizione\PlayAudio.cs">
+    <Compile Include="Authoring\PlayAudio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\PlayAudio.Designer.cs">
+    <Compile Include="Authoring\PlayAudio.Designer.cs">
       <DependentUpon>PlayAudio.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\PlayVideo.cs">
+    <Compile Include="Authoring\PlayVideo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\PlayVideo.Designer.cs">
+    <Compile Include="Authoring\PlayVideo.Designer.cs">
       <DependentUpon>PlayVideo.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\PosterDellaMostra.cs">
+    <Compile Include="Authoring\ModificaCartelloneForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GestioneDisposizione\PosterDellaMostra.Designer.cs">
-      <DependentUpon>PosterDellaMostra.cs</DependentUpon>
+    <Compile Include="Authoring\ModificaCartelloneForm.Designer.cs">
+      <DependentUpon>ModificaCartelloneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GestioneDisposizione\StampaImmagine.cs" />
-    <Compile Include="GestioneDisposizione\StampaTesto.cs" />
+    <Compile Include="Authoring\StampaImmagine.cs" />
+    <Compile Include="Authoring\StampaTesto.cs" />
     <Compile Include="Mostra.cs" />
     <Compile Include="NHibernateManager.cs" />
     <Compile Include="Poster3.cs" />
@@ -315,10 +307,10 @@
     <Compile Include="Reader\RfidReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Form\RegistrationForm.cs">
+    <Compile Include="Welcome\RegistrationForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\RegistrationForm.Designer.cs">
+    <Compile Include="Welcome\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="RidimensionaForm.cs" />
@@ -333,11 +325,11 @@
     <Compile Include="Model\User.cs" />
     <Compile Include="DataAccess\UserHandler.cs" />
     <Compile Include="Utente.cs" />
-    <Compile Include="Welcome.cs">
+    <Compile Include="Welcome\ChildHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Welcome.Designer.cs">
-      <DependentUpon>Welcome.cs</DependentUpon>
+    <Compile Include="Welcome\ChildHomeForm.Designer.cs">
+      <DependentUpon>ChildHomeForm.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -352,12 +344,12 @@
       <DependentUpon>AuthoringInsterting.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authoring\FormVisualizzaElementiAuthoring.resx">
-      <DependentUpon>FormVisualizzaElementiAuthoring.cs</DependentUpon>
+    <EmbeddedResource Include="Authoring\PosizionaComponentiForm.resx">
+      <DependentUpon>PosizionaComponentiForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ElencoPosterEsecuzioneSingoloModello.resx">
-      <DependentUpon>ElencoPosterEsecuzioneSingoloModello.cs</DependentUpon>
+    <EmbeddedResource Include="Execution\ElencoCartelloniForm.resx">
+      <DependentUpon>ElencoCartelloniForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Form2.resx">
@@ -375,56 +367,48 @@
     <EmbeddedResource Include="hibernate.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="Authoring\FormScegliConfigurazione.resx">
-      <DependentUpon>FormScegliConfigurazione.cs</DependentUpon>
+    <EmbeddedResource Include="Authoring\ScegliGrigliaForm.resx">
+      <DependentUpon>ScegliGrigliaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="ControlButton.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ControlButton.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\BenvenutoGestioneDisposizione.resx">
+    <EmbeddedResource Include="Authoring\BenvenutoGestioneDisposizione.resx">
       <DependentUpon>BenvenutoGestioneDisposizione.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\NuovoPoster.resx">
-      <DependentUpon>NuovoPoster.cs</DependentUpon>
+    <EmbeddedResource Include="Authoring\NuovoCartelloneForm.resx">
+      <DependentUpon>NuovoCartelloneForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\QuestionEliminaPoster.resx">
+    <EmbeddedResource Include="Administration\QuestionEliminaPoster.resx">
       <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\QuestionEliminaTag.resx">
+    <EmbeddedResource Include="Administration\QuestionEliminaTag.resx">
       <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\QuestionPostering.resx">
-      <DependentUpon>QuestionPostering.cs</DependentUpon>
+    <EmbeddedResource Include="Administration\TaggaGrigliaForm.resx">
+      <DependentUpon>TaggaGrigliaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\TaggingDellaParete.resx">
-      <DependentUpon>TaggingDellaParete.cs</DependentUpon>
+    <EmbeddedResource Include="Administration\NuovaGrigliaForm.resx">
+      <DependentUpon>NuovaGrigliaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\TagRigaColonna.resx">
-      <DependentUpon>TagRigaColonna.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form\IndexForm.resx">
+    <EmbeddedResource Include="Welcome\IndexForm.resx">
       <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainButton.resx">
       <DependentUpon>MainButton.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormAmministrazione.resx">
+    <EmbeddedResource Include="Administration\AdminHomeForm.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>FormAmministrazione.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LoginAdmin.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>LoginAdmin.cs</DependentUpon>
+      <DependentUpon>AdminHomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
@@ -435,29 +419,29 @@
       <DependentUpon>FormErroreStorico.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormEsecuzioneRfidPoster.resx">
+    <EmbeddedResource Include="Execution\EsecuzioneCartelloneForm.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>FormEsecuzioneRfidPoster.cs</DependentUpon>
+      <DependentUpon>EsecuzioneCartelloneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormVideo.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormVideo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\NuovoComponente.resx">
+    <EmbeddedResource Include="Authoring\AggiungiComponenteForm.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>NuovoComponente.cs</DependentUpon>
+      <DependentUpon>AggiungiComponenteForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\PlayAudio.resx">
+    <EmbeddedResource Include="Authoring\PlayAudio.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PlayAudio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\PlayVideo.resx">
+    <EmbeddedResource Include="Authoring\PlayVideo.resx">
       <SubType>Designer</SubType>
       <DependentUpon>PlayVideo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GestioneDisposizione\PosterDellaMostra.resx">
+    <EmbeddedResource Include="Authoring\ModificaCartelloneForm.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>PosterDellaMostra.cs</DependentUpon>
+      <DependentUpon>ModificaCartelloneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Altrarisorsa.hbm.xml" />
     <EmbeddedResource Include="Config\FormRfidConfig.resx">
@@ -470,15 +454,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Utente.hbm.xml" />
     <EmbeddedResource Include="Mappings\Contenuto.hbm.xml" />
-    <EmbeddedResource Include="Form\RegistrationForm.resx">
+    <EmbeddedResource Include="Welcome\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Welcome.resx">
+    <EmbeddedResource Include="Welcome\ChildHomeForm.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>Welcome.cs</DependentUpon>
+      <DependentUpon>ChildHomeForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

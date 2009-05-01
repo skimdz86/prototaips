@@ -54,7 +54,7 @@ namespace TalkingPaper
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             //add by mac
-            if (pictureBoxPost2.Visible = true)
+            if (pictureBoxPost2.Visible == true)
             {
                 pictureBoxPost2.Visible = false;
                 textBoxPost.Visible = false;

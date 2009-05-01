@@ -6,21 +6,21 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TalkingPaper.GestioneDisposizione
+namespace TalkingPaper.Authoring
 {
     public partial class QuestionPostering : Form
     {
         BenvenutoGestioneDisposizione benvenuto;
-        private Welcome inizio;
+        private Welcome.ChildHomeForm inizio;
         //private ComponentiDelPoster componenti_poster;
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
         private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
         private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
-        private TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut;
+        private TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut;
 
-        public QuestionPostering(BenvenutoGestioneDisposizione benvenuto, Welcome inizio, /*ComponentiDelPoster componenti_poster,*/ /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut)
+        public QuestionPostering(BenvenutoGestioneDisposizione benvenuto, Welcome.ChildHomeForm inizio, /*ComponentiDelPoster componenti_poster,*/ /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 45, true);
