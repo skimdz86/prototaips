@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.IO;
+using System.Collections;
 
 namespace TalkingPaper
 {
@@ -31,35 +32,22 @@ namespace TalkingPaper
             el.SetAttribute("Nome", gr.getNome());
             el.SetAttribute("Righe", gr.getNumRighe().ToString());
             el.SetAttribute("Colonne", gr.getNumColonne().ToString());
+            List<String> tempTags = gr.getListaTag();
+            for (int i = 0; i < tempTags.Count; i++) {
+                if(tempTags[i]!=null){
+                XmlElement cella = (XmlElement)doc.CreateElement("Cella");
+                cella.SetAttribute("Coordinate",gr.getCoordFromIndex(i));
+                XmlText tag = (XmlText)doc.CreateTextNode(tempTags[i]);
+                cella.AppendChild(tag);
+                el.AppendChild(cella);
+                }
+            }
             doc.DocumentElement.AppendChild(el);
             stream.Close();
             doc.Save(filepath);
             return ID;
         }
-        ////////////////////////////////usare funz di yan
-        public void InsertTags(String idGriglia, String riga, String colonna, String tag, String filepath)
-        {
-            //se inserire piu assieme, far passare un arraylist
-            XmlDocument doc = new XmlDocument();
-            FileStream stream = new FileStream(filepath, FileMode.Open);
-            doc.Load(stream);
-            XmlNodeList list = doc.GetElementsByTagName("Griglia");
-            for (int i = 0; i < list.Count; i++)
-            {
-                XmlElement temp = (XmlElement)doc.GetElementsByTagName("Griglia")[i];
-                if (temp.GetAttribute("ID") == idGriglia)
-                {
-                    XmlElement el1 = doc.CreateElement(riga + colonna);
-                    XmlText rfid = doc.CreateTextNode(tag);
-                    el1.AppendChild(rfid);
-                    temp.AppendChild(el1);
-                    //break;
-                }
-            }
-            stream.Close();
-            doc.Save(filepath);
-        }
-
+        
 
         //utile?
         public void RemoveGriglia(String idGriglia, String filepath)
@@ -81,7 +69,7 @@ namespace TalkingPaper
         }
 
         public List<Griglia> getListaGriglie()
-        {//forse utile anche bean griglia
+        {
             XmlDocument doc = new XmlDocument();
             FileStream stream = new FileStream(filepath, FileMode.Open);
             doc.Load(stream);
@@ -92,35 +80,40 @@ namespace TalkingPaper
                 XmlElement x = (XmlElement)doc.GetElementsByTagName("Griglia")[i];
                 Griglia gr = new Griglia("",0,0);
                 gr.setNome(x.GetAttribute("Nome"));
-                gr.setNumRighe(x.GetAttribute("Righe"));
-                gr.setNumColonne(x.GetAttribute("Colonne"));
+                int r=Convert.ToInt32(x.GetAttribute("Righe"));
+                int c = Convert.ToInt32(x.GetAttribute("Colonne"));
+                gr.setNumRighe(r);
+                gr.setNumColonne(c);
                 tempGr.Add(gr);
             }
             return tempGr;
         }
-        public void ReadGriglia(String id, String filepath)
-        {
-            ///////ma questa pero è inutile, le caratteristiche le leggo con listagriglie!!!
-        }
-        public String ReadCella(String id, String filepath, String riga, String colonna)
+        public Griglia getGriglia(String nome)
         {
             XmlDocument doc = new XmlDocument();
             FileStream stream = new FileStream(filepath, FileMode.Open);
             doc.Load(stream);
-            String tagtemp = "";
-            XmlNodeList list = doc.GetElementsByTagName("Griglia");
-            for (int i = 0; i < list.Count; i++)
-            {
-                XmlElement xel = (XmlElement)doc.GetElementsByTagName("Griglia")[i];
-                if (xel.GetAttribute("ID") == id)
-                {
-                    XmlNodeList tagList = xel.GetElementsByTagName(riga + colonna);
-                    XmlElement xt = (XmlElement)tagList.Item(0);//evitato un for inutile, c'è un solo elem tanto, ma forse un altro for puo gestire eccezione
-                    tagtemp = xt.InnerText;
-                    break;//forse comodo per l'efficienza
+            Griglia tempGr = new Griglia("", 0, 0);
+            XmlNodeList grList = doc.GetElementsByTagName("Griglia");
+            for (int i = 0; i < grList.Count; i++) {
+                XmlElement x=(XmlElement)doc.GetElementsByTagName("Griglia")[i];
+                if (x.GetAttribute("Nome") == nome) {
+                    tempGr.setNome(x.GetAttribute("Nome"));
+                    int r=Convert.ToInt32(x.GetAttribute("Righe"));
+                    int c=Convert.ToInt32(x.GetAttribute("Colonne"));
+                    tempGr.setNumRighe(r);
+                    tempGr.setNumColonne(c);
+                    XmlNodeList celleList=x.GetElementsByTagName("Cella");
+                    List<String> tags=new List<string>(r*c);
+                    for(int j=0;j<celleList.Count;j++){
+                        XmlElement y=(XmlElement)x.GetElementsByTagName("Cella")[j];
+                        if(y.InnerText!=null) tags[j]=y.InnerText;
+                    }
+                    tempGr.setListaTag(tags);
                 }
             }
-            return tagtemp;
+            return tempGr;
         }
+
     }
 }

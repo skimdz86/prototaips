@@ -4,14 +4,24 @@ using System.Text;
 
 namespace TalkingPaper
 {
-    abstract class AbstractDataHandler : DataHandlerInterface
+    class AbstractDataHandler : DataHandlerInterface
     {
+        GrigliaHandler gr;
+        UserHandler ut;
+        PosterHandler pos;
 
+        public AbstractDataHandler() {
+            gr = new GrigliaHandler();
+            ut = new UserHandler();
+            pos = new PosterHandler();
+        }
+        
         #region DataHandlerInterface Membri di
 
         public bool autenticaUtente(String username, String password)
         {
-            return false;
+            bool b=ut.autenticaUtente(username, password);
+            return b;
         }
 
         public bool isAdmin(String username)
@@ -51,7 +61,7 @@ namespace TalkingPaper
 
         public Poster getPoster(String nomePoster)
         {
-            return new Poster();
+            return new Poster("", "", "", null);
         }
 
         public List<Poster> getListaPoster()
