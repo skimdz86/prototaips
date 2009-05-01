@@ -105,7 +105,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>stQ9Xw0XhnXxBOWtRmMXIY/+pdU=</dsig:DigestValue>
+        <dsig:DigestValue>ns518QAvzR0xb0FyFxM5j4xHfWU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -117,7 +117,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>XJM+Kv97HIFgAxTtL/f1ZN2iLYY=</dsig:DigestValue>
+        <dsig:DigestValue>tNBqwosnGEa/I3azINYwcGvmZJ4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper.dll" size="6656">
+      <assemblyIdentity name="Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>ovEHyA8+liRvg6mFimVvWnsW5NE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -129,7 +141,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>LChBywoHKZkHt9+oxhdo5ro6k+U=</dsig:DigestValue>
+        <dsig:DigestValue>BORqm4wKx0D49RVGKJXzJb3VOoc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -141,7 +153,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>N4Z2bTHOvUZ3QFDCYs58fSfJTug=</dsig:DigestValue>
+        <dsig:DigestValue>ZfIind8d2mjevtOp2iVuGudyF3Q=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -153,7 +165,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>APWGRSRJdzrWvJckDS6nrVcT9xA=</dsig:DigestValue>
+        <dsig:DigestValue>8nGP67LADaGSmeB+z1R9LgmUZw4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -165,7 +177,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>I4BNMwBqMnA7tzXN7ksXrtKL9j4=</dsig:DigestValue>
+        <dsig:DigestValue>Mz7BB4OthPTV8Y4VbpYs/vQh6aA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -189,7 +201,55 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>MSP2kQ5ULoQVJEta9gbdboWc+A8=</dsig:DigestValue>
+        <dsig:DigestValue>gTP38DveLlrF7s8Aw6duCDZshA4=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOLoaderLib.dll" size="6144">
+      <assemblyIdentity name="Interop.VSTOLoaderLib" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>TKxfTC4MTKkp6WpEYzQmQgRSLzE=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOPersistLib.dll" size="3584">
+      <assemblyIdentity name="Interop.VSTOPersistLib" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>0jDKbb4fHjk0N+ukNUy3z6bVH4I=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOStgLib.dll" size="6144">
+      <assemblyIdentity name="Interop.VSTOStgLib" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>5M2WSX/fgFVNuf+82yoMFlJ9OAQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOStorage.dll" size="5120">
+      <assemblyIdentity name="Interop.VSTOStorage" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <dsig:DigestValue>zAC7sMOi3MGgMja+FkcjMSz3g2M=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -201,7 +261,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>/UpPhdnDl1aujtIAFVEergBfobM=</dsig:DigestValue>
+        <dsig:DigestValue>166cGl5QtdRR64SiuIqTkdZSmak=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -266,14 +326,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TalkingPaper.exe" size="397312">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TalkingPaper.exe" size="397824">
       <assemblyIdentity name="TalkingPaper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>rqEsi+vXrv8nJXQ5q1BpJ9Igk1E=</dsig:DigestValue>
+        <dsig:DigestValue>JFFJ3gbH/EQkBJG4u+GnAZelqVE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

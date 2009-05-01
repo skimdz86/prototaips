@@ -64,10 +64,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="Interop.QuartzTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\TaggingPhase2\TaggingPhase2\bin\Debug\Interop.QuartzTypeLib.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.VSTOLoaderLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.VSTOPersistLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.VSTOStgLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Interop.VSTOStorage, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Programmi\NHibernate\bin\net-2.0\log4net.dll</HintPath>
@@ -116,7 +121,12 @@
     <Compile Include="Contenuto.cs" />
     <Compile Include="DataHandlerInterface.cs" />
     <Compile Include="Griglia.cs" />
-    <Compile Include="InterfacciaPassoPasso.cs" />
+    <Compile Include="Index.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Index.Designer.cs">
+      <DependentUpon>Index.cs</DependentUpon>
+    </Compile>
     <Compile Include="Poster.cs" />
     <Compile Include="Reader\DumbReader.cs" />
     <Compile Include="Reader\IReader.cs">
@@ -302,6 +312,12 @@
     <Compile Include="Reader\RfidReader.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Registrazione.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registrazione.Designer.cs">
+      <DependentUpon>Registrazione.cs</DependentUpon>
+    </Compile>
     <Compile Include="RidimensionaForm.cs" />
     <Compile Include="Risorsamultimediale.cs" />
     <Compile Include="TestForm.cs">
@@ -391,6 +407,9 @@
       <DependentUpon>TagRigaColonna.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Index.resx">
+      <DependentUpon>Index.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainButton.resx">
       <DependentUpon>MainButton.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -447,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Utente.hbm.xml" />
     <EmbeddedResource Include="Mappings\Contenuto.hbm.xml" />
+    <EmbeddedResource Include="Registrazione.resx">
+      <DependentUpon>Registrazione.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestForm.resx">
       <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -459,14 +481,6 @@
     <COMReference Include="LCC11">
       <Guid>{EDCD5812-6A06-43C3-AFAC-46EF5D14E22C}</Guid>
       <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper">
-      <Guid>{4ABEF68D-9E05-37AB-9FE9-EF4849758F77}</Guid>
-      <VersionMajor>2</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
@@ -516,38 +530,6 @@
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>5</VersionMajor>
       <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="VSTOLoaderLib">
-      <Guid>{26413EE5-FB0F-4A5C-9081-D31DF95AEC26}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="VSTOPersistLib">
-      <Guid>{0A6AAF7B-E625-4F32-B859-902827B0A390}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="VSTOStgLib">
-      <Guid>{AB1E997C-5EC7-4A2D-BB74-4BA1B09CB73A}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="VSTOStorage">
-      <Guid>{17B6448A-3361-4B4C-8ACC-6EF12BBDDBB1}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
