@@ -39,7 +39,7 @@ namespace TalkingPaper
         Griglia getGriglia(String nomeGriglia);
 
         //ritorna la lista degli oggetti Griglia
-        List<Griglia> getListaGriglia();
+        List<Griglia> getListaGriglie();
 
         /* ----- SEZIONE POSTER ----- */
 

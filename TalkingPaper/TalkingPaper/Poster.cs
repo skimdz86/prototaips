@@ -31,8 +31,13 @@ namespace TalkingPaper
 
         public String getNome() { return nomePoster; }
         public String getDescrizione() { return descrizione; }
-        public String getUsernama() { return username; }
+        public String getUsername() { return username; }
         public Griglia getGriglia() { return griglia; }
+
+        public void setNome(String nome) { this.nomePoster = nome; }
+        public void setDescrizione(String desc) { this.descrizione = desc; }
+        public void setUsername(String username) { this.username = username; }
+        public void setGriglia(Griglia griglia) { this.griglia = griglia; }
 
         // x appartiene a {A,B,..} e indica la coordinata verticale
         // y appartiene a {1,2,..} e indica la coordinata orizzontale
@@ -42,6 +47,16 @@ namespace TalkingPaper
         {
             int index = (x - 'A') * numColonne + (y - '1');
             return index;
+        }
+
+        // ATTENZIONE: NON L'HO ANCORA TESTATA
+        public String getCoordFromIndex(int index)
+        {
+            char x, y;
+            int offset = 'A';
+            x = (char)((int)(index / numColonne) + offset);
+            y = (char)((index % numColonne) + '1');
+            return x.ToString() + y.ToString();
         }
 
         //se è più comodo, si può fare getContenuto(x,y)

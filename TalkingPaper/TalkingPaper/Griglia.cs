@@ -23,6 +23,10 @@ namespace TalkingPaper
         public String getNome() { return nomeGriglia; }
         public int getNumRighe() { return numRighe; }
         public int getNumColonne() { return numColonne; }
+
+        public void setNome(String nome) { this.nomeGriglia = nome; }
+        public void setNumRighe(int numRighe) { this.numRighe = numRighe; }
+        public void setNumColonne(int numColonne) { this.numColonne = numColonne; }
         
         // x appartiene a {A,B,..} e indica la coordinata verticale
         // y appartiene a {1,2,..} e indica la coordinata orizzontale
@@ -34,18 +38,17 @@ namespace TalkingPaper
             return index;
         }
 
-        //Work in progress
-        /*
+        
+        // ATTENZIONE: NON L'HO ANCORA TESTATA
         public String getCoordFromIndex(int index)
         {
             char x, y;
             int offset = 'A';
             x = (char)((int)(index / numColonne) + offset);
-            //y = index % numColonne;
-            return x + y;
+            y = (char) ((index % numColonne) + '1');
+            return x.ToString() + y.ToString();
         }
-        */
-
+       
 
         //se è più comodo, si può fare getTag(x,y)
         public String getTagFromIndex(int index)
