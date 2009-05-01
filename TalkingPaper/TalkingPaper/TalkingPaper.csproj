@@ -91,6 +91,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbstractDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\AuthoringInsterting.cs">
       <SubType>Form</SubType>
@@ -116,8 +117,10 @@
     <Compile Include="Contenuto.cs" />
     <Compile Include="DataHandlerInterface.cs" />
     <Compile Include="Griglia.cs" />
+    <Compile Include="GrigliaHandler.cs" />
     <Compile Include="InterfacciaPassoPasso.cs" />
     <Compile Include="Poster.cs" />
+    <Compile Include="PosterHandler.cs" />
     <Compile Include="Reader\DumbReader.cs" />
     <Compile Include="Reader\IReader.cs">
       <SubType>Code</SubType>
@@ -305,6 +308,8 @@
     <Compile Include="RidimensionaForm.cs" />
     <Compile Include="Risorsamultimediale.cs" />
     <Compile Include="Tipologia.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserHandler.cs" />
     <Compile Include="Utente.cs" />
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
