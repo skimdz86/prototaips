@@ -21,7 +21,7 @@ namespace TalkingPaper
             writer.WriteEndDocument();
             writer.Close();
         }
-        public String setGriglia(Griglia gr)
+        public bool setGriglia(Griglia gr)
         {
             String ID = "Generare un id per la griglia, magari casuale";//////////////////
             XmlDocument doc = new XmlDocument();
