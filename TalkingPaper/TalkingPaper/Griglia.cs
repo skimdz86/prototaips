@@ -17,7 +17,7 @@ namespace TalkingPaper
             this.nomeGriglia = nome;
             this.numRighe = numRighe;
             this.numColonne = numColonne;
-            tagRFID = new List<String>(numRighe*numColonne);
+            tagRFID = null;
         }
 
         public String getNome() { return nomeGriglia; }
