@@ -43,6 +43,21 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Office.Interop.Word" version="12.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Vbe.Interop" version="12.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="office" version="12.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
       <assemblyIdentity name="stdole" version="7.0.3300.0" publicKeyToken="B03F5F7F11D50A3A" language="neutral" />
     </dependentAssembly>
   </dependency>
@@ -90,7 +105,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ayrATEVEE+kaNZLOSSPngbhsry8=</dsig:DigestValue>
+        <dsig:DigestValue>stQ9Xw0XhnXxBOWtRmMXIY/+pdU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -102,19 +117,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>SmfLJDfyG2NppwwweE/jfo9IszY=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper.dll" size="6656">
-      <assemblyIdentity name="Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>ovEHyA8+liRvg6mFimVvWnsW5NE=</dsig:DigestValue>
+        <dsig:DigestValue>XJM+Kv97HIFgAxTtL/f1ZN2iLYY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -126,7 +129,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>QZGUbzCZa9LSsdf2oEPFATIEMeQ=</dsig:DigestValue>
+        <dsig:DigestValue>LChBywoHKZkHt9+oxhdo5ro6k+U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -138,7 +141,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>1FkBdUkL70kuijoMEe6hwbh0USM=</dsig:DigestValue>
+        <dsig:DigestValue>N4Z2bTHOvUZ3QFDCYs58fSfJTug=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -150,7 +153,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HUT7HUp/RmUwY+bUkqATfKOeTRA=</dsig:DigestValue>
+        <dsig:DigestValue>APWGRSRJdzrWvJckDS6nrVcT9xA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -162,7 +165,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>RWXhx9lSbT4orzswlQqpgkwRhFg=</dsig:DigestValue>
+        <dsig:DigestValue>I4BNMwBqMnA7tzXN7ksXrtKL9j4=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -186,55 +189,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>uPpE9YttgIVT96iLVs3tcZ2+hM0=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOLoaderLib.dll" size="6144">
-      <assemblyIdentity name="Interop.VSTOLoaderLib" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>TKxfTC4MTKkp6WpEYzQmQgRSLzE=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOPersistLib.dll" size="3584">
-      <assemblyIdentity name="Interop.VSTOPersistLib" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>0jDKbb4fHjk0N+ukNUy3z6bVH4I=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOStgLib.dll" size="6144">
-      <assemblyIdentity name="Interop.VSTOStgLib" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>5M2WSX/fgFVNuf+82yoMFlJ9OAQ=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Interop.VSTOStorage.dll" size="5120">
-      <assemblyIdentity name="Interop.VSTOStorage" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>zAC7sMOi3MGgMja+FkcjMSz3g2M=</dsig:DigestValue>
+        <dsig:DigestValue>MSP2kQ5ULoQVJEta9gbdboWc+A8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -246,7 +201,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>aRiq2+9vjaJXOmL9ouhP+xke5A4=</dsig:DigestValue>
+        <dsig:DigestValue>/UpPhdnDl1aujtIAFVEergBfobM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -259,30 +214,6 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
         <dsig:DigestValue>gs3mWnUUwORl7g1QW+VsVmOf8LE=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Office.Interop.Word.dll" size="662120">
-      <assemblyIdentity name="Microsoft.Office.Interop.Word" version="11.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>HzVG6xdU9ZLGv1y6C8IKrWtlhAY=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.Vbe.Interop.dll" size="64088">
-      <assemblyIdentity name="Microsoft.Vbe.Interop" version="11.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>TYuB9hyuoYvM3Fgsjd+TSTdMLbY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -323,18 +254,6 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="office.dll" size="223800">
-      <assemblyIdentity name="office" version="11.0.0.0" publicKeyToken="71E9BCE111E9429C" language="neutral" />
-      <hash>
-        <dsig:Transforms>
-          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
-        </dsig:Transforms>
-        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>qLZAFskrUjHV/TFbvevZR7hSGP4=</dsig:DigestValue>
-      </hash>
-    </dependentAssembly>
-  </dependency>
-  <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RFIDlibrary.dll" size="28672">
       <assemblyIdentity name="RFIDlibrary" version="1.0.2886.29054" language="neutral" processorArchitecture="msil" />
       <hash>
@@ -347,14 +266,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TalkingPaper.exe" size="386560">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TalkingPaper.exe" size="388608">
       <assemblyIdentity name="TalkingPaper" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>Jhm7orklxkbzamboCEEDvDvYxUA=</dsig:DigestValue>
+        <dsig:DigestValue>LOV2Gr+Ja8M/tf439nBy+zlszBM=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

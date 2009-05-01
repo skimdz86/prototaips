@@ -18,7 +18,7 @@ namespace TalkingPaper
         private int _ordine;
         private Tipologia _tipo;
         private Risorsamultimediale _risorsaMultimediale;
-        private Poster _poster;
+        private Poster3 _poster;
         private string _barcode;
         private string _rfidtag;
         private string _nome;
@@ -71,7 +71,7 @@ namespace TalkingPaper
             set { _risorsaMultimediale = value; }
         }
 
-        public virtual Poster Poster
+        public virtual Poster3 Poster
         {
             get { return _poster; }
             set { _poster = value; }

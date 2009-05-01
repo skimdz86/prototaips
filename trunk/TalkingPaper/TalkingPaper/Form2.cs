@@ -95,8 +95,8 @@ namespace TalkingPaper
             {
                 Console.WriteLine("Provo a leggere l'intera tabella dei poster");
                 //Interrogo l'intera tabella del db
-                IList posterList = session.CreateCriteria(typeof(Poster)).List();
-                foreach (Poster p in posterList)
+                IList posterList = session.CreateCriteria(typeof(Poster3)).List();
+                foreach (Poster3 p in posterList)
                 {
                     System.Diagnostics.Debug.WriteLine("Ecco il poster " + p.IDposter+ " di numero " + p.Ordine);
 
@@ -108,7 +108,7 @@ namespace TalkingPaper
                     System.Diagnostics.Debug.WriteLine("Ecco la mostra"+ m.IDmostra + " nome " + m.Nome +" di autore" + m.Autore);
                     IList a1 = m.PosterLista;
 
-                    foreach (Poster p1 in a1)
+                    foreach (Poster3 p1 in a1)
                     {
                         System.Diagnostics.Debug.WriteLine("Ecco il poster " + p1.Descrizione + " di numero " + p1.Ordine +"della mostra M " + m.Nome);
                     }

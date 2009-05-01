@@ -294,10 +294,10 @@ namespace TalkingPaper.Authoring
             {
                 try
                 {
-                    Poster poster_sel = new Poster();
+                    Poster3 poster_sel = new Poster3();
                     IQuery q = tempS.CreateQuery("FROM Poster as pt WHERE pt.IDposter=:Pos");
                     q.SetParameter("Pos", poster);
-                    poster_sel = (Poster)q.List()[0];
+                    poster_sel = (Poster3)q.List()[0];
                     tempS.Flush();
                     tempT.Commit();
                     //contenuti_sel = poster_sel.ContenutoLista;
@@ -476,10 +476,10 @@ namespace TalkingPaper.Authoring
             {
                 try
                 {
-                    Poster poster_sel = new Poster();
+                    Poster3 poster_sel = new Poster3();
                     IQuery q = tempS.CreateQuery("FROM Poster as pt WHERE pt.IDposter=:Pos");
                     q.SetParameter("Pos", poster);
-                    poster_sel = (Poster)q.List()[0];
+                    poster_sel = (Poster3)q.List()[0];
                     tempS.Flush();
                     foreach (Contenuto c in poster_sel.ContenutoLista)
                     {

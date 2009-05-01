@@ -119,7 +119,7 @@ namespace TalkingPaper
                         else
                         {
                             poster = new ArrayList();
-                            foreach (Poster m in poster_sel)
+                            foreach (Poster3 m in poster_sel)
                             {
                                 poster.Add(m.IDposter);
                                 poster.Add(m.Nome);
@@ -158,7 +158,7 @@ namespace TalkingPaper
                         else
                         {
                             poster = new ArrayList();
-                            foreach (Poster m in poster_sel)
+                            foreach (Poster3 m in poster_sel)
                             {
                                 try
                                 {

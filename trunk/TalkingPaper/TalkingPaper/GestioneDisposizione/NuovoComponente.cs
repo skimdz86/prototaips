@@ -617,10 +617,10 @@ namespace TalkingPaper.GestioneDisposizione
                         q.SetParameter("Des", descrizione_tipologia);
                         tipologia = (Tipologia)q.List()[0];
                         //contenuto.Tipo = tipologia;
-                        Poster poster2 = new Poster();
+                        Poster3 poster2 = new Poster3();
                         IQuery q2 = tempS.CreateQuery("FROM Poster as pt WHERE pt.IDposter=:Pos");
                         q2.SetParameter("Pos", id_poster);
-                        poster2 = (Poster)q2.List()[0];
+                        poster2 = (Poster3)q2.List()[0];
                         //contenuto.Poster = poster2;
                         //tempS.Save(contenuto);
                         //tempS.Flush();

@@ -179,7 +179,7 @@ namespace TalkingPaper.GestioneDisposizione
 
                             // Riempimento della DataGrid
                             int riga = 2;
-                            foreach (Poster p in mostra_sel.PosterLista)
+                            foreach (Poster3 p in mostra_sel.PosterLista)
                             {
                                 DataGridViewImageCell immagine_modifica = new DataGridViewImageCell();
                                 immagine_modifica.Value = immagine_modifica_poster;
@@ -228,7 +228,7 @@ namespace TalkingPaper.GestioneDisposizione
                         poster_sel = q.List();
                         tempT.Commit();
                         int nulli = 0;
-                        foreach (Poster p in poster_sel)
+                        foreach (Poster3 p in poster_sel)
                         {
                             if (p.Mostra == null)
                             {
@@ -273,7 +273,7 @@ namespace TalkingPaper.GestioneDisposizione
                             ElencoRisorse.CellMouseEnter += new DataGridViewCellEventHandler(ElencoRisorse_CellMouseEnter);
                             // Riempimento della DataGrid
                             int riga = 2;
-                            foreach (Poster p in poster_sel)
+                            foreach (Poster3 p in poster_sel)
                             {
                                 if (p.Mostra == null)
                                 {

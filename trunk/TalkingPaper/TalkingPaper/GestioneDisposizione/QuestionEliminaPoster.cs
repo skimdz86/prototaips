@@ -355,8 +355,8 @@ namespace TalkingPaper.GestioneDisposizione
                     int idd_mostra;
                     Mostra mm = new Mostra();
                     q.SetParameter("Pos", id_poster);
-                    Poster poster = new Poster();
-                    poster = (Poster)q.List()[0];
+                    Poster3 poster = new Poster3();
+                    poster = (Poster3)q.List()[0];
                     try
                     {
                         idd_mostra = poster.Mostra.IDmostra;
