@@ -56,7 +56,7 @@ namespace TalkingPaper
 
         public List<Griglia> getListaGriglie()
         {
-            List<String> l = gr.getListaGriglie();
+            List<Griglia> l = gr.getListaGriglie();
             return l;
         }
 
