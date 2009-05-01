@@ -27,6 +27,8 @@ namespace TalkingPaper
         //di chiamare questo metodo
         bool registraUtente(String username, String password);
 
+        List<String> getListaUtenti();
+
         /* ----- SEZIONE GRIGLIA ----- */
 
         //Memorizza l'oggetto Griglia
@@ -38,7 +40,7 @@ namespace TalkingPaper
 
         //ritorna i nomi di tutte le griglie presenti (utile quando bisogna avere la lista)
         //hp: nomeGriglia univoco
-        List<String> getListaGriglia();
+        List<Griglia> getListaGriglia();
 
         /* ----- SEZIONE POSTER ----- */
 
@@ -51,7 +53,7 @@ namespace TalkingPaper
         
         //ritorna i nomi di tutti i poster presenti (utile quando bisogna avere la lista)
         //hp: nomePoster univoco
-        List<String> getListaPoster();
+        List<Poster> getListaPoster();
 
         /*
          * Non c'è la sezione COMPONENTE, perchè i componenti

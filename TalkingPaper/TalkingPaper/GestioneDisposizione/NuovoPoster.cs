@@ -250,7 +250,7 @@ namespace TalkingPaper.GestioneDisposizione
                         //q2.SetParameter("Mos", id_mostra);
                         tipologia_controlli = q3.List();
                         tempS.Flush();
-                        Poster poster = new Poster();
+                        Poster3 poster = new Poster3();
                         poster.Nome = Nome.Text;
                         poster.Descrizione = Descrizione.Text;
                         //nuovo.Ordine = ordine;
@@ -280,21 +280,21 @@ namespace TalkingPaper.GestioneDisposizione
                         }
                         tempS.Update(poster);
                         tempS.Flush();
-                        Poster eccolo = new Poster();
+                        Poster3 eccolo = new Poster3();
                         IList poster_sel;
                         IQuery q4 = tempS.CreateQuery("FROM Poster as pt");
                         //q2.SetParameter("Mos", id_mostra);
                         poster_sel = q4.List();
-                        foreach (Poster p in poster_sel)
+                        foreach (Poster3 p in poster_sel)
                         {
                             eccolo = p;
                         }
                         tempS.Flush();
-                        Poster ultimo = new Poster();
+                        Poster3 ultimo = new Poster3();
                         IList tutti_poster;
                         IQuery q5 = tempS.CreateQuery("FROM Poster as pt");
                         tutti_poster = q5.List();
-                        foreach (Poster p in tutti_poster)
+                        foreach (Poster3 p in tutti_poster)
                         {
                             ultimo = p;
                         }

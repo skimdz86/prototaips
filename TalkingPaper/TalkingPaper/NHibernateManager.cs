@@ -151,7 +151,7 @@ namespace TalkingPaper
         /// <param name="id">the id of the poster</param>
         public void update_poster(int id , string new_nome)
         {
-            Poster selected_poster = null;
+            Poster3 selected_poster = null;
 
             using (ISession tempS = factory.OpenSession())
             using (ITransaction tempT = tempS.BeginTransaction())
@@ -164,7 +164,7 @@ namespace TalkingPaper
                         "where poster.IDposter = :id"
                         );
                     q.SetParameter("id", id);
-                    selected_poster = (Poster)q.List()[0];
+                    selected_poster = (Poster3)q.List()[0];
               
                     selected_poster.Nome = new_nome;
 
@@ -191,7 +191,7 @@ namespace TalkingPaper
         /// </summary>
         /// <param name="id">the key-id of the Poster</param>
             public void delete_poster( int id ){
-            Poster selected_poster = null;
+            Poster3 selected_poster = null;
 
             using (ISession tempS = factory.OpenSession())
             using (ITransaction tempT = tempS.BeginTransaction())
@@ -204,7 +204,7 @@ namespace TalkingPaper
                         "where poster.IDposter = :id"
                         );
                     q.SetParameter("id", id);
-                    selected_poster = (Poster)q.List()[0];
+                    selected_poster = (Poster3)q.List()[0];
 
                     tempS.Delete(selected_poster);
                     tempS.Flush();
