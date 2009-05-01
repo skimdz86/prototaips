@@ -23,7 +23,7 @@ namespace TalkingPaper
         }
         public bool setGriglia(Griglia gr)
         {
-            String ID = "Generare un id per la griglia, magari casuale";//////////////////
+            //String ID = "Generare un id per la griglia, magari casuale";//////////////////
             XmlDocument doc = new XmlDocument();
             FileStream stream = new FileStream(filepath, FileMode.Open);
             doc.Load(stream);
@@ -45,7 +45,7 @@ namespace TalkingPaper
             doc.DocumentElement.AppendChild(el);
             stream.Close();
             doc.Save(filepath);
-            return ID;
+            return true;
         }
         
 
