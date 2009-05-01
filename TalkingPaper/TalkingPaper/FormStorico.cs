@@ -19,7 +19,7 @@ namespace TalkingPaper
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
             cont = 0;
-            Contenuto[] arr_cont = (Contenuto[])arrayStorico.ToArray(typeof(Contenuto));
+            Contenuto2[] arr_cont = (Contenuto2[])arrayStorico.ToArray(typeof(Contenuto2));
             DateTime[] arr_data = (DateTime[]) arrayData.ToArray(typeof(DateTime));
 
             if( arr_cont.Length != arr_data.Length)

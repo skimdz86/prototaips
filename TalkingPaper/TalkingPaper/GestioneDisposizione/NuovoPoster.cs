@@ -263,7 +263,7 @@ namespace TalkingPaper.GestioneDisposizione
                         {
                             if (tp.Tipo.CompareTo("Controllo") == 0)
                             {
-                                Contenuto contenuto = new Contenuto();
+                                Contenuto2 contenuto = new Contenuto2();
                                 contenuto.Livello = 0;
                                 contenuto.Nome = tp.Descrizione;
                                 contenuto.Ordine = 0;
