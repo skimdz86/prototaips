@@ -4,13 +4,13 @@ using System.Text;
 
 namespace TalkingPaper.DataAccess
 {
-    class AbstractDataHandler : DataHandlerInterface
+    class GeneralDataHandler : DataHandlerInterface
     {
         GrigliaHandler gr;
         UserHandler ut;
         PosterHandler pos;
 
-        public AbstractDataHandler() {
+        public GeneralDataHandler() {
             gr = new GrigliaHandler();
             ut = new UserHandler();
             pos = new PosterHandler();

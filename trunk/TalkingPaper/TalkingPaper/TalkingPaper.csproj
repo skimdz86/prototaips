@@ -121,7 +121,7 @@
     <Compile Include="Authoring\PannelliConfigurazione.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DataAccess\AbstractDataHandler.cs" />
+    <Compile Include="DataAccess\GeneralDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\ElementoGriglia.cs">
       <SubType>Code</SubType>

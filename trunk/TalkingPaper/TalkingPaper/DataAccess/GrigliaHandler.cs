@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace TalkingPaper.DataAccess
 {
-    class GrigliaHandler : AbstractDataHandler
+    class GrigliaHandler : GeneralDataHandler
     {
         String filepath = "../../Data/Griglie.xml";
 
