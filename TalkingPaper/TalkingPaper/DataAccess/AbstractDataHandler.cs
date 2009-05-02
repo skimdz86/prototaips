@@ -62,20 +62,25 @@ namespace TalkingPaper.DataAccess
 
         public bool setPoster(Poster poster)
         {
-            return false;
+            bool b = pos.setPoster(poster);
+            return b;
         }
 
         public Poster getPoster(String nomePoster)
         {
-            return new Poster("", "", "", null);
+            Poster p = pos.getPoster(nomePoster);
+            return p;
         }
 
         public List<Poster> getListaPoster()
         {
-            return new List<Poster>();
+            List<Poster> l = pos.getListaPoster();
+            return l;
         }
-        public bool removePoster(String nomePoster) {
-            return true;
+        public bool removePoster(String nomePoster) 
+        {
+            bool b = pos.removePoster(nomePoster);
+            return b;
         }
 
         #endregion
