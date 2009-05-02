@@ -13,6 +13,9 @@ namespace TalkingPaper
         public FormSchema()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.TopMost = true;
         }
 
         private void pictureBoxPost1_Click(object sender, EventArgs e)
