@@ -28,10 +28,10 @@ namespace TalkingPaper.Authoring
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScegliGrigliaForm));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -41,7 +41,6 @@ namespace TalkingPaper.Authoring
             this.label3 = new System.Windows.Forms.Label();
             this.ElencoTag2 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.indietro = new TalkingPaper.ControlButton();
             this.label4 = new System.Windows.Forms.Label();
             this.pannello = new System.Windows.Forms.Panel();
@@ -50,7 +49,6 @@ namespace TalkingPaper.Authoring
             this.grouppoControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).BeginInit();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxPost
@@ -105,7 +103,7 @@ namespace TalkingPaper.Authoring
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(8, 14);
+            this.button1.Location = new System.Drawing.Point(446, 592);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 49);
             this.button1.TabIndex = 23;
@@ -121,7 +119,7 @@ namespace TalkingPaper.Authoring
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(8, 82);
+            this.button2.Location = new System.Drawing.Point(616, 592);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 49);
             this.button2.TabIndex = 24;
@@ -160,24 +158,24 @@ namespace TalkingPaper.Authoring
             this.ElencoTag2.BackgroundColor = System.Drawing.Color.DarkOrange;
             this.ElencoTag2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ElencoTag2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoTag2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ElencoTag2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ElencoTag2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.ElencoTag2.ColumnHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoTag2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ElencoTag2.DefaultCellStyle = dataGridViewCellStyle2;
             this.ElencoTag2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.ElencoTag2.EnableHeadersVisualStyles = false;
             this.ElencoTag2.GridColor = System.Drawing.Color.OrangeRed;
@@ -187,23 +185,23 @@ namespace TalkingPaper.Authoring
             this.ElencoTag2.Name = "ElencoTag2";
             this.ElencoTag2.ReadOnly = true;
             this.ElencoTag2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoTag2.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ElencoTag2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.ElencoTag2.RowHeadersVisible = false;
             this.ElencoTag2.RowHeadersWidth = 120;
             this.ElencoTag2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoTag2.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BlanchedAlmond;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.ElencoTag2.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ElencoTag2.RowTemplate.Height = 33;
             this.ElencoTag2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.ElencoTag2.ShowEditingIcon = false;
@@ -222,17 +220,6 @@ namespace TalkingPaper.Authoring
             this.groupBox2.TabStop = false;
             this.groupBox2.Visible = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Orange;
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(1042, 156);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(133, 157);
-            this.groupBox1.TabIndex = 49;
-            this.groupBox1.TabStop = false;
-            // 
             // indietro
             // 
             this.indietro.BackColor = System.Drawing.Color.Yellow;
@@ -240,7 +227,7 @@ namespace TalkingPaper.Authoring
             this.indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.indietro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.indietro.Location = new System.Drawing.Point(6, 19);
+            this.indietro.Location = new System.Drawing.Point(18, 19);
             this.indietro.Name = "indietro";
             this.indietro.Size = new System.Drawing.Size(96, 49);
             this.indietro.TabIndex = 50;
@@ -267,25 +254,25 @@ namespace TalkingPaper.Authoring
             this.pannello.Size = new System.Drawing.Size(310, 578);
             this.pannello.TabIndex = 54;
             // 
-            // FormScegliConfigurazione
+            // ScegliGrigliaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.pannello);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Name = "FormScegliConfigurazione";
+            this.Name = "ScegliGrigliaForm";
             this.Text = "FormScegliConfigurazione";
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.comboBox1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
@@ -296,13 +283,14 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
+            this.Controls.SetChildIndex(this.button2, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
             this.grouppoControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -318,7 +306,6 @@ namespace TalkingPaper.Authoring
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView ElencoTag2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
         private ControlButton indietro;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pannello;

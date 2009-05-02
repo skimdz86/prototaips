@@ -124,10 +124,11 @@
             this.mainButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
             this.mainButton2.Location = new System.Drawing.Point(155, 379);
             this.mainButton2.Name = "mainButton2";
-            this.mainButton2.Size = new System.Drawing.Size(145, 61);
+            this.mainButton2.Size = new System.Drawing.Size(180, 88);
             this.mainButton2.TabIndex = 12;
             this.mainButton2.Text = "CONFERMA";
             this.mainButton2.UseVisualStyleBackColor = false;
+            this.mainButton2.Click += new System.EventHandler(this.mainButton2_Click);
             // 
             // mainButton1
             // 
@@ -138,13 +139,14 @@
             this.mainButton1.Image = ((System.Drawing.Image)(resources.GetObject("mainButton1.Image")));
             this.mainButton1.Location = new System.Drawing.Point(395, 379);
             this.mainButton1.Name = "mainButton1";
-            this.mainButton1.Size = new System.Drawing.Size(137, 61);
+            this.mainButton1.Size = new System.Drawing.Size(180, 88);
             this.mainButton1.TabIndex = 13;
             this.mainButton1.Text = "ANNULLA";
             this.mainButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mainButton1.UseVisualStyleBackColor = false;
+            this.mainButton1.Click += new System.EventHandler(this.mainButton1_Click);
             // 
-            // Registrazione
+            // RegistrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -160,7 +162,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Registrazione";
+            this.Name = "RegistrationForm";
             this.Text = "Registrazione";
             this.ResumeLayout(false);
             this.PerformLayout();

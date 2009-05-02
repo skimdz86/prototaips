@@ -45,7 +45,7 @@ namespace TalkingPaper.Welcome
         private void button2_Click(object sender, EventArgs e)
         {
            this.Cursor = Cursors.WaitCursor;
-           TalkingPaper.Authoring.BenvenutoGestioneDisposizione n = new TalkingPaper.Authoring.BenvenutoGestioneDisposizione(this, null, directoryprincipale);
+           TalkingPaper.Authoring.NuovoCartelloneForm n = new TalkingPaper.Authoring.NuovoCartelloneForm();
            n.Show();
            this.Cursor = Cursors.Default;
            this.Visible = false;
@@ -79,8 +79,11 @@ namespace TalkingPaper.Welcome
 
         private void test_button_Click(object sender, EventArgs e)
         {
-            TalkingPaper.TestForm f = new TalkingPaper.TestForm();
-            f.Show();
+            this.Cursor = Cursors.WaitCursor;
+            TalkingPaper.Authoring.ModificaCartelloneForm mod = new TalkingPaper.Authoring.ModificaCartelloneForm();
+            mod.Show();
+            this.Cursor = Cursors.Default;
+            this.Visible = false;
         }
 
         

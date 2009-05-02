@@ -51,12 +51,12 @@ namespace TalkingPaper.Authoring
         private Bitmap non_taggato;
         private NHibernateManager nh_manager;
         //private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
-        private TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos;
+        //private TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos;
         private string id_pannello;
         private string nome_pannello;
         private string configurazione;
         //private AuthoringInsterting inserimento;
-        private Authoring.BenvenutoGestioneDisposizione benvenuto_ges;
+        //private Authoring.BenvenutoGestioneDisposizione benvenuto_ges;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private bool esiste;
         private ElementoGriglia[,] matrice;
@@ -75,12 +75,12 @@ namespace TalkingPaper.Authoring
 
 
 
-        public PosizionaComponentiForm(/*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, AuthoringInsterting inserimento, Authoring.BenvenutoGestioneDisposizione benvenuto_ges, String provenienza, int id_mostra, Authoring.ModificaCartelloneForm posterMostra)
+        public PosizionaComponentiForm()
         {
             InitializeComponent();
-            this.id_mosta=id_mostra;
-            this.posterMostra = posterMostra;
-            this.provenienza = provenienza;
+            //this.id_mosta=id_mostra;
+            //this.posterMostra = posterMostra;
+            //this.provenienza = provenienza;
             Size groupSize = groupBox2.Size;
             Size el1Size = ElencoControlli1.Size;
             Size el2Size = ElencoControlli2.Size;
@@ -94,18 +94,18 @@ namespace TalkingPaper.Authoring
             this.nh_manager = new NHibernateManager();
             //this.componenti_pos = componenti_pos;
             //this.inserimento = inserimento;
-            this.configurazione = configurazione;
-            this.benvenuto_pos = benvenuto_pos;
+            //this.configurazione = configurazione;
+            //this.benvenuto_pos = benvenuto_pos;
             //this.scelta_poster = scelta_poster;
             //this.partenza = partenza;
-            this.poster = poster;
-            this.cod_mostra = cod_mostra;
-            this.nome_poster = nome_poster;
-            this.directory_principale = directory_principale;
-            this.database = database;
-            this.id_pannello = id_pannello;
-            this.nome_pannello = nome_pannello;
-            this.benvenuto_ges = benvenuto_ges;
+            //this.poster = poster;
+            //this.cod_mostra = cod_mostra;
+            //this.nome_poster = nome_poster;
+            //this.directory_principale = directory_principale;
+            //this.database = database;
+            //this.id_pannello = id_pannello;
+            //this.nome_pannello = nome_pannello;
+            //this.benvenuto_ges = benvenuto_ges;
             //this.benvenuto_bar = benvenuto_bar;
             play_audio = new Bitmap(directory_principale + @"/Images/Icons/nota.gif");
             modifica = new Bitmap(directory_principale + @"/Images/Icons/SelezionaPannello2.gif");
@@ -145,7 +145,7 @@ namespace TalkingPaper.Authoring
         }
 
 
-        public PosizionaComponentiForm(/*FormScegliPosterAuthoring scelta_poster, BenvenutoAuthoring partenza,*/ int poster, string nome_poster, int cod_mostra, string directory_principale, string database, /*TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos,*/ TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos, string id_pannello, string nome_pannello, string configurazione, AuthoringInsterting inserimento, Authoring.BenvenutoGestioneDisposizione benvenuto_ges)
+        public PosizionaComponentiForm(int i)
         {
             InitializeComponent();
             this.id_mosta = 0;
@@ -155,18 +155,18 @@ namespace TalkingPaper.Authoring
             this.nh_manager = new NHibernateManager();
             //this.componenti_pos = componenti_pos;
             //this.inserimento = inserimento;
-            this.configurazione = configurazione;
-            this.benvenuto_pos = benvenuto_pos;
+            //this.configurazione = configurazione;
+            //this.benvenuto_pos = benvenuto_pos;
             //this.scelta_poster = scelta_poster;
             //this.partenza = partenza;
-            this.poster = poster;
-            this.cod_mostra = cod_mostra;
-            this.nome_poster = nome_poster;
-            this.directory_principale = directory_principale;
-            this.database = database;
-            this.id_pannello = id_pannello;
-            this.nome_pannello = nome_pannello;
-            this.benvenuto_ges = benvenuto_ges;
+            //this.poster = poster;
+            //this.cod_mostra = cod_mostra;
+            //this.nome_poster = nome_poster;
+            //this.directory_principale = directory_principale;
+            //this.database = database;
+            //this.id_pannello = id_pannello;
+            //this.nome_pannello = nome_pannello;
+            //this.benvenuto_ges = benvenuto_ges;
             //this.benvenuto_bar = benvenuto_bar;
             play_audio = new Bitmap(directory_principale + @"/Images/Icons/nota.gif");
             modifica = new Bitmap(directory_principale + @"/Images/Icons/SelezionaPannello2.gif");
@@ -1096,9 +1096,9 @@ namespace TalkingPaper.Authoring
                     }
                     else
                     {*/
-                        AuthoringInsterting codice = new AuthoringInsterting(this, (int)ElencoRisorse[0, e.RowIndex].Value,(string) ElencoRisorse[2, e.RowIndex].Value, poster, nome_poster, cod_mostra, directory_principale, database, benvenuto_pos, id_pannello, nome_pannello, configurazione,benvenuto_ges);
+                        //AuthoringInsterting codice = new AuthoringInsterting(this, (int)ElencoRisorse[0, e.RowIndex].Value,(string) ElencoRisorse[2, e.RowIndex].Value, poster, nome_poster, cod_mostra, directory_principale, database, benvenuto_pos, id_pannello, nome_pannello, configurazione,benvenuto_ges);
                         this.Visible = false;
-                        codice.Show();
+                        //codice.Show();
                     /*}
                     //this.Visible = false;
                 }
@@ -1503,13 +1503,13 @@ namespace TalkingPaper.Authoring
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
-            else*/ if ((benvenuto_ges != null) && (benvenuto_ges.GetInizio() != null))
+            else*/ //if ((benvenuto_ges != null) && (benvenuto_ges.GetInizio() != null))
             {
                 this.Cursor = Cursors.WaitCursor;
                 Salvataggio();
-                Execution.EsecuzioneCartelloneForm n = new Execution.EsecuzioneCartelloneForm(poster,benvenuto_ges.GetInizio(),directory_principale);
+            //    Execution.EsecuzioneCartelloneForm n = new Execution.EsecuzioneCartelloneForm(poster,benvenuto_ges.GetInizio(),directory_principale);
                 //this.Close();
-                n.Show();
+             //   n.Show();
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
@@ -2298,8 +2298,8 @@ namespace TalkingPaper.Authoring
             Salvataggio();
             this.Cursor = Cursors.WaitCursor;
             //this.Visible = false;
-            Authoring.AggiungiComponenteForm nuovo = new Authoring.AggiungiComponenteForm(benvenuto_ges, posterMostra, null, nome_poster, this.id_mosta, poster, false, -1, "", directory_principale, provenienza, this, id_pannello, nome_pannello, configurazione, tag_per_riga, tag_per_colonna);
-            nuovo.Show();
+            //Authoring.AggiungiComponenteForm nuovo = new Authoring.AggiungiComponenteForm(benvenuto_ges, posterMostra, null, nome_poster, this.id_mosta, poster, false, -1, "", directory_principale, provenienza, this, id_pannello, nome_pannello, configurazione, tag_per_riga, tag_per_colonna);
+            //nuovo.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
         }

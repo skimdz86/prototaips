@@ -22,7 +22,7 @@ namespace TalkingPaper.Authoring
 {
     public partial class ModificaCartelloneForm : FormSchema
     {
-        private Authoring.BenvenutoGestioneDisposizione benvenuto;
+        //private Authoring.BenvenutoGestioneDisposizione benvenuto;
         //private ScegliMostraPostering elenco_mostre;
         private int id_mostra;
         private string nome_mostra;
@@ -43,24 +43,24 @@ namespace TalkingPaper.Authoring
         private string nome_pannello;
         private string configurazione;
 
-        public ModificaCartelloneForm(Authoring.BenvenutoGestioneDisposizione benvenuto, /*ScegliMostraPostering elenco_mostre,*/ int id_mostra, string nome_mostra, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut, string id_pannello, string nome_pannello, string configurazione)
+        public ModificaCartelloneForm()
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
-            this.benvenuto = benvenuto;
-            this.id_mostra = id_mostra;
-            this.nome_mostra = nome_mostra;
-            this.directory_principale = directory_principale;
+            //this.benvenuto = benvenuto;
+            //this.id_mostra = id_mostra;
+            //this.nome_mostra = nome_mostra;
+            //this.directory_principale = directory_principale;
             //this.elenco_mostre = elenco_mostre;
-            this.id_pannello = id_pannello;
-            this.nome_pannello = nome_pannello;
-            this.configurazione = configurazione;
+            //this.id_pannello = id_pannello;
+            //this.nome_pannello = nome_pannello;
+            //this.configurazione = configurazione;
             /*this.benvenuto_bar = benvenuto_bar;
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;*/
             //this.benvenuto_aut = benvenuto_aut;
-            this.visualizza_aut = visualizza_aut;
+            //this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             immagine_modifica_poster = new System.Drawing.Bitmap(directory_principale + @"/Images/Icons/modifica3.gif");
             elimina = new Bitmap(directory_principale + @"/Images/Icons/elimina_cestino.gif");
@@ -342,10 +342,10 @@ namespace TalkingPaper.Authoring
                 this.Cursor = Cursors.WaitCursor;
                 //ComponentiDelPoster nuova = new ComponentiDelPoster(benvenuto, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra", benvenuto_aut, visualizza_aut);
                 //nuova.Show();
-                Authoring.PosizionaComponentiForm n = new Authoring.PosizionaComponentiForm(/*null,*/  (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, -1, directory_principale, "talkingpaper2", benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto, "posterdellamostra", id_mostra, this);
+                //Authoring.PosizionaComponentiForm n = new Authoring.PosizionaComponentiForm(/*null,*/  (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, -1, directory_principale, "talkingpaper2", benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto, "posterdellamostra", id_mostra, this);
                 ///ComponentiDelPoster n = new ComponentiDelPoster(benvenuto, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra",  visualizza_aut, (string)ElencoRisorse[11, e.RowIndex].Value, (string)ElencoRisorse[6, e.RowIndex].Value, (string)ElencoRisorse[8, e.RowIndex].Value);
                 //Authoring.FormScegliConfigurazione n = new TalkingPaper.Authoring.FormScegliConfigurazione(null, this, id_mostra, (int)ElencoRisorse[0, e.RowIndex].Value, (string)ElencoRisorse[2, e.RowIndex].Value, directory_principale, "posterdellamostra", benvenuto);
-                n.Show();
+                //n.Show();
                 this.Cursor = Cursors.Default;
                 this.Visible = false;
             }
@@ -366,7 +366,7 @@ namespace TalkingPaper.Authoring
             if (/*(elenco_mostre == null) &&*/ (id_mostra == -1))
             {
                 //this.Close();
-                benvenuto.Visible = true;
+                //benvenuto.Visible = true;
                 this.Cursor = Cursors.Default;
                 this.Close();
             }
@@ -391,8 +391,8 @@ namespace TalkingPaper.Authoring
         {
             //this.Visible = false;
             this.Cursor = Cursors.WaitCursor;
-            NuovoCartelloneForm nuovo = new NuovoCartelloneForm(null,this, benvenuto, id_mostra, nome_mostra, directory_principale, visualizza_aut);
-            nuovo.Show();
+            //NuovoCartelloneForm nuovo = new NuovoCartelloneForm(null,this, benvenuto, id_mostra, nome_mostra, directory_principale, visualizza_aut);
+            //nuovo.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
         }
