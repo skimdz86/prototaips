@@ -23,7 +23,7 @@ namespace TalkingPaper.Authoring
     public partial class NuovoCartelloneForm : FormSchema
     {
         private ModificaCartelloneForm mostra;
-        private Authoring.BenvenutoGestioneDisposizione benvenuto;
+        //private Authoring.BenvenutoGestioneDisposizione benvenuto;
         //ScegliMostraPostering elenco_mostre;
         private int id_mostra;
         private string nome_mostra;
@@ -39,30 +39,30 @@ namespace TalkingPaper.Authoring
         private TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut;
         private Welcome.ChildHomeForm inizio;
 
-        public NuovoCartelloneForm(Welcome.ChildHomeForm inizio, ModificaCartelloneForm mostra, Authoring.BenvenutoGestioneDisposizione benvenuto, /*ScegliMostraPostering elenco_mostre,*/ int id_mostra, string nome_mostra, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut)
+        public NuovoCartelloneForm()
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 50, true);
-            this.mostra = mostra;
-            this.benvenuto = benvenuto;
+            //this.mostra = mostra;
+            //this.benvenuto = benvenuto;
             //this.elenco_mostre = elenco_mostre;
-            this.id_mostra = id_mostra;
-            this.nome_mostra = nome_mostra;
-            this.inizio = inizio;
-            this.directory_principale = directory_principale;
+            //this.id_mostra = id_mostra;
+            //this.nome_mostra = nome_mostra;
+            //this.inizio = inizio;
+            //this.directory_principale = directory_principale;
             /*this.benvenuto_bar = benvenuto_bar;
             this.benvenuto_rfid = benvenuto_rfid;
             this.visualizza_rfid = visualizza_rfid;
             this.visualizza_bar = visualizza_bar;*/
             //this.benvenuto_aut = benvenuto_aut;
-            this.visualizza_aut = visualizza_aut;
+            //this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             label4.Visible = false;
             Ordine.Visible = false;
             //immagine_modifica_poster = new Bitmap(directory_principale + "\\Images\\Icons\\modifica.gif");
             label1.Text = label1.Text + " " + nome_mostra;
-            button1.Cursor = Cursors.Hand;
-            button2.Cursor = Cursors.Hand;
+            //button1.Cursor = Cursors.Hand;
+            //button2.Cursor = Cursors.Hand;
             //textBox1.Select(0,0);
             
             /*try
@@ -103,10 +103,10 @@ namespace TalkingPaper.Authoring
             {
                 mostra.Visible = true;
             }
-            else if (benvenuto != null)
-            {
-                benvenuto.Visible = true;
-            }
+            //else if (benvenuto != null)
+           // {
+           //     benvenuto.Visible = true;
+           // }
             this.Cursor = Cursors.Default;
             this.Close();
         }
@@ -344,8 +344,8 @@ namespace TalkingPaper.Authoring
                         {
 
                         }*/
-                        Authoring.ScegliGrigliaForm nuov = new TalkingPaper.Authoring.ScegliGrigliaForm(null, -1, eccolo.IDposter, eccolo.Nome, directory_principale, null, benvenuto);
-                        nuov.Show();
+                        //Authoring.ScegliGrigliaForm nuov = new TalkingPaper.Authoring.ScegliGrigliaForm(null, -1, eccolo.IDposter, eccolo.Nome, directory_principale, null, benvenuto);
+                        //nuov.Show();
                         this.Cursor = Cursors.Default;
                         this.Close();
                     }
@@ -364,15 +364,19 @@ namespace TalkingPaper.Authoring
             }
         }
 
-        private void controlButton1_Click(object sender, EventArgs e)
+        
+
+        private void mainButton2_Click(object sender, EventArgs e)
         {
-            inizio.Show();
+            ScegliGrigliaForm sc = new ScegliGrigliaForm();
+            sc.Show();
             this.Close();
         }
 
-        private void controlButton2_Click(object sender, EventArgs e)
+        private void mainButton1_Click(object sender, EventArgs e)
         {
-            benvenuto.Show();
+            TalkingPaper.Welcome.ChildHomeForm ch = new TalkingPaper.Welcome.ChildHomeForm();
+            ch.Show();
             this.Close();
         }
     }

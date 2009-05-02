@@ -23,7 +23,7 @@ namespace TalkingPaper.Administration
     public partial class QuestionEliminaPoster : Form
     {
         private Authoring.ModificaCartelloneForm elenco_poster;
-        private Authoring.BenvenutoGestioneDisposizione benvenuto;
+        //private Authoring.BenvenutoGestioneDisposizione benvenuto;
         //private ScegliMostraPostering elenco_mostre;
         private TalkingPaper.NHibernateManager nh_manager;
         private int id_mostra;
@@ -42,27 +42,27 @@ namespace TalkingPaper.Administration
         private string nome_pannello;
         private string configurazione;
 
-        public QuestionEliminaPoster(Authoring.ModificaCartelloneForm elenco_poster, int id_mostra, int id_poster, string nome_poster, Authoring.BenvenutoGestioneDisposizione benvenuto, /*ScegliMostraPostering elenco_mostre,*/ string nome_mostra, string directory_principale, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut, string id_pannello2, string nome_pannello, string configurazione)
+        public QuestionEliminaPoster()
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 45, true);
-            this.id_pannello2 = id_pannello2;
-            this.nome_pannello = nome_pannello;
-            this.configurazione = configurazione;
-            this.elenco_poster = elenco_poster;
-            this.id_mostra = id_mostra;
-            this.id_poster = id_poster;
-            this.nome_poster = nome_poster;
-            this.benvenuto = benvenuto;
+            //this.id_pannello2 = id_pannello2;
+            //this.nome_pannello = nome_pannello;
+            //this.configurazione = configurazione;
+            //this.elenco_poster = elenco_poster;
+            //this.id_mostra = id_mostra;
+            //this.id_poster = id_poster;
+            //this.nome_poster = nome_poster;
+            //this.benvenuto = benvenuto;
             //this.elenco_mostre = elenco_mostre;
-            this.nome_mostra = nome_mostra;
-            this.directory_principale = directory_principale;
+            //this.nome_mostra = nome_mostra;
+            //this.directory_principale = directory_principale;
             /*this.visualizza_bar = visualizza_bar;
             this.visualizza_rfid = visualizza_rfid;
             this.benvenuto_bar = benvenuto_bar;
             this.benvenuto_rfid = benvenuto_rfid;*/
             //this.benvenuto_aut = benvenuto_aut;
-            this.visualizza_aut = visualizza_aut;
+            //this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             Si.Cursor = Cursors.Hand;
             Annulla.Cursor = Cursors.Hand;
@@ -450,10 +450,10 @@ namespace TalkingPaper.Administration
                 finally
                 {
                     tempS.Close();
-                    Authoring.ModificaCartelloneForm poster_mostra = new Authoring.ModificaCartelloneForm(benvenuto, id_mostra, nome_mostra, directory_principale, visualizza_aut, null, null, null);
+                    //Authoring.ModificaCartelloneForm poster_mostra = new Authoring.ModificaCartelloneForm(benvenuto, id_mostra, nome_mostra, directory_principale, visualizza_aut, null, null, null);
                     //this.Close();
                     elenco_poster.Close();
-                    poster_mostra.Show();
+                    //poster_mostra.Show();
                     this.Cursor = Cursors.Default;
                     this.Close();
                 }

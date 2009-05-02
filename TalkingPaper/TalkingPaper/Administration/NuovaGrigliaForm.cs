@@ -54,7 +54,7 @@ namespace TalkingPaper.Administration
                     }
                     else
                     {
-                        Administration.TaggaGrigliaForm n = new Administration.TaggaGrigliaForm(null, amministrazione, directory_principale, riga, colonna);
+                        Administration.TaggaGrigliaForm n = new Administration.TaggaGrigliaForm();
                         n.Show();
                         this.Cursor = Cursors.Default;
                         this.Close();

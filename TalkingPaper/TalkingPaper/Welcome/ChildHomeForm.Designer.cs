@@ -84,7 +84,7 @@ namespace TalkingPaper.Welcome
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(180, 88);
             this.button2.TabIndex = 2;
-            this.button2.Text = "Cartellone con Griglia";
+            this.button2.Text = "Nuovo Cartellone";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -108,11 +108,11 @@ namespace TalkingPaper.Welcome
             this.test_button.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.test_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.test_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.test_button.Location = new System.Drawing.Point(278, 48);
+            this.test_button.Location = new System.Drawing.Point(278, 58);
             this.test_button.Name = "test_button";
             this.test_button.Size = new System.Drawing.Size(180, 88);
             this.test_button.TabIndex = 14;
-            this.test_button.Text = "TEST";
+            this.test_button.Text = "Modifica Cartellone";
             this.test_button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.test_button.UseVisualStyleBackColor = false;
             this.test_button.Click += new System.EventHandler(this.test_button_Click);
@@ -139,7 +139,7 @@ namespace TalkingPaper.Welcome
             this.parlaSchema.Name = "parlaSchema";
             this.parlaSchema.Size = new System.Drawing.Size(180, 88);
             this.parlaSchema.TabIndex = 14;
-            this.parlaSchema.Text = "Parla - Cartellone con Griglia";
+            this.parlaSchema.Text = "Fai Parlare Cartellone";
             this.parlaSchema.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.parlaSchema.UseVisualStyleBackColor = false;
             this.parlaSchema.Click += new System.EventHandler(this.parlaSchema_Click);
@@ -182,7 +182,7 @@ namespace TalkingPaper.Welcome
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1136, 739);
+            this.ClientSize = new System.Drawing.Size(1036, 739);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBox1);

@@ -35,20 +35,20 @@ namespace TalkingPaper.Administration
         private string directory_principale;
         private bool selected1 = false;
         
-        private Authoring.BenvenutoGestioneDisposizione benvenuto;
+        //private Authoring.BenvenutoGestioneDisposizione benvenuto;
         private Administration.AdminHomeForm amministrazione;
 
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
 
-        public TaggaGrigliaForm(Authoring.BenvenutoGestioneDisposizione benvenuto, Administration.AdminHomeForm amministrazione, string directory_principale, int tag_per_riga, int tag_per_colonna)
+        public TaggaGrigliaForm()
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 98, true);
-            this.directory_principale = directory_principale;
-            this.benvenuto = benvenuto;
-            this.amministrazione = amministrazione;
-            this.tag_per_colonna = tag_per_colonna;
-            this.tag_per_riga = tag_per_riga;
+            //this.directory_principale = directory_principale;
+            //this.benvenuto = benvenuto;
+            //this.amministrazione = amministrazione;
+            //this.tag_per_colonna = tag_per_colonna;
+            //this.tag_per_riga = tag_per_riga;
             button1.Cursor = Cursors.Hand;
             button2.Cursor = Cursors.Hand;
             nh_mng = new NHibernateManager();
@@ -420,14 +420,14 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     }
                     MessageBox.Show("Nuovo Pannello Salvato");
-                    if (benvenuto != null)
-                    {
-                        benvenuto.Visible = true;
-                    }
-                    else if (amministrazione != null)
-                    {
-                        amministrazione.Visible = true;
-                    }
+                    //if (benvenuto != null)
+                    //{
+                   //     benvenuto.Visible = true;
+                   // }
+                   // else if (amministrazione != null)
+                   // {
+                   //     amministrazione.Visible = true;
+                   // }
                     writeConfig();
                     this.Cursor = Cursors.Default;
                     this.Close();
@@ -498,20 +498,20 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            if (benvenuto != null)
-            {
-                benvenuto.Visible = true;
-            }
-            else if (amministrazione != null)
-            {
-                amministrazione.Visible = true;
-            }
-            this.Cursor = Cursors.Default;
-            this.Close();
-        }
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //    this.Cursor = Cursors.WaitCursor;
+        //    if (benvenuto != null)
+        //  {
+        //        benvenuto.Visible = true;
+        //    }
+        //    else if (amministrazione != null)
+         //   {
+        //        amministrazione.Visible = true;
+        //    }
+        //    this.Cursor = Cursors.Default;
+        //    this.Close();
+        //}
 
         private void Indietro_Click(object sender, EventArgs e)
         {
@@ -642,14 +642,14 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
                 this.Cursor = Cursors.Default;
                 MessageBox.Show("Configurazione Salvata");
-                if (benvenuto != null)
-                {
-                    benvenuto.Visible = true;
-                }
-                else if (amministrazione != null) {
-                    amministrazione.Visible = true;
-                }
-                this.Close();
+              //  if (benvenuto != null)
+              //  {
+             //       benvenuto.Visible = true;
+             //   }
+             //   else if (amministrazione != null) {
+            //        amministrazione.Visible = true;
+             //   }
+           //     this.Close();
             }
 
             this.Cursor = Cursors.Default;

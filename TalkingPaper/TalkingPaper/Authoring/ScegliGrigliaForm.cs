@@ -33,7 +33,7 @@ namespace TalkingPaper.Authoring
         string configurazione = "";
         string provenienza;
         private int tot_elementi = 0;
-        private Authoring.BenvenutoGestioneDisposizione benvenuto_ges;
+        //private Authoring.BenvenutoGestioneDisposizione benvenuto_ges;
         private ElementoGriglia[,] matrice;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private NHibernateManager nh_manager;
@@ -41,20 +41,20 @@ namespace TalkingPaper.Authoring
         private ArrayList configList = new ArrayList();
         private ArrayList configList2 = new ArrayList();
 
-        public ScegliGrigliaForm(/*BenvenutoAuthoring partenza,*/ Authoring.ModificaCartelloneForm scelta_poster,int id_mostra,int id_poster,string nome_poster, string directory_principale, string provenienza, Authoring.BenvenutoGestioneDisposizione benvenuto_ges)
+        public ScegliGrigliaForm()
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
             label3.Visible = false;
             this.nh_manager = new NHibernateManager();
-            this.directory_principale = directory_principale;
-            this.id_poster = id_poster;
-            this.nome_poster = nome_poster;
+            //this.directory_principale = directory_principale;
+            //this.id_poster = id_poster;
+            //this.nome_poster = nome_poster;
             //this.partenza = partenza;
-            this.scelta_poster = scelta_poster;
-            this.benvenuto_ges = benvenuto_ges;
-            this.id_mostra = id_mostra;
-            this.provenienza = provenienza;
+            //this.scelta_poster = scelta_poster;
+            //this.benvenuto_ges = benvenuto_ges;
+            //this.id_mostra = id_mostra;
+            //this.provenienza = provenienza;
             button2.Cursor = Cursors.Hand;
             CaricaPosterConfigurazioni();
             CaricaComboBox();
@@ -752,8 +752,8 @@ namespace TalkingPaper.Authoring
             CreaMatrice();
             CreaFilePosterCreati();
             ScriviFileXml();
-            PosizionaComponentiForm n = new PosizionaComponentiForm(/*null,*/  id_poster, nome_poster, -1, directory_principale, "talkingpaper2", benvenuto_ges, id_pannello, nome_pannello, configurazione, null, benvenuto_ges, provenienza, id_mostra, scelta_poster);
-            n.Show();
+            //PosizionaComponentiForm n = new PosizionaComponentiForm(/*null,*/  id_poster, nome_poster, -1, directory_principale, "talkingpaper2", benvenuto_ges, id_pannello, nome_pannello, configurazione, null, benvenuto_ges, provenienza, id_mostra, scelta_poster);
+            //n.Show();
             //GestioneDisposizione.ComponentiDelPoster n = new TalkingPaper.GestioneDisposizione.ComponentiDelPoster(benvenuto_ges, scelta_poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza, null,id_pannello,nome_pannello,configurazione);
             //n.Show();
             this.Cursor = Cursors.Default;
@@ -808,9 +808,9 @@ namespace TalkingPaper.Authoring
             {
                 scelta_poster.Visible = true;
             }
-            else if (benvenuto_ges != null) {
-                benvenuto_ges.Visible = true;
-            }
+            //else if (benvenuto_ges != null) {
+           //     benvenuto_ges.Visible = true;
+            //}
             /*else if (partenza != null) { 
                 partenza.Visible=true;
             }*/
@@ -857,10 +857,10 @@ namespace TalkingPaper.Authoring
             {
                 scelta_poster.Visible = true;
             }
-            else if (benvenuto_ges != null)
-            {
-                benvenuto_ges.Visible = true;
-            }
+            //else if (benvenuto_ges != null)
+            //{
+            //    benvenuto_ges.Visible = true;
+           // }
             /*else if (partenza != null)
             {
                 partenza.Visible = true;
