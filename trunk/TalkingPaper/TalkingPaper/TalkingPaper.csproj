@@ -112,6 +112,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\ModificaGrigliaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\ModificaGrigliaForm.Designer.cs">
+      <DependentUpon>ModificaGrigliaForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Authoring\PannelliConfigurazione.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -356,6 +362,9 @@
     <EmbeddedResource Include="Mappings\Tipologia.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Administration\ModificaGrigliaForm.resx">
+      <DependentUpon>ModificaGrigliaForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Authoring\AuthoringInsterting.resx">
       <DependentUpon>AuthoringInsterting.cs</DependentUpon>
       <SubType>Designer</SubType>
