@@ -6,7 +6,7 @@ using System.IO;
 
 namespace TalkingPaper.DataAccess
 {
-    class PosterHandler
+    class PosterHandler : GeneralDataHandler
     {
         String filepath = "../../Data/Poster.xml";
 

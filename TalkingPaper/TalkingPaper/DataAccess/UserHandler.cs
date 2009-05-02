@@ -6,7 +6,7 @@ using System.IO;
 
 namespace TalkingPaper.DataAccess
 {
-    class UserHandler : AbstractDataHandler
+    class UserHandler : GeneralDataHandler
     {
         String filepath = "../../Data/Users.xml";
 
