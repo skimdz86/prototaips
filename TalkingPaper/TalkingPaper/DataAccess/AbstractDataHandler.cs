@@ -74,6 +74,9 @@ namespace TalkingPaper.DataAccess
         {
             return new List<Poster>();
         }
+        public bool removePoster(String nomePoster) {
+            return true;
+        }
 
         #endregion
     }

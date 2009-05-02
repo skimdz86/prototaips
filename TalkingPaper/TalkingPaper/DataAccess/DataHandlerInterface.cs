@@ -53,6 +53,9 @@ namespace TalkingPaper.DataAccess
         //ritorna la lista degli oggetti Poster
         List<Poster> getListaPoster();
 
+        //rimuove un poster
+        bool removePoster(String nomePoster);
+
         /*
          * Non c'è la sezione COMPONENTE, perchè i componenti
          * vengono gestiti solamente 'in locale'. I componenti
