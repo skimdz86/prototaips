@@ -39,6 +39,7 @@
             this.mainButton1 = new TalkingPaper.MainButton();
             this.label6 = new System.Windows.Forms.Label();
             this.mainButton2 = new TalkingPaper.MainButton();
+            this.mainButton3 = new TalkingPaper.MainButton();
             this.SuspendLayout();
             // 
             // label1
@@ -122,6 +123,7 @@
             this.mainButton1.Text = "REGISTRAZIONE";
             this.mainButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mainButton1.UseVisualStyleBackColor = false;
+            this.mainButton1.Click += new System.EventHandler(this.mainButton1_Click);
             // 
             // label6
             // 
@@ -150,12 +152,28 @@
             this.mainButton2.UseVisualStyleBackColor = false;
             this.mainButton2.Click += new System.EventHandler(this.mainButton2_Click);
             // 
+            // mainButton3
+            // 
+            this.mainButton3.BackColor = System.Drawing.Color.Yellow;
+            this.mainButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.mainButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.mainButton3.Location = new System.Drawing.Point(628, 166);
+            this.mainButton3.Name = "mainButton3";
+            this.mainButton3.Size = new System.Drawing.Size(180, 88);
+            this.mainButton3.TabIndex = 10;
+            this.mainButton3.Text = "ENTRA";
+            this.mainButton3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mainButton3.UseVisualStyleBackColor = false;
+            this.mainButton3.Click += new System.EventHandler(this.mainButton3_Click);
+            // 
             // IndexForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.Controls.Add(this.mainButton3);
             this.Controls.Add(this.mainButton2);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.mainButton1);
@@ -186,5 +204,6 @@
         private MainButton mainButton1;
         private System.Windows.Forms.Label label6;
         private MainButton mainButton2;
+        private MainButton mainButton3;
     }
 }
