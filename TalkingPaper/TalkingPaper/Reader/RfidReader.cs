@@ -83,7 +83,12 @@ namespace TalkingPaper.Reader
         bool IReader.saveConfiguration(params string[] parameters)
         {
             //controllare correttezza dei parametri ( o lo lascio controllare al config_manager?)
-            return config_manager.configParameter(Convert.ToInt32(parameters[0]), parameters[1], parameters[2], Convert.ToInt16(parameters[3]));
+            RfidProperties p = new RfidProperties();
+            p.port=Convert.ToInt32(parameters[0]);
+            p.communicationFrame=parameters[1];
+            p.baudRate=parameters[2];
+            p.timeout=Convert.ToInt16(parameters[3]);
+            return config_manager.configParameter(p);
         }
 
         bool IReader.close()
