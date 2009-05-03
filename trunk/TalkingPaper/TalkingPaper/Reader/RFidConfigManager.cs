@@ -13,7 +13,7 @@ namespace TalkingPaper.Reader
     {
         private XmlWriterSettings settings;
         private string path;
-        private String filepath = "??????????????????????????????";
+        private String filepath = "/Config/rfid_config.xml";
 
         /// <summary>
         /// Costruttore
