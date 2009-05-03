@@ -45,7 +45,9 @@ namespace TalkingPaper.Reader
                 if (port != 0)
                 {
                     //ho trovato una configurazione funzionante e la salvo
-                    config_manager.configParameter(port, properties.communicationFrame, properties.baudRate, properties.timeout);
+                    ////modificato!!!ora passa l'oggetto properties anziche singoli campi! By Dezo
+                    properties.port = port;
+                    config_manager.configParameter(properties);
                 }
                 isConfigured = true;
                 return true;

@@ -2,7 +2,7 @@
 <parameters>
   <reader>
     <port>8</port>
-    <comunication_frame>8E1</comunication_frame>
+    <communication_frame>8E1</communication_frame>
     <baud_rate>38400</baud_rate>
     <time_out>1000</time_out>
   </reader>

@@ -13,6 +13,7 @@ namespace TalkingPaper.Reader
     {
         private XmlWriterSettings settings;
         private string path;
+        private String filepath = "??????????????????????????????";
 
         /// <summary>
         /// Costruttore
@@ -30,7 +31,7 @@ namespace TalkingPaper.Reader
         /// This function allow to read the parameter in file XML
         /// </summary>
         /// <returns>return the object RfidProperties</returns>
-        public RfidProperties read_config_rfid_xml()
+        public RfidProperties read_config_rfid_xml2()
         {
             RfidProperties prop = new RfidProperties();
             FileStream fs = new FileStream(path+"rfid_config.xml", FileMode.Open);
@@ -75,7 +76,39 @@ namespace TalkingPaper.Reader
             fs.Close();
             return prop;
         }//fine metodo lettura
-        
+
+        /// <summary>
+        /// Nuova funzione per lettura xml
+        /// </summary>
+        /// <returns></returns>
+        public RfidProperties read_config_rfid_xml() {
+
+            try
+            {
+                RfidProperties prop = new RfidProperties();
+                XmlDocument doc = new XmlDocument();
+                FileStream stream = new FileStream(filepath, FileMode.Open);
+                doc.Load(stream);
+
+                XmlNodeList port = doc.GetElementsByTagName("port");
+                Int32 temp1 = Convert.ToInt32(port[0].InnerText);
+                prop.port = temp1;
+
+                XmlNodeList cf = doc.GetElementsByTagName("communication_frame");
+                prop.communicationFrame = cf[0].InnerText;
+
+                XmlNodeList baud = doc.GetElementsByTagName("baud_rate");
+                prop.baudRate = baud[0].InnerText;
+
+                XmlNodeList timeout = doc.GetElementsByTagName("timeout");
+                Int16 temp2 = Convert.ToInt16(timeout[0].InnerText);
+                prop.timeout = temp2;
+
+                stream.Close();
+                return prop;
+            }
+            catch (XmlException e) { return null; }
+        }
 
         /// <summary>
         /// This function allow to create the configuration file
@@ -85,7 +118,7 @@ namespace TalkingPaper.Reader
         /// <param name="rate">baud rate</param>
         /// <param name="to">time out</param>
         /// <returns>true if the file is created</returns>
-        public bool configParameter(int port, string frame, string rate, short to )
+        public bool configParameter2(int port, string frame, string rate, short to )
         {
             settings = new XmlWriterSettings();
             settings.Indent = true;
@@ -124,10 +157,42 @@ namespace TalkingPaper.Reader
         }
 
         /// <summary>
+        /// nuova funzione scrittura xml
+        /// </summary>
+        /// <param name="prop"></param>
+        /// <returns></returns>
+        public bool configParameter(RfidProperties prop) {
+
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                FileStream stream = new FileStream(filepath, FileMode.Open);
+                doc.Load(stream);
+
+                XmlNodeList port = doc.GetElementsByTagName("port");
+                port[0].InnerText = Convert.ToString(prop.port);
+
+                XmlNodeList cf = doc.GetElementsByTagName("communication_frame");
+                cf[0].InnerText = prop.communicationFrame;
+
+                XmlNodeList baud = doc.GetElementsByTagName("baud_rate");
+                baud[0].InnerText = prop.baudRate;
+
+                XmlNodeList timeout = doc.GetElementsByTagName("timeout");
+                timeout[0].InnerText = Convert.ToString(prop.timeout);
+
+                stream.Close();
+                doc.Save(filepath);
+                return true;
+            }
+            catch (XmlException e) { return false; }
+        }
+
+        /// <summary>
         /// This function allow to verify if the configuration files have been created
         /// </summary>
         /// <returns>true if the files exist false if they don't exist</returns>
-        public bool exist()
+        public bool exist2()
         {
             Console.WriteLine("Verifico se il file rfid_config.xml esiste nel percorso: "+ path);
             bool exist = false;
@@ -146,5 +211,24 @@ namespace TalkingPaper.Reader
             return exist;
         }
 
+        ////nuova exist
+        public bool exist()
+        {
+            Console.WriteLine("Verifico se il file rfid_config.xml esiste nel percorso: " + filepath);
+            bool exist = false;
+            if (!Directory.Exists(filepath))
+            {
+                exist = false;
+                Console.WriteLine("Il file non esiste");
+
+            }
+            else
+            {
+                exist = true;
+                Console.WriteLine("Il file esiste");
+
+            }
+            return exist;
+        }
     }
 }
