@@ -27,31 +27,31 @@ namespace TalkingPaper.DataAccess
         //di chiamare questo metodo
         bool registraUtente(String username, String password);
 
-        List<User> getListaUtenti();
+        List<Model.User> getListaUtenti();
 
         /* ----- SEZIONE GRIGLIA ----- */
 
         //Memorizza l'oggetto Griglia
-        bool setGriglia(Griglia griglia);
+        bool setGriglia(Model.Griglia griglia);
 
         //Recupera l'oggetto con nome nomeGriglia
         //hp: nomeGriglia univoco
-        Griglia getGriglia(String nomeGriglia);
+        Model.Griglia getGriglia(String nomeGriglia);
 
         //ritorna la lista degli oggetti Griglia con solo nome/righe/colonne
-        List<Griglia> getListaGriglie();
+        List<Model.Griglia> getListaGriglie();
 
         /* ----- SEZIONE POSTER ----- */
 
         //Memorizza l'oggetto Poster
-        bool setPoster(Poster poster);
+        bool setPoster(Model.Poster poster);
 
         //Recupera l'oggetto con nome nomePoster
         //hp: nomePoster univoco
-        Poster getPoster(String nomePoster);
+        Model.Poster getPoster(String nomePoster);
         
         //ritorna la lista degli oggetti Poster
-        List<Poster> getListaPoster();
+        List<Model.Poster> getListaPoster();
 
         //rimuove un poster
         bool removePoster(String nomePoster);

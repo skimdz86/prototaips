@@ -51,30 +51,24 @@ namespace TalkingPaper.Welcome
            this.Visible = false;
         }
 
-        
 
-       private void parlaSchema_Click(object sender, EventArgs e)
+
+        private void parlaSchema_Click(object sender, EventArgs e)
         {
-            if (global.rfid == true) //rfid
+            this.Cursor = Cursors.WaitCursor;
+            Execution.ElencoCartelloniForm el = new Execution.ElencoCartelloniForm(/*null,*/ this, -1, null, null, directoryprincipale, database, "rfid");
+            if (!(el.IsDisposed))
             {
-                this.Cursor = Cursors.WaitCursor;
-                Execution.ElencoCartelloniForm el = new Execution.ElencoCartelloniForm(/*null,*/ this, -1, null, null, directoryprincipale, database, "rfid");
-                if (!(el.IsDisposed))
-                {
-                    el.Show();
-                    this.Visible = false;
-                }
-                this.Cursor = Cursors.Default;
-                
+                el.Show();
+                this.Visible = false;
             }
-
+            this.Cursor = Cursors.Default;
         }
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            global.rfid = true;
             global.home = this;
-            global.inizio = this;
+            //global.inizio = this;
         }
 
         private void test_button_Click(object sender, EventArgs e)

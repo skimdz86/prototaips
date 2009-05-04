@@ -17,7 +17,7 @@ namespace TalkingPaper
 
         private void buttonTest_Click(object sender, EventArgs e)
         {
-            Griglia g = new Griglia("test", 3, 4);
+            Model.Griglia g = new Model.Griglia("test", 3, 4);
             String s = g.getCoordFromIndex(6);
             int t = g.getIndexFromCoord("B3");
             labelTest1.Text = "indice: 6 --> coord: " + s;

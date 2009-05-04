@@ -28,21 +28,17 @@ namespace TalkingPaper.Administration
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TaggaGrigliaForm));
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.ElencoTag = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new TalkingPaper.MainButton();
-            this.button2 = new TalkingPaper.MainButton();
+            this.ok = new TalkingPaper.MainButton();
+            this.annulla = new TalkingPaper.MainButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -50,10 +46,6 @@ namespace TalkingPaper.Administration
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ElencoTag
             // 
@@ -115,27 +107,6 @@ namespace TalkingPaper.Administration
             this.ElencoTag.TabIndex = 0;
             this.ElencoTag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElencoTag_CellClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(510, 139);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(248, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Identificativo del supporto";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Location = new System.Drawing.Point(781, 143);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(292, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -157,46 +128,46 @@ namespace TalkingPaper.Administration
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Orange;
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.ok);
+            this.groupBox1.Controls.Add(this.annulla);
             this.groupBox1.Location = new System.Drawing.Point(366, 602);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(478, 125);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // ok
             // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(12, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 88);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.ok.BackColor = System.Drawing.Color.Yellow;
+            this.ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ok.BackgroundImage")));
+            this.ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ok.Location = new System.Drawing.Point(12, 9);
+            this.ok.Name = "ok";
+            this.ok.Size = new System.Drawing.Size(180, 88);
+            this.ok.TabIndex = 3;
+            this.ok.Text = "OK";
+            this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ok.UseVisualStyleBackColor = false;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
-            // button2
+            // annulla
             // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(244, 9);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 88);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Annulla";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            //this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.annulla.BackColor = System.Drawing.Color.Yellow;
+            this.annulla.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("annulla.BackgroundImage")));
+            this.annulla.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.annulla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.annulla.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.annulla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.annulla.Location = new System.Drawing.Point(244, 9);
+            this.annulla.Name = "annulla";
+            this.annulla.Size = new System.Drawing.Size(180, 88);
+            this.annulla.TabIndex = 4;
+            this.annulla.Text = "Annulla";
+            this.annulla.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.annulla.UseVisualStyleBackColor = false;
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
             // 
             // label6
             // 
@@ -230,28 +201,13 @@ namespace TalkingPaper.Administration
             this.label3.Size = new System.Drawing.Size(710, 24);
             this.label3.TabIndex = 0;
             this.label3.Text = "Associa un tag al supporto e poi assegna un tag per ogni cella  da riempire";
+            
             // 
-            // Indietro
+            // TaggaGrigliaForm
             // 
-            this.Indietro.BackColor = System.Drawing.Color.Yellow;
-            this.Indietro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Indietro.BackgroundImage")));
-            this.Indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.Indietro.Location = new System.Drawing.Point(225, 19);
-            this.Indietro.Name = "Indietro";
-            this.Indietro.Size = new System.Drawing.Size(96, 49);
-            this.Indietro.TabIndex = 46;
-            this.Indietro.Text = "Indietro";
-            this.Indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Indietro.UseVisualStyleBackColor = false;
-            this.Indietro.Click += new System.EventHandler(this.Indietro_Click);
-            // 
-            // TaggingDellaParete
-            // 
-            this.AcceptButton = this.button1;
+            this.AcceptButton = this.ok;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.CancelButton = this.button2;
+            this.CancelButton = this.annulla;
             this.ClientSize = new System.Drawing.Size(1136, 739);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
@@ -259,10 +215,8 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.ElencoTag);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.textBox2);
-            this.Name = "TaggingDellaParete";
+            this.Name = "TaggaGrigliaForm";
             this.Text = "Identificare il supporto e mettere i tag";
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -273,14 +227,11 @@ namespace TalkingPaper.Administration
 
         #endregion
 
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.DataGridView ElencoTag;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
-        private MainButton button1;
-        private MainButton button2;
+        private MainButton ok;
+        private MainButton annulla;
         private ControlButton Indietro;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;

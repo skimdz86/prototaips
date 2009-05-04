@@ -29,7 +29,7 @@ namespace TalkingPaper
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
 
-            ReScale(global.percentScale);
+            //ReScale(global.percentScale);
             //this.Size = new System.Drawing.Size(226, 111);
             
 
