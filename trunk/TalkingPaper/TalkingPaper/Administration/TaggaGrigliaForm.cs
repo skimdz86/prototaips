@@ -16,289 +16,99 @@ namespace TalkingPaper.Administration
 {
     public partial class TaggaGrigliaForm : Form
     {
-        private int tag_per_riga;
-        private int tag_per_colonna;
+        private ControlLogic.AdministrationControl control;
         private Reader.IReader reader;
-        private int rfid_num;
-        private string oldId = "0"; // serve per capire se il tag è quello del precedente o no
-        private NHibernateManager nh_mng;
-       
+        Model.Griglia griglia;
         private int riga = 1;
         private int colonna = 1;
         private ArrayList inseriti = new ArrayList();
         private ArrayList pannelli = new ArrayList();
         private ArrayList tutti_poster = new ArrayList();
-        private string selezionato = "No";
-        private int riga_sel = -1;
-        private int colonna_sel = -1;
-        
-        private string directory_principale;
-        private bool selected1 = false;
-        
-        //private Authoring.BenvenutoGestioneDisposizione benvenuto;
-        private Administration.AdminHomeForm amministrazione;
-
+              
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
 
-        public TaggaGrigliaForm()
+        public TaggaGrigliaForm(Model.Griglia griglia)
         {
             InitializeComponent();
-            RidimensionaForm n = new RidimensionaForm(this, 98, true);
-            //this.directory_principale = directory_principale;
-            //this.benvenuto = benvenuto;
-            //this.amministrazione = amministrazione;
-            //this.tag_per_colonna = tag_per_colonna;
-            //this.tag_per_riga = tag_per_riga;
-            button1.Cursor = Cursors.Hand;
-            button2.Cursor = Cursors.Hand;
-            nh_mng = new NHibernateManager();
-            reader = new Reader.DumbReader();
-            rfid_num = reader.connect();
-            if (rfid_num <= 0)
-            {
-                //Qualcosa non ha funzionato, rifare...
-                MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
-MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                
-                
-            }
-            else
-            {
-                Console.WriteLine("SONO in costruttore di FormEsecuzione, tutto ok");
-                //this.richTextBox1.Text += "\nInizializzazione Form: OK ";
-            }
-            InizializzaDataGrid();
-            CaricaPosterConfigurazioni();
-            this.Show();
-            timer1.Interval = 1000;
-            timer1.Start();
+            //RidimensionaForm n = new RidimensionaForm(this, 98, true);
+            this.griglia = griglia;
+            ok.Cursor = Cursors.Hand;
+            annulla.Cursor = Cursors.Hand;
 
-        }
+            control.inizializzaTagging(this,reader);
 
-        private void CaricaPosterConfigurazioni()
-        {
-            try
-            {
-                string nome_file = directory_principale + "PannelliTaggati" + ".xml";
-                XmlTextReader iscritto = new XmlTextReader(nome_file);
-                
-                int i = -1;
-                
-                while ((iscritto.Read()))
-                {
-                    if (iscritto.NodeType == XmlNodeType.Element)
-                    {
-                        if (iscritto.LocalName.Equals("NomePannello"))
-                        {
-                            string id = (String)iscritto.GetAttribute("ID");
-                            iscritto.MoveToNextAttribute();
-                            string ri = (String)iscritto.GetAttribute("TAG_PER_RIGA");
-                            iscritto.MoveToNextAttribute();
-                            string co = (String)iscritto.GetAttribute("TAG_PER_COLONNA");
-                            string ins = (string)iscritto.ReadString();
-                            Authoring.PannelliConfigurazione p = new Authoring.PannelliConfigurazione(id, ins, ri, co);
-                            tutti_poster.Add(p);
-                            i++;
-
-                            //string id = (String)iscritto.GetAttribute("ID");
-
-                            //pannelli.Add(id);
-                        }
-                        if (iscritto.LocalName.Equals("Configurazione"))
-                        {
-                            string conf = (String)iscritto.ReadString();
-                            ((Authoring.PannelliConfigurazione)tutti_poster[i]).InserisciConfigurazione(conf);
-                        }
-                    }
-                }
-                iscritto.Close();
-                //esiste = true;
-            }
-            catch
-            {
-                //esiste = false;
-            }
-        }
-
-
-
-        private void InizializzaDataGrid()
-        {
-            //int valore = 0;
-            Font font = new Font("Arial", 16);
-            textBox1.Click += new EventHandler(textBox1_Click);
-            //textBox2.Click += new EventHandler(textBox_Click);
+            //Gestione Eventi
+            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
+            
             ElencoTag.CellClick += new DataGridViewCellEventHandler(ElencoTag_CellClick);
-            
-            
-
-            ElencoTag.ColumnCount = tag_per_riga + 1;
-            ElencoTag.Rows.Add(tag_per_colonna + 1);
-            
-
+        }
+                
+        public void inizializzaDataGrid()
+        {
+            Font font = new Font("Arial", 16);
+            ElencoTag.ColumnCount = griglia.getNumColonne() + 1;
+            ElencoTag.Rows.Add(griglia.getNumRighe() + 1);
             ElencoTag.Rows[0].DefaultCellStyle.ForeColor = Color.Red;
             ElencoTag.Columns[0].DefaultCellStyle.ForeColor = Color.Red;
             ElencoTag.Rows[0].DefaultCellStyle.Font = font;
             ElencoTag.Columns[0].DefaultCellStyle.Font = font;
-            for (int i = 1; i <= tag_per_colonna; i++)
+            for (int i = 1; i <= griglia.getNumRighe(); i++)
             {
                 ElencoTag[0, i].Value = i;
             }
-            for (int j = 1; j <= tag_per_riga; j++)
+            for (int j = 1; j <= griglia.getNumColonne(); j++)
             {
                 ElencoTag.Columns[j].Width = 110;
                 ElencoTag[j, 0].Value = alfabeto[j - 1];
             }
         }
 
-        void timer1_Tick(object sender, EventArgs e)
-        {
-            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
-            //rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
-            //int tag_letto = rfid_cfg.letturaID(rfid_num);
-        }
-
         void rfid_StatusUpdateEvent(string id)
         {
+            ElencoTag[colonna, riga].Selected = true;
 
-            if (oldId.Equals(id) == true)
+            if (((colonna <= griglia.getNumColonne()) && (riga <= griglia.getNumRighe())) || ((colonna != -1) && (riga != -1)))
             {
-                //non fare niente
-                Console.WriteLine("Id già letto, non eseguo alcuna operazione");
-                //this.richTextBox1.Text += "\nTag già letto: non eseguo alcuna operazione";
 
-            }
-            else if (oldId.Equals(id) == false)
-            {
-                bool presente1 = false;
-                if (selezionato.CompareTo("Ok") == 0)
+                for (int i = 0; i < inseriti.Count; i = i + 3)
                 {
-                    ElencoTag[colonna_sel, riga_sel].Selected = true;
-                }
-                else
-                {
-                    try
+                    if (((String)inseriti[i]).Equals(id))
                     {
-                        ElencoTag[colonna, riga].Selected = true;
-                    }
-                    catch
-                    {
+                        MessageBox.Show("Tag " + id + " già inserito in " + inseriti[i + 1].ToString() + inseriti[i + 2].ToString());
+                        return;
                     }
                 }
-                try
+
+                ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
+                ElencoTag[colonna,riga].Value = id;
+
+                inseriti.Add(id);
+                inseriti.Add(alfabeto[riga - 1]);
+                inseriti.Add(colonna);
+                ElencoTag[colonna,riga].Selected = false;
+                colonna++;
+                if (colonna > griglia.getNumColonne())
                 {
-                    if (textBox1.Text.CompareTo(id) == 0)
+                    if (riga >= griglia.getNumRighe())
                     {
-                        presente1 = true;
+                        riga = -1;
+                        colonna = -1;
                     }
-                }
-                catch
-                {
-                    presente1 = false;
-                }
-                if (presente1 == false)
-                {
-                    for (int i = 0; i < inseriti.Count; i = i + 3)
+                    else
                     {
-                        if (((String)inseriti[i]).CompareTo(id) == 0)
-                        {
-                            MessageBox.Show("Tag " + id + " già inserito in " + inseriti[i + 1].ToString() + inseriti[i + 2].ToString());
-                            presente1 = true;
-                        }
-                    }
-                }
-                if (presente1 == false)
-                {
-                    if (selected1 == true)
-                    {
-                        textBox1.Text = id;
-                        selected1 = false;
-                    }
-                }
-                if ((colonna <= tag_per_riga) && (riga <= tag_per_colonna))
-                {
-                    bool presente = false;
-                    oldId = id;
-                    try
-                    {
-                        if (textBox1.Text.CompareTo(id) == 0)
-                        {
-                            presente = true;
-                        }
-                    }
-                    catch
-                    {
-                        presente = false;
-                    }
-                    if (presente == false)
-                    {
-                        for (int i = 0; i < inseriti.Count; i = i + 3)
-                        {
-                            if (((String)inseriti[i]).CompareTo(id) == 0)
-                            {
-                                MessageBox.Show("Tag " + id + " già inserito in " + inseriti[i + 1].ToString() + inseriti[i + 2].ToString());
-                                presente = true;
-                            }
-                        }
-                    }
-                    if (presente == false)
-                    {
-                        if (selected1 == true)
-                        {
-                            textBox1.Text = id;
-                            selected1 = false;
-                        }
-                        else
-                        {
-                            if ((riga_sel != -1) && (colonna_sel != -1))
-                            {
-                                ElencoTag[colonna_sel, riga_sel].Style.BackColor = Color.Coral;
-                                ElencoTag[colonna_sel, riga_sel].Value = id;
-                                inseriti.Add(id);
-                                inseriti.Add(alfabeto[colonna_sel - 1]);
-                                inseriti.Add(riga_sel);
-                                ElencoTag[colonna_sel, riga_sel].Selected = false;
-                                riga_sel = -1;
-                                colonna_sel = -1;
-                                if ((colonna == 1) && (riga == 1))
-                                {
-                                    colonna++;
-                                }
-                                //selezionato = "No";
-                            }
-                            else
-                            {
-                                ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
-                                ElencoTag[colonna, riga].Value = id;
-                                //ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
-                                inseriti.Add(id);
-                                inseriti.Add(alfabeto[colonna - 1]);
-                                inseriti.Add(riga);
-                                ElencoTag[colonna, riga].Selected = false;
-                                colonna++;
-                            }
-                            //colonna++;
-                            
-                            //if (colonna > tag_per_colonna)
-                            if (colonna > tag_per_colonna)
-                            {
-                                riga++;
-                                colonna = 1;
-                            }
-                            if (riga > tag_per_riga)
-                            {
-                                riga_sel = -1;
-                                colonna_sel = -1;
-                            }
-                        }
+                        riga++;
+                        colonna = 1;
                     }
                 }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ok_Click(object sender, EventArgs e)
         {
-            bool esiste = false;
+
+            control.salvaGriglia(griglia,ElencoTag);
+            control.goHome(this);
+            /*bool esiste = false;
             this.Cursor = Cursors.WaitCursor;
             if (esiste == true)
             {  //controllo non gestito (c'è un abbozzo di controllo, ma è commentato nella loro ultima versione)
@@ -309,12 +119,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 XmlWriterSettings settings = new XmlWriterSettings();
                 settings.Indent = true;
                 settings.NewLineOnAttributes = true;
-                if ((textBox1.Text == null) || (textBox1.Text.CompareTo("") == 0))
-                {
-                    MessageBox.Show("Non hai inserito l'identificativo del pannello");
-                    
-                }
-                else if ((textBox2.Text == null) || (textBox2.Text.CompareTo("") == 0))
+                if ((textBox2.Text == null) || (textBox2.Text.CompareTo("") == 0))
                 {
                     MessageBox.Show("Non hai inserito il nome del pannello");
                 }
@@ -323,7 +128,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                     try
                     {
-                        XmlWriter wr = XmlWriter.Create(directory_principale + "Griglia" + textBox2.Text + textBox1.Text + ".xml", settings);
+                        XmlWriter wr = XmlWriter.Create(directory_principale + "Griglia" + textBox2.Text + ".xml", settings);
                         wr.WriteStartDocument();
                         wr.WriteStartElement("GrigliaTaggata");
                         wr.WriteStartElement("NomePannello");
@@ -336,7 +141,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         wr.WriteStartAttribute("TAG_PER_COLONNA");
                         wr.WriteString(tag_per_colonna.ToString());
                         wr.WriteEndAttribute();*/
-                        wr.WriteAttributeString("ID", textBox1.Text);
+                        /*
                         wr.WriteAttributeString("TAG_PER_RIGA", tag_per_riga.ToString());
                         wr.WriteAttributeString("TAG_PER_COLONNA", tag_per_colonna.ToString());
                         wr.WriteString(textBox2.Text);
@@ -384,7 +189,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     }
                     try
                     {
-                        Authoring.PannelliConfigurazione p = new Authoring.PannelliConfigurazione(textBox1.Text, textBox2.Text, tag_per_riga.ToString(), tag_per_colonna.ToString());
+                        Authoring.PannelliConfigurazione p = new Authoring.PannelliConfigurazione(textBox2.Text, tag_per_riga.ToString(), tag_per_colonna.ToString());
                         tutti_poster.Add(p);
                         XmlWriterSettings settings2 = new XmlWriterSettings();
                         settings2.Indent = true;
@@ -433,49 +238,21 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     this.Close();
                 }
             }
-            this.Cursor = Cursors.Default;
+            this.Cursor = Cursors.Default;*/
         }
 
-        private void textBox1_Click(object sender, EventArgs e)
-        {
-            textBox1.Focus();
-            selected1 = true;
-            textBox1.BackColor = Color.Yellow;
-
-            //deseleziono la datagrid
-            int i, j;
-            for (i = 1; i <= tag_per_colonna; i++) 
-                for (j = 1; j <= tag_per_riga; j++)
-                {
-                    ElencoTag[j, i].Selected = false;
-                    /*if (ElencoTag[j, i].Value!=null && String.IsNullOrEmpty(ElencoTag[j, i].Value.ToString()) == true)
-                        ElencoTag[j, i].Style.BackColor = Color.BlanchedAlmond;
-                    else
-                    {
-                        if (ElencoTag[j, i].Value != null && String.IsNullOrEmpty(ElencoTag[j, i].Value.ToString()) != true)
-                            ElencoTag[j, i].Style.BackColor = Color.Coral;
-                    }*/
-                }
-
-        }
-
-        private void ElencoTag_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            /*if ((ElencoTag[e.ColumnIndex, e.RowIndex] != null) && (ElencoTag[e.ColumnIndex, e.RowIndex].Value != null)) {
-                QuestionEliminaTag el = new QuestionEliminaTag(this, ElencoTag, e.ColumnIndex, e.RowIndex,inseriti);
-            }*/
-        }
+        
 
         private void ElencoTag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            textBox1.BackColor = Color.Gainsboro;
+            
             int i, j;
-            for (i = 1; i <= tag_per_colonna; i++) // se c'è qualche cella che risulta autoselezionata, la deseleziono
+            for (i = 1; i <= griglia.getNumRighe(); i++) // se c'è qualche cella che risulta autoselezionata, la deseleziono
             {
-                for (j = 1; j <= tag_per_riga; j++)
+                for (j = 1; j <= griglia.getNumColonne(); j++)
                 {
-                    if (ElencoTag[j, i].Style.BackColor == Color.Coral &&  String.IsNullOrEmpty(ElencoTag[j, i].Value.ToString()) == true)
-                        ElencoTag[j, i].Style.BackColor = Color.BlanchedAlmond;
+                    if (ElencoTag[i, j].Style.BackColor == Color.Coral &&  String.IsNullOrEmpty(ElencoTag[i, j].Value.ToString()) == true)
+                        ElencoTag[i, j].Style.BackColor = Color.BlanchedAlmond;
                 }
             }
             if ((ElencoTag[e.ColumnIndex, e.RowIndex] != null) && (ElencoTag[e.ColumnIndex, e.RowIndex].Value != null) && (e.ColumnIndex != 0) && (e.RowIndex != 0))
@@ -483,8 +260,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ElencoTag[e.ColumnIndex, e.RowIndex].Value = null;
                 ElencoTag[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.BlanchedAlmond;
                 ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;
-                riga_sel = e.RowIndex;
-                colonna_sel = e.ColumnIndex;
+                riga = e.RowIndex;
+                colonna = e.ColumnIndex;
             }
             else
             {
@@ -492,8 +269,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 {
                     ElencoTag[e.ColumnIndex, e.RowIndex].Style.SelectionBackColor = Color.Yellow;
                     ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;
-                    riga_sel = e.RowIndex;
-                    colonna_sel = e.ColumnIndex;
+                    riga = e.RowIndex;
+                    colonna = e.ColumnIndex;
                 }
             }
         }
@@ -513,15 +290,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         //    this.Close();
         //}
 
-        private void Indietro_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            this.Close();
-            this.Cursor = Cursors.Default;
-            //componenti.Visible = true;
-        }
-
-        private void writeConfig()
+        
+        /*private void writeConfig()
         {
             this.Cursor = Cursors.WaitCursor;
             
@@ -530,7 +300,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             string nome_conf = "conf"+(nowInUTC - baseTime).Ticks / 10000;
 
             string nome_pannello = textBox2.Text;
-            string id_pannello = textBox1.Text;
+            
             
 
 
@@ -653,6 +423,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
             this.Cursor = Cursors.Default;
+        }*/
+
+        private void annulla_Click(object sender, EventArgs e)
+        {
+            control.goBack(this);
         }
     }
 }

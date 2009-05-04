@@ -1572,7 +1572,7 @@ namespace TalkingPaper.Authoring
             }
             for (int j = 1; j <= tag_per_riga; j++)
             {
-                ElencoTag2.Columns[j].Width = (int)(110*global.percentScale);
+                ElencoTag2.Columns[j].Width = (int)(110*0.8);
                 ElencoTag2[j, 0].Value = alfabeto[j - 1];
             }
             RiempiDataGrid2();
@@ -2339,8 +2339,8 @@ namespace TalkingPaper.Authoring
             //TalkingPaper.RidimensionaForm.ReScaleTab(ElencoControlli1, global.percentScale);
             //TalkingPaper.RidimensionaForm.ReScaleTab(ElencoControlli2, global.percentScale);
             //TalkingPaper.RidimensionaForm.ReScaleTab(ElencoControlli3, global.percentScale);
-            TalkingPaper.RidimensionaForm.ReScaleTab(ElencoTag2, global.percentScale);
-            TalkingPaper.RidimensionaForm.ReScaleTab(ElencoRisorse, global.percentScale);
+            TalkingPaper.RidimensionaForm.ReScaleTab(ElencoTag2, (float)0.8);
+            TalkingPaper.RidimensionaForm.ReScaleTab(ElencoRisorse, (float)0.8);
             
         }
 

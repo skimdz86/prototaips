@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -121,6 +121,8 @@
     <Compile Include="Authoring\PannelliConfigurazione.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ControlLogic\AdministrationControl.cs" />
+    <Compile Include="ControlLogic\NavigationControl.cs" />
     <Compile Include="DataAccess\GeneralDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\ElementoGriglia.cs">
@@ -145,6 +147,9 @@
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
     <Compile Include="Model\Griglia.cs" />
     <Compile Include="DataAccess\GrigliaHandler.cs" />
+    <Compile Include="RidimensionaForm.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Welcome\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -323,7 +328,6 @@
     <Compile Include="Welcome\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="RidimensionaForm.cs" />
     <Compile Include="Risorsamultimediale.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>

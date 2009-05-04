@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Collections;
 
-namespace TalkingPaper
+namespace TalkingPaper.Model
 {
-    class Griglia
+    public class Griglia
     {
         private String nomeGriglia;
         private int numRighe;

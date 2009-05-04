@@ -6,7 +6,7 @@ using System.IO;
 
 namespace TalkingPaper.DataAccess
 {
-    class PosterHandler : GeneralDataHandler
+    class PosterHandler 
     {
         String filepath = "../../Data/Poster.xml";
 
@@ -23,7 +23,7 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { Console.Write(e.StackTrace); }
         }
-        public bool setPoster(Poster poster)
+        public bool setPoster(Model.Poster poster)
         {
             try
             {
@@ -49,10 +49,10 @@ namespace TalkingPaper.DataAccess
                 XmlText text = doc.CreateTextNode(poster.getDescrizione());
                 desc.AppendChild(text);
                 el.AppendChild(desc);
-                List<Contenuto> tempList = poster.getContenuti();
+                List<Model.Contenuto> tempList = poster.getContenuti();
                 for (int i = 0; i < tempList.Count; i++)
                 {
-                    Contenuto c = (Contenuto)tempList[i];
+                    Model.Contenuto c = (Model.Contenuto)tempList[i];
                     XmlElement x = doc.CreateElement("Contenuto");
                     x.SetAttribute("Nome", c.getNomeContenuto());
                     x.SetAttribute("AudioPath", c.getAudioPath());
@@ -69,14 +69,14 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { return false; }
         }
-        public Poster getPoster(String nomePoster) {
+        public Model.Poster getPoster(String nomePoster) {
 
             try
             {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                Poster tempPoster = new Poster("", "", "", "");
+                Model.Poster tempPoster = new Model.Poster("", "", "", "");
                 XmlNodeList posList = doc.GetElementsByTagName("Poster");
                 for (int i = 0; i < posList.Count; i++)
                 {
@@ -90,11 +90,11 @@ namespace TalkingPaper.DataAccess
                         XmlElement desc = (XmlElement)descList[0];
                         tempPoster.setDescrizione(desc.InnerText);
                         XmlNodeList contList = x.GetElementsByTagName("Contenuto");
-                        List<Contenuto> tempCont = new List<Contenuto>();
+                        List<Model.Contenuto> tempCont = new List<Model.Contenuto>();
                         for (int j = 0; j < contList.Count; j++)
                         {
                             XmlElement y = (XmlElement)x.GetElementsByTagName("Contenuto")[j];
-                            Contenuto c = new Contenuto("", "", "", "", "");
+                            Model.Contenuto c = new Model.Contenuto("", "", "", "", "");
                             c.setNomeContenuto(y.GetAttribute("Nome"));
                             c.setAudioPath(y.GetAttribute("AudioPath"));
                             c.setVideoPath(y.GetAttribute("VideoPath"));
@@ -111,19 +111,19 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { return null; }
         }
-        public List<Poster> getListaPoster() {
+        public List<Model.Poster> getListaPoster() {
 
             try
             {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                List<Poster> tempPos = new List<Poster>();
+                List<Model.Poster> tempPos = new List<Model.Poster>();
                 XmlNodeList posList = doc.GetElementsByTagName("Poster");
                 for (int i = 0; i < posList.Count; i++)
                 {
                     XmlElement x = (XmlElement)doc.GetElementsByTagName("Poster")[i];
-                    Poster pos = new Poster("", "", "", "");
+                    Model.Poster pos = new Model.Poster("", "", "", "");
                     pos.setNome(x.GetAttribute("Nome"));
                     pos.setUsername(x.GetAttribute("idUtente"));
                     pos.setNomeGriglia(x.GetAttribute("idGriglia"));

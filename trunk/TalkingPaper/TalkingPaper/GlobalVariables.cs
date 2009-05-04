@@ -1,18 +1,23 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Forms;
 
 namespace TalkingPaper
 {
-    class global{
+    class global
+    {
 
-        public static bool rfid;
-        public static Welcome.ChildHomeForm home;
-       
-        public static Welcome.ChildHomeForm inizio;
-        public static float percentScale=(float)0.80;
+
+        public static Form home;
+        public static Form welcome;
+        public static Form back;
+        //public static float percentScale=(float)0.80;
 
         public static DataAccess.DataHandlerInterface dataHandler;
+
+        public static string directoryPrincipale;
     }
 }
+    
  

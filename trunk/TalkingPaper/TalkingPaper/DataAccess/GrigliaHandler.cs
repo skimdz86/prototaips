@@ -7,7 +7,7 @@ using System.Collections;
 
 namespace TalkingPaper.DataAccess
 {
-    class GrigliaHandler : GeneralDataHandler
+    class GrigliaHandler
     {
         String filepath = "../../Data/Griglie.xml";
 
@@ -25,7 +25,7 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { Console.Write(e.StackTrace); }
         }
-        public bool setGriglia(Griglia gr)
+        public bool setGriglia(Model.Griglia gr)
         {
             try
             {
@@ -91,19 +91,19 @@ namespace TalkingPaper.DataAccess
             catch (XmlException e) { Console.Write(e.StackTrace); }
         }
 
-        public List<Griglia> getListaGriglie()
+        public List<Model.Griglia> getListaGriglie()
         {
             try
             {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                List<Griglia> tempGr = new List<Griglia>();
+                List<Model.Griglia> tempGr = new List<Model.Griglia>();
                 XmlNodeList grList = doc.GetElementsByTagName("Griglia");
                 for (int i = 0; i < grList.Count; i++)
                 {
                     XmlElement x = (XmlElement)doc.GetElementsByTagName("Griglia")[i];
-                    Griglia gr = new Griglia("", 0, 0);
+                    Model.Griglia gr = new Model.Griglia("", 0, 0);
                     gr.setNome(x.GetAttribute("Nome"));
                     int r = Convert.ToInt32(x.GetAttribute("Righe"));
                     int c = Convert.ToInt32(x.GetAttribute("Colonne"));
@@ -116,14 +116,14 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { return null; }
         }
-        public Griglia getGriglia(String nome)
+        public Model.Griglia getGriglia(String nome)
         {
             try
             {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                Griglia tempGr = new Griglia("", 0, 0);
+                Model.Griglia tempGr = new Model.Griglia("", 0, 0);
                 XmlNodeList grList = doc.GetElementsByTagName("Griglia");
                 for (int i = 0; i < grList.Count; i++)
                 {

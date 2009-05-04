@@ -6,7 +6,7 @@ using System.IO;
 
 namespace TalkingPaper.DataAccess
 {
-    class UserHandler : GeneralDataHandler
+    class UserHandler 
     {
         String filepath = "../../Data/Users.xml";
 
@@ -102,20 +102,20 @@ namespace TalkingPaper.DataAccess
             catch (XmlException e) { return false; }
         }
         //listautenti
-        public List<User> getListaUtenti()
+        public List<Model.User> getListaUtenti()
         {
             try
             {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                List<User> temp = new List<User>();
+                List<Model.User> temp = new List<Model.User>();
                 XmlNodeList utList = doc.GetElementsByTagName("Utente");
                 bool tempFlag = false;
                 for (int i = 0; i < utList.Count; i++)
                 {
                     XmlElement x = (XmlElement)doc.GetElementsByTagName("Utente")[i];
-                    User ut = new User("", "", false);
+                    Model.User ut = new Model.User("", "", false);
                     ut.setUsername(x.GetAttribute("Login"));
                     // ut.setQualcosa(x.GetAttribute("Classe"));
                     if (x.GetAttribute("FlagAmministratore") == "Si") tempFlag = true;

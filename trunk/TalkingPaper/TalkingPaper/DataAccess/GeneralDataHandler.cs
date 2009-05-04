@@ -36,45 +36,45 @@ namespace TalkingPaper.DataAccess
             return b;
         }
 
-        public List<User> getListaUtenti()
+        public List<Model.User> getListaUtenti()
         {
-            List<User> l = ut.getListaUtenti();
+            List<Model.User> l = ut.getListaUtenti();
             return l;
         }
 
-        public bool setGriglia(Griglia griglia)
+        public bool setGriglia(Model.Griglia griglia)
         {
             bool b = gr.setGriglia(griglia);
             return b;
         }
 
-        public Griglia getGriglia(String nomeGriglia)
+        public Model.Griglia getGriglia(String nomeGriglia)
         {
-            Griglia g = gr.getGriglia(nomeGriglia);
+            Model.Griglia g = gr.getGriglia(nomeGriglia);
             return g;
         }
 
-        public List<Griglia> getListaGriglie()
+        public List<Model.Griglia> getListaGriglie()
         {
-            List<Griglia> l = gr.getListaGriglie();
+            List<Model.Griglia> l = gr.getListaGriglie();
             return l;
         }
 
-        public bool setPoster(Poster poster)
+        public bool setPoster(Model.Poster poster)
         {
             bool b = pos.setPoster(poster);
             return b;
         }
 
-        public Poster getPoster(String nomePoster)
+        public Model.Poster getPoster(String nomePoster)
         {
-            Poster p = pos.getPoster(nomePoster);
+            Model.Poster p = pos.getPoster(nomePoster);
             return p;
         }
 
-        public List<Poster> getListaPoster()
+        public List<Model.Poster> getListaPoster()
         {
-            List<Poster> l = pos.getListaPoster();
+            List<Model.Poster> l = pos.getListaPoster();
             return l;
         }
         public bool removePoster(String nomePoster) 
