@@ -10,17 +10,15 @@ namespace TalkingPaper.Welcome
 {
     public partial class IndexForm : Form
     {
+        private ControlLogic.AdministrationControl control;
+
         public IndexForm()
         {
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             this.TopMost = true;
-        }
-
-        private void Index_Load(object sender, EventArgs e)
-        {
-
+            control = new ControlLogic.AdministrationControl();
         }
 
         private void mainButton2_Click(object sender, EventArgs e)
@@ -30,18 +28,14 @@ namespace TalkingPaper.Welcome
 
         private void mainButton3_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            new ChildHomeForm().Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
+            ChildHomeForm child = new ChildHomeForm();
+            control.goTo(this, child);
         }
 
         private void mainButton1_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            new RegistrationForm().Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
+            RegistrationForm reg = new RegistrationForm();
+            control.goTo(this, reg);
         }
 
     }

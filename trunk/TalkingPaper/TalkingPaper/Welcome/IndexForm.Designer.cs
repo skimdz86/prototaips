@@ -36,10 +36,10 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.mainButton1 = new TalkingPaper.MainButton();
+            this.Registrazionebutton = new TalkingPaper.MainButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.mainButton2 = new TalkingPaper.MainButton();
-            this.mainButton3 = new TalkingPaper.MainButton();
+            this.EsciButton = new TalkingPaper.MainButton();
+            this.LoginButton = new TalkingPaper.MainButton();
             this.SuspendLayout();
             // 
             // label1
@@ -110,20 +110,19 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Altrimenti effettua la registrazione";
             // 
-            // mainButton1
+            // Registrazionebutton
             // 
-            this.mainButton1.BackColor = System.Drawing.Color.Yellow;
-            this.mainButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.mainButton1.Location = new System.Drawing.Point(415, 286);
-            this.mainButton1.Name = "mainButton1";
-            this.mainButton1.Size = new System.Drawing.Size(180, 88);
-            this.mainButton1.TabIndex = 7;
-            this.mainButton1.Text = "REGISTRAZIONE";
-            this.mainButton1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mainButton1.UseVisualStyleBackColor = false;
-            this.mainButton1.Click += new System.EventHandler(this.mainButton1_Click);
+            this.Registrazionebutton.BackColor = System.Drawing.Color.Yellow;
+            this.Registrazionebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Registrazionebutton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Registrazionebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.Registrazionebutton.Location = new System.Drawing.Point(415, 286);
+            this.Registrazionebutton.Name = "Registrazionebutton";
+            this.Registrazionebutton.Size = new System.Drawing.Size(180, 88);
+            this.Registrazionebutton.TabIndex = 7;
+            this.Registrazionebutton.Text = "REGISTRAZIONE";
+            this.Registrazionebutton.UseVisualStyleBackColor = false;
+            this.Registrazionebutton.Click += new System.EventHandler(this.mainButton1_Click);
             // 
             // label6
             // 
@@ -136,36 +135,36 @@
             this.label6.Text = "ERRORE!!!";
             this.label6.Visible = false;
             // 
-            // mainButton2
+            // EsciButton
             // 
-            this.mainButton2.BackColor = System.Drawing.Color.Yellow;
-            this.mainButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.mainButton2.Image = ((System.Drawing.Image)(resources.GetObject("mainButton2.Image")));
-            this.mainButton2.Location = new System.Drawing.Point(848, 9);
-            this.mainButton2.Name = "mainButton2";
-            this.mainButton2.Size = new System.Drawing.Size(180, 88);
-            this.mainButton2.TabIndex = 9;
-            this.mainButton2.Text = "ESCI DAL PROGRAMMA";
-            this.mainButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mainButton2.UseVisualStyleBackColor = false;
-            this.mainButton2.Click += new System.EventHandler(this.mainButton2_Click);
+            this.EsciButton.BackColor = System.Drawing.Color.Yellow;
+            this.EsciButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EsciButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EsciButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.EsciButton.Image = ((System.Drawing.Image)(resources.GetObject("EsciButton.Image")));
+            this.EsciButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EsciButton.Location = new System.Drawing.Point(848, 9);
+            this.EsciButton.Name = "EsciButton";
+            this.EsciButton.Size = new System.Drawing.Size(180, 88);
+            this.EsciButton.TabIndex = 9;
+            this.EsciButton.Text = "ESCI DAL PROGRAMMA";
+            this.EsciButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.EsciButton.UseVisualStyleBackColor = false;
+            this.EsciButton.Click += new System.EventHandler(this.mainButton2_Click);
             // 
-            // mainButton3
+            // LoginButton
             // 
-            this.mainButton3.BackColor = System.Drawing.Color.Yellow;
-            this.mainButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.mainButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.mainButton3.Location = new System.Drawing.Point(628, 166);
-            this.mainButton3.Name = "mainButton3";
-            this.mainButton3.Size = new System.Drawing.Size(180, 88);
-            this.mainButton3.TabIndex = 10;
-            this.mainButton3.Text = "ENTRA";
-            this.mainButton3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mainButton3.UseVisualStyleBackColor = false;
-            this.mainButton3.Click += new System.EventHandler(this.mainButton3_Click);
+            this.LoginButton.BackColor = System.Drawing.Color.Yellow;
+            this.LoginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LoginButton.Location = new System.Drawing.Point(628, 166);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(180, 88);
+            this.LoginButton.TabIndex = 10;
+            this.LoginButton.Text = "ENTRA";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.mainButton3_Click);
             // 
             // IndexForm
             // 
@@ -173,10 +172,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 739);
-            this.Controls.Add(this.mainButton3);
-            this.Controls.Add(this.mainButton2);
+            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.EsciButton);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.mainButton1);
+            this.Controls.Add(this.Registrazionebutton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
@@ -201,9 +200,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private MainButton mainButton1;
+        private MainButton Registrazionebutton;
         private System.Windows.Forms.Label label6;
-        private MainButton mainButton2;
-        private MainButton mainButton3;
+        private MainButton EsciButton;
+        private MainButton LoginButton;
     }
 }

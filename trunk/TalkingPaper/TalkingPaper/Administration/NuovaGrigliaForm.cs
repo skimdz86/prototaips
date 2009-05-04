@@ -3,7 +3,7 @@ using System;
 
 namespace TalkingPaper.Administration
 {
-    public partial class NuovaGrigliaForm : Form
+    public partial class NuovaGrigliaForm : FormSchema
     {
         ControlLogic.AdministrationControl control;
         
