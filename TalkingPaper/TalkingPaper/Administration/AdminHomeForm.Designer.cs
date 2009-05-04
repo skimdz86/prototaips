@@ -28,7 +28,6 @@ namespace TalkingPaper.Administration
         /// </summary>
         private void InitializeComponent()
         {
-            this.logout = new System.Windows.Forms.Button();
             this.nuovaGriglia = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,22 +35,9 @@ namespace TalkingPaper.Administration
             this.EliminaPoster = new System.Windows.Forms.Button();
             this.modificaGriglia = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.logout = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // logout
-            // 
-            this.logout.BackColor = System.Drawing.Color.Yellow;
-            this.logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logout.Location = new System.Drawing.Point(176, 19);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(120, 61);
-            this.logout.TabIndex = 0;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // nuovaGriglia
             // 
@@ -137,33 +123,39 @@ namespace TalkingPaper.Administration
             this.label1.TabIndex = 33;
             this.label1.Text = "Benvenuto ";
             // 
-            // groupBox2
+            // logout
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.Orange;
-            this.groupBox2.Controls.Add(this.logout);
-            this.groupBox2.Location = new System.Drawing.Point(828, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(344, 102);
-            this.groupBox2.TabIndex = 38;
-            this.groupBox2.TabStop = false;
+            this.logout.BackColor = System.Drawing.Color.Yellow;
+            this.logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout.Location = new System.Drawing.Point(904, 12);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(120, 61);
+            this.logout.TabIndex = 0;
+            this.logout.Text = "Logout";
+            this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
             // 
             // AdminHomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1136, 739);
-            this.ControlBox = false;
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(1036, 739);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.logout);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Name = "AdminHomeForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormAmministrazione";
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.logout, 0);
+            this.Controls.SetChildIndex(this.groupBox3, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.sottotitolo, 0);
+            this.Controls.SetChildIndex(this.titolo, 0);
             this.groupBox3.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,14 +163,13 @@ namespace TalkingPaper.Administration
 
         #endregion
 
-        private System.Windows.Forms.Button logout;
         private System.Windows.Forms.Button nuovaGriglia;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button EliminaPoster;
         private System.Windows.Forms.Button modificaGriglia;
+        private System.Windows.Forms.Button logout;
     }
 }

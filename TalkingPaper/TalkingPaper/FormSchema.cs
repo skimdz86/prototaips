@@ -18,20 +18,5 @@ namespace TalkingPaper
             this.TopMost = true;
         }
 
-        private void pictureBoxPost1_Click(object sender, EventArgs e)
-        {
-            if (textBoxPost.Visible == false)
-            {
-                textBoxPost.Visible = true;
-                this.pictureBoxPost2.Visible = true;
             }
-            else
-            {
-                textBoxPost.Visible = false;
-                this.pictureBoxPost2.Visible = false;
-            }
-                
-
-        }
-    }
 }

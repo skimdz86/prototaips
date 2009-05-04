@@ -44,30 +44,30 @@ namespace TalkingPaper.Authoring
             this.indietro = new TalkingPaper.ControlButton();
             this.label4 = new System.Windows.Forms.Label();
             this.pannello = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            this.grouppoControl.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            //this.grouppoControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxPost
             // 
-            this.textBoxPost.Location = new System.Drawing.Point(913, 439);
+            //this.textBoxPost.Location = new System.Drawing.Point(913, 439);
             // 
             // pictureBoxPost2
             // 
-            this.pictureBoxPost2.Location = new System.Drawing.Point(901, 422);
+            //this.pictureBoxPost2.Location = new System.Drawing.Point(901, 422);
             // 
             // pictureBoxPost1
             // 
-            this.pictureBoxPost1.Location = new System.Drawing.Point(1110, 592);
+            //this.pictureBoxPost1.Location = new System.Drawing.Point(1110, 592);
             // 
             // grouppoControl
             // 
-            this.grouppoControl.Controls.Add(this.indietro);
-            this.grouppoControl.Location = new System.Drawing.Point(1042, 25);
-            this.grouppoControl.Size = new System.Drawing.Size(130, 91);
+            //this.grouppoControl.Controls.Add(this.indietro);
+            //this.grouppoControl.Location = new System.Drawing.Point(1042, 25);
+            //this.grouppoControl.Size = new System.Drawing.Size(130, 91);
             // 
             // sottotitolo
             // 
@@ -272,23 +272,23 @@ namespace TalkingPaper.Authoring
             this.Name = "ScegliGrigliaForm";
             this.Text = "FormScegliConfigurazione";
             this.Controls.SetChildIndex(this.groupBox2, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
             this.Controls.SetChildIndex(this.comboBox1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.textBoxPost, 0);
-            this.Controls.SetChildIndex(this.grouppoControl, 0);
+            //this.Controls.SetChildIndex(this.textBoxPost, 0);
+            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
             this.Controls.SetChildIndex(this.button2, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            this.grouppoControl.ResumeLayout(false);
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            //this.grouppoControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
