@@ -38,12 +38,15 @@ namespace TalkingPaper.Administration
             this.annulla = new TalkingPaper.MainButton();
             this.ok = new TalkingPaper.MainButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.Indietro = new TalkingPaper.ControlButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // titolo
+            // 
+            this.titolo.Location = new System.Drawing.Point(22, 9);
             // 
             // label1
             // 
@@ -147,17 +150,6 @@ namespace TalkingPaper.Administration
             this.label6.TabIndex = 0;
             this.label6.Text = "Crea nuovo supporto per i cartelloni";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(22, 18);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(454, 55);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Cartellone Parlante";
-            // 
             // Indietro
             // 
             this.Indietro.BackColor = System.Drawing.Color.Yellow;
@@ -192,14 +184,14 @@ namespace TalkingPaper.Administration
             // NuovaGrigliaForm
             // 
             this.AcceptButton = this.ok;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.CancelButton = this.annulla;
-            this.ClientSize = new System.Drawing.Size(1136, 739);
+            this.ClientSize = new System.Drawing.Size(1036, 739);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
@@ -207,6 +199,17 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.label3);
             this.Name = "NuovaGrigliaForm";
             this.Text = "TagRigaColonna";
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.textBox3, 0);
+            this.Controls.SetChildIndex(this.titolo, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -225,7 +228,6 @@ namespace TalkingPaper.Administration
         private System.Windows.Forms.GroupBox groupBox1;
         private ControlButton Indietro;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
     }
