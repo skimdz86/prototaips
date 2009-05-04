@@ -46,16 +46,16 @@ namespace TalkingPaper.Config
             this.labelNO = new System.Windows.Forms.Label();
             this.labelNO2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            this.grouppoControl.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            //this.grouppoControl.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // grouppoControl
             // 
-            this.grouppoControl.Controls.Add(this.cancel);
-            this.grouppoControl.Controls.Add(this.Button_Salva);
+            //this.grouppoControl.Controls.Add(this.cancel);
+            //this.grouppoControl.Controls.Add(this.Button_Salva);
             // 
             // sottotitolo
             // 
@@ -294,14 +294,14 @@ namespace TalkingPaper.Config
             this.Controls.SetChildIndex(this.labelNO2, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            this.Controls.SetChildIndex(this.grouppoControl, 0);
+            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            this.Controls.SetChildIndex(this.textBoxPost, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            this.grouppoControl.ResumeLayout(false);
+            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
+            //this.Controls.SetChildIndex(this.textBoxPost, 0);
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            //this.grouppoControl.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -39,22 +39,22 @@
             this.ElencoTag = new System.Windows.Forms.DataGridView();
             this.button1 = new TalkingPaper.MainButton();
             this.button2 = new TalkingPaper.MainButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPost
             // 
-            this.textBoxPost.Location = new System.Drawing.Point(821, 656);
+            //this.textBoxPost.Location = new System.Drawing.Point(821, 656);
             // 
             // pictureBoxPost2
             // 
-            this.pictureBoxPost2.Location = new System.Drawing.Point(821, 559);
+            //this.pictureBoxPost2.Location = new System.Drawing.Point(821, 559);
             // 
             // pictureBoxPost1
             // 
-            this.pictureBoxPost1.Location = new System.Drawing.Point(978, 603);
+            //this.pictureBoxPost1.Location = new System.Drawing.Point(978, 603);
             // 
             // sottotitolo
             // 
@@ -202,17 +202,17 @@
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            this.Controls.SetChildIndex(this.grouppoControl, 0);
+            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            this.Controls.SetChildIndex(this.textBoxPost, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
+            //this.Controls.SetChildIndex(this.textBoxPost, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.ElencoTag, 0);
             this.Controls.SetChildIndex(this.button2, 0);
             this.Controls.SetChildIndex(this.button1, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

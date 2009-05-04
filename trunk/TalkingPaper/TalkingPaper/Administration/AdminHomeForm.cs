@@ -3,7 +3,7 @@ using System;
 
 namespace TalkingPaper.Administration
 {
-    public partial class AdminHomeForm : Form
+    public partial class AdminHomeForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
                

@@ -32,14 +32,14 @@ namespace TalkingPaper.Config
             this.label1 = new System.Windows.Forms.Label();
             this.BtnChiusura = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            this.grouppoControl.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            //this.grouppoControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // grouppoControl
             // 
-            this.grouppoControl.Controls.Add(this.BtnChiusura);
+            //this.grouppoControl.Controls.Add(this.BtnChiusura);
             // 
             // sottotitolo
             // 
@@ -93,14 +93,14 @@ namespace TalkingPaper.Config
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            this.Controls.SetChildIndex(this.grouppoControl, 0);
+            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            this.Controls.SetChildIndex(this.textBoxPost, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            this.grouppoControl.ResumeLayout(false);
+            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
+            //this.Controls.SetChildIndex(this.textBoxPost, 0);
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            //this.grouppoControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

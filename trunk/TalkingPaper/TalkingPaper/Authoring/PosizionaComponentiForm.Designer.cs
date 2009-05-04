@@ -66,9 +66,9 @@ namespace TalkingPaper.Authoring
             this.eliminaComp = new TalkingPaper.ControlButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.cambiaGriglia = new TalkingPaper.ControlButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            this.grouppoControl.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            //this.grouppoControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli1)).BeginInit();
@@ -82,9 +82,9 @@ namespace TalkingPaper.Authoring
             // 
             // grouppoControl
             // 
-            this.grouppoControl.Controls.Add(this.Termina);
-            this.grouppoControl.Location = new System.Drawing.Point(1037, 12);
-            this.grouppoControl.Size = new System.Drawing.Size(135, 91);
+            //this.grouppoControl.Controls.Add(this.Termina);
+            //this.grouppoControl.Location = new System.Drawing.Point(1037, 12);
+            //this.grouppoControl.Size = new System.Drawing.Size(135, 91);
             // 
             // sottotitolo
             // 
@@ -549,14 +549,14 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.groupBox5, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            this.Controls.SetChildIndex(this.grouppoControl, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            this.Controls.SetChildIndex(this.textBoxPost, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            this.grouppoControl.ResumeLayout(false);
+            //this.Controls.SetChildIndex(this.grouppoControl, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
+            //this.Controls.SetChildIndex(this.textBoxPost, 0);
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            //this.grouppoControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli1)).EndInit();

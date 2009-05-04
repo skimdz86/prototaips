@@ -31,16 +31,16 @@ namespace TalkingPaper
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormErroreStorico));
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.buttonChiudi = new TalkingPaper.ControlButton();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            this.grouppoControl.SuspendLayout();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            //this.grouppoControl.SuspendLayout();
             this.SuspendLayout();
             // 
             // grouppoControl
             // 
-            this.grouppoControl.Controls.Add(this.buttonChiudi);
-            this.grouppoControl.Location = new System.Drawing.Point(1024, 9);
-            this.grouppoControl.Size = new System.Drawing.Size(150, 91);
+            //this.grouppoControl.Controls.Add(this.buttonChiudi);
+            //this.grouppoControl.Location = new System.Drawing.Point(1024, 9);
+            //this.grouppoControl.Size = new System.Drawing.Size(150, 91);
             // 
             // sottotitolo
             // 
@@ -82,16 +82,16 @@ namespace TalkingPaper
             this.Name = "FormErroreStorico";
             this.Text = "Storico degli Errori della sessione di lavoro corrente";
             this.Load += new System.EventHandler(this.FormErroreStorico_Load);
-            this.Controls.SetChildIndex(this.grouppoControl, 0);
+            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.richTextBox1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            this.Controls.SetChildIndex(this.textBoxPost, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            this.grouppoControl.ResumeLayout(false);
+            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
+            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
+            //this.Controls.SetChildIndex(this.textBoxPost, 0);
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            //this.grouppoControl.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
