@@ -29,29 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(IndexForm));
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Registrazionebutton = new TalkingPaper.MainButton();
+            this.RegistrazioneButton = new TalkingPaper.MainButton();
             this.label6 = new System.Windows.Forms.Label();
             this.EsciButton = new TalkingPaper.MainButton();
             this.LoginButton = new TalkingPaper.MainButton();
             this.SuspendLayout();
             // 
-            // label1
+            // titolo
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(237, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(454, 55);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Benvenuto ";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.titolo.Size = new System.Drawing.Size(264, 55);
+            this.titolo.Text = "Benvenuto";
+            // 
+            // sottotitolo
+            // 
+            this.sottotitolo.Visible = false;
             // 
             // label2
             // 
@@ -110,19 +107,20 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "Altrimenti effettua la registrazione";
             // 
-            // Registrazionebutton
+            // RegistrazioneButton
             // 
-            this.Registrazionebutton.BackColor = System.Drawing.Color.Yellow;
-            this.Registrazionebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Registrazionebutton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Registrazionebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Registrazionebutton.Location = new System.Drawing.Point(415, 286);
-            this.Registrazionebutton.Name = "Registrazionebutton";
-            this.Registrazionebutton.Size = new System.Drawing.Size(180, 88);
-            this.Registrazionebutton.TabIndex = 7;
-            this.Registrazionebutton.Text = "REGISTRAZIONE";
-            this.Registrazionebutton.UseVisualStyleBackColor = false;
-            this.Registrazionebutton.Click += new System.EventHandler(this.mainButton1_Click);
+            this.RegistrazioneButton.BackColor = System.Drawing.Color.Yellow;
+            this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RegistrazioneButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.RegistrazioneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.RegistrazioneButton.Location = new System.Drawing.Point(415, 286);
+            this.RegistrazioneButton.Name = "RegistrazioneButton";
+            this.RegistrazioneButton.Size = new System.Drawing.Size(180, 88);
+            this.RegistrazioneButton.TabIndex = 7;
+            this.RegistrazioneButton.Text = "REGISTRAZIONE";
+            this.RegistrazioneButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.RegistrazioneButton.UseVisualStyleBackColor = false;
+            this.RegistrazioneButton.Click += new System.EventHandler(this.RegistrazioneButton_Click);
             // 
             // label6
             // 
@@ -150,7 +148,7 @@
             this.EsciButton.Text = "ESCI DAL PROGRAMMA";
             this.EsciButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EsciButton.UseVisualStyleBackColor = false;
-            this.EsciButton.Click += new System.EventHandler(this.mainButton2_Click);
+            this.EsciButton.Click += new System.EventHandler(this.EsciButton_Click);
             // 
             // LoginButton
             // 
@@ -163,11 +161,13 @@
             this.LoginButton.Size = new System.Drawing.Size(180, 88);
             this.LoginButton.TabIndex = 10;
             this.LoginButton.Text = "ENTRA";
+            this.LoginButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.LoginButton.UseVisualStyleBackColor = false;
-            this.LoginButton.Click += new System.EventHandler(this.mainButton3_Click);
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // IndexForm
             // 
+            this.AcceptButton = this.LoginButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
@@ -175,16 +175,27 @@
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.EsciButton);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.Registrazionebutton);
+            this.Controls.Add(this.RegistrazioneButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "IndexForm";
             this.Text = "Index";
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.textBox1, 0);
+            this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.RegistrazioneButton, 0);
+            this.Controls.SetChildIndex(this.label6, 0);
+            this.Controls.SetChildIndex(this.EsciButton, 0);
+            this.Controls.SetChildIndex(this.LoginButton, 0);
+            this.Controls.SetChildIndex(this.sottotitolo, 0);
+            this.Controls.SetChildIndex(this.titolo, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,14 +203,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private MainButton Registrazionebutton;
+        private MainButton RegistrazioneButton;
         private System.Windows.Forms.Label label6;
         private MainButton EsciButton;
         private MainButton LoginButton;

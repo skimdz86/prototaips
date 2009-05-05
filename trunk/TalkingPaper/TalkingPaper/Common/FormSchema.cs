@@ -5,18 +5,20 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TalkingPaper.Common;
 
-namespace TalkingPaper
+namespace TalkingPaper.Common
 {
     public partial class FormSchema : Form
     {
+
         public FormSchema()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.TopMost = true;
+            //this.WindowState = FormWindowState.Maximized;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.TopMost = true;
         }
 
-            }
+    }
 }

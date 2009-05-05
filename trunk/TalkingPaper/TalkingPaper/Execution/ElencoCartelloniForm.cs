@@ -16,7 +16,7 @@ using System.Xml;
 
 namespace TalkingPaper.Execution
 {
-    public partial class ElencoCartelloniForm : FormSchema
+    public partial class ElencoCartelloniForm : Common.FormSchema
     {
         private string directoryprincipale;
         ///private TalkingPaper.RfidCode.ScegliMostraRFID FormMostre;

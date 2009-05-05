@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Windows.Forms;
 using System.Collections;
+using TalkingPaper.Common;
+using System.Windows.Forms;
 
 namespace TalkingPaper.ControlLogic
 {
-    class AdministrationControl : NavigationControl
+    class AdministrationControl
     {
         private ArrayList idInseriti = new ArrayList();
+        private Reader.IReader reader;
+        private Administration.TaggaGrigliaForm caller;
 
         public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
         {
@@ -56,7 +59,7 @@ namespace TalkingPaper.ControlLogic
             return null;
         }
 
-        public void inizializzaReader(Administration.TaggaGrigliaForm form,Reader.IReader reader)
+        public void inizializzaReader(Form caller)
         {
             reader = new Reader.DumbReader();
 
@@ -66,25 +69,37 @@ namespace TalkingPaper.ControlLogic
                 //Qualcosa non ha funzionato
                 MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
 MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                goBack(form);
-                return;
-
+            }
+            else
+            {
+                this.caller = (Administration.TaggaGrigliaForm)caller;
+                reader.readerStatusUpdate += statusUpdate;
             }
         }
 
+        public void statusUpdate(string id)
+        {
+            if (caller != null)
+            {
+                caller.rfid_StatusUpdateEvent(id);
+            }
+        }
 
         public void salvaGriglia(Model.Griglia griglia,string[,] grid)
         {
             List<string> tags = new List<string>(grid.Length);
-            for (int i = 0; i < grid.Length; i++)
+            
+            foreach (string a in grid)
             {
-                tags.Add((string)grid.GetValue(i));
+                tags.Add(a);
             }
+
+            
             griglia.setListaTag(tags);
 
-            if (global.dataHandler != null)
+            if (Global.dataHandler != null)
             {
-                global.dataHandler.setGriglia(griglia);
+                Global.dataHandler.setGriglia(griglia);
             }
             else
             {
@@ -108,6 +123,16 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         public void addId(string id)
         {
             idInseriti.Add(id);
+        }
+
+        public List<Model.Griglia> leggiGriglie()
+        {
+            return Global.dataHandler.getListaGriglie();
+        }
+
+        public void stopReader()
+        {
+            reader.readerStatusUpdate -= statusUpdate;
         }
     }
 }

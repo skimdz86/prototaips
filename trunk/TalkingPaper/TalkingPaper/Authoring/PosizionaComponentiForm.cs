@@ -17,10 +17,11 @@ using QuartzTypeLib;
 using NHibernate;
 using NHibernate.Cfg;
 using System.Xml;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Authoring
 {
-    public partial class PosizionaComponentiForm : FormSchema
+    public partial class PosizionaComponentiForm : Common.FormSchema
     {
         private int tag_per_riga;
         private int tag_per_colonna;
@@ -1437,7 +1438,7 @@ namespace TalkingPaper.Authoring
             Salvataggio();
             //QuestionAuthoring2 nuova = new QuestionAuthoring2(partenza, this, componenti_pos, benvenuto_pos,benvenuto_ges);
             //nuova.Show();
-            global.home.Show();
+            Global.home.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
         }
@@ -2326,7 +2327,7 @@ namespace TalkingPaper.Authoring
         {
             this.Cursor = Cursors.WaitCursor;
             Salvataggio();
-            global.home.Show();
+            Global.home.Show();
             this.Cursor = Cursors.Default;
             this.Visible = false;
         }

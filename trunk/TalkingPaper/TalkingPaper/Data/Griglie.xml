@@ -1,1 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?><GriglieTaggate />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<GriglieTaggate>
+  <Griglia Nome="massi" Righe="2" Colonne="2">
+    <Cella Coordinate="A1">0</Cella>
+    <Cella Coordinate="A2">1</Cella>
+    <Cella Coordinate="B1">2</Cella>
+    <Cella Coordinate="B2">3</Cella>
+  </Griglia>
+  <Griglia Nome="aaa" Righe="2" Colonne="2">
+    <Cella Coordinate="A1">0</Cella>
+    <Cella Coordinate="A2">1</Cella>
+    <Cella Coordinate="B1">
+    </Cella>
+    <Cella Coordinate="B2">
+    </Cella>
+  </Griglia>
+</GriglieTaggate>

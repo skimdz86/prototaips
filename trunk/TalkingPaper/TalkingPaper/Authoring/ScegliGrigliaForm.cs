@@ -14,7 +14,7 @@ using System.Xml;
 
 namespace TalkingPaper.Authoring
 {
-    public partial class ScegliGrigliaForm : FormSchema
+    public partial class ScegliGrigliaForm : Common.FormSchema
     {
         private int tag_per_riga;
         private int tag_per_colonna;

@@ -11,12 +11,13 @@ using System.Collections;
 using NHibernate;
 using NHibernate.Cfg;
 using QuartzTypeLib;
+using TalkingPaper.Common;
 
 
 
 namespace TalkingPaper.Welcome
 {
-    public partial class ChildHomeForm : FormSchema
+    public partial class ChildHomeForm : Common.FormSchema
     {
         private string directoryprincipale;
         private string database = "talkingpaper2";
@@ -67,7 +68,7 @@ namespace TalkingPaper.Welcome
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            global.home = this;
+            Global.home = this;
             //global.inizio = this;
         }
 

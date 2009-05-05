@@ -20,7 +20,7 @@ using System.Xml;
 
 namespace TalkingPaper.Authoring
 {
-    public partial class ModificaCartelloneForm : FormSchema
+    public partial class ModificaCartelloneForm : Common.FormSchema
     {
         //private Authoring.BenvenutoGestioneDisposizione benvenuto;
         //private ScegliMostraPostering elenco_mostre;
@@ -403,7 +403,7 @@ namespace TalkingPaper.Authoring
             this.Cursor = Cursors.WaitCursor;
             //QuestionPostering richiesta = new QuestionPostering(benvenuto, global.start, null, benvenuto_aut, visualizza_aut);
             //richiesta.Show();
-            global.home.Show();
+            
             this.Cursor = Cursors.Default;
             this.Visible = false;
         }

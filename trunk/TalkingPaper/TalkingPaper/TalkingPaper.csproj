@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -128,7 +128,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ControlLogic\AdministrationControl.cs" />
-    <Compile Include="ControlLogic\NavigationControl.cs" />
+    <Compile Include="Common\NavigationControl.cs" />
     <Compile Include="DataAccess\GeneralDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\ElementoGriglia.cs">
@@ -146,7 +146,7 @@
     <Compile Include="Authoring\PosizionaComponentiForm.Designer.cs">
       <DependentUpon>PosizionaComponentiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalVariables.cs">
+    <Compile Include="Common\Global.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Model\Contenuto.cs" />
@@ -204,10 +204,10 @@
     <Compile Include="Form2.Designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSchema.cs">
+    <Compile Include="Common\FormSchema.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSchema.Designer.cs">
+    <Compile Include="Common\FormSchema.Designer.cs">
       <DependentUpon>FormSchema.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStorico.cs">
@@ -230,12 +230,6 @@
     </Compile>
     <Compile Include="Administration\QuestionEliminaPoster.Designer.cs">
       <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Administration\QuestionEliminaTag.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Administration\QuestionEliminaTag.Designer.cs">
-      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
     </Compile>
     <Compile Include="Administration\TaggaGrigliaForm.cs">
       <SubType>Form</SubType>
@@ -380,7 +374,7 @@
       <DependentUpon>Form2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSchema.resx">
+    <EmbeddedResource Include="Common\FormSchema.resx">
       <DependentUpon>FormSchema.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -405,10 +399,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\QuestionEliminaPoster.resx">
       <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Administration\QuestionEliminaTag.resx">
-      <DependentUpon>QuestionEliminaTag.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\TaggaGrigliaForm.resx">

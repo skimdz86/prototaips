@@ -34,27 +34,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificaGrigliaForm));
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ElencoTag = new System.Windows.Forms.DataGridView();
-            this.button1 = new TalkingPaper.MainButton();
-            this.button2 = new TalkingPaper.MainButton();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
+            this.ok = new TalkingPaper.MainButton();
+            this.annulla = new TalkingPaper.MainButton();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textBoxPost
-            // 
-            //this.textBoxPost.Location = new System.Drawing.Point(821, 656);
-            // 
-            // pictureBoxPost2
-            // 
-            //this.pictureBoxPost2.Location = new System.Drawing.Point(821, 559);
-            // 
-            // pictureBoxPost1
-            // 
-            //this.pictureBoxPost1.Location = new System.Drawing.Point(978, 603);
             // 
             // sottotitolo
             // 
@@ -63,37 +48,25 @@
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(13, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1098, 25);
+            this.label1.Size = new System.Drawing.Size(1098, 53);
             this.label1.TabIndex = 44;
-            this.label1.Text = "Clicca sulla casella che vorresti modificare e asssegna il nuovo tag ad essa. Pre" +
-                "mi OK per terminare le modifiche ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(13, 156);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(785, 25);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "della griglia (NON TUTTE LE CASELLE NECESSITANO DI ESSERE TAGGATE). ";
+            this.label1.Text = "Clicca sulla casella che vorresti modificare e assegna il nuovo tag ad essa. ";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(13, 192);
+            this.label3.Location = new System.Drawing.Point(12, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(668, 25);
+            this.label3.Size = new System.Drawing.Size(1141, 58);
             this.label3.TabIndex = 46;
-            this.label3.Text = "ANNULLA per tornare al menù principale senza salvare le modifiche.";
+            this.label3.Text = "Premi OK per terminare le modifiche della griglia (NON TUTTE LE CASELLE NECESSITA" +
+                "NO DI ESSERE TAGGATE). ANNULLA per tornare al menù principale senza salvare le m" +
+                "odifiche.";
             // 
             // ElencoTag
             // 
@@ -154,65 +127,58 @@
             this.ElencoTag.Size = new System.Drawing.Size(1150, 401);
             this.ElencoTag.TabIndex = 47;
             // 
-            // button1
+            // ok
             // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(372, 640);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 88);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "OK";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
+            this.ok.BackColor = System.Drawing.Color.Yellow;
+            this.ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ok.BackgroundImage")));
+            this.ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ok.Location = new System.Drawing.Point(372, 640);
+            this.ok.Name = "ok";
+            this.ok.Size = new System.Drawing.Size(180, 88);
+            this.ok.TabIndex = 3;
+            this.ok.Text = "OK";
+            this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ok.UseVisualStyleBackColor = false;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
-            // button2
+            // annulla
             // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(607, 640);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(180, 88);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Annulla";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
+            this.annulla.BackColor = System.Drawing.Color.Yellow;
+            this.annulla.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("annulla.BackgroundImage")));
+            this.annulla.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.annulla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.annulla.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.annulla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.annulla.Location = new System.Drawing.Point(607, 640);
+            this.annulla.Name = "annulla";
+            this.annulla.Size = new System.Drawing.Size(180, 88);
+            this.annulla.TabIndex = 4;
+            this.annulla.Text = "Annulla";
+            this.annulla.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.annulla.UseVisualStyleBackColor = false;
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
             // 
             // ModificaGrigliaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1152, 739);
+            this.Controls.Add(this.ok);
+            this.Controls.Add(this.annulla);
             this.Controls.Add(this.ElencoTag);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Name = "ModificaGrigliaForm";
             this.Text = "ModificaGrigliaForm";
-            this.Load += new System.EventHandler(this.ModificaGrigliaForm_Load);
-            this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            //this.Controls.SetChildIndex(this.textBoxPost, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.ElencoTag, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
+            this.Controls.SetChildIndex(this.annulla, 0);
+            this.Controls.SetChildIndex(this.ok, 0);
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -222,10 +188,9 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView ElencoTag;
-        private MainButton button1;
-        private MainButton button2;
+        private MainButton ok;
+        private MainButton annulla;
     }
 }
