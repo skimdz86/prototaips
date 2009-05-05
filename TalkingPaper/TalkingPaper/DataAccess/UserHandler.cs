@@ -11,7 +11,7 @@ namespace TalkingPaper.DataAccess
         String filepath = "../../Data/Users.xml";
 
         //crea il file
-        public void CreateListaUtenti()
+        public bool CreateListaUtenti()
         {
             try
             {
@@ -21,8 +21,29 @@ namespace TalkingPaper.DataAccess
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
                 writer.Close();
+                bool b = createAdmin();
+                if (b) return true;
+                else return false;
             }
-            catch (XmlException e) { Console.Write(e.StackTrace); }
+            catch (XmlException e) { Console.Write(e.StackTrace); return false; }
+        }
+        public bool createAdmin(){
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                FileStream stream = new FileStream(filepath, FileMode.Open);
+                doc.Load(stream);
+                XmlElement el = doc.CreateElement("Utente");
+                el.SetAttribute("Login", "admin");
+                el.SetAttribute("Password", "admin");
+                //el.SetAttribute("Classe", IDClasse);
+                el.SetAttribute("FlagAmministratore", "Si");//tipo account è si/no
+                doc.DocumentElement.AppendChild(el);
+                stream.Close();
+                doc.Save(filepath);
+                return true;
+            }
+            catch (XmlException e) { return false; }
         }
         //ereditata
         public bool registraUtente(String login, String password)
