@@ -19,9 +19,13 @@ namespace TalkingPaper
             //Inizializzo le variabili globali
             global.dataHandler = new DataAccess.GeneralDataHandler();
             global.directoryPrincipale = Directory.GetCurrentDirectory();
-            
+
+            //creazione dei file XML---da commentare
+            //TestXML xx = new TestXML();
+
             //Avvio della finestra di accesso
             Application.Run(new Welcome.IndexForm());
+                        
          }
     }
 }

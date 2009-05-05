@@ -18,13 +18,19 @@ namespace TalkingPaper.DataAccess
                 writer.WriteStartDocument();
                 writer.WriteStartElement("ElencoPoster");
                 writer.WriteEndElement();
-                writer.WriteEndDocument();///////////nella guida nn c'è ma mi sa che ci va
+                writer.WriteEndDocument();
                 writer.Close();
             }
             catch (XmlException e) { Console.Write(e.StackTrace); }
         }
         public bool setPoster(Model.Poster poster)
         {
+            try
+            {
+                if (!File.Exists("../../Data/Poster.xml")) CreateElencoPoster();
+            }
+            catch (IOException e) { return false; }
+
             try
             {
                 //usiamo il nome come ID
@@ -73,6 +79,12 @@ namespace TalkingPaper.DataAccess
 
             try
             {
+                if (!File.Exists("../../Data/Poster.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return null; }
+
+            try
+            {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
@@ -115,6 +127,12 @@ namespace TalkingPaper.DataAccess
 
             try
             {
+                if (!File.Exists("../../Data/Poster.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return null; }
+
+            try
+            {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
@@ -141,23 +159,32 @@ namespace TalkingPaper.DataAccess
 
             try
             {
+                if (!File.Exists("../../Data/Poster.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return false; }
+
+            try
+            {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
                 XmlNodeList list = doc.GetElementsByTagName("Poster");
+                int counter=0;
                 for (int i = 0; i < list.Count; i++)
                 {
                     XmlElement rm = (XmlElement)doc.GetElementsByTagName("Poster")[i];
                     if (rm.GetAttribute("Nome") == nomePoster)
                     {
                         doc.DocumentElement.RemoveChild(rm);
+                        counter++;//se alla fine=1 ho rimosso qualcosa
                     }
                 }
+                if (counter == 0) { Console.Write("Non esisteva questo poster!"); stream.Close(); return false; }
                 stream.Close();
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { Console.Write("Non esiste questo poster"); return false; }
+            catch (XmlException e) { return false; }
         }
         
     }
