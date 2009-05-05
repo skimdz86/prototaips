@@ -32,8 +32,8 @@ namespace TalkingPaper.Administration
 
         private void modificaGriglia_Click(object sender, EventArgs e)
         {
-            ModificaGrigliaForm modificaGriglia = new ModificaGrigliaForm();
-            control.goTo(this, modificaGriglia);
+            ListaGriglieForm listaGriglie = new ListaGriglieForm();
+            control.goTo(this, listaGriglie);
         }
 
         private void EliminaPoster_Click(object sender, EventArgs e)

@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace TalkingPaper.ControlLogic
 {
     class AdministrationControl : NavigationControl
     {
+        private ArrayList idInseriti = new ArrayList();
+
         public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
         {
             if (( righe == null) || (righe.Equals("")))
@@ -53,7 +56,7 @@ namespace TalkingPaper.ControlLogic
             return null;
         }
 
-        public void inizializzaTagging(Administration.TaggaGrigliaForm form,Reader.IReader reader)
+        public void inizializzaReader(Administration.TaggaGrigliaForm form,Reader.IReader reader)
         {
             reader = new Reader.DumbReader();
 
@@ -67,19 +70,15 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
 
             }
-            form.inizializzaDataGrid();
         }
 
 
-        public void salvaGriglia(Model.Griglia griglia,DataGridView grid)
+        public void salvaGriglia(Model.Griglia griglia,string[,] grid)
         {
-            List<string> tags = new List<string>(grid.ColumnCount * grid.RowCount);
-            for (int i = 0; i < grid.RowCount; i++)
+            List<string> tags = new List<string>(grid.Length);
+            for (int i = 0; i < grid.Length; i++)
             {
-                for (int j = 0; j < grid.ColumnCount; j++)
-                {
-                    tags.Add((string)grid[j,i].Value);
-                }
+                tags.Add((string)grid.GetValue(i));
             }
             griglia.setListaTag(tags);
 
@@ -91,6 +90,24 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             {
                 throw new Exception("global.dataHandler == null");
             }
+        }
+
+        public bool verificaId(string id)
+        {
+            for (int i = 0; i < idInseriti.Count; i++)
+            {
+                if (((String)idInseriti[i]).Equals(id))
+                {
+                    MessageBox.Show("Il Tag " + id + " è già stato inserito");
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void addId(string id)
+        {
+            idInseriti.Add(id);
         }
     }
 }

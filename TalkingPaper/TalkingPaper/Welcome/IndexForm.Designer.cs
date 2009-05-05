@@ -185,7 +185,6 @@
             this.Controls.Add(this.label1);
             this.Name = "IndexForm";
             this.Text = "Index";
-            this.Load += new System.EventHandler(this.Index_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
