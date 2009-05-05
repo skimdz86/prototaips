@@ -157,7 +157,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; Console.Write("Non esiste questo poster"); }
+            catch (XmlException e) { Console.Write("Non esiste questo poster"); return false; }
         }
         
     }
