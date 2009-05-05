@@ -29,6 +29,12 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!File.Exists("../../Data/Users.xml")) CreateGriglieTaggate();
+            }
+            catch (IOException e) { return false; }
+
+            try
+            {
                 //String ID = "Generare un id per la griglia, magari casuale";//////////////////
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
@@ -69,7 +75,7 @@ namespace TalkingPaper.DataAccess
         
 
         //utile?
-        public void RemoveGriglia(String idGriglia, String filepath)
+        /*public void RemoveGriglia(String idGriglia, String filepath)
         {
             try
             {
@@ -89,10 +95,16 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
             }
             catch (XmlException e) { Console.Write(e.StackTrace); }
-        }
+        }*/
 
         public List<Model.Griglia> getListaGriglie()
         {
+            try
+            {
+                if (!File.Exists("../../Data/Griglie.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return null; }
+
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -118,6 +130,12 @@ namespace TalkingPaper.DataAccess
         }
         public Model.Griglia getGriglia(String nome)
         {
+            try
+            {
+                if (!File.Exists("../../Data/Griglie.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return null; }
+
             try
             {
                 XmlDocument doc = new XmlDocument();

@@ -50,6 +50,12 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!File.Exists("../../Data/Users.xml")) CreateListaUtenti();
+            }
+            catch (IOException e) { return false; }
+            
+            try
+            {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
@@ -81,6 +87,12 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!File.Exists("../../Data/Users.xml")) CreateListaUtenti();
+            }
+            catch (IOException e) { return false; }
+            
+            try
+            {
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
@@ -104,6 +116,12 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!File.Exists("../../Data/Users.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return false; }
+
+            try
+            {
                 Boolean flag = false;
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
@@ -125,6 +143,12 @@ namespace TalkingPaper.DataAccess
         //listautenti
         public List<Model.User> getListaUtenti()
         {
+            try
+            {
+                if (!File.Exists("../../Data/Users.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return null; }
+
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -151,6 +175,13 @@ namespace TalkingPaper.DataAccess
         }
         //verifica admin
         public bool isAdmin(String username) {
+            
+            try
+            {
+                if (!File.Exists("../../Data/Users.xml")) Console.Write("Il file non esiste!");
+            }
+            catch (IOException e) { return false; }
+
             try
             {
                 XmlDocument doc = new XmlDocument();
