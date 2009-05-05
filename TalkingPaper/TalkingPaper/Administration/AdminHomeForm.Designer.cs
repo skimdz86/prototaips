@@ -29,7 +29,6 @@ namespace TalkingPaper.Administration
         private void InitializeComponent()
         {
             this.nuovaGriglia = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.EliminaPoster = new System.Windows.Forms.Button();
@@ -38,6 +37,11 @@ namespace TalkingPaper.Administration
             this.logout = new System.Windows.Forms.Button();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // sottotitolo
+            // 
+            this.sottotitolo.Size = new System.Drawing.Size(248, 33);
+            this.sottotitolo.Text = "Amministrazione";
             // 
             // nuovaGriglia
             // 
@@ -51,17 +55,6 @@ namespace TalkingPaper.Administration
             this.nuovaGriglia.Text = "Nuova Griglia";
             this.nuovaGriglia.UseVisualStyleBackColor = false;
             this.nuovaGriglia.Click += new System.EventHandler(this.nuovaGriglia_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 67);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(248, 33);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Amministrazione";
             // 
             // label3
             // 
@@ -144,12 +137,10 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.logout);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Name = "AdminHomeForm";
             this.Text = "FormAmministrazione";
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.logout, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.label1, 0);
@@ -164,7 +155,6 @@ namespace TalkingPaper.Administration
         #endregion
 
         private System.Windows.Forms.Button nuovaGriglia;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label1;

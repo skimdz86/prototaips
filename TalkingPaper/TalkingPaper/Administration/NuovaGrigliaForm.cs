@@ -1,9 +1,10 @@
 using System.Windows.Forms;
 using System;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
-    public partial class NuovaGrigliaForm : FormSchema
+    public partial class NuovaGrigliaForm : Common.FormSchema
     {
         ControlLogic.AdministrationControl control;
         
@@ -18,7 +19,7 @@ namespace TalkingPaper.Administration
 
         private void annulla_Click(object sender, EventArgs e)
         {
-            control.goBack(this);
+            NavigationControl.goBack(this);
         }
 
         private void ok_Click(object sender, EventArgs e)
@@ -28,7 +29,11 @@ namespace TalkingPaper.Administration
             if (griglia != null)
             {
                 TaggaGrigliaForm taggaGriglia = new TaggaGrigliaForm(griglia);
-                control.goTo(this, taggaGriglia);
+                NavigationControl.goTo(this, taggaGriglia);
+            }
+            else
+            {
+                throw new Exception("Impossibile inizializzare la griglia");
             }
         }
     }

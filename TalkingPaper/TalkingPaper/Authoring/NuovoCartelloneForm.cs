@@ -20,7 +20,7 @@ using System.Xml;
 
 namespace TalkingPaper.Authoring
 {
-    public partial class NuovoCartelloneForm : FormSchema
+    public partial class NuovoCartelloneForm : Common.FormSchema
     {
         private ModificaCartelloneForm mostra;
         //private Authoring.BenvenutoGestioneDisposizione benvenuto;

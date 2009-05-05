@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace TalkingPaper.Config
 {
-    public partial class FormRfidConfigHelp : FormSchema
+    public partial class FormRfidConfigHelp : Common.FormSchema
     {
         private FormRfidConfig config;
         

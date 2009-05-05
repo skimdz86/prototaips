@@ -37,7 +37,6 @@ namespace TalkingPaper.Administration
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.annulla = new TalkingPaper.MainButton();
             this.ok = new TalkingPaper.MainButton();
-            this.label6 = new System.Windows.Forms.Label();
             this.Indietro = new TalkingPaper.ControlButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,6 +46,11 @@ namespace TalkingPaper.Administration
             // titolo
             // 
             this.titolo.Location = new System.Drawing.Point(22, 9);
+            // 
+            // sottotitolo
+            // 
+            this.sottotitolo.Size = new System.Drawing.Size(513, 33);
+            this.sottotitolo.Text = "Crea nuovo supporto per i cartelloni";
             // 
             // label1
             // 
@@ -64,14 +68,14 @@ namespace TalkingPaper.Administration
             this.textBox3.Location = new System.Drawing.Point(515, 362);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 2;
+            this.textBox3.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(515, 311);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 1;
+            this.textBox2.TabIndex = 2;
             // 
             // label2
             // 
@@ -117,7 +121,7 @@ namespace TalkingPaper.Administration
             this.annulla.Location = new System.Drawing.Point(255, 19);
             this.annulla.Name = "annulla";
             this.annulla.Size = new System.Drawing.Size(226, 111);
-            this.annulla.TabIndex = 4;
+            this.annulla.TabIndex = 7;
             this.annulla.Text = "Annulla";
             this.annulla.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.annulla.UseVisualStyleBackColor = false;
@@ -133,22 +137,11 @@ namespace TalkingPaper.Administration
             this.ok.Location = new System.Drawing.Point(13, 19);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(226, 111);
-            this.ok.TabIndex = 3;
+            this.ok.TabIndex = 6;
             this.ok.Text = "OK";
             this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ok.UseVisualStyleBackColor = false;
             this.ok.Click += new System.EventHandler(this.ok_Click);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(12, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(513, 33);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Crea nuovo supporto per i cartelloni";
             // 
             // Indietro
             // 
@@ -168,7 +161,7 @@ namespace TalkingPaper.Administration
             this.textBox1.Location = new System.Drawing.Point(515, 257);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBox1.TabIndex = 1;
             // 
             // label4
             // 
@@ -190,7 +183,6 @@ namespace TalkingPaper.Administration
             this.ClientSize = new System.Drawing.Size(1036, 739);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
@@ -206,7 +198,6 @@ namespace TalkingPaper.Administration
             this.Controls.SetChildIndex(this.textBox3, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.textBox1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
@@ -227,7 +218,6 @@ namespace TalkingPaper.Administration
         private MainButton annulla;
         private System.Windows.Forms.GroupBox groupBox1;
         private ControlButton Indietro;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
     }

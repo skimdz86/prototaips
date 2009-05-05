@@ -9,7 +9,7 @@ using System.Collections;
 
 namespace TalkingPaper
 {
-    public partial class FormErroreStorico : FormSchema
+    public partial class FormErroreStorico : Common.FormSchema
     {
 
         public FormErroreStorico(ArrayList arrayStorico, ArrayList arrayData)

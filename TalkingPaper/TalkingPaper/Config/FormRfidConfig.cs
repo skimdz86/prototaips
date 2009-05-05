@@ -9,7 +9,7 @@ using System.IO;
 
 namespace TalkingPaper.Config
 {
-    public partial class FormRfidConfig : FormSchema
+    public partial class FormRfidConfig : Common.FormSchema
     {
         private Reader.IReader reader;
         private Administration.AdminHomeForm amministrazione;

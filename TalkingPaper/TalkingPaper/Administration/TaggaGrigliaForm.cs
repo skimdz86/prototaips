@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Windows.Forms;
 using System.Drawing;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
@@ -13,9 +14,6 @@ namespace TalkingPaper.Administration
         private int riga = 1;
         private int colonna = 1;
         
-        private ArrayList pannelli = new ArrayList();
-        private ArrayList tutti_poster = new ArrayList();
-              
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
 
         public TaggaGrigliaForm(Model.Griglia griglia)
@@ -27,12 +25,11 @@ namespace TalkingPaper.Administration
             annulla.Cursor = Cursors.Hand;
 
             control = new TalkingPaper.ControlLogic.AdministrationControl();
-            control.inizializzaReader(this,reader);
+            control.inizializzaReader(this);
             inizializzaDataGrid();
             
             //Gestione Eventi
-            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
-            
+                        
             ElencoTag.CellClick += new DataGridViewCellEventHandler(ElencoTag_CellClick);
         }
                 
@@ -56,10 +53,10 @@ namespace TalkingPaper.Administration
             }
         }
 
-        void rfid_StatusUpdateEvent(string id)
+        public void rfid_StatusUpdateEvent(string id)
         {
             if (((colonna <= griglia.getNumColonne()) && (riga <= griglia.getNumRighe()))
-                 || ((colonna != -1) && (riga != -1)))
+                 && ((colonna != -1) && (riga != -1)))
             {
                 if (control.verificaId(id))
                 {
@@ -95,16 +92,20 @@ namespace TalkingPaper.Administration
 
         private void ok_Click(object sender, EventArgs e)
         {
-            string[,] matrix = new string[ElencoTag.RowCount, ElencoTag.ColumnCount];
-            for (int i = 0; i < ElencoTag.RowCount; i++)
+            string[,] matrix = new string[ElencoTag.RowCount-1, ElencoTag.ColumnCount-1];
+            for (int i = 0; i < ElencoTag.RowCount-1; i++)
             {
-                for (int j = 0; j < ElencoTag.ColumnCount; j++)
+                for (int j = 0; j < ElencoTag.ColumnCount-1; j++)
                 {
-                    matrix[i, j] = ((string)ElencoTag[j, i].Value);
+                    if (ElencoTag[j + 1, i + 1].Value != null)
+                        matrix[i, j] = ElencoTag[j + 1, i + 1].Value.ToString();
+                    else
+                        matrix[i, j] = "";
                 }
             }
             control.salvaGriglia(griglia, matrix);
-            control.goHome(this);
+            control.stopReader();
+            NavigationControl.goHome(this);
         }
 
         
@@ -143,7 +144,7 @@ namespace TalkingPaper.Administration
 
         private void annulla_Click(object sender, EventArgs e)
         {
-            control.goBack(this);
+            NavigationControl.goBack(this);
         }
     }
 }

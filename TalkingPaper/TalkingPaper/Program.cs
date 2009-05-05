@@ -17,14 +17,15 @@ namespace TalkingPaper
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Inizializzo le variabili globali
-            global.dataHandler = new DataAccess.GeneralDataHandler();
-            global.directoryPrincipale = Directory.GetCurrentDirectory();
+            Common.Global.dataHandler = new DataAccess.GeneralDataHandler();
+            Common.Global.directoryPrincipale = Directory.GetCurrentDirectory();
 
             //creazione dei file XML---da commentare
             //TestXML xx = new TestXML();
 
             //Avvio della finestra di accesso
             Application.Run(new Welcome.IndexForm());
+            
                         
          }
     }

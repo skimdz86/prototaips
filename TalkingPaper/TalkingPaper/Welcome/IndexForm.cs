@@ -5,40 +5,63 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Welcome
 {
-    public partial class IndexForm : Form
+    public partial class IndexForm : FormSchema
     {
-        private ControlLogic.AdministrationControl control;
-
         public IndexForm()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.TopMost = true;
-            global.welcome = this;
-            control = new ControlLogic.AdministrationControl();
+            
+            NavigationControl.setWelcome(this);
         }
 
-        private void mainButton2_Click(object sender, EventArgs e)
+        private void EsciButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void mainButton3_Click(object sender, EventArgs e)
+        private void LoginButton_Click(object sender, EventArgs e)
         {
-            //ChildHomeForm child = new ChildHomeForm();
-            //control.goTo(this, child);
-            Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm("massi");
-            control.goTo(this,adminHome);
+            String user = textBox1.Text;
+            String password = textBox2.Text;
+            if (!(user.Equals("")) && !(password.Equals("")))
+            {
+                if (Global.dataHandler.autenticaUtente(user, password))
+                {
+                    textBox1.Clear();
+                    textBox2.Clear();
+
+                    if (Global.dataHandler.isAdmin(user))
+                    {
+                        Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
+                        NavigationControl.goTo(this, adminHome);
+                    }
+                    else
+                    {
+                        ChildHomeForm child = new ChildHomeForm();
+                        NavigationControl.goTo(this, child);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("I dati inseriti non sono corretti");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Devi inserire un nome utente ed una password");
+            }
+            
+            
         }
 
-        private void mainButton1_Click(object sender, EventArgs e)
+        private void RegistrazioneButton_Click(object sender, EventArgs e)
         {
             RegistrationForm reg = new RegistrationForm();
-            control.goTo(this, reg);
+            NavigationControl.goTo(this, reg);
         }
 
     }

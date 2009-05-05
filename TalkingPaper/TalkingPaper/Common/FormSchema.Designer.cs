@@ -1,4 +1,4 @@
-namespace TalkingPaper
+namespace TalkingPaper.Common
 {
     partial class FormSchema
     {

@@ -5,19 +5,150 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
-    public partial class ModificaGrigliaForm : FormSchema
+    public partial class ModificaGrigliaForm : Common.FormSchema
     {
-        public ModificaGrigliaForm()
+        private ControlLogic.AdministrationControl control;
+        private Model.Griglia griglia;
+        private Reader.IReader reader;
+        int riga = 1;
+        int colonna = 1;
+
+        private char[] alfabeto = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
+
+        public ModificaGrigliaForm(Model.Griglia griglia)
         {
             InitializeComponent();
+            this.griglia = griglia;
+            control = new ControlLogic.AdministrationControl();
+            control.inizializzaReader(this);
+
+            inizializzaDataGrid();
+
+            ElencoTag.CellClick += new DataGridViewCellEventHandler(ElencoTag_CellClick);
         }
 
-        private void ModificaGrigliaForm_Load(object sender, EventArgs e)
+        public void inizializzaDataGrid()
+        {
+            Font font = new Font("Arial", 16);
+            ElencoTag.ColumnCount = griglia.getNumColonne() + 1;
+            ElencoTag.Rows.Add(griglia.getNumRighe() + 1);
+            ElencoTag.Rows[0].DefaultCellStyle.ForeColor = Color.Red;
+            ElencoTag.Columns[0].DefaultCellStyle.ForeColor = Color.Red;
+            ElencoTag.Rows[0].DefaultCellStyle.Font = font;
+            ElencoTag.Columns[0].DefaultCellStyle.Font = font;
+            for (int i = 1; i <= griglia.getNumRighe(); i++)
+            {
+                ElencoTag[0, i].Value = i;
+            }
+            for (int j = 1; j <= griglia.getNumColonne(); j++)
+            {
+                ElencoTag.Columns[j].Width = 110;
+                ElencoTag[j, 0].Value = alfabeto[j - 1];
+            }
+
+            for (int i = 2; i <= (griglia.getNumRighe() + 1); i++)
+            {
+                for (int j = 2; j <= (griglia.getNumColonne() + 1); j++)
+                {
+                    ElencoTag[j, i].Value = griglia.getTagFromIndex(i * griglia.getNumColonne() + j);
+                }
+            }
+        }
+
+        void rfid_StatusUpdateEvent(string id)
+        {
+            if (((colonna <= griglia.getNumColonne()) && (riga <= griglia.getNumRighe()))
+                 || ((colonna != -1) && (riga != -1)))
+            {
+                if (control.verificaId(id))
+                {
+                    ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
+                    ElencoTag[colonna, riga].Value = id;
+
+                    control.addId(id);
+
+                    ElencoTag[colonna, riga].Selected = false;
+
+                    colonna++;
+                    if (colonna > griglia.getNumColonne())
+                    {
+                        if (riga >= griglia.getNumRighe())
+                        {
+                            riga = -1;
+                            colonna = -1;
+                        }
+                        else
+                        {
+                            riga++;
+                            colonna = 1;
+                            ElencoTag[colonna, riga].Selected = true;
+                        }
+                    }
+                    else
+                    {
+                        ElencoTag[colonna, riga].Selected = true;
+                    }
+                }
+            }
+        }
+
+        private void ok_Click(object sender, EventArgs e)
+        {
+            string[,] matrix = new string[ElencoTag.RowCount, ElencoTag.ColumnCount];
+            for (int i = 0; i < ElencoTag.RowCount; i++)
+            {
+                for (int j = 0; j < ElencoTag.ColumnCount; j++)
+                {
+                    matrix[i, j] = ((string)ElencoTag[j, i].Value);
+                }
+            }
+            control.salvaGriglia(griglia, matrix);
+            control.stopReader();
+            NavigationControl.goHome(this);
+        }
+
+
+
+        private void ElencoTag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            int i, j;
+            for (i = 1; i <= griglia.getNumRighe(); i++) // se c'è qualche cella che risulta autoselezionata, la deseleziono
+            {
+                for (j = 1; j <= griglia.getNumColonne(); j++)
+                {
+                    if (ElencoTag[i, j].Style.BackColor == Color.Coral && String.IsNullOrEmpty(ElencoTag[i, j].Value.ToString()) == true)
+                        ElencoTag[i, j].Style.BackColor = Color.BlanchedAlmond;
+                }
+            }
+            if ((ElencoTag[e.ColumnIndex, e.RowIndex] != null) && (ElencoTag[e.ColumnIndex, e.RowIndex].Value != null) && (e.ColumnIndex != 0) && (e.RowIndex != 0))
+            {
+                ElencoTag[e.ColumnIndex, e.RowIndex].Value = null;
+                ElencoTag[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.BlanchedAlmond;
+                ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;
+                riga = e.RowIndex;
+                colonna = e.ColumnIndex;
+            }
+            else
+            {
+                if ((e.ColumnIndex != 0) && (e.RowIndex != 0))
+                {
+                    ElencoTag[e.ColumnIndex, e.RowIndex].Style.SelectionBackColor = Color.Yellow;
+                    ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;
+                    riga = e.RowIndex;
+                    colonna = e.ColumnIndex;
+                }
+            }
         }
+
+        private void annulla_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goBack(this);
+        }
+                
     }
 }
