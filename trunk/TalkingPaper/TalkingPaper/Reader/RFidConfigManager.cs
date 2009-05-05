@@ -22,11 +22,59 @@ namespace TalkingPaper.Reader
         {
             this.path = path;
         }
-        public RFidConfigManager()
+        public void RFidConfigManager2()
         {
             path = Directory.GetCurrentDirectory() + @"\Config\";
         }
+        //nuovo costruttore: autogenera il file se nn c'è
+        public RFidConfigManager()
+        {
+            try
+            {
+                if(!File.Exists("/Config/rfid_config.xml")) createXMLConfig();
+
+            }catch(IOException e){Console.Write("Erroreeeeeeeeeeeeeeeeeee!");}
+        }
         
+        //crea il file vuoto (o standard)
+        public void createXMLConfig(){
+            
+            XmlTextWriter writer = new XmlTextWriter(filepath, Encoding.UTF8);
+            writer.WriteStartDocument();
+            writer.WriteStartElement("parameters");
+            writer.WriteStartElement("reader");
+            writer.WriteEndElement();
+            writer.WriteEndElement();
+            writer.WriteEndDocument();
+            writer.Close();
+
+            XmlDocument doc = new XmlDocument();
+            FileStream stream = new FileStream(filepath, FileMode.Open);
+            doc.Load(stream);
+            XmlNodeList l=doc.GetElementsByTagName("reader");
+            XmlElement xreader=(XmlElement)l[0];
+
+            XmlElement port=(XmlElement)doc.CreateElement("port");
+            XmlText tport=(XmlText)doc.CreateTextNode("");
+            port.AppendChild(tport);
+            XmlElement cf=(XmlElement)doc.CreateElement("communication_frame");
+            XmlText tcf=(XmlText)doc.CreateTextNode("");
+            cf.AppendChild(tcf);
+            XmlElement baud=(XmlElement)doc.CreateElement("baud_rate");
+            XmlText tbaud=(XmlText)doc.CreateTextNode("");
+            baud.AppendChild(tbaud);
+            XmlElement to=(XmlElement)doc.CreateElement("timeout");
+            XmlText tto=(XmlText)doc.CreateTextNode("");
+            to.AppendChild(tto);
+
+            xreader.AppendChild(port);
+            xreader.AppendChild(cf);
+            xreader.AppendChild(baud);
+            xreader.AppendChild(to);
+
+            stream.Close();
+            doc.Save(filepath);
+        }
         /// <summary>
         /// This function allow to read the parameter in file XML
         /// </summary>
@@ -162,7 +210,7 @@ namespace TalkingPaper.Reader
         /// <param name="prop"></param>
         /// <returns></returns>
         public bool configParameter(RfidProperties prop) {
-
+            //spero che vada, ma ho il dubbio che la nodelist nn prenda tutti i nodi esistenti nell'xml se nn gli do il sopraelementeo
             try
             {
                 XmlDocument doc = new XmlDocument();
