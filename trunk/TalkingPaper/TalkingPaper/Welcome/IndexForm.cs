@@ -18,6 +18,7 @@ namespace TalkingPaper.Welcome
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.None;
             this.TopMost = true;
+            global.welcome = this;
             control = new ControlLogic.AdministrationControl();
         }
 
@@ -28,8 +29,10 @@ namespace TalkingPaper.Welcome
 
         private void mainButton3_Click(object sender, EventArgs e)
         {
-            ChildHomeForm child = new ChildHomeForm();
-            control.goTo(this, child);
+            //ChildHomeForm child = new ChildHomeForm();
+            //control.goTo(this, child);
+            Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm("massi");
+            control.goTo(this,adminHome);
         }
 
         private void mainButton1_Click(object sender, EventArgs e)
