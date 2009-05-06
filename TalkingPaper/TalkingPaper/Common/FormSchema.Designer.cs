@@ -28,8 +28,10 @@ namespace TalkingPaper.Common
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSchema));
             this.titolo = new System.Windows.Forms.Label();
             this.sottotitolo = new System.Windows.Forms.Label();
+            this.help = new TalkingPaper.MainButton();
             this.SuspendLayout();
             // 
             // titolo
@@ -54,6 +56,21 @@ namespace TalkingPaper.Common
             this.sottotitolo.TabIndex = 39;
             this.sottotitolo.Text = "SottoTitolo";
             // 
+            // help
+            // 
+            this.help.AutoSize = true;
+            this.help.BackColor = System.Drawing.Color.Yellow;
+            this.help.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("help.BackgroundImage")));
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.help.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.help.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.help.Location = new System.Drawing.Point(724, 31);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(77, 69);
+            this.help.TabIndex = 40;
+            this.help.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.help.UseVisualStyleBackColor = false;
+            // 
             // FormSchema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -61,6 +78,7 @@ namespace TalkingPaper.Common
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 739);
             this.ControlBox = false;
+            this.Controls.Add(this.help);
             this.Controls.Add(this.titolo);
             this.Controls.Add(this.sottotitolo);
             this.Name = "FormSchema";
@@ -76,6 +94,7 @@ namespace TalkingPaper.Common
 
         protected System.Windows.Forms.Label titolo;
         protected System.Windows.Forms.Label sottotitolo;
+        protected MainButton help;
     }
 }
 

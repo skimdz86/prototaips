@@ -6,7 +6,7 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
-    public partial class TaggaGrigliaForm : Form
+    public partial class TaggaGrigliaForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
         private Reader.IReader reader;
@@ -147,5 +147,12 @@ namespace TalkingPaper.Administration
             control.stopReader();
             NavigationControl.goBack(this);
         }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
+        }
+
+        
     }
 }
