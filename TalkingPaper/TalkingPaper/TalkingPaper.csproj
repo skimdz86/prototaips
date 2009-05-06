@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="ControlLogic\AdministrationControl.cs" />
     <Compile Include="Common\NavigationControl.cs" />
+    <Compile Include="ControlLogic\ChildrenControl.cs" />
     <Compile Include="ControlLogic\LoginControl.cs" />
     <Compile Include="DataAccess\GeneralDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
