@@ -121,7 +121,8 @@
             this.mainButton2.BackColor = System.Drawing.Color.Yellow;
             this.mainButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.mainButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.mainButton2.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mainButton2.Location = new System.Drawing.Point(155, 379);
             this.mainButton2.Name = "mainButton2";
             this.mainButton2.Size = new System.Drawing.Size(180, 88);
@@ -135,7 +136,7 @@
             this.mainButton1.BackColor = System.Drawing.Color.Yellow;
             this.mainButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.mainButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.mainButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.mainButton1.Image = ((System.Drawing.Image)(resources.GetObject("mainButton1.Image")));
             this.mainButton1.Location = new System.Drawing.Point(395, 379);
             this.mainButton1.Name = "mainButton1";
@@ -151,7 +152,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.mainButton1);
             this.Controls.Add(this.mainButton2);
             this.Controls.Add(this.textBox3);
