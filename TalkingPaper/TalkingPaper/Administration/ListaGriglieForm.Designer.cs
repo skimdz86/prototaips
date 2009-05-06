@@ -162,7 +162,6 @@ namespace TalkingPaper.Administration
             this.SchemaGriglia.ShowEditingIcon = false;
             this.SchemaGriglia.Size = new System.Drawing.Size(654, 307);
             this.SchemaGriglia.TabIndex = 27;
-            
             // 
             // groupBox2
             // 
@@ -174,6 +173,7 @@ namespace TalkingPaper.Administration
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Visible = false;
+            
             // 
             // indietro
             // 

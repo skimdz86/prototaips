@@ -49,20 +49,21 @@ namespace TalkingPaper.Administration
                 ElencoTag.Columns[j].Width = 110;
                 ElencoTag[j, 0].Value = alfabeto[j - 1];
             }
+            List<String> tags = griglia.getListaTag();
 
-            for (int i = 2; i <= (griglia.getNumRighe() + 1); i++)
+            for (int i = 1; i < (griglia.getNumRighe() + 1); i++)
             {
-                for (int j = 2; j <= (griglia.getNumColonne() + 1); j++)
+                for (int j = 1; j < (griglia.getNumColonne() + 1); j++)
                 {
-                    ElencoTag[j, i].Value = griglia.getTagFromIndex(i * griglia.getNumColonne() + j);
+                    ElencoTag[j, i].Value = tags[(i-1) * griglia.getNumColonne() + (j-1)];
                 }
             }
         }
 
-        void rfid_StatusUpdateEvent(string id)
+        public void rfid_StatusUpdateEvent(string id)
         {
             if (((colonna <= griglia.getNumColonne()) && (riga <= griglia.getNumRighe()))
-                 || ((colonna != -1) && (riga != -1)))
+                 && ((colonna != -1) || (riga != -1)))
             {
                 if (control.verificaId(id))
                 {
@@ -98,12 +99,15 @@ namespace TalkingPaper.Administration
 
         private void ok_Click(object sender, EventArgs e)
         {
-            string[,] matrix = new string[ElencoTag.RowCount, ElencoTag.ColumnCount];
-            for (int i = 0; i < ElencoTag.RowCount; i++)
+            string[,] matrix = new string[ElencoTag.RowCount - 1, ElencoTag.ColumnCount - 1];
+            for (int i = 0; i < ElencoTag.RowCount - 1; i++)
             {
-                for (int j = 0; j < ElencoTag.ColumnCount; j++)
+                for (int j = 0; j < ElencoTag.ColumnCount - 1; j++)
                 {
-                    matrix[i, j] = ((string)ElencoTag[j, i].Value);
+                    if (ElencoTag[j + 1, i + 1].Value != null)
+                        matrix[i, j] = ElencoTag[j + 1, i + 1].Value.ToString();
+                    else
+                        matrix[i, j] = "";
                 }
             }
             control.salvaGriglia(griglia, matrix);
@@ -147,6 +151,7 @@ namespace TalkingPaper.Administration
 
         private void annulla_Click(object sender, EventArgs e)
         {
+            control.stopReader();
             NavigationControl.goBack(this);
         }
                 
