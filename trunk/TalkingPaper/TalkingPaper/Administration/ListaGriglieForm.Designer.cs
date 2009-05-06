@@ -50,6 +50,11 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(530, 33);
             this.sottotitolo.Text = "Scegli lo schema per il tuo cartellone";
             // 
+            // help
+            // 
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.help.Visible = false;
+            // 
             // ok
             // 
             this.ok.BackColor = System.Drawing.Color.Yellow;
@@ -173,7 +178,6 @@ namespace TalkingPaper.Administration
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Visible = false;
-            
             // 
             // indietro
             // 
@@ -204,6 +208,7 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.groupBox2);
             this.Name = "ListaGriglieForm";
             this.Text = "FormScegliConfigurazione";
+            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);

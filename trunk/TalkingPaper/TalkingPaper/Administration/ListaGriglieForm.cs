@@ -75,7 +75,7 @@ namespace TalkingPaper.Administration
             }
             for (int i = 0; i < (grigliaSelezionata.getNumRighe() * grigliaSelezionata.getNumColonne()); i++)
             {
-                if ((grigliaSelezionata.getTagFromIndex(i) != null) || (!(grigliaSelezionata.getTagFromIndex(i).Equals(""))))
+                if (!(grigliaSelezionata.getTagFromIndex(i).Equals("")))
                 {
                     SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.BackColor = Color.Coral;
                 }

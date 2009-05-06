@@ -52,6 +52,11 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(513, 33);
             this.sottotitolo.Text = "Crea nuovo supporto per i cartelloni";
             // 
+            // help
+            // 
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.help.Location = new System.Drawing.Point(887, 31);
+            // 
             // label1
             // 
             this.label1.AutoEllipsis = true;
@@ -138,7 +143,7 @@ namespace TalkingPaper.Administration
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(226, 111);
             this.ok.TabIndex = 6;
-            this.ok.Text = "OK";
+            this.ok.Text = "Conferma";
             this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.ok.UseVisualStyleBackColor = false;
             this.ok.Click += new System.EventHandler(this.ok_Click);
@@ -191,6 +196,7 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.label3);
             this.Name = "NuovaGrigliaForm";
             this.Text = "TagRigaColonna";
+            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);

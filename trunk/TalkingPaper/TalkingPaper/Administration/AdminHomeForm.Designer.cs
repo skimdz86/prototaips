@@ -43,6 +43,11 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(248, 33);
             this.sottotitolo.Text = "Amministrazione";
             // 
+            // help
+            // 
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.help.Visible = false;
+            // 
             // nuovaGriglia
             // 
             this.nuovaGriglia.BackColor = System.Drawing.Color.Yellow;
@@ -140,6 +145,7 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.label3);
             this.Name = "AdminHomeForm";
             this.Text = "FormAmministrazione";
+            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.logout, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
