@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using TalkingPaper.Common;
+using TalkingPaper.ControlLogic;
 
 namespace TalkingPaper.Welcome
 {
@@ -27,28 +28,31 @@ namespace TalkingPaper.Welcome
         {
             String user = textBox1.Text;
             String password = textBox2.Text;
+            LoginControl logc = new LoginControl();
+            
+            /////////////////////autenticazione
             if (!(user.Equals("")) && !(password.Equals("")))
             {
-                if (Global.dataHandler.autenticaUtente(user, password))
+                String res = logc.login(user, password);
+                if (res == "admin") 
                 {
                     textBox1.Clear();
                     textBox2.Clear();
-
-                    if (Global.dataHandler.isAdmin(user))
-                    {
-                        Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
-                        NavigationControl.goTo(this, adminHome);
-                    }
-                    else
-                    {
-                        ChildHomeForm child = new ChildHomeForm();
-                        NavigationControl.goTo(this, child);
-                    }
+                    Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
+                    NavigationControl.goTo(this, adminHome);
                 }
-                else
+                if (res == "utente")
+                {
+                    textBox1.Clear();
+                    textBox2.Clear();
+                    Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
+                    NavigationControl.goTo(this, adminHome);
+                }
+                else 
                 {
                     MessageBox.Show("I dati inseriti non sono corretti");
                 }
+                
             }
             else
             {
