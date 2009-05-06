@@ -56,7 +56,7 @@ namespace TalkingPaper.DataAccess
                 List<String> tempTags = gr.getListaTag();
                 for (int i = 0; i < tempTags.Count; i++)
                 {
-                    if (tempTags[i] != null)
+                    if (tempTags[i] != "")
                     {
                         XmlElement cella = (XmlElement)doc.CreateElement("Cella");
                         cella.SetAttribute("Coordinate", gr.getCoordFromIndex(i));
@@ -155,11 +155,17 @@ namespace TalkingPaper.DataAccess
                         tempGr.setNumColonne(c);
                         XmlNodeList celleList = x.GetElementsByTagName("Cella");
                         List<String> tags = new List<string>(r * c);
-                        for (int j = 0; j < celleList.Count; j++)
-                        {
-                            XmlElement y = (XmlElement)x.GetElementsByTagName("Cella")[j];
-                            if (y.InnerText != null) tags[j] = y.InnerText;//ma le coordinate nn le ripassso piu???
-                        }
+                        //inizializzo la lista a stringhe vuote
+                        for (int k = 0; k < tags.Count; k++) { tags[k] = ""; }
+
+                            for (int j = 0; j < celleList.Count; j++)
+                            {
+                                //////cercare le coord e metterci li il valore
+                                XmlElement y = (XmlElement)x.GetElementsByTagName("Cella")[j];
+                                String tempCoo = y.GetAttribute("Coordinate");
+                                int index = tempGr.getIndexFromCoord(tempCoo);
+                                tags[index] = y.InnerText;//ma le coordinate nn le ripassso piu???
+                            }
                         tempGr.setListaTag(tags);
                     }
                 }
