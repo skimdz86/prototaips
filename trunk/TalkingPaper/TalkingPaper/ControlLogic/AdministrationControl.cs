@@ -138,5 +138,20 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         {
             reader.readerStatusUpdate -= statusUpdate;
         }
+        public Model.Griglia getGriglia(String nomeGriglia) 
+        {
+            //////da fare
+            return null;
+        }
+        public List<Model.Poster> getListaPoster() 
+        {
+            //// da fare
+            return null;
+        }
+        public bool rimuoviPoster(String nomePoster) 
+        {
+            ///// da fare
+            return true;
+        }
     }
 }
