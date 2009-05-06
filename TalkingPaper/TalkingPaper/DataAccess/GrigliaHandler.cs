@@ -156,7 +156,7 @@ namespace TalkingPaper.DataAccess
                         XmlNodeList celleList = x.GetElementsByTagName("Cella");
                         List<String> tags = new List<string>(r * c);
                         //inizializzo la lista a stringhe vuote
-                        for (int k = 0; k < tags.Count; k++) { tags[k] = ""; }
+                        for (int k = 0; k < r*c; k++) { tags.Add(""); }
 
                             for (int j = 0; j < celleList.Count; j++)
                             {
