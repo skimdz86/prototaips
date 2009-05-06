@@ -116,7 +116,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Users.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists("../../Data/Users.xml")) { Console.Write("Il file non esiste!Lo creo"); CreateListaUtenti(); }
             }
             catch (IOException e) { return false; }
 
@@ -145,7 +145,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Users.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists("../../Data/Users.xml")) { Console.Write("Il file non esiste!Lo creo"); CreateListaUtenti(); }
             }
             catch (IOException e) { return null; }
 
@@ -178,7 +178,7 @@ namespace TalkingPaper.DataAccess
             
             try
             {
-                if (!File.Exists("../../Data/Users.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists("../../Data/Users.xml")) { Console.Write("Il file non esiste!Lo creo"); CreateListaUtenti(); }
             }
             catch (IOException e) { return false; }
 

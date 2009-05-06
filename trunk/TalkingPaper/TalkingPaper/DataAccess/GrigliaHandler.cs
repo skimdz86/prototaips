@@ -29,7 +29,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Users.xml")) CreateGriglieTaggate();
+                if (!File.Exists("../../Data/Griglie.xml")) CreateGriglieTaggate();
             }
             catch (IOException e) { return false; }
 
