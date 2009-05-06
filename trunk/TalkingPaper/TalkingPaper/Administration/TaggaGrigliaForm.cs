@@ -56,7 +56,7 @@ namespace TalkingPaper.Administration
         public void rfid_StatusUpdateEvent(string id)
         {
             if (((colonna <= griglia.getNumColonne()) && (riga <= griglia.getNumRighe()))
-                 && ((colonna != -1) && (riga != -1)))
+                 && ((colonna != -1) || (riga != -1)))
             {
                 if (control.verificaId(id))
                 {
@@ -144,6 +144,7 @@ namespace TalkingPaper.Administration
 
         private void annulla_Click(object sender, EventArgs e)
         {
+            control.stopReader();
             NavigationControl.goBack(this);
         }
     }

@@ -11,7 +11,7 @@ namespace TalkingPaper.ControlLogic
     {
         private ArrayList idInseriti = new ArrayList();
         private Reader.IReader reader;
-        private Administration.TaggaGrigliaForm caller;
+        private Form caller;
 
         public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
         {
@@ -72,7 +72,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                this.caller = (Administration.TaggaGrigliaForm)caller;
+                this.caller = caller;
                 reader.readerStatusUpdate += statusUpdate;
             }
         }
@@ -81,7 +81,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         {
             if (caller != null)
             {
-                caller.rfid_StatusUpdateEvent(id);
+                if (caller is Administration.TaggaGrigliaForm)
+                    ((Administration.TaggaGrigliaForm)caller).rfid_StatusUpdateEvent(id);
+                else if (caller is Administration.ModificaGrigliaForm)
+                    ((Administration.ModificaGrigliaForm)caller).rfid_StatusUpdateEvent(id);
+
             }
         }
 

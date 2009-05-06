@@ -33,6 +33,7 @@ namespace TalkingPaper.Administration
             foreach (Model.Griglia griglia in griglie) {
                 Label nome = new Label();
                 nome.Text = griglia.getNome() + " (" + griglia.getNumRighe() + "x" + griglia.getNumColonne() + ")";
+                nome.Tag = griglia.getNome();
                 nome.BackColor = Color.Orange;
                 nome.ForeColor = Color.White;
                 nome.Size = new System.Drawing.Size(175, 25);
@@ -42,6 +43,8 @@ namespace TalkingPaper.Administration
                 nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
                 nome.Visible = true;
 
+                pannello.Controls.Add(nome);
+                
                 if (startingLabel == 0) startingLabel = nome.TabIndex;
                 
             }
@@ -74,9 +77,10 @@ namespace TalkingPaper.Administration
             {
                 if ((grigliaSelezionata.getTagFromIndex(i) != null) || (!(grigliaSelezionata.getTagFromIndex(i).Equals(""))))
                 {
-                    SchemaGriglia[i % grigliaSelezionata.getNumColonne(), i / grigliaSelezionata.getNumColonne()].Style.BackColor = Color.Coral;
+                    SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.BackColor = Color.Coral;
                 }
             }
+            
         }
 
         private void ok_Click(object sender, EventArgs e)
@@ -99,8 +103,8 @@ namespace TalkingPaper.Administration
 
         private void nomi_Click(object sender, System.EventArgs e)
         {
-            int numGriglia = (((Label)sender).TabIndex - startingLabel) / 2;
-            grigliaSelezionata = griglie[numGriglia];
+            grigliaSelezionata = Global.dataHandler.getGriglia((string)((Label)sender).Tag);
+            
 
             if (lastLabelClicked != null) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
             ((Label)sender).BackColor = System.Drawing.Color.Red;
@@ -108,8 +112,9 @@ namespace TalkingPaper.Administration
 
             ok.Enabled = true;
             ok.Cursor = Cursors.Hand;
-
+            groupBox2.Visible = true;
             disegnaGrigliaSelezionata();
         }
+
     }
 }
