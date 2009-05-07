@@ -15,6 +15,8 @@ namespace TalkingPaper.Common
         public static DataAccess.DataHandlerInterface dataHandler;
 
         public static string directoryPrincipale;
+
+        public static Reader.IReader reader;
     }
 }
     

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.IO;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Reader
 {    
@@ -13,7 +14,7 @@ namespace TalkingPaper.Reader
     {
         private XmlWriterSettings settings;
         private string path;
-        private String filepath = "/Config/rfid_config.xml";
+        private String filepath = Global.directoryPrincipale+"\\Config\\rfid_config.xml";
 
         /// <summary>
         /// Costruttore
@@ -31,7 +32,7 @@ namespace TalkingPaper.Reader
         {
             try
             {
-                if(!File.Exists("/Config/rfid_config.xml")) createXMLConfig();
+                if(!File.Exists(filepath)) createXMLConfig();
 
             }catch(IOException e){Console.Write("Erroreeeeeeeeeeeeeeeeeee!");}
         }
@@ -148,7 +149,7 @@ namespace TalkingPaper.Reader
                 XmlNodeList baud = doc.GetElementsByTagName("baud_rate");
                 prop.baudRate = baud[0].InnerText;
 
-                XmlNodeList timeout = doc.GetElementsByTagName("timeout");
+                XmlNodeList timeout = doc.GetElementsByTagName("time_out");
                 Int16 temp2 = Convert.ToInt16(timeout[0].InnerText);
                 prop.timeout = temp2;
 
@@ -226,7 +227,7 @@ namespace TalkingPaper.Reader
                 XmlNodeList baud = doc.GetElementsByTagName("baud_rate");
                 baud[0].InnerText = prop.baudRate;
 
-                XmlNodeList timeout = doc.GetElementsByTagName("timeout");
+                XmlNodeList timeout = doc.GetElementsByTagName("time_out");
                 timeout[0].InnerText = Convert.ToString(prop.timeout);
 
                 stream.Close();

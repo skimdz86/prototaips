@@ -17,6 +17,10 @@ namespace TalkingPaper.Welcome
             InitializeComponent();
             
             NavigationControl.setWelcome(this);
+            if (!(Global.reader.configure()))
+            {
+                erroreRfid.Visible = true;
+            }
         }
 
         private void EsciButton_Click(object sender, EventArgs e)
@@ -41,7 +45,7 @@ namespace TalkingPaper.Welcome
                     Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
                     NavigationControl.goTo(this, adminHome);
                 }
-                if (res == "utente")
+                else if (res == "utente")
                 {
                     textBox1.Clear();
                     textBox2.Clear();

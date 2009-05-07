@@ -10,7 +10,7 @@ namespace TalkingPaper.ControlLogic
     class AdministrationControl
     {
         private ArrayList idInseriti = new ArrayList();
-        private Reader.IReader reader;
+        
         private Form caller;
 
         public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
@@ -61,9 +61,9 @@ namespace TalkingPaper.ControlLogic
 
         public void inizializzaReader(Form caller)
         {
-            reader = new Reader.DumbReader();
+            Global.reader.readerStatusUpdate += statusUpdate;
 
-            int rfid_num = reader.connect();
+            int rfid_num = Global.reader.connect();
             if (rfid_num <= 0)
             {
                 //Qualcosa non ha funzionato
@@ -73,7 +73,6 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
             {
                 this.caller = caller;
-                reader.readerStatusUpdate += statusUpdate;
             }
         }
 
@@ -136,7 +135,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         public void stopReader()
         {
-            reader.readerStatusUpdate -= statusUpdate;
+            Global.reader.readerStatusUpdate -= statusUpdate;
         }
         public Model.Griglia getGriglia(String nomeGriglia) 
         {

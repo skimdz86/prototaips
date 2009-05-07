@@ -19,7 +19,7 @@ namespace TalkingPaper
             //Inizializzo le variabili globali
             Common.Global.dataHandler = new DataAccess.GeneralDataHandler();
             Common.Global.directoryPrincipale = Directory.GetCurrentDirectory();
-
+            Common.Global.reader = new Reader.RfidReader();
             //creazione dei file XML---da commentare
             //TestXML xx = new TestXML();
 
