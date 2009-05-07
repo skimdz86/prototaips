@@ -36,7 +36,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.RegistrazioneButton = new TalkingPaper.MainButton();
-            this.label6 = new System.Windows.Forms.Label();
+            this.erroreRfid = new System.Windows.Forms.Label();
             this.EsciButton = new TalkingPaper.MainButton();
             this.LoginButton = new TalkingPaper.MainButton();
             this.SuspendLayout();
@@ -49,6 +49,10 @@
             // sottotitolo
             // 
             this.sottotitolo.Visible = false;
+            // 
+            // help
+            // 
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             // 
             // label2
             // 
@@ -122,16 +126,16 @@
             this.RegistrazioneButton.UseVisualStyleBackColor = false;
             this.RegistrazioneButton.Click += new System.EventHandler(this.RegistrazioneButton_Click);
             // 
-            // label6
+            // erroreRfid
             // 
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label6.Location = new System.Drawing.Point(31, 413);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(357, 34);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "ERRORE!!!";
-            this.label6.Visible = false;
+            this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.erroreRfid.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.erroreRfid.Location = new System.Drawing.Point(29, 441);
+            this.erroreRfid.Name = "erroreRfid";
+            this.erroreRfid.Size = new System.Drawing.Size(791, 47);
+            this.erroreRfid.TabIndex = 8;
+            this.erroreRfid.Text = "Attenzione! Il lettore Rfid non risulta essere collegato!";
+            this.erroreRfid.Visible = false;
             // 
             // EsciButton
             // 
@@ -175,9 +179,9 @@
             this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.EsciButton);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.RegistrazioneButton);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.erroreRfid);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
@@ -185,14 +189,15 @@
             this.Controls.Add(this.label2);
             this.Name = "IndexForm";
             this.Text = "Index";
+            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.textBox1, 0);
             this.Controls.SetChildIndex(this.textBox2, 0);
+            this.Controls.SetChildIndex(this.erroreRfid, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.RegistrazioneButton, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
             this.Controls.SetChildIndex(this.EsciButton, 0);
             this.Controls.SetChildIndex(this.LoginButton, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
@@ -211,7 +216,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
         private MainButton RegistrazioneButton;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label erroreRfid;
         private MainButton EsciButton;
         private MainButton LoginButton;
     }

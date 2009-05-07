@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Config
 {
@@ -26,9 +27,6 @@ namespace TalkingPaper.Config
             string currentPath = Directory.GetCurrentDirectory();
             this.amministrazione = amministrazione;
             //cfgmng = new Config_manager(currentPath);
-            
-            Console.WriteLine("Creo il cfgmng, con currentPath = " + currentPath);
-            reader = new Reader.DumbReader();
         }
 
         private void cancel_Click(object sender, EventArgs e)
@@ -83,7 +81,7 @@ namespace TalkingPaper.Config
             this.Button_Salva.Enabled = false;
             try
             {
-                handlerRfid = reader.connect();
+                handlerRfid = Global.reader.connect();
                 //handlerRfid = reader.configure(Convert.ToInt32(port_number_val.Text), cFrame_val.Text, bRate_val.Text, (short)Convert.ToInt16(to_val.Text));
                 if (handlerRfid <= 0)
                 {

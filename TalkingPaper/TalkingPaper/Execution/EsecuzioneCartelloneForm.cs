@@ -11,6 +11,7 @@ using NHibernate;
 using NHibernate.Cfg;
 using QuartzTypeLib;
 using System.Xml;
+using TalkingPaper.Common;
 
 
 namespace TalkingPaper.Execution
@@ -76,8 +77,8 @@ namespace TalkingPaper.Execution
             oldId = "";
             storicoFilePath = directory_principale + @"\Backup\";
             nh_mng = new NHibernateManager();
-            reader = new Reader.DumbReader();
-                rfid_num = reader.connect();
+            
+                rfid_num = Global.reader.connect();
                 if (rfid_num <= 0)
                 {
                     //Qualcosa non ha funzionato, rifare...
