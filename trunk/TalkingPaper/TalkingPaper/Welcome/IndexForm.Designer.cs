@@ -39,6 +39,7 @@
             this.erroreRfid = new System.Windows.Forms.Label();
             this.EsciButton = new TalkingPaper.MainButton();
             this.LoginButton = new TalkingPaper.MainButton();
+            this.configura = new TalkingPaper.MainButton();
             this.SuspendLayout();
             // 
             // titolo
@@ -114,7 +115,7 @@
             // RegistrazioneButton
             // 
             this.RegistrazioneButton.BackColor = System.Drawing.Color.Yellow;
-            this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.RegistrazioneButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistrazioneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.RegistrazioneButton.Location = new System.Drawing.Point(415, 286);
@@ -128,11 +129,11 @@
             // 
             // erroreRfid
             // 
-            this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.erroreRfid.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.erroreRfid.ForeColor = System.Drawing.Color.Red;
             this.erroreRfid.Location = new System.Drawing.Point(29, 441);
             this.erroreRfid.Name = "erroreRfid";
-            this.erroreRfid.Size = new System.Drawing.Size(791, 47);
+            this.erroreRfid.Size = new System.Drawing.Size(835, 47);
             this.erroreRfid.TabIndex = 8;
             this.erroreRfid.Text = "Attenzione! Il lettore Rfid non risulta essere collegato!";
             this.erroreRfid.Visible = false;
@@ -140,7 +141,7 @@
             // EsciButton
             // 
             this.EsciButton.BackColor = System.Drawing.Color.Yellow;
-            this.EsciButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.EsciButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.EsciButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EsciButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.EsciButton.Image = ((System.Drawing.Image)(resources.GetObject("EsciButton.Image")));
@@ -157,7 +158,7 @@
             // LoginButton
             // 
             this.LoginButton.BackColor = System.Drawing.Color.Yellow;
-            this.LoginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.LoginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.LoginButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -170,6 +171,21 @@
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
+            // configura
+            // 
+            this.configura.BackColor = System.Drawing.Color.Yellow;
+            this.configura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.configura.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.configura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.configura.Location = new System.Drawing.Point(882, 431);
+            this.configura.Name = "configura";
+            this.configura.Size = new System.Drawing.Size(125, 57);
+            this.configura.TabIndex = 41;
+            this.configura.Text = "Configura Manualmente";
+            this.configura.UseVisualStyleBackColor = false;
+            this.configura.Visible = false;
+            this.configura.Click += new System.EventHandler(this.configura_Click);
+            // 
             // IndexForm
             // 
             this.AcceptButton = this.LoginButton;
@@ -177,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.configura);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.EsciButton);
             this.Controls.Add(this.RegistrazioneButton);
@@ -202,6 +219,7 @@
             this.Controls.SetChildIndex(this.LoginButton, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
+            this.Controls.SetChildIndex(this.configura, 0);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,5 +237,6 @@
         private System.Windows.Forms.Label erroreRfid;
         private MainButton EsciButton;
         private MainButton LoginButton;
+        private MainButton configura;
     }
 }

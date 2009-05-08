@@ -5,4 +5,10 @@
     <Cella Coordinate="A2">1</Cella>
     <Cella Coordinate="B1">2</Cella>
   </Griglia>
+  <Griglia Nome="aa" Righe="2" Colonne="2">
+    <Cella Coordinate="A1">E004010017FE82C9</Cella>
+    <Cella Coordinate="A2">E004010017FE82D0</Cella>
+    <Cella Coordinate="B1">E004010017FE82D7</Cella>
+    <Cella Coordinate="B2">E004010017FE82DE</Cella>
+  </Griglia>
 </GriglieTaggate>

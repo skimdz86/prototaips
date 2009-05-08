@@ -20,6 +20,7 @@ namespace TalkingPaper.Welcome
             if (!(Global.reader.configure()))
             {
                 erroreRfid.Visible = true;
+                configura.Visible = true;
             }
         }
 
@@ -70,6 +71,12 @@ namespace TalkingPaper.Welcome
         {
             RegistrationForm reg = new RegistrationForm();
             NavigationControl.goTo(this, reg);
+        }
+
+        private void configura_Click(object sender, EventArgs e)
+        {
+            Welcome.RfidConfigForm rfid = new Welcome.RfidConfigForm();
+            NavigationControl.goTo(this, rfid);
         }
 
     }

@@ -18,6 +18,10 @@ namespace TalkingPaper.Reader
 
         bool saveConfiguration(params string[] parameters);
 
+        String[] getConfiguration();
+
+        void startRead();
+
         event ReaderDelegate readerStatusUpdate;
     }
 }

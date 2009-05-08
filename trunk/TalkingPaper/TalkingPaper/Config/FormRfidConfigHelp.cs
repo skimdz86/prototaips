@@ -10,9 +10,9 @@ namespace TalkingPaper.Config
 {
     public partial class FormRfidConfigHelp : Common.FormSchema
     {
-        private FormRfidConfig config;
+        private RfidConfigForm config;
         
-        public FormRfidConfigHelp(FormRfidConfig config)
+        public FormRfidConfigHelp(RfidConfigForm config)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 75, true);

@@ -51,6 +51,8 @@ namespace TalkingPaper.Administration
                 ElencoTag.Columns[j].Width = 110;
                 ElencoTag[j, 0].Value = alfabeto[j - 1];
             }
+            ElencoTag[1, 1].Style.SelectionBackColor = Color.Yellow;
+            ElencoTag[colonna, riga].Selected = true;
         }
 
         public void rfid_StatusUpdateEvent(string id)
@@ -60,31 +62,47 @@ namespace TalkingPaper.Administration
             {
                 if (control.verificaId(id))
                 {
-                    ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
-                    ElencoTag[colonna, riga].Value = id;
-
-                    control.addId(id);
-                    
-                    ElencoTag[colonna, riga].Selected = false;
-
-                    colonna++;
-                    if (colonna > griglia.getNumColonne())
+                    if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
                     {
-                        if (riga >= griglia.getNumRighe())
+                        ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
+                        ElencoTag[colonna, riga].Value = id;
+
+                        control.addId(id);
+
+                        ElencoTag[colonna, riga].Selected = false;
+
+
+                        colonna++;
+                        if (colonna > griglia.getNumColonne())
                         {
-                            riga = -1;
-                            colonna = -1;
+                            if (riga >= griglia.getNumRighe())
+                            {
+                                riga = -1;
+                                colonna = -1;
+                            }
+                            else
+                            {
+                                riga++;
+                                colonna = 1;
+                                if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                                {
+                                    ElencoTag[colonna, riga].Style.SelectionBackColor = Color.Yellow;
+                                    ElencoTag[colonna, riga].Selected = true;
+                                }
+                            }
                         }
                         else
                         {
-                            riga++;
-                            colonna = 1;
-                            ElencoTag[colonna, riga].Selected = true;
+                            if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                            {
+                                ElencoTag[colonna, riga].Style.SelectionBackColor = Color.Yellow;
+                                ElencoTag[colonna, riga].Selected = true;
+                            }
                         }
                     }
                     else
                     {
-                        ElencoTag[colonna, riga].Selected = true;
+                        ElencoTag[colonna, riga].Selected = false;
                     }
                 }
             }
@@ -124,6 +142,7 @@ namespace TalkingPaper.Administration
             }
             if ((ElencoTag[e.ColumnIndex, e.RowIndex] != null) && (ElencoTag[e.ColumnIndex, e.RowIndex].Value != null) && (e.ColumnIndex != 0) && (e.RowIndex != 0))
             {
+                control.delId((string)ElencoTag[e.ColumnIndex, e.RowIndex].Value);
                 ElencoTag[e.ColumnIndex, e.RowIndex].Value = null;
                 ElencoTag[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.BlanchedAlmond;
                 ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;

@@ -1,5 +1,8 @@
 ﻿using RFIDlibrary;
 using System;
+using System.IO.Ports;
+using System.Windows.Forms;
+
 
 namespace TalkingPaper.Reader
 {
@@ -9,6 +12,7 @@ namespace TalkingPaper.Reader
         private RFidConfigManager config_manager;
         private int id_reader = 0;
         private bool isConfigured = false;
+        Timer timerRead;
 
         public event ReaderDelegate readerStatusUpdate;
 
@@ -47,36 +51,37 @@ namespace TalkingPaper.Reader
             else
             {
                 //faccio la ricerca della porta
-                for (port = 3; (id_reader <= 0) && (port < 20); port++)
+
+                foreach (string portName in SerialPort.GetPortNames())
                 {
-                    id_reader = rfid_configurator.connect(port, properties.communicationFrame, properties.baudRate, properties.timeout);
+                    if (!(portName.Equals("COM1")) && !(portName.Equals("COM2")))
+                    {
+                        int portNum = Convert.ToInt32(portName.Substring(3, 1));
+                        id_reader = rfid_configurator.connect(port, properties.communicationFrame, properties.baudRate, properties.timeout);
+                        if (id_reader > 0)
+                        {
+                            //sono riuscito a configurare
+                            properties.port = portNum;
+                            config_manager.configParameter(properties);
+                            isConfigured = true;
+                            return true;
+                        }
+                    }
                 }
 
-                if (id_reader <= 0)
-                {
-                    //non sono riuscito a configurare
-                    return false;
-                }
-                else
-                {
-                    //ho trovato una configurazione funzionante e la salvo
-                    ////modificato!!!ora passa l'oggetto properties anziche singoli campi! By Dezo
-                    properties.port = port - 1;
-                    config_manager.configParameter(properties);
 
-                    isConfigured = true;
-                    return true;
-                }
+                //non sono riuscito a configurare
+                return false;
+
             }
         }
 
         string IReader.readValue()
         {
-            //eccezione se non è configurato!
-            return rfid_configurator.letturaID(id_reader).ToString();
+            return null;
         }
 
-        int IReader.connect()
+        public int connect()
         {
             RfidProperties properties;
             if (!isConfigured)
@@ -85,22 +90,45 @@ namespace TalkingPaper.Reader
                 //lancia eccezione
             }
 
-            if (readerStatusUpdate != null) rfid_configurator.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
-            else throw new Exception("Non è stato aggiunto uno statusUpdateReader");
+            
             //leggo la configurazione da file XML \Config\rfid_config.xml
             properties = config_manager.read_config_rfid_xml();
-            id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
-
+            if (rfid_configurator != null) id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
+            else return -1;
             if (id_reader <= 0)
             {
                 //lancia eccezione, non sono riuscito a connettermi e devo riconfigurare
-                return id_reader;
+                return 0;
             }
             else
             {
-                rfid_configurator.letturaID(id_reader);
                 return id_reader;
             }
+        }
+
+        public void startRead()
+        {
+            if (readerStatusUpdate != null) rfid_configurator.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
+            else throw new Exception("Non è stato aggiunto uno statusUpdateReader");
+            //avvio la lettura
+            timerRead = new Timer();
+            timerRead.Interval = 1000;
+            timerRead.Tick += read;
+            timerRead.Start();
+        }
+
+        public void read(object sender, EventArgs e)
+        {
+            rfid_configurator.letturaID(id_reader);
+
+        }
+
+        String[] IReader.getConfiguration()
+        {
+            RfidProperties prop;
+            prop = config_manager.read_config_rfid_xml();
+            String[] result = { prop.port.ToString(), prop.communicationFrame.ToString(), prop.baudRate.ToString(), prop.timeout.ToString() };
+            return result;
         }
 
         bool IReader.saveConfiguration(params string[] parameters)
@@ -116,6 +144,7 @@ namespace TalkingPaper.Reader
 
         bool IReader.close()
         {
+            timerRead.Stop();
             return true;
         }
     }

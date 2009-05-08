@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace TalkingPaper.Common
 {
@@ -9,7 +10,7 @@ namespace TalkingPaper.Common
 
         public static Form home;
         public static Form welcome;
-        public static Form back;
+        public static Stack<Form> back;
         //public static float percentScale=(float)0.80;
 
         public static DataAccess.DataHandlerInterface dataHandler;

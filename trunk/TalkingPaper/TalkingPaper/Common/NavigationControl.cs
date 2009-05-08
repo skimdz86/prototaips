@@ -53,9 +53,10 @@ namespace TalkingPaper.Common
         public static void goBack(Form currentForm)
         {
 
-            if (Global.back != null)
+            if (Global.back.Count > 0)
             {
-                Global.back.Visible = true;
+                Form form = Global.back.Pop();
+                form.Visible = true;
             }
             else
             {
@@ -76,7 +77,7 @@ namespace TalkingPaper.Common
         {
             if ((from != null) && (to != null))
             {
-                Global.back = from;
+                Global.back.Push(from);
                 to.Show();
                 from.Visible = false;
             }
