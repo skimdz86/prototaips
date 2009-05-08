@@ -51,6 +51,22 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxInterop.swISCReader, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -151,6 +167,12 @@
     <Compile Include="Common\Global.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="MainButton.Designer.cs">
+      <DependentUpon>MainButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Contenuto.cs" />
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
     <Compile Include="Model\Griglia.cs" />
@@ -176,17 +198,11 @@
     <Compile Include="Reader\RFidConfigManager.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Config\FormRfidConfig.cs">
+    <Compile Include="Welcome\RfidConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Config\FormRfidConfig.Designer.cs">
-      <DependentUpon>FormRfidConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Config\FormRfidConfigHelp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Config\FormRfidConfigHelp.Designer.cs">
-      <DependentUpon>FormRfidConfigHelp.cs</DependentUpon>
+    <Compile Include="Welcome\RfidConfigForm.Designer.cs">
+      <DependentUpon>RfidConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Reader\RfidProperties.cs" />
     <Compile Include="Contenuto2.cs" />
@@ -246,12 +262,6 @@
     </Compile>
     <Compile Include="Administration\NuovaGrigliaForm.Designer.cs">
       <DependentUpon>NuovaGrigliaForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MainButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MainButton.Designer.cs">
-      <DependentUpon>MainButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Administration\AdminHomeForm.cs">
       <SubType>Form</SubType>
@@ -413,12 +423,12 @@
       <DependentUpon>NuovaGrigliaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Welcome\IndexForm.resx">
-      <DependentUpon>IndexForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="MainButton.resx">
       <DependentUpon>MainButton.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Welcome\IndexForm.resx">
+      <DependentUpon>IndexForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\AdminHomeForm.resx">
       <SubType>Designer</SubType>
@@ -458,13 +468,9 @@
       <DependentUpon>ModificaCartelloneForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Altrarisorsa.hbm.xml" />
-    <EmbeddedResource Include="Config\FormRfidConfig.resx">
+    <EmbeddedResource Include="Welcome\RfidConfigForm.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>FormRfidConfig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Config\FormRfidConfigHelp.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FormRfidConfigHelp.cs</DependentUpon>
+      <DependentUpon>RfidConfigForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mappings\Utente.hbm.xml" />
     <EmbeddedResource Include="Mappings\Contenuto.hbm.xml" />
@@ -524,6 +530,14 @@
       <Guid>{9B92EB61-CBC1-11D3-8C2D-00A0CC37B591}</Guid>
       <VersionMajor>1</VersionMajor>
       <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="swISCReader">
+      <Guid>{2BAB0067-DF1E-482D-9812-9EFA4946C2E6}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>

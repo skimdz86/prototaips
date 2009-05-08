@@ -78,7 +78,7 @@ namespace TalkingPaper.Execution
             storicoFilePath = directory_principale + @"\Backup\";
             nh_mng = new NHibernateManager();
             
-                rfid_num = Global.reader.connect();
+                /*rfid_num = Global.reader.connect();
                 if (rfid_num <= 0)
                 {
                     //Qualcosa non ha funzionato, rifare...
@@ -95,7 +95,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 {
                     Console.WriteLine("SONO in costruttore di FormEsecuzione, tutto ok");
                     this.richTextBox1.Text += "\nInizializzazione Form: OK ";
-                }
+                }*/
             
 
             UpdateStatusBar();

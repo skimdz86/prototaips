@@ -12,6 +12,7 @@ namespace TalkingPaper.ControlLogic
         private ArrayList idInseriti = new ArrayList();
         
         private Form caller;
+        String lastRead = "";
 
         public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
         {
@@ -62,18 +63,8 @@ namespace TalkingPaper.ControlLogic
         public void inizializzaReader(Form caller)
         {
             Global.reader.readerStatusUpdate += statusUpdate;
-
-            int rfid_num = Global.reader.connect();
-            if (rfid_num <= 0)
-            {
-                //Qualcosa non ha funzionato
-                MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
-MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            else
-            {
-                this.caller = caller;
-            }
+            Global.reader.startRead();
+            this.caller = caller;
         }
 
         public void statusUpdate(string id)
@@ -112,6 +103,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         public bool verificaId(string id)
         {
+            if (id.Equals(lastRead)) return false;
+            else lastRead = id;
+
             for (int i = 0; i < idInseriti.Count; i++)
             {
                 if (((String)idInseriti[i]).Equals(id))
@@ -128,6 +122,11 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             idInseriti.Add(id);
         }
 
+        public void delId(string id)
+        {
+            idInseriti.Remove(id);
+        }
+
         public List<Model.Griglia> leggiGriglie()
         {
             return Global.dataHandler.getListaGriglie();
@@ -136,6 +135,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         public void stopReader()
         {
             Global.reader.readerStatusUpdate -= statusUpdate;
+            Global.reader.close();
         }
         public Model.Griglia getGriglia(String nomeGriglia) 
         {
@@ -152,5 +152,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             ///// da fare
             return true;
         }
+
+        
     }
 }

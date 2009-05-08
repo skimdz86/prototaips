@@ -40,6 +40,15 @@ namespace TalkingPaper.Reader
             return true;
         }
 
+        public String[] getConfiguration()
+        {
+            return null;
+        }
+
+        public void startRead()
+        {
+            counter = 0;
+        }
         public event ReaderDelegate readerStatusUpdate;
 
         private void timer_Tick(object sender, EventArgs e)
