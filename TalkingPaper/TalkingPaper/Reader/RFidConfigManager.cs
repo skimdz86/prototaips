@@ -64,7 +64,7 @@ namespace TalkingPaper.Reader
             XmlElement baud=(XmlElement)doc.CreateElement("baud_rate");
             XmlText tbaud=(XmlText)doc.CreateTextNode("");
             baud.AppendChild(tbaud);
-            XmlElement to=(XmlElement)doc.CreateElement("timeout");
+            XmlElement to=(XmlElement)doc.CreateElement("time_out");
             XmlText tto=(XmlText)doc.CreateTextNode("");
             to.AppendChild(tto);
 

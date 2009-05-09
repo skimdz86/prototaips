@@ -29,7 +29,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Griglie.xml")) CreateGriglieTaggate();
+                if (!File.Exists(filepath)) CreateGriglieTaggate();
             }
             catch (IOException e) { return false; }
 
@@ -101,7 +101,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Griglie.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
             }
             catch (IOException e) { return null; }
 
@@ -132,7 +132,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Griglie.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
             }
             catch (IOException e) { return null; }
 

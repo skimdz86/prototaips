@@ -139,8 +139,7 @@ namespace TalkingPaper.ControlLogic
         }
         public Model.Griglia getGriglia(String nomeGriglia) 
         {
-            //////da fare
-            return null;
+            return Global.dataHandler.getGriglia(nomeGriglia);
         }
         public List<Model.Poster> getListaPoster() 
         {

@@ -19,10 +19,11 @@ namespace TalkingPaper.Administration
 
         private char[] alfabeto = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
 
-        public ModificaGrigliaForm(Model.Griglia griglia)
+        public ModificaGrigliaForm(String nomeGriglia)
         {
             InitializeComponent();
-            this.griglia = griglia;
+            ControlLogic.AdministrationControl ad = new TalkingPaper.ControlLogic.AdministrationControl();
+            this.griglia = ad.getGriglia(nomeGriglia);
             control = new ControlLogic.AdministrationControl();
             control.inizializzaReader(this);
 

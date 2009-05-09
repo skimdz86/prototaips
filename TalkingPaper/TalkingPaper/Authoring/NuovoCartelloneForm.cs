@@ -58,7 +58,7 @@ namespace TalkingPaper.Authoring
             //this.visualizza_aut = visualizza_aut;
             this.nh_manager = new NHibernateManager();
             label4.Visible = false;
-            Ordine.Visible = false;
+            Classe.Visible = false;
             //immagine_modifica_poster = new Bitmap(directory_principale + "\\Images\\Icons\\modifica.gif");
             label1.Text = label1.Text + " " + nome_mostra;
             //button1.Cursor = Cursors.Hand;
@@ -368,7 +368,7 @@ namespace TalkingPaper.Authoring
 
         private void mainButton2_Click(object sender, EventArgs e)
         {
-            ScegliGrigliaForm sc = new ScegliGrigliaForm();
+            ScegliGrigliaForm sc = new ScegliGrigliaForm(Nome.Text,Descrizione.Text,Classe.Text);
             sc.Show();
             this.Close();
         }
