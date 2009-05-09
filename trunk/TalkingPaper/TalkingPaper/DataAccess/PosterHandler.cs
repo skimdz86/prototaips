@@ -27,7 +27,7 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists("../../Data/Poster.xml")) CreateElencoPoster();
+                if (!File.Exists(filepath)) CreateElencoPoster();
             }
             catch (IOException e) { return false; }
 
@@ -79,7 +79,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                if (!File.Exists("../../Data/Poster.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
             }
             catch (IOException e) { return null; }
 
@@ -127,7 +127,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                if (!File.Exists("../../Data/Poster.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
             }
             catch (IOException e) { return null; }
 
@@ -159,7 +159,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                if (!File.Exists("../../Data/Poster.xml")) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
             }
             catch (IOException e) { return false; }
 

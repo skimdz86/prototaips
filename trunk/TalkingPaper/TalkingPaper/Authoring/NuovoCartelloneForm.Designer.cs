@@ -29,7 +29,7 @@ namespace TalkingPaper.Authoring
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuovoCartelloneForm));
-            this.Ordine = new System.Windows.Forms.TextBox();
+            this.Classe = new System.Windows.Forms.TextBox();
             this.Descrizione = new System.Windows.Forms.TextBox();
             this.Nome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -38,27 +38,20 @@ namespace TalkingPaper.Authoring
             this.label1 = new System.Windows.Forms.Label();
             this.mainButton1 = new TalkingPaper.MainButton();
             this.mainButton2 = new TalkingPaper.MainButton();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grouppoControl
-            // 
-           // this.grouppoControl.Location = new System.Drawing.Point(892, 12);
-           // this.grouppoControl.Size = new System.Drawing.Size(280, 91);
             // 
             // sottotitolo
             // 
             this.sottotitolo.Size = new System.Drawing.Size(256, 33);
             this.sottotitolo.Text = "Nuovo Cartellone";
             // 
-            // Ordine
+            // Classe
             // 
-            this.Ordine.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ordine.Location = new System.Drawing.Point(402, 330);
-            this.Ordine.Name = "Ordine";
-            this.Ordine.Size = new System.Drawing.Size(269, 26);
-            this.Ordine.TabIndex = 28;
+            this.Classe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Classe.Location = new System.Drawing.Point(402, 330);
+            this.Classe.Name = "Classe";
+            this.Classe.Size = new System.Drawing.Size(269, 26);
+            this.Classe.TabIndex = 28;
             // 
             // Descrizione
             // 
@@ -128,9 +121,9 @@ namespace TalkingPaper.Authoring
             // mainButton1
             // 
             this.mainButton1.BackColor = System.Drawing.Color.Yellow;
-            this.mainButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mainButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.mainButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.mainButton1.Image = ((System.Drawing.Image)(resources.GetObject("mainButton1.Image")));
             this.mainButton1.Location = new System.Drawing.Point(549, 439);
             this.mainButton1.Name = "mainButton1";
@@ -144,9 +137,9 @@ namespace TalkingPaper.Authoring
             // mainButton2
             // 
             this.mainButton2.BackColor = System.Drawing.Color.Yellow;
-            this.mainButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.mainButton2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.mainButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.mainButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.mainButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.mainButton2.Location = new System.Drawing.Point(309, 439);
             this.mainButton2.Name = "mainButton2";
             this.mainButton2.Size = new System.Drawing.Size(180, 88);
@@ -160,11 +153,11 @@ namespace TalkingPaper.Authoring
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.ClientSize = new System.Drawing.Size(1184, 732);
             this.Controls.Add(this.mainButton1);
             this.Controls.Add(this.mainButton2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Ordine);
+            this.Controls.Add(this.Classe);
             this.Controls.Add(this.Descrizione);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -173,23 +166,18 @@ namespace TalkingPaper.Authoring
             this.Name = "NuovoCartelloneForm";
             this.Text = "NuovoPoster";
             this.Load += new System.EventHandler(this.NuovoPoster_Load);
+            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.Nome, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.Descrizione, 0);
-            this.Controls.SetChildIndex(this.Ordine, 0);
+            this.Controls.SetChildIndex(this.Classe, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            //this.Controls.SetChildIndex(this.grouppoControl, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            //this.Controls.SetChildIndex(this.textBoxPost, 0);
             this.Controls.SetChildIndex(this.mainButton2, 0);
             this.Controls.SetChildIndex(this.mainButton1, 0);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,7 +185,7 @@ namespace TalkingPaper.Authoring
 
         #endregion
 
-        private System.Windows.Forms.TextBox Ordine;
+        private System.Windows.Forms.TextBox Classe;
         private System.Windows.Forms.TextBox Descrizione;
         private System.Windows.Forms.TextBox Nome;
         private System.Windows.Forms.Label label4;

@@ -87,7 +87,7 @@ namespace TalkingPaper.Administration
         {
             if (grigliaSelezionata != null)
             {
-                ModificaGrigliaForm modificaGriglia = new ModificaGrigliaForm(grigliaSelezionata);
+                ModificaGrigliaForm modificaGriglia = new ModificaGrigliaForm(grigliaSelezionata.getNome());
                 NavigationControl.goTo(this, modificaGriglia);
             }
             else

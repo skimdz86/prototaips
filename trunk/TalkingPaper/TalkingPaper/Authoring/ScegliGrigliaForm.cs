@@ -41,9 +41,14 @@ namespace TalkingPaper.Authoring
         private ArrayList configList = new ArrayList();
         private ArrayList configList2 = new ArrayList();
 
-        public ScegliGrigliaForm()
+        private String nomePoster, descrizione, classe;
+
+        public ScegliGrigliaForm(String nomePoster,String descrizione, String classe)
         {
             InitializeComponent();
+            this.nomePoster = nomePoster;
+            this.descrizione = descrizione;
+            this.classe = classe;/////////////da tenere per inviare dopo per salvataggio in xml
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
             label3.Visible = false;
             this.nh_manager = new NHibernateManager();
