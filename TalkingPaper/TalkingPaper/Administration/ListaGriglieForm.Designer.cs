@@ -181,10 +181,16 @@ namespace TalkingPaper.Administration
             // 
             // indietro
             // 
+            this.indietro.BackColor = System.Drawing.Color.Yellow;
+            this.indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.indietro.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.indietro.Location = new System.Drawing.Point(0, 0);
             this.indietro.Name = "indietro";
             this.indietro.Size = new System.Drawing.Size(75, 23);
             this.indietro.TabIndex = 0;
+            this.indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.indietro.UseVisualStyleBackColor = false;
             // 
             // pannello
             // 
@@ -199,7 +205,7 @@ namespace TalkingPaper.Administration
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1152, 739);
+            this.ClientSize = new System.Drawing.Size(1136, 739);
             this.Controls.Add(this.annulla);
             this.Controls.Add(this.pannello);
             this.Controls.Add(this.ok);

@@ -11,7 +11,6 @@ namespace TalkingPaper.Administration
         private ControlLogic.AdministrationControl control;
         private List<Model.Griglia> griglie;
         private Model.Griglia grigliaSelezionata;
-        private int startingLabel = 0;
         private Label lastLabelClicked;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         
@@ -30,7 +29,8 @@ namespace TalkingPaper.Administration
         
         private void caricaPannello() {
             int i = 0;
-            foreach (Model.Griglia griglia in griglie) {
+            foreach (Model.Griglia griglia in griglie)
+            {
                 Label nome = new Label();
                 nome.Text = griglia.getNome() + " (" + griglia.getNumRighe() + "x" + griglia.getNumColonne() + ")";
                 nome.Tag = griglia.getNome();
@@ -44,9 +44,6 @@ namespace TalkingPaper.Administration
                 nome.Visible = true;
 
                 pannello.Controls.Add(nome);
-                
-                if (startingLabel == 0) startingLabel = nome.TabIndex;
-                
             }
 
         }

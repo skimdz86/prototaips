@@ -39,7 +39,8 @@ namespace TalkingPaper.Administration
 
         private void EliminaPoster_Click(object sender, EventArgs e)
         {
-            //creare la finestra elimina poster
+            EliminaPosterForm eliminaPoster = new EliminaPosterForm();
+            NavigationControl.goTo(this, eliminaPoster);
         }
 
         

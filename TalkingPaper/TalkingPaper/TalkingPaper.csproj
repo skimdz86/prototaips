@@ -128,6 +128,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administration\EliminaPosterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administration\EliminaPosterForm.Designer.cs">
+      <DependentUpon>EliminaPosterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administration\ModificaGrigliaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,9 @@
     <EmbeddedResource Include="Mappings\Tipologia.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Administration\EliminaPosterForm.resx">
+      <DependentUpon>EliminaPosterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Administration\ModificaGrigliaForm.resx">
       <DependentUpon>ModificaGrigliaForm.cs</DependentUpon>
     </EmbeddedResource>
