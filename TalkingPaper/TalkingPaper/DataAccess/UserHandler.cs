@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.IO;
+using System.Security.Cryptography;
 
 namespace TalkingPaper.DataAccess
 {
@@ -33,9 +34,15 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
+                //aggiunta crittografia
+                MD5 md5 = new MD5CryptoServiceProvider();
+                Byte[] original = ASCIIEncoding.Default.GetBytes("admin");
+                Byte[] encoded = md5.ComputeHash(original);
+                String res = BitConverter.ToString(encoded);
+
                 XmlElement el = doc.CreateElement("Utente");
                 el.SetAttribute("Login", "admin");
-                el.SetAttribute("Password", "admin");
+                el.SetAttribute("Password", res);
                 //el.SetAttribute("Classe", IDClasse);
                 el.SetAttribute("FlagAmministratore", "Si");//tipo account è si/no
                 doc.DocumentElement.AppendChild(el);
@@ -59,6 +66,11 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
+                ////critto md5
+                MD5 md5 = new MD5CryptoServiceProvider();
+                Byte[] original = ASCIIEncoding.Default.GetBytes(password);
+                Byte[] encoded = md5.ComputeHash(original);
+                String res = BitConverter.ToString(encoded);
                 ////controllo nome gia esistente
                 XmlNodeList l = doc.GetElementsByTagName("Utente");
                 for (int i = 0; i < l.Count; i++)
@@ -72,7 +84,7 @@ namespace TalkingPaper.DataAccess
                 }
                 XmlElement el = doc.CreateElement("Utente");
                 el.SetAttribute("Login", login);
-                el.SetAttribute("Password", password);
+                el.SetAttribute("Password", res);
                 //el.SetAttribute("Classe", IDClasse);
                 el.SetAttribute("FlagAmministratore", "No");//tipo account è si/no
                 doc.DocumentElement.AppendChild(el);
@@ -126,11 +138,17 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
+                //critto md5
+                MD5 md5 = new MD5CryptoServiceProvider();
+                Byte[] original = ASCIIEncoding.Default.GetBytes(password);
+                Byte[] encoded = md5.ComputeHash(original);
+                String res = BitConverter.ToString(encoded);
+
                 XmlNodeList loginList = doc.GetElementsByTagName("Utente");
                 for (int i = 0; i < loginList.Count; i++)
                 {
                     XmlElement temp = (XmlElement)doc.GetElementsByTagName("Utente")[i];
-                    if (temp.GetAttribute("Login") == login && temp.GetAttribute("Password") == password)
+                    if (temp.GetAttribute("Login") == login && temp.GetAttribute("Password") == res)
                     {
                         flag = true;
                     }
