@@ -143,13 +143,11 @@ namespace TalkingPaper.ControlLogic
         }
         public List<Model.Poster> getListaPoster() 
         {
-            //// da fare
-            return null;
+            return Global.dataHandler.getListaPoster();
         }
         public bool rimuoviPoster(String nomePoster) 
         {
-            ///// da fare
-            return true;
+            return Global.dataHandler.removePoster(nomePoster);
         }
 
         

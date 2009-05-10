@@ -28,11 +28,11 @@ namespace TalkingPaper.Authoring
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScegliGrigliaForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScegliGrigliaForm));
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new TalkingPaper.ControlButton();
@@ -44,30 +44,9 @@ namespace TalkingPaper.Authoring
             this.indietro = new TalkingPaper.ControlButton();
             this.label4 = new System.Windows.Forms.Label();
             this.pannello = new System.Windows.Forms.Panel();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            //this.grouppoControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // textBoxPost
-            // 
-            //this.textBoxPost.Location = new System.Drawing.Point(913, 439);
-            // 
-            // pictureBoxPost2
-            // 
-            //this.pictureBoxPost2.Location = new System.Drawing.Point(901, 422);
-            // 
-            // pictureBoxPost1
-            // 
-            //this.pictureBoxPost1.Location = new System.Drawing.Point(1110, 592);
-            // 
-            // grouppoControl
-            // 
-            //this.grouppoControl.Controls.Add(this.indietro);
-            //this.grouppoControl.Location = new System.Drawing.Point(1042, 25);
-            //this.grouppoControl.Size = new System.Drawing.Size(130, 91);
             // 
             // sottotitolo
             // 
@@ -102,7 +81,7 @@ namespace TalkingPaper.Authoring
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(446, 592);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 49);
@@ -118,7 +97,7 @@ namespace TalkingPaper.Authoring
             this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.button2.Location = new System.Drawing.Point(616, 592);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 49);
@@ -226,7 +205,7 @@ namespace TalkingPaper.Authoring
             this.indietro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("indietro.BackgroundImage")));
             this.indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
+            this.indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.indietro.Location = new System.Drawing.Point(18, 19);
             this.indietro.Name = "indietro";
             this.indietro.Size = new System.Drawing.Size(96, 49);
@@ -259,7 +238,7 @@ namespace TalkingPaper.Authoring
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.ClientSize = new System.Drawing.Size(1184, 732);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.pannello);
             this.Controls.Add(this.button1);
@@ -271,24 +250,18 @@ namespace TalkingPaper.Authoring
             this.Controls.Add(this.groupBox2);
             this.Name = "ScegliGrigliaForm";
             this.Text = "FormScegliConfigurazione";
+            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
             this.Controls.SetChildIndex(this.comboBox1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            //this.Controls.SetChildIndex(this.textBoxPost, 0);
-            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
             this.Controls.SetChildIndex(this.button2, 0);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            //this.grouppoControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

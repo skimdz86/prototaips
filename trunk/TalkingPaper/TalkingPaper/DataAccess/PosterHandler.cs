@@ -79,7 +79,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return null; }
             }
             catch (IOException e) { return null; }
 
@@ -127,7 +127,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return null; }
             }
             catch (IOException e) { return null; }
 
@@ -159,7 +159,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                if (!File.Exists(filepath)) Console.Write("Il file non esiste!");
+                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return false; }
             }
             catch (IOException e) { return false; }
 
