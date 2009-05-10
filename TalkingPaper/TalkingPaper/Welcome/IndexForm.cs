@@ -50,11 +50,12 @@ namespace TalkingPaper.Welcome
                 {
                     textBox1.Clear();
                     textBox2.Clear();
-                    Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
-                    NavigationControl.goTo(this, adminHome);
+                    Welcome.ChildHomeForm childHome = new ChildHomeForm();
+                    NavigationControl.goTo(this, childHome);
                 }
                 else 
                 {
+                    textBox2.Clear();
                     MessageBox.Show("I dati inseriti non sono corretti");
                 }
                 
