@@ -24,16 +24,57 @@ namespace TalkingPaper.Administration
 
         private void ok_Click(object sender, EventArgs e)
         {
-            Model.Griglia griglia;
-            griglia = control.inizializzaGriglia(textBox1.Text, textBox2.Text, textBox3.Text);
-            if (griglia != null)
+
+            if ((textBox2.Text == null) || (textBox2.Text.Equals("")))
             {
-                TaggaGrigliaForm taggaGriglia = new TaggaGrigliaForm(griglia);
-                NavigationControl.goTo(this, taggaGriglia);
+                MessageBox.Show("Non hai inserito i tag presenti in una riga");
+            }
+            else if ((textBox3.Text == null) || (textBox3.Text.Equals("")))
+            {
+                MessageBox.Show("Non hai inserito i tag presenti in una colonna");
+            }
+            else if ((textBox1.Text == null) || (textBox1.Text.Equals("")))
+            {
+                MessageBox.Show("Non hai inserito il nome della nuova griglia");
             }
             else
             {
-                throw new Exception("Impossibile inizializzare la griglia");
+                int numeroRighe=0;///////////////perche vuole che le assegno qui per forza??????
+                int numeroColonne=0;
+
+                try
+                {
+                    numeroRighe = Int32.Parse(textBox2.Text);
+                    numeroColonne = Int32.Parse(textBox3.Text);
+                }
+                catch
+                {
+                    MessageBox.Show("Errore! Le righe e le colonne devono essere dei numeri");
+                    
+                }
+
+                if (numeroColonne > 6)
+                {
+                    MessageBox.Show("Le colonne possono essere al massimo 6");
+                }
+                else if (numeroRighe > 6)
+                {
+                    MessageBox.Show("Le righe possono essere al massimo 6");
+                }
+                else
+                {
+                    Model.Griglia griglia;
+                    griglia = control.inizializzaGriglia(textBox1.Text, textBox2.Text, textBox3.Text);
+                    if (griglia != null)
+                    {
+                        TaggaGrigliaForm taggaGriglia = new TaggaGrigliaForm(griglia);
+                        NavigationControl.goTo(this, taggaGriglia);
+                    }
+                    else
+                    {
+                        throw new Exception("Impossibile inizializzare la griglia");
+                    }
+                }
             }
         }
     }

@@ -16,48 +16,8 @@ namespace TalkingPaper.ControlLogic
 
         public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
         {
-            if (( righe == null) || (righe.Equals("")))
-            {
-                MessageBox.Show("Non hai inserito i tag presenti in una riga");
-            }
-            else if ((colonne == null) || (colonne.Equals("")))
-            {
-                MessageBox.Show("Non hai inserito i tag presenti in una colonna");
-            }
-            else if ((nome == null) || (nome.Equals("")))
-            {
-                MessageBox.Show("Non hai inserito il nome della nuova griglia");
-            }
-            else
-            {
-                int numeroRighe;
-                int numeroColonne;
-                
-                try
-                {
-                    numeroRighe = Int32.Parse(righe);
-                    numeroColonne = Int32.Parse(colonne);
-                }
-                catch {
-                    MessageBox.Show("Errore! Le righe e le colonne devono essere dei numeri");
-                    return null;
-                }
-
-                if (numeroColonne > 6)
-                {
-                    MessageBox.Show("Le colonne possono essere al massimo 6");
-                }
-                else if (numeroRighe > 6)
-                {
-                    MessageBox.Show("Le righe possono essere al massimo 6");
-                }
-                else
-                {
-                    Model.Griglia griglia = new Model.Griglia(nome,numeroRighe,numeroColonne);
-                    return griglia;
-                }
-            }
-            return null;
+            Model.Griglia griglia = new Model.Griglia(nome,Convert.ToInt32(righe),Convert.ToInt32(colonne));
+            return griglia;
         }
 
         public void inizializzaReader(Form caller)
