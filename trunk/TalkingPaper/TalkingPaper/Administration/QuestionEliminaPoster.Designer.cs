@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Administration
 {
     partial class QuestionEliminaPoster
@@ -29,15 +31,15 @@ namespace TalkingPaper.Administration
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuestionEliminaPoster));
-            this.Annulla = new TalkingPaper.ControlButton();
-            this.Si = new TalkingPaper.ControlButton();
+            this.Annulla = new System.Windows.Forms.Button();
+            this.Si = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new TalkingPaper.ControlButton();
-            this.button2 = new TalkingPaper.ControlButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.ok = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -84,44 +86,12 @@ namespace TalkingPaper.Administration
             this.label1.TabIndex = 12;
             this.label1.Text = "Sei sicuro di voler eliminare il poster?";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(445, 178);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 62);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Annulla";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Annulla_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(247, 178);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 62);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Si";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.Si_Click);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox2.Location = new System.Drawing.Point(22, 77);
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Location = new System.Drawing.Point(22, 94);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(95, 89);
             this.pictureBox2.TabIndex = 13;
@@ -132,7 +102,7 @@ namespace TalkingPaper.Administration
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(141, 109);
+            this.label2.Location = new System.Drawing.Point(160, 109);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(455, 29);
             this.label2.TabIndex = 12;
@@ -149,17 +119,51 @@ namespace TalkingPaper.Administration
             this.label6.TabIndex = 47;
             this.label6.Text = "Cartellone Parlante";
             // 
+            // button3
+            // 
+            this.button3.AutoSize = true;
+            this.button3.BackColor = System.Drawing.Color.Yellow;
+            this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.button3.Location = new System.Drawing.Point(405, 173);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(112, 72);
+            this.button3.TabIndex = 49;
+            this.button3.Text = "Annulla";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // ok
+            // 
+            this.ok.AutoSize = true;
+            this.ok.BackColor = System.Drawing.Color.Yellow;
+            this.ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ok.BackgroundImage")));
+            this.ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ok.Location = new System.Drawing.Point(222, 173);
+            this.ok.Name = "ok";
+            this.ok.Size = new System.Drawing.Size(112, 72);
+            this.ok.TabIndex = 48;
+            this.ok.Text = "OK";
+            this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.ok.UseVisualStyleBackColor = false;
+            this.ok.Click += new System.EventHandler(this.ok_Click);
+            // 
             // QuestionEliminaPoster
             // 
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(639, 252);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ClientSize = new System.Drawing.Size(639, 276);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.ok);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox2);
             this.Name = "QuestionEliminaPoster";
-            this.Load += new System.EventHandler(this.QuestionEliminaPoster_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
@@ -173,10 +177,10 @@ namespace TalkingPaper.Administration
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label2;
-        private ControlButton Annulla;
-        private ControlButton Si;
-        private ControlButton button1;
-        private ControlButton button2;
+        private Button Annulla;
+        private Button Si;
         private System.Windows.Forms.Label label6;
+        protected Button button3;
+        protected Button ok;
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TalkingPaper.Administration
+﻿using TalkingPaper.Common;
+using System.Windows.Forms;
+namespace TalkingPaper.Administration
 {
     partial class ModificaGrigliaForm
     {
@@ -32,12 +34,11 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificaGrigliaForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ElencoTag = new System.Windows.Forms.DataGridView();
-            this.ok = new TalkingPaper.MainButton();
-            this.annulla = new TalkingPaper.MainButton();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,13 +47,25 @@
             this.sottotitolo.Size = new System.Drawing.Size(234, 33);
             this.sottotitolo.Text = "Modifica Griglia";
             // 
+            // home
+            // 
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
+            // 
+            // ok
+            // 
+            this.ok.Click += new System.EventHandler(this.ok_Click);
+            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Location = new System.Drawing.Point(13, 118);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1098, 53);
+            this.label1.Size = new System.Drawing.Size(733, 29);
             this.label1.TabIndex = 44;
             this.label1.Text = "Clicca sulla casella che vorresti modificare e assegna il nuovo tag ad essa. ";
             // 
@@ -62,7 +75,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(12, 159);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1141, 58);
+            this.label3.Size = new System.Drawing.Size(1000, 58);
             this.label3.TabIndex = 46;
             this.label3.Text = "Premi OK per terminare le modifiche della griglia (NON TUTTE LE CASELLE NECESSITA" +
                 "NO DI ESSERE TAGGATE). ANNULLA per tornare al menù principale senza salvare le m" +
@@ -98,8 +111,8 @@
             this.ElencoTag.EnableHeadersVisualStyles = false;
             this.ElencoTag.GridColor = System.Drawing.Color.OrangeRed;
             this.ElencoTag.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoTag.Location = new System.Drawing.Point(18, 233);
-            this.ElencoTag.MinimumSize = new System.Drawing.Size(1150, 401);
+            this.ElencoTag.Location = new System.Drawing.Point(17, 220);
+            this.ElencoTag.MinimumSize = new System.Drawing.Size(900, 301);
             this.ElencoTag.MultiSelect = false;
             this.ElencoTag.Name = "ElencoTag";
             this.ElencoTag.ReadOnly = true;
@@ -124,61 +137,30 @@
             this.ElencoTag.RowTemplate.Height = 33;
             this.ElencoTag.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.ElencoTag.ShowEditingIcon = false;
-            this.ElencoTag.Size = new System.Drawing.Size(1150, 401);
+            this.ElencoTag.Size = new System.Drawing.Size(995, 329);
             this.ElencoTag.TabIndex = 47;
-            // 
-            // ok
-            // 
-            this.ok.BackColor = System.Drawing.Color.Yellow;
-            this.ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ok.BackgroundImage")));
-            this.ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ok.Location = new System.Drawing.Point(372, 640);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(180, 88);
-            this.ok.TabIndex = 3;
-            this.ok.Text = "OK";
-            this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ok.UseVisualStyleBackColor = false;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
-            // 
-            // annulla
-            // 
-            this.annulla.BackColor = System.Drawing.Color.Yellow;
-            this.annulla.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("annulla.BackgroundImage")));
-            this.annulla.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.annulla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.annulla.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.annulla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.annulla.Location = new System.Drawing.Point(607, 640);
-            this.annulla.Name = "annulla";
-            this.annulla.Size = new System.Drawing.Size(180, 88);
-            this.annulla.TabIndex = 4;
-            this.annulla.Text = "Annulla";
-            this.annulla.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.annulla.UseVisualStyleBackColor = false;
-            this.annulla.Click += new System.EventHandler(this.annulla_Click);
             // 
             // ModificaGrigliaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1152, 739);
-            this.Controls.Add(this.ok);
-            this.Controls.Add(this.annulla);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.ElencoTag);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Name = "ModificaGrigliaForm";
             this.Text = "ModificaGrigliaForm";
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.ElencoTag, 0);
-            this.Controls.SetChildIndex(this.annulla, 0);
-            this.Controls.SetChildIndex(this.ok, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoTag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -190,7 +172,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView ElencoTag;
-        private MainButton ok;
-        private MainButton annulla;
+        private Button ok;
+        private Button annulla;
     }
 }

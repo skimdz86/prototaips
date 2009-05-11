@@ -1,4 +1,6 @@
-﻿namespace TalkingPaper.Welcome
+﻿using TalkingPaper.Common;
+using System.Windows.Forms;
+namespace TalkingPaper.Welcome
 {
     partial class IndexForm
     {
@@ -35,11 +37,12 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.RegistrazioneButton = new TalkingPaper.MainButton();
+            this.RegistrazioneButton = new System.Windows.Forms.Button();
             this.erroreRfid = new System.Windows.Forms.Label();
-            this.EsciButton = new TalkingPaper.MainButton();
-            this.LoginButton = new TalkingPaper.MainButton();
-            this.configura = new TalkingPaper.MainButton();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.configura = new System.Windows.Forms.Button();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             this.SuspendLayout();
             // 
             // titolo
@@ -51,15 +54,29 @@
             // 
             this.sottotitolo.Visible = false;
             // 
-            // help
+            // home
             // 
-            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
+            this.home.Text = "Esci";
+            this.home.Click += new System.EventHandler(this.esci_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Visible = false;
+            // 
+            // ok
+            // 
+            this.ok.Visible = false;
+            // 
+            // boxSotto
+            // 
+            this.boxSotto.Visible = false;
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(31, 107);
+            this.label2.Location = new System.Drawing.Point(31, 151);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(357, 34);
             this.label2.TabIndex = 1;
@@ -69,7 +86,7 @@
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(31, 166);
+            this.label3.Location = new System.Drawing.Point(31, 210);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 20);
             this.label3.TabIndex = 2;
@@ -80,7 +97,7 @@
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label4.Location = new System.Drawing.Point(31, 227);
+            this.label4.Location = new System.Drawing.Point(31, 271);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(139, 20);
             this.label4.TabIndex = 3;
@@ -89,14 +106,14 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(258, 166);
+            this.textBox1.Location = new System.Drawing.Point(258, 210);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(296, 20);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(258, 227);
+            this.textBox2.Location = new System.Drawing.Point(258, 271);
             this.textBox2.Name = "textBox2";
             this.textBox2.PasswordChar = '*';
             this.textBox2.Size = new System.Drawing.Size(296, 20);
@@ -106,7 +123,7 @@
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label5.Location = new System.Drawing.Point(31, 315);
+            this.label5.Location = new System.Drawing.Point(31, 359);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(357, 34);
             this.label5.TabIndex = 6;
@@ -118,7 +135,7 @@
             this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.RegistrazioneButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistrazioneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.RegistrazioneButton.Location = new System.Drawing.Point(415, 286);
+            this.RegistrazioneButton.Location = new System.Drawing.Point(415, 330);
             this.RegistrazioneButton.Name = "RegistrazioneButton";
             this.RegistrazioneButton.Size = new System.Drawing.Size(180, 88);
             this.RegistrazioneButton.TabIndex = 7;
@@ -131,29 +148,12 @@
             // 
             this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.erroreRfid.ForeColor = System.Drawing.Color.Red;
-            this.erroreRfid.Location = new System.Drawing.Point(29, 441);
+            this.erroreRfid.Location = new System.Drawing.Point(29, 469);
             this.erroreRfid.Name = "erroreRfid";
             this.erroreRfid.Size = new System.Drawing.Size(835, 47);
             this.erroreRfid.TabIndex = 8;
             this.erroreRfid.Text = "Attenzione! Il lettore Rfid non risulta essere collegato!";
             this.erroreRfid.Visible = false;
-            // 
-            // EsciButton
-            // 
-            this.EsciButton.BackColor = System.Drawing.Color.Yellow;
-            this.EsciButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.EsciButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EsciButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.EsciButton.Image = ((System.Drawing.Image)(resources.GetObject("EsciButton.Image")));
-            this.EsciButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.EsciButton.Location = new System.Drawing.Point(848, 9);
-            this.EsciButton.Name = "EsciButton";
-            this.EsciButton.Size = new System.Drawing.Size(180, 88);
-            this.EsciButton.TabIndex = 9;
-            this.EsciButton.Text = "ESCI DAL PROGRAMMA";
-            this.EsciButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.EsciButton.UseVisualStyleBackColor = false;
-            this.EsciButton.Click += new System.EventHandler(this.EsciButton_Click);
             // 
             // LoginButton
             // 
@@ -162,7 +162,7 @@
             this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.LoginButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.LoginButton.Location = new System.Drawing.Point(628, 166);
+            this.LoginButton.Location = new System.Drawing.Point(628, 210);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(180, 88);
             this.LoginButton.TabIndex = 10;
@@ -177,7 +177,7 @@
             this.configura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.configura.Cursor = System.Windows.Forms.Cursors.Hand;
             this.configura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.configura.Location = new System.Drawing.Point(882, 431);
+            this.configura.Location = new System.Drawing.Point(882, 459);
             this.configura.Name = "configura";
             this.configura.Size = new System.Drawing.Size(125, 57);
             this.configura.TabIndex = 41;
@@ -195,7 +195,6 @@
             this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.configura);
             this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.EsciButton);
             this.Controls.Add(this.RegistrazioneButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.erroreRfid);
@@ -206,7 +205,8 @@
             this.Controls.Add(this.label2);
             this.Name = "IndexForm";
             this.Text = "Index";
-            this.Controls.SetChildIndex(this.help, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);
@@ -215,11 +215,14 @@
             this.Controls.SetChildIndex(this.erroreRfid, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.RegistrazioneButton, 0);
-            this.Controls.SetChildIndex(this.EsciButton, 0);
             this.Controls.SetChildIndex(this.LoginButton, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.configura, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -233,10 +236,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label5;
-        private MainButton RegistrazioneButton;
+        private Button RegistrazioneButton;
         private System.Windows.Forms.Label erroreRfid;
-        private MainButton EsciButton;
-        private MainButton LoginButton;
-        private MainButton configura;
+        private Button LoginButton;
+        private Button configura;
     }
 }

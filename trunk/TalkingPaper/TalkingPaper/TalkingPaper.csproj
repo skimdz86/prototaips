@@ -151,7 +151,8 @@
     </Compile>
     <Compile Include="ControlLogic\AdministrationControl.cs" />
     <Compile Include="Common\NavigationControl.cs" />
-    <Compile Include="ControlLogic\ChildrenControl.cs" />
+    <Compile Include="ControlLogic\AuthoringControl.cs" />
+    <Compile Include="ControlLogic\ExecutionControl.cs" />
     <Compile Include="ControlLogic\LoginControl.cs" />
     <Compile Include="DataAccess\GeneralDataHandler.cs" />
     <Compile Include="Altrarisorsa.cs" />
@@ -172,12 +173,6 @@
     </Compile>
     <Compile Include="Common\Global.cs">
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="MainButton.Designer.cs">
-      <DependentUpon>MainButton.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Contenuto.cs" />
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
@@ -212,12 +207,6 @@
     </Compile>
     <Compile Include="Reader\RfidProperties.cs" />
     <Compile Include="Contenuto2.cs" />
-    <Compile Include="ControlButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="ControlButton.Designer.cs">
-      <DependentUpon>ControlButton.cs</DependentUpon>
-    </Compile>
     <Compile Include="Execution\ElencoCartelloniForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -412,10 +401,6 @@
       <DependentUpon>ScegliGrigliaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="ControlButton.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>ControlButton.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Authoring\NuovoCartelloneForm.resx">
       <DependentUpon>NuovoCartelloneForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -430,10 +415,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\NuovaGrigliaForm.resx">
       <DependentUpon>NuovaGrigliaForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MainButton.resx">
-      <DependentUpon>MainButton.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome\IndexForm.resx">

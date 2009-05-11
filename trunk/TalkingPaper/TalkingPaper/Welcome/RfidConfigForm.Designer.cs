@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Welcome
 {
     partial class RfidConfigForm
@@ -36,7 +38,8 @@ namespace TalkingPaper.Welcome
             this.labelNO2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboPort = new System.Windows.Forms.ComboBox();
-            this.button1 = new TalkingPaper.MainButton();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +47,22 @@ namespace TalkingPaper.Welcome
             // 
             this.sottotitolo.Size = new System.Drawing.Size(398, 33);
             this.sottotitolo.Text = "Configura il dispositivo Rfid";
+            // 
+            // home
+            // 
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Visible = false;
+            // 
+            // ok
+            // 
+            this.ok.Visible = false;
+            // 
+            // boxSotto
+            // 
+            this.boxSotto.Visible = false;
             // 
             // port_number
             // 
@@ -127,9 +146,9 @@ namespace TalkingPaper.Welcome
             this.groupBox1.Controls.Add(this.labelNO);
             this.groupBox1.Controls.Add(this.labelOK);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(324, 230);
+            this.groupBox1.Location = new System.Drawing.Point(239, 221);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(545, 324);
+            this.groupBox1.Size = new System.Drawing.Size(553, 327);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
@@ -143,37 +162,26 @@ namespace TalkingPaper.Welcome
             this.comboPort.Size = new System.Drawing.Size(92, 24);
             this.comboPort.TabIndex = 43;
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(853, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 69);
-            this.button1.TabIndex = 46;
-            this.button1.Text = "Indietro";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // RfidConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1136, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RfidConfigForm";
             this.Text = "Rfid Reader Configuration";
-            this.Controls.SetChildIndex(this.button1, 0);
-            this.Controls.SetChildIndex(this.help, 0);
             this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -192,7 +200,6 @@ namespace TalkingPaper.Welcome
         private System.Windows.Forms.Label labelNO2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboPort;
-        private TalkingPaper.MainButton button1;
     
     }
 }

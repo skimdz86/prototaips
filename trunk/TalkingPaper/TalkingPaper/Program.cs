@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.IO;
+using TalkingPaper.Common;
 
 namespace TalkingPaper
 {
@@ -17,10 +18,10 @@ namespace TalkingPaper
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Inizializzo le variabili globali
-            Common.Global.dataHandler = new DataAccess.GeneralDataHandler();
-            Common.Global.directoryPrincipale = Directory.GetCurrentDirectory();
-            Common.Global.reader = new Reader.RfidReader();
-            Common.Global.back = new Stack<Form>();
+            Global.dataHandler = new DataAccess.GeneralDataHandler();
+            Global.directoryPrincipale = Directory.GetCurrentDirectory();
+            Global.reader = new Reader.RfidReader();
+            Global.back = new Stack<Form>();
             //creazione dei file XML---da commentare
             //TestXML xx = new TestXML();
 

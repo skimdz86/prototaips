@@ -17,10 +17,11 @@ using QuartzTypeLib;
 using NHibernate;
 using NHibernate.Cfg;
 using System.Xml;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Authoring
 {
-    public partial class ModificaCartelloneForm : Common.FormSchema
+    public partial class ModificaCartelloneForm : FormSchema
     {
         //private Authoring.BenvenutoGestioneDisposizione benvenuto;
         //private ScegliMostraPostering elenco_mostre;
@@ -66,8 +67,7 @@ namespace TalkingPaper.Authoring
             elimina = new Bitmap(directory_principale + @"/Images/Icons/elimina_cestino.gif");
            // label1.Text = "Ecco i poster della mostra " + '"' + nome_mostra + '"';
             //textBox1.Select(0, 0);
-            button1.Cursor = Cursors.Hand;
-            button2.Cursor = Cursors.Hand;
+            
             if (/*(elenco_mostre == null) && */(id_mostra == -1))
             {
                 label2.Text = "Non sono presenti Poster Singoli";

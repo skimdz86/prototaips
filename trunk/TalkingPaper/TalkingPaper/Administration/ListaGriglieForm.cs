@@ -6,7 +6,7 @@ using System.Drawing;
 
 namespace TalkingPaper.Administration
 {
-    public partial class ListaGriglieForm : Common.FormSchema
+    public partial class ListaGriglieForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
         private List<Model.Griglia> griglie;
@@ -111,6 +111,11 @@ namespace TalkingPaper.Administration
             ok.Cursor = Cursors.Hand;
             groupBox2.Visible = true;
             disegnaGrigliaSelezionata();
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
         }
 
     }

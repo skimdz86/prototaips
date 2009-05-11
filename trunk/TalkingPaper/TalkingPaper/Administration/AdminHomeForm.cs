@@ -4,7 +4,7 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
-    public partial class AdminHomeForm : Common.FormSchema
+    public partial class AdminHomeForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
                
@@ -15,9 +15,6 @@ namespace TalkingPaper.Administration
             NavigationControl.setHome(this);
             
             label1.Text = label1.Text + " " + user;
-            logout.Cursor = Cursors.Hand;
-            EliminaPoster.Cursor = Cursors.Hand;
-            nuovaGriglia.Cursor = Cursors.Hand;
         }
         
         private void logout_Click(object sender, EventArgs e)

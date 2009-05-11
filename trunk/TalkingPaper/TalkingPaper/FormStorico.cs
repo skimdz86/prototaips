@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using TalkingPaper.Common;
 
 namespace TalkingPaper
 {
-    public partial class FormStorico : Common.FormSchema
+    public partial class FormStorico : FormSchema
     {
 
         public FormStorico(ArrayList arrayStorico ,ArrayList arrayData )

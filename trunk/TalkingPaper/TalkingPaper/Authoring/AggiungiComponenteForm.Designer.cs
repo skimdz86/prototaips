@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Authoring
 {
     partial class AggiungiComponenteForm
@@ -28,49 +30,52 @@ namespace TalkingPaper.Authoring
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AggiungiComponenteForm));
-            this.PreviewAudio = new TalkingPaper.ControlButton();
-            this.PreviewVideo = new TalkingPaper.ControlButton();
-            this.PreviewImmagine = new TalkingPaper.ControlButton();
-            this.PreviewTesto = new TalkingPaper.ControlButton();
-            this.EliminaTesto = new TalkingPaper.ControlButton();
-            this.EliminaImmagine = new TalkingPaper.ControlButton();
-            this.EliminaVideo = new TalkingPaper.ControlButton();
-            this.EliminaAudio = new TalkingPaper.ControlButton();
-            this.SfogliaTesto = new TalkingPaper.ControlButton();
-            this.SfogliaImmagine = new TalkingPaper.ControlButton();
-            this.SfogliaVideo = new TalkingPaper.ControlButton();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.Annulla = new TalkingPaper.MainButton();
-            this.Salva = new TalkingPaper.MainButton();
-            this.SfogliaAudio = new TalkingPaper.ControlButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.indietro = new TalkingPaper.ControlButton();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            //this.grouppoControl.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.PreviewAudio = new System.Windows.Forms.Button();
+            this.PreviewVideo = new System.Windows.Forms.Button();
+            this.PreviewImmagine = new System.Windows.Forms.Button();
+            this.PreviewTesto = new System.Windows.Forms.Button();
+            this.EliminaTesto = new System.Windows.Forms.Button();
+            this.EliminaImmagine = new System.Windows.Forms.Button();
+            this.EliminaVideo = new System.Windows.Forms.Button();
+            this.EliminaAudio = new System.Windows.Forms.Button();
+            this.SfogliaTesto = new System.Windows.Forms.Button();
+            this.SfogliaImmagine = new System.Windows.Forms.Button();
+            this.SfogliaVideo = new System.Windows.Forms.Button();
+            this.testoLabel = new System.Windows.Forms.Label();
+            this.immagineLabel = new System.Windows.Forms.Label();
+            this.videoLabel = new System.Windows.Forms.Label();
+            this.testoBox = new System.Windows.Forms.TextBox();
+            this.immagineBox = new System.Windows.Forms.TextBox();
+            this.videoBox = new System.Windows.Forms.TextBox();
+            this.SfogliaAudio = new System.Windows.Forms.Button();
+            this.suonoBox = new System.Windows.Forms.TextBox();
+            this.nomeBox = new System.Windows.Forms.TextBox();
+            this.suonoLabel = new System.Windows.Forms.Label();
+            this.nomeLabel = new System.Windows.Forms.Label();
+            this.labelTesto2 = new System.Windows.Forms.Label();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grouppoControl
-            // 
-            //this.grouppoControl.Controls.Add(this.indietro);
-            //this.grouppoControl.Location = new System.Drawing.Point(1019, 12);
-            //this.grouppoControl.Size = new System.Drawing.Size(153, 91);
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(323, 33);
-            this.sottotitolo.Text = "Nuovo Componente di";
+            this.sottotitolo.AutoSize = false;
+            this.sottotitolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sottotitolo.Location = new System.Drawing.Point(12, 88);
+            this.sottotitolo.Size = new System.Drawing.Size(728, 74);
+            this.sottotitolo.Text = "Dai un nome al nuovo componente e cerca il suono o il video da inserire";
+            // 
+            // home
+            // 
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Click += new System.EventHandler(this.annulla_Click_1);
+            // 
+            // ok
+            // 
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // PreviewAudio
             // 
@@ -78,7 +83,7 @@ namespace TalkingPaper.Authoring
             this.PreviewAudio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PreviewAudio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PreviewAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.PreviewAudio.Location = new System.Drawing.Point(925, 174);
+            this.PreviewAudio.Location = new System.Drawing.Point(891, 214);
             this.PreviewAudio.Name = "PreviewAudio";
             this.PreviewAudio.Size = new System.Drawing.Size(120, 62);
             this.PreviewAudio.TabIndex = 44;
@@ -93,7 +98,7 @@ namespace TalkingPaper.Authoring
             this.PreviewVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PreviewVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PreviewVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.PreviewVideo.Location = new System.Drawing.Point(925, 242);
+            this.PreviewVideo.Location = new System.Drawing.Point(891, 282);
             this.PreviewVideo.Name = "PreviewVideo";
             this.PreviewVideo.Size = new System.Drawing.Size(120, 62);
             this.PreviewVideo.TabIndex = 45;
@@ -108,7 +113,7 @@ namespace TalkingPaper.Authoring
             this.PreviewImmagine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PreviewImmagine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PreviewImmagine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.PreviewImmagine.Location = new System.Drawing.Point(925, 310);
+            this.PreviewImmagine.Location = new System.Drawing.Point(891, 406);
             this.PreviewImmagine.Name = "PreviewImmagine";
             this.PreviewImmagine.Size = new System.Drawing.Size(120, 62);
             this.PreviewImmagine.TabIndex = 46;
@@ -123,7 +128,7 @@ namespace TalkingPaper.Authoring
             this.PreviewTesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PreviewTesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PreviewTesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.PreviewTesto.Location = new System.Drawing.Point(925, 378);
+            this.PreviewTesto.Location = new System.Drawing.Point(891, 474);
             this.PreviewTesto.Name = "PreviewTesto";
             this.PreviewTesto.Size = new System.Drawing.Size(120, 62);
             this.PreviewTesto.TabIndex = 47;
@@ -138,7 +143,7 @@ namespace TalkingPaper.Authoring
             this.EliminaTesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EliminaTesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EliminaTesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.EliminaTesto.Location = new System.Drawing.Point(799, 378);
+            this.EliminaTesto.Location = new System.Drawing.Point(765, 474);
             this.EliminaTesto.Name = "EliminaTesto";
             this.EliminaTesto.Size = new System.Drawing.Size(120, 62);
             this.EliminaTesto.TabIndex = 48;
@@ -153,7 +158,7 @@ namespace TalkingPaper.Authoring
             this.EliminaImmagine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EliminaImmagine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EliminaImmagine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.EliminaImmagine.Location = new System.Drawing.Point(799, 310);
+            this.EliminaImmagine.Location = new System.Drawing.Point(765, 406);
             this.EliminaImmagine.Name = "EliminaImmagine";
             this.EliminaImmagine.Size = new System.Drawing.Size(120, 62);
             this.EliminaImmagine.TabIndex = 49;
@@ -168,7 +173,7 @@ namespace TalkingPaper.Authoring
             this.EliminaVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EliminaVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EliminaVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.EliminaVideo.Location = new System.Drawing.Point(799, 242);
+            this.EliminaVideo.Location = new System.Drawing.Point(765, 282);
             this.EliminaVideo.Name = "EliminaVideo";
             this.EliminaVideo.Size = new System.Drawing.Size(120, 62);
             this.EliminaVideo.TabIndex = 50;
@@ -183,7 +188,7 @@ namespace TalkingPaper.Authoring
             this.EliminaAudio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.EliminaAudio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EliminaAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.EliminaAudio.Location = new System.Drawing.Point(799, 174);
+            this.EliminaAudio.Location = new System.Drawing.Point(765, 214);
             this.EliminaAudio.Name = "EliminaAudio";
             this.EliminaAudio.Size = new System.Drawing.Size(120, 62);
             this.EliminaAudio.TabIndex = 51;
@@ -198,7 +203,7 @@ namespace TalkingPaper.Authoring
             this.SfogliaTesto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SfogliaTesto.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SfogliaTesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SfogliaTesto.Location = new System.Drawing.Point(670, 378);
+            this.SfogliaTesto.Location = new System.Drawing.Point(636, 474);
             this.SfogliaTesto.Name = "SfogliaTesto";
             this.SfogliaTesto.Size = new System.Drawing.Size(120, 62);
             this.SfogliaTesto.TabIndex = 52;
@@ -213,7 +218,7 @@ namespace TalkingPaper.Authoring
             this.SfogliaImmagine.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SfogliaImmagine.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SfogliaImmagine.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SfogliaImmagine.Location = new System.Drawing.Point(670, 310);
+            this.SfogliaImmagine.Location = new System.Drawing.Point(636, 406);
             this.SfogliaImmagine.Name = "SfogliaImmagine";
             this.SfogliaImmagine.Size = new System.Drawing.Size(120, 62);
             this.SfogliaImmagine.TabIndex = 53;
@@ -228,7 +233,7 @@ namespace TalkingPaper.Authoring
             this.SfogliaVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SfogliaVideo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SfogliaVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SfogliaVideo.Location = new System.Drawing.Point(670, 242);
+            this.SfogliaVideo.Location = new System.Drawing.Point(636, 282);
             this.SfogliaVideo.Name = "SfogliaVideo";
             this.SfogliaVideo.Size = new System.Drawing.Size(120, 62);
             this.SfogliaVideo.TabIndex = 54;
@@ -237,97 +242,65 @@ namespace TalkingPaper.Authoring
             this.SfogliaVideo.UseVisualStyleBackColor = false;
             this.SfogliaVideo.Click += new System.EventHandler(this.SfogliaVideo_Click);
             // 
-            // label8
+            // testoLabel
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(77, 392);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 24);
-            this.label8.TabIndex = 42;
-            this.label8.Text = "Testo";
+            this.testoLabel.AutoSize = true;
+            this.testoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testoLabel.ForeColor = System.Drawing.Color.White;
+            this.testoLabel.Location = new System.Drawing.Point(36, 493);
+            this.testoLabel.Name = "testoLabel";
+            this.testoLabel.Size = new System.Drawing.Size(62, 24);
+            this.testoLabel.TabIndex = 42;
+            this.testoLabel.Text = "Testo";
             // 
-            // label7
+            // immagineLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(77, 330);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(101, 24);
-            this.label7.TabIndex = 41;
-            this.label7.Text = "Immagine";
+            this.immagineLabel.AutoSize = true;
+            this.immagineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.immagineLabel.ForeColor = System.Drawing.Color.White;
+            this.immagineLabel.Location = new System.Drawing.Point(36, 431);
+            this.immagineLabel.Name = "immagineLabel";
+            this.immagineLabel.Size = new System.Drawing.Size(101, 24);
+            this.immagineLabel.TabIndex = 41;
+            this.immagineLabel.Text = "Immagine";
             // 
-            // label6
+            // videoLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(77, 264);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 24);
-            this.label6.TabIndex = 40;
-            this.label6.Text = "Video";
+            this.videoLabel.AutoSize = true;
+            this.videoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.videoLabel.ForeColor = System.Drawing.Color.White;
+            this.videoLabel.Location = new System.Drawing.Point(31, 306);
+            this.videoLabel.Name = "videoLabel";
+            this.videoLabel.Size = new System.Drawing.Size(65, 24);
+            this.videoLabel.TabIndex = 40;
+            this.videoLabel.Text = "Video";
             // 
-            // textBox6
+            // testoBox
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(236, 392);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(394, 26);
-            this.textBox6.TabIndex = 39;
+            this.testoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.testoBox.Location = new System.Drawing.Point(195, 493);
+            this.testoBox.Name = "testoBox";
+            this.testoBox.ReadOnly = true;
+            this.testoBox.Size = new System.Drawing.Size(394, 26);
+            this.testoBox.TabIndex = 39;
             // 
-            // textBox5
+            // immagineBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(236, 328);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(394, 26);
-            this.textBox5.TabIndex = 38;
+            this.immagineBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.immagineBox.Location = new System.Drawing.Point(195, 429);
+            this.immagineBox.Name = "immagineBox";
+            this.immagineBox.ReadOnly = true;
+            this.immagineBox.Size = new System.Drawing.Size(394, 26);
+            this.immagineBox.TabIndex = 38;
             // 
-            // textBox4
+            // videoBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(236, 262);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(394, 26);
-            this.textBox4.TabIndex = 37;
-            // 
-            // Annulla
-            // 
-            this.Annulla.BackColor = System.Drawing.Color.Yellow;
-            this.Annulla.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Annulla.BackgroundImage")));
-            this.Annulla.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Annulla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Annulla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Annulla.Location = new System.Drawing.Point(240, 15);
-            this.Annulla.Name = "Annulla";
-            this.Annulla.Size = new System.Drawing.Size(226, 111);
-            this.Annulla.TabIndex = 55;
-            this.Annulla.Text = "Annulla";
-            this.Annulla.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Annulla.UseVisualStyleBackColor = false;
-            this.Annulla.Click += new System.EventHandler(this.Annulla_Click);
-            // 
-            // Salva
-            // 
-            this.Salva.BackColor = System.Drawing.Color.Yellow;
-            this.Salva.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Salva.BackgroundImage")));
-            this.Salva.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Salva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Salva.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Salva.Location = new System.Drawing.Point(6, 15);
-            this.Salva.Name = "Salva";
-            this.Salva.Size = new System.Drawing.Size(226, 111);
-            this.Salva.TabIndex = 57;
-            this.Salva.Text = "OK";
-            this.Salva.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Salva.UseVisualStyleBackColor = false;
-            this.Salva.Click += new System.EventHandler(this.Salva_Click);
+            this.videoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.videoBox.Location = new System.Drawing.Point(190, 304);
+            this.videoBox.Name = "videoBox";
+            this.videoBox.ReadOnly = true;
+            this.videoBox.Size = new System.Drawing.Size(394, 26);
+            this.videoBox.TabIndex = 37;
             // 
             // SfogliaAudio
             // 
@@ -335,7 +308,7 @@ namespace TalkingPaper.Authoring
             this.SfogliaAudio.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.SfogliaAudio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SfogliaAudio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SfogliaAudio.Location = new System.Drawing.Point(670, 174);
+            this.SfogliaAudio.Location = new System.Drawing.Point(636, 214);
             this.SfogliaAudio.Name = "SfogliaAudio";
             this.SfogliaAudio.Size = new System.Drawing.Size(120, 62);
             this.SfogliaAudio.TabIndex = 56;
@@ -344,80 +317,64 @@ namespace TalkingPaper.Authoring
             this.SfogliaAudio.UseVisualStyleBackColor = false;
             this.SfogliaAudio.Click += new System.EventHandler(this.SfogliaAudio_Click);
             // 
-            // textBox2
+            // suonoBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(240, 193);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(394, 26);
-            this.textBox2.TabIndex = 32;
+            this.suonoBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suonoBox.Location = new System.Drawing.Point(194, 235);
+            this.suonoBox.Name = "suonoBox";
+            this.suonoBox.ReadOnly = true;
+            this.suonoBox.Size = new System.Drawing.Size(394, 26);
+            this.suonoBox.TabIndex = 32;
             // 
-            // textBox1
+            // nomeBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(236, 132);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(394, 26);
-            this.textBox1.TabIndex = 31;
+            this.nomeBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeBox.Location = new System.Drawing.Point(190, 174);
+            this.nomeBox.Name = "nomeBox";
+            this.nomeBox.Size = new System.Drawing.Size(394, 26);
+            this.nomeBox.TabIndex = 31;
             // 
-            // label2
+            // suonoLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(77, 193);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 24);
-            this.label2.TabIndex = 30;
-            this.label2.Text = "Suono";
+            this.suonoLabel.AutoSize = true;
+            this.suonoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.suonoLabel.ForeColor = System.Drawing.Color.White;
+            this.suonoLabel.Location = new System.Drawing.Point(31, 235);
+            this.suonoLabel.Name = "suonoLabel";
+            this.suonoLabel.Size = new System.Drawing.Size(71, 24);
+            this.suonoLabel.TabIndex = 30;
+            this.suonoLabel.Text = "Suono";
             // 
-            // label1
+            // nomeLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(82, 132);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 24);
-            this.label1.TabIndex = 29;
-            this.label1.Text = "Nome";
+            this.nomeLabel.AutoSize = true;
+            this.nomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomeLabel.ForeColor = System.Drawing.Color.White;
+            this.nomeLabel.Location = new System.Drawing.Point(36, 174);
+            this.nomeLabel.Name = "nomeLabel";
+            this.nomeLabel.Size = new System.Drawing.Size(66, 24);
+            this.nomeLabel.TabIndex = 29;
+            this.nomeLabel.Text = "Nome";
             // 
-            // groupBox1
+            // labelTesto2
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Orange;
-            this.groupBox1.Controls.Add(this.Salva);
-            this.groupBox1.Controls.Add(this.Annulla);
-            this.groupBox1.Location = new System.Drawing.Point(236, 528);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(472, 132);
-            this.groupBox1.TabIndex = 57;
-            this.groupBox1.TabStop = false;
+            this.labelTesto2.AutoSize = true;
+            this.labelTesto2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTesto2.ForeColor = System.Drawing.Color.White;
+            this.labelTesto2.Location = new System.Drawing.Point(12, 370);
+            this.labelTesto2.Name = "labelTesto2";
+            this.labelTesto2.Size = new System.Drawing.Size(911, 29);
+            this.labelTesto2.TabIndex = 57;
+            this.labelTesto2.Text = "Vuoi selezionare una immagine o un testo da stampare per il tuo componente";
             // 
-            // indietro
-            // 
-            this.indietro.BackColor = System.Drawing.Color.Yellow;
-            this.indietro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("indietro.BackgroundImage")));
-            this.indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.indietro.Location = new System.Drawing.Point(20, 19);
-            this.indietro.Name = "indietro";
-            this.indietro.Size = new System.Drawing.Size(120, 62);
-            this.indietro.TabIndex = 58;
-            this.indietro.Text = "Indietro";
-            this.indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.indietro.UseVisualStyleBackColor = false;
-            this.indietro.Click += new System.EventHandler(this.indietro_Click);
-            // 
-            // NuovoComponente
+            // AggiungiComponenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.Controls.Add(this.labelTesto2);
             this.Controls.Add(this.PreviewAudio);
             this.Controls.Add(this.PreviewVideo);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PreviewImmagine);
             this.Controls.Add(this.EliminaImmagine);
             this.Controls.Add(this.PreviewTesto);
@@ -427,31 +384,33 @@ namespace TalkingPaper.Authoring
             this.Controls.Add(this.EliminaAudio);
             this.Controls.Add(this.SfogliaVideo);
             this.Controls.Add(this.SfogliaImmagine);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.testoBox);
+            this.Controls.Add(this.testoLabel);
+            this.Controls.Add(this.immagineLabel);
+            this.Controls.Add(this.immagineBox);
+            this.Controls.Add(this.videoLabel);
+            this.Controls.Add(this.suonoBox);
             this.Controls.Add(this.SfogliaAudio);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Name = "NuovoComponente";
+            this.Controls.Add(this.videoBox);
+            this.Controls.Add(this.nomeBox);
+            this.Controls.Add(this.suonoLabel);
+            this.Controls.Add(this.nomeLabel);
+            this.Name = "AggiungiComponenteForm";
             this.Text = "NuovoComponente";
             this.Load += new System.EventHandler(this.NuovoComponente_Load);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
-            this.Controls.SetChildIndex(this.textBox1, 0);
-            this.Controls.SetChildIndex(this.textBox4, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
+            this.Controls.SetChildIndex(this.nomeLabel, 0);
+            this.Controls.SetChildIndex(this.suonoLabel, 0);
+            this.Controls.SetChildIndex(this.nomeBox, 0);
+            this.Controls.SetChildIndex(this.videoBox, 0);
             this.Controls.SetChildIndex(this.SfogliaAudio, 0);
-            this.Controls.SetChildIndex(this.textBox2, 0);
-            this.Controls.SetChildIndex(this.label6, 0);
-            this.Controls.SetChildIndex(this.textBox5, 0);
-            this.Controls.SetChildIndex(this.label7, 0);
-            this.Controls.SetChildIndex(this.label8, 0);
-            this.Controls.SetChildIndex(this.textBox6, 0);
+            this.Controls.SetChildIndex(this.suonoBox, 0);
+            this.Controls.SetChildIndex(this.videoLabel, 0);
+            this.Controls.SetChildIndex(this.immagineBox, 0);
+            this.Controls.SetChildIndex(this.immagineLabel, 0);
+            this.Controls.SetChildIndex(this.testoLabel, 0);
+            this.Controls.SetChildIndex(this.testoBox, 0);
             this.Controls.SetChildIndex(this.SfogliaImmagine, 0);
             this.Controls.SetChildIndex(this.SfogliaVideo, 0);
             this.Controls.SetChildIndex(this.EliminaAudio, 0);
@@ -461,19 +420,15 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.PreviewTesto, 0);
             this.Controls.SetChildIndex(this.EliminaImmagine, 0);
             this.Controls.SetChildIndex(this.PreviewImmagine, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.PreviewVideo, 0);
             this.Controls.SetChildIndex(this.PreviewAudio, 0);
-            //this.Controls.SetChildIndex(this.grouppoControl, 0);
-            //this.Controls.SetChildIndex(this.textBoxPost, 0);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            //this.grouppoControl.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.Controls.SetChildIndex(this.labelTesto2, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -481,31 +436,28 @@ namespace TalkingPaper.Authoring
 
         #endregion
 
-        private ControlButton PreviewAudio;
-        private ControlButton PreviewVideo;
-        private ControlButton PreviewImmagine;
-        private ControlButton PreviewTesto;
-        private ControlButton EliminaTesto;
-        private ControlButton EliminaImmagine;
-        private ControlButton EliminaVideo;
-        private ControlButton EliminaAudio;
-        private ControlButton SfogliaTesto;
-        private ControlButton SfogliaImmagine;
-        private ControlButton SfogliaVideo;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private MainButton Annulla;
-        private MainButton Salva;
-        private ControlButton SfogliaAudio;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private ControlButton indietro;
+        private Button PreviewAudio;
+        private Button PreviewVideo;
+        private Button PreviewImmagine;
+        private Button PreviewTesto;
+        private Button EliminaTesto;
+        private Button EliminaImmagine;
+        private Button EliminaVideo;
+        private Button EliminaAudio;
+        private Button SfogliaTesto;
+        private Button SfogliaImmagine;
+        private Button SfogliaVideo;
+        private System.Windows.Forms.Label testoLabel;
+        private System.Windows.Forms.Label immagineLabel;
+        private System.Windows.Forms.Label videoLabel;
+        private System.Windows.Forms.TextBox testoBox;
+        private System.Windows.Forms.TextBox immagineBox;
+        private System.Windows.Forms.TextBox videoBox;
+        private Button SfogliaAudio;
+        private System.Windows.Forms.TextBox suonoBox;
+        private System.Windows.Forms.TextBox nomeBox;
+        private System.Windows.Forms.Label suonoLabel;
+        private System.Windows.Forms.Label nomeLabel;
+        private Label labelTesto2;
     }
 }

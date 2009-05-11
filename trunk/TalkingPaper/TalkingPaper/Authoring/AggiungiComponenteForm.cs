@@ -20,12 +20,13 @@ using System.Drawing.Printing;
 using Microsoft.Office.Interop.Word;
 using System.Reflection;
 using System.Xml;
+using TalkingPaper.Common;
 
 
 
 namespace TalkingPaper.Authoring
 {
-    public partial class AggiungiComponenteForm : Common.FormSchema
+    public partial class AggiungiComponenteForm : FormSchema
     {
         private int tag_per_riga;
         private int tag_per_colonna;
@@ -97,18 +98,17 @@ namespace TalkingPaper.Authoring
             EliminaImmagine.Cursor = Cursors.Hand;
             EliminaTesto.Cursor = Cursors.Hand;
             EliminaVideo.Cursor = Cursors.Hand;
-            Salva.Cursor = Cursors.Hand;
-            Annulla.Cursor = Cursors.Hand;
+            
             if (modifica == true)
             {
                 this.sottotitolo.Text = "Modifica del componente " + '"' + nome_contenuto + '"';
                 LeggiFileXml();
                 //label1.Visible = false;
                 //textBox1.Visible = false;
-                textBox1.Text = nome_contenuto;
-                textBox1.Focus();
-                textBox1.SelectionStart = 0;
-                textBox1.SelectionLength = 0;
+                nomeBox.Text = nome_contenuto;
+                nomeBox.Focus();
+                nomeBox.SelectionStart = 0;
+                nomeBox.SelectionLength = 0;
                 using (ISession tempS = nh_manager.Session)
                 using (ITransaction tempT = tempS.BeginTransaction())
                 {
@@ -120,13 +120,13 @@ namespace TalkingPaper.Authoring
                         conte = (Contenuto2)q.List()[0];
                         if (conte.Tipo.Descrizione.CompareTo("Musica") == 0)
                         {
-                            textBox2.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
+                            suonoBox.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
                             EliminaAudio.Visible = true;
                             PreviewAudio.Visible = true;
                         }
                         else if (conte.Tipo.Descrizione.CompareTo("Video") == 0)
                         {
-                            textBox4.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
+                            videoBox.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
                             EliminaVideo.Visible = true;
                             PreviewVideo.Visible = true;
                         }
@@ -134,13 +134,13 @@ namespace TalkingPaper.Authoring
                         {
                             if (a.Tipo.CompareTo("immagine") == 0)
                             {
-                                textBox5.Text = directory_principale + a.Path + "/" + a.Nome;
+                                immagineBox.Text = directory_principale + a.Path + "/" + a.Nome;
                                 EliminaImmagine.Visible = true;
                                 PreviewImmagine.Visible = true;
                             }
                             else if (a.Tipo.CompareTo("testo") == 0)
                             {
-                                textBox6.Text = directory_principale + a.Path + "/" + a.Nome;
+                                testoBox.Text = directory_principale + a.Path + "/" + a.Nome;
                                 EliminaTesto.Visible = true;
                                 PreviewTesto.Visible = true;
                             }
@@ -183,8 +183,8 @@ namespace TalkingPaper.Authoring
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
                 string path = openFileDialog.FileName;
-                textBox2.Text = path;
-                textBox4.Text = "";
+                suonoBox.Text = path;
+                videoBox.Text = "";
                 EliminaAudio.Visible = true;
                 PreviewAudio.Visible = true;
                 EliminaVideo.Visible = false;
@@ -211,8 +211,8 @@ namespace TalkingPaper.Authoring
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
                 string path = openFileDialog.FileName;
-                textBox4.Text = path;
-                textBox2.Text = "";
+                videoBox.Text = path;
+                suonoBox.Text = "";
                 EliminaVideo.Visible = true;
                 PreviewVideo.Visible = true;
                 EliminaAudio.Visible = false;
@@ -238,7 +238,7 @@ namespace TalkingPaper.Authoring
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
                 string path = openFileDialog.FileName;
-                textBox5.Text = path;
+                immagineBox.Text = path;
                 EliminaImmagine.Visible = true;
                 PreviewImmagine.Visible = true;
                 //MessageBox.Show(path.Length.ToString());
@@ -262,7 +262,7 @@ namespace TalkingPaper.Authoring
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
                 string path = openFileDialog.FileName;
-                textBox6.Text = path;
+                testoBox.Text = path;
                 EliminaTesto.Visible = true;
                 PreviewTesto.Visible = true;
                 //MessageBox.Show(path.Length.ToString());
@@ -279,7 +279,7 @@ namespace TalkingPaper.Authoring
         private void EliminaAudio_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            textBox2.Text = "";
+            suonoBox.Text = "";
             EliminaAudio.Visible = false;
             PreviewAudio.Visible = false;
             this.Cursor = Cursors.Default;
@@ -288,7 +288,7 @@ namespace TalkingPaper.Authoring
         private void EliminaVideo_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            textBox4.Text = "";
+            videoBox.Text = "";
             EliminaVideo.Visible = false;
             PreviewVideo.Visible = false;
             this.Cursor = Cursors.Default;
@@ -297,7 +297,7 @@ namespace TalkingPaper.Authoring
         private void EliminaImmagine_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            textBox5.Text = "";
+            immagineBox.Text = "";
             EliminaImmagine.Visible = false;
             PreviewImmagine.Visible = false;
             this.Cursor = Cursors.Default;
@@ -306,7 +306,7 @@ namespace TalkingPaper.Authoring
         private void EliminaTesto_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            textBox6.Text = "";
+            testoBox.Text = "";
             EliminaTesto.Visible = false;
             PreviewTesto.Visible = false;
             this.Cursor = Cursors.Default;
@@ -315,11 +315,11 @@ namespace TalkingPaper.Authoring
         private void PreviewAudio_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            int indice = textBox2.Text.LastIndexOf("\\");
-            int lenght = textBox2.Text.Length - (indice + 1);
-            string nome_file = textBox2.Text.Substring(indice + 1, lenght);
+            int indice = suonoBox.Text.LastIndexOf("\\");
+            int lenght = suonoBox.Text.Length - (indice + 1);
+            string nome_file = suonoBox.Text.Substring(indice + 1, lenght);
             this.Enabled = false;
-            PlayAudio nuovo = new PlayAudio(textBox2.Text, this, /*null, null, null,*/ null);
+            PlayAudio nuovo = new PlayAudio(suonoBox.Text, this, /*null, null, null,*/ null);
             nuovo.Show();
             this.Cursor = Cursors.Default;
         }
@@ -327,11 +327,11 @@ namespace TalkingPaper.Authoring
         private void PreviewVideo_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            int indice = textBox4.Text.LastIndexOf("\\");
-            int lenght = textBox4.Text.Length - (indice + 1);
-            string nome_file = textBox4.Text.Substring(indice + 1, lenght);
+            int indice = videoBox.Text.LastIndexOf("\\");
+            int lenght = videoBox.Text.Length - (indice + 1);
+            string nome_file = videoBox.Text.Substring(indice + 1, lenght);
             this.Enabled = false;
-            PlayVideo nuovo = new PlayVideo(textBox4.Text, this, /*null, null, null,*/ null);
+            PlayVideo nuovo = new PlayVideo(videoBox.Text, this, /*null, null, null,*/ null);
             nuovo.Show();
             this.Cursor = Cursors.Default;
         }
@@ -363,7 +363,7 @@ namespace TalkingPaper.Authoring
             //PreviewImmagine nuovo = new PreviewImmagine(textBox5.Text,this,null);
             //nuovo.Show();
             this.Cursor = Cursors.WaitCursor;
-            StampaImmagine img = new StampaImmagine(textBox5.Text,null);
+            StampaImmagine img = new StampaImmagine(immagineBox.Text,null);
             this.Cursor = Cursors.Default;
 
             /*PrintDocument doc = new PrintDocument();
@@ -403,14 +403,14 @@ namespace TalkingPaper.Authoring
         private void PreviewTesto_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            string tipo = textBox6.Text.Substring(((textBox6.Text.Length) - 4), 4);
-            StampaTesto nuovo = new StampaTesto(textBox6.Text, tipo, this);
+            string tipo = testoBox.Text.Substring(((testoBox.Text.Length) - 4), 4);
+            StampaTesto nuovo = new StampaTesto(testoBox.Text, tipo, this);
             this.Cursor = Cursors.Default;
         }
 
         private void Salva_Click(object sender, EventArgs e)
         {
-            if ((textBox2.Text != null) && (textBox2.Text.CompareTo("") != 0) || (textBox4.Text != null) && (textBox4.Text.CompareTo("") != 0))
+            if ((suonoBox.Text != null) && (suonoBox.Text.CompareTo("") != 0) || (videoBox.Text != null) && (videoBox.Text.CompareTo("") != 0))
             {
                 this.Cursor = Cursors.WaitCursor;
                 using (ISession tempS = nh_manager.Session)
@@ -428,12 +428,12 @@ namespace TalkingPaper.Authoring
                         string descrizione_tipologia = "";
                         string path = "";
                         string estensione = "";
-                        if ((textBox2.Text != null) && (textBox2.Text.CompareTo("") != 0))
+                        if ((suonoBox.Text != null) && (suonoBox.Text.CompareTo("") != 0))
                         {
                             
                             path = "\\audio";
-                            indice = textBox2.Text.LastIndexOf("\\");
-                            indice5 = textBox2.Text.LastIndexOf("/");
+                            indice = suonoBox.Text.LastIndexOf("\\");
+                            indice5 = suonoBox.Text.LastIndexOf("/");
                             if (indice >= indice5)
                             {
                                 indice_ufficiale2 = indice;
@@ -443,11 +443,11 @@ namespace TalkingPaper.Authoring
                                 indice_ufficiale2 = indice5;
                             }
                             descrizione_tipologia = "Musica";
-                            nome_risorsa = textBox2.Text.Substring(indice_ufficiale2 + 1);
-                            estensione = textBox2.Text.Substring(textBox2.Text.Length - 4);
+                            nome_risorsa = suonoBox.Text.Substring(indice_ufficiale2 + 1);
+                            estensione = suonoBox.Text.Substring(suonoBox.Text.Length - 4);
                             try
                             {
-                                System.IO.File.Copy(textBox2.Text, directory_principale + @"/audio/" + nome_risorsa, false);
+                                System.IO.File.Copy(suonoBox.Text, directory_principale + @"/audio/" + nome_risorsa, false);
                             }
                             catch 
                             {
@@ -462,8 +462,8 @@ namespace TalkingPaper.Authoring
                             
                             path = "\\video";
                             descrizione_tipologia = "Video";
-                            indice = textBox4.Text.LastIndexOf("\\");
-                            indice5 = textBox4.Text.LastIndexOf("/");
+                            indice = videoBox.Text.LastIndexOf("\\");
+                            indice5 = videoBox.Text.LastIndexOf("/");
                             if (indice >= indice5)
                             {
                                 indice_ufficiale2 = indice;
@@ -472,11 +472,11 @@ namespace TalkingPaper.Authoring
                             {
                                 indice_ufficiale2 = indice5;
                             }
-                            nome_risorsa = textBox4.Text.Substring(indice_ufficiale2 + 1);
-                            estensione = textBox4.Text.Substring(textBox4.Text.Length - 4);
+                            nome_risorsa = videoBox.Text.Substring(indice_ufficiale2 + 1);
+                            estensione = videoBox.Text.Substring(videoBox.Text.Length - 4);
                             try
                             {
-                                System.IO.File.Copy(textBox4.Text, directory_principale + @"/video/" + nome_risorsa, false);
+                                System.IO.File.Copy(videoBox.Text, directory_principale + @"/video/" + nome_risorsa, false);
                             }
                             catch 
                             {
@@ -497,7 +497,7 @@ namespace TalkingPaper.Authoring
                         //tempT.Commit();
                         tempS.Flush();
                         Altrarisorsa immagine = new Altrarisorsa();
-                        if ((textBox5.Text != null) && (textBox5.Text.CompareTo("") != 0))
+                        if ((immagineBox.Text != null) && (immagineBox.Text.CompareTo("") != 0))
                         {
                             //Altrarisorsa immagine = new Altrarisorsa();
                             string tipo2 = "";
@@ -509,8 +509,8 @@ namespace TalkingPaper.Authoring
                             tipo2 = "immagine";
                             path2 = "\\Images";
                             //indice2 = textBox5.Text.LastIndexOf("\\");
-                            indice2 = textBox5.Text.LastIndexOf("\\");
-                            indice4 = textBox5.Text.LastIndexOf("/");
+                            indice2 = immagineBox.Text.LastIndexOf("\\");
+                            indice4 = immagineBox.Text.LastIndexOf("/");
                             if (indice2 >= indice4)
                             {
                                 indice_ufficiale = indice2;
@@ -519,11 +519,11 @@ namespace TalkingPaper.Authoring
                             {
                                 indice_ufficiale = indice4;
                             }
-                            nome_risorsa2 = textBox5.Text.Substring(indice_ufficiale + 1);
+                            nome_risorsa2 = immagineBox.Text.Substring(indice_ufficiale + 1);
                             //estensione = textBox2.Text.Substring(textBox2.Text.Length - 4);
                             try
                             {
-                                System.IO.File.Copy(textBox5.Text, directory_principale + @"/Images/" + nome_risorsa2, false);
+                                System.IO.File.Copy(immagineBox.Text, directory_principale + @"/Images/" + nome_risorsa2, false);
                             }
                             catch 
                             {
@@ -540,7 +540,7 @@ namespace TalkingPaper.Authoring
                             tempS.Flush();
                         }
                         Altrarisorsa testo = new Altrarisorsa();
-                        if ((textBox6.Text != null) && (textBox6.Text.CompareTo("") != 0))
+                        if ((testoBox.Text != null) && (testoBox.Text.CompareTo("") != 0))
                         {
                             //Altrarisorsa testo = new Altrarisorsa();
                             string tipo3 = "";
@@ -552,8 +552,8 @@ namespace TalkingPaper.Authoring
                             tipo3 = "testo";
                             path3 = "\\Testi";
                             //indice3 = textBox6.Text.LastIndexOf("\\");
-                            indice3 = textBox6.Text.LastIndexOf("\\");
-                            indice6 = textBox6.Text.LastIndexOf("/");
+                            indice3 = testoBox.Text.LastIndexOf("\\");
+                            indice6 = testoBox.Text.LastIndexOf("/");
                             if (indice3 >= indice6)
                             {
                                 indice_ufficiale3 = indice3;
@@ -562,11 +562,11 @@ namespace TalkingPaper.Authoring
                             {
                                 indice_ufficiale3 = indice6;
                             }
-                            nome_risorsa3 = textBox6.Text.Substring(indice_ufficiale3 + 1);
+                            nome_risorsa3 = testoBox.Text.Substring(indice_ufficiale3 + 1);
                             //estensione = textBox2.Text.Substring(textBox2.Text.Length - 4);
                             try
                             {
-                                System.IO.File.Copy(textBox6.Text, directory_principale + @"/Testi/" + nome_risorsa3, false);
+                                System.IO.File.Copy(testoBox.Text, directory_principale + @"/Testi/" + nome_risorsa3, false);
                             }
                             catch 
                             {
@@ -637,18 +637,18 @@ namespace TalkingPaper.Authoring
                         {
                             Contenuto2 contenuto = new Contenuto2();
                             contenuto.AltrarisorsaLista = new ArrayList();
-                            if ((textBox5.Text != null) && (textBox5.Text.CompareTo("") != 0))
+                            if ((immagineBox.Text != null) && (immagineBox.Text.CompareTo("") != 0))
                             {
                                 contenuto.AltrarisorsaLista.Add(immagine);
                             }
-                            if ((textBox6.Text != null) && (textBox6.Text.CompareTo("") != 0))
+                            if ((testoBox.Text != null) && (testoBox.Text.CompareTo("") != 0))
                             {
                                 contenuto.AltrarisorsaLista.Add(testo);
                             }
                             //contenuto.AltrarisorsaLista.Add(testo);
                             contenuto.Barcode = "0";
                             contenuto.Livello = 0;
-                            contenuto.Nome = textBox1.Text;
+                            contenuto.Nome = nomeBox.Text;
                             contenuto.Ordine = 0;
                             contenuto.Rfidtag = "0";
                             contenuto.RisorsaMultimediale = risorsa;
@@ -663,7 +663,7 @@ namespace TalkingPaper.Authoring
                             {
                                 content = c;
                             }
-                            if ((textBox5.Text != null) && (textBox5.Text.CompareTo("") != 0))
+                            if ((immagineBox.Text != null) && (immagineBox.Text.CompareTo("") != 0))
                             {
                                 immagine.ContenutoLista = new ArrayList();
                                 immagine.ContenutoLista.Add(content);
@@ -671,7 +671,7 @@ namespace TalkingPaper.Authoring
                                 //tempT.Commit();
                                 tempS.Flush();
                             }
-                            if ((textBox6.Text != null) && (textBox6.Text.CompareTo("") != 0))
+                            if ((testoBox.Text != null) && (testoBox.Text.CompareTo("") != 0))
                             {
                                 testo.ContenutoLista = new ArrayList();
                                 testo.ContenutoLista.Add(content);
@@ -694,16 +694,16 @@ namespace TalkingPaper.Authoring
                             q4.SetParameter("Con", id_contenuto);
                             contenuto = (Contenuto2)q4.List()[0];
                             contenuto.AltrarisorsaLista = new ArrayList();
-                            if ((textBox5.Text != null) && (textBox5.Text.CompareTo("") != 0))
+                            if ((immagineBox.Text != null) && (immagineBox.Text.CompareTo("") != 0))
                             {
                                 contenuto.AltrarisorsaLista.Add(immagine);
                             }
-                            if ((textBox6.Text != null) && (textBox6.Text.CompareTo("") != 0))
+                            if ((testoBox.Text != null) && (testoBox.Text.CompareTo("") != 0))
                             {
                                 contenuto.AltrarisorsaLista.Add(testo);
                             }
                             //contenuto.AltrarisorsaLista.Add(testo);
-                            contenuto.Nome = textBox1.Text;
+                            contenuto.Nome = nomeBox.Text;
                             contenuto.Barcode = "0";
                             contenuto.Livello = 0;
                             //contenuto.Nome = textBox1.Text;
@@ -926,7 +926,7 @@ namespace TalkingPaper.Authoring
                                 wr.WriteStartElement("NomeContenuto");
                                 if (el.GetIdContenuto() == id_contenuto)
                                 {
-                                    wr.WriteString(textBox1.Text);
+                                    wr.WriteString(nomeBox.Text);
                                 }
                                 else
                                 {
@@ -1044,18 +1044,7 @@ namespace TalkingPaper.Authoring
 
         private void NuovoComponente_Load(object sender, EventArgs e)
         {
-            this.PreviewAudio.setAlignment(true);
-            this.PreviewVideo.setAlignment(true);
-            this.PreviewImmagine.setAlignment(true);
-            this.PreviewTesto.setAlignment(true);
-            this.EliminaTesto.setAlignment(true);
-            this.EliminaImmagine.setAlignment(true);
-            this.EliminaVideo.setAlignment(true);
-            this.EliminaAudio.setAlignment(true);
-            this.SfogliaTesto.setAlignment(true);
-            this.SfogliaImmagine.setAlignment(true);
-            this.SfogliaVideo.setAlignment(true);
-            this.SfogliaAudio.setAlignment(true);
+            
 
 
 
@@ -1067,6 +1056,22 @@ namespace TalkingPaper.Authoring
             this.EliminaImmagine.Visible = false;
             this.EliminaVideo.Visible = false;
             this.EliminaAudio.Visible = false;
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
+        }
+
+        private void ok_Click(object sender, EventArgs e)
+        {
+            //TO DO bisogna salvare
+            NavigationControl.goBack(this);
+        }
+
+        private void annulla_Click_1(object sender, EventArgs e)
+        {
+            NavigationControl.goBack(this);
         }
 
     }

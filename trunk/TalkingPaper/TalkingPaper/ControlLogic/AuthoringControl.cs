@@ -5,7 +5,7 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper.ControlLogic
 {
-    class ChildrenControl
+    class AuthoringControl
     {
         public List<Model.Griglia> leggiGriglie()
         {

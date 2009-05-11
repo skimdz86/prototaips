@@ -19,6 +19,5 @@ namespace TalkingPaper.Common
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.TopMost = true;
         }
-
     }
 }

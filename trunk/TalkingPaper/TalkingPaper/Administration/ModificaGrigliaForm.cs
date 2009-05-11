@@ -9,7 +9,7 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
-    public partial class ModificaGrigliaForm : Common.FormSchema
+    public partial class ModificaGrigliaForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
         private Model.Griglia griglia;
@@ -172,6 +172,11 @@ namespace TalkingPaper.Administration
         {
             control.stopReader();
             NavigationControl.goBack(this);
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
         }
                 
     }

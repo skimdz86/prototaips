@@ -4,7 +4,7 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper.Administration
 {
-    public partial class NuovaGrigliaForm : Common.FormSchema
+    public partial class NuovaGrigliaForm : FormSchema
     {
         ControlLogic.AdministrationControl control;
         
@@ -76,6 +76,11 @@ namespace TalkingPaper.Administration
                     }
                 }
             }
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
         }
     }
 }

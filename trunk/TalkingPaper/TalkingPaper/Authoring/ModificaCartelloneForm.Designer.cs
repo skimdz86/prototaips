@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Authoring
 {
     partial class ModificaCartelloneForm
@@ -33,60 +35,18 @@ namespace TalkingPaper.Authoring
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModificaCartelloneForm));
-            this.button2 = new TalkingPaper.ControlButton();
-            this.button1 = new TalkingPaper.MainButton();
             this.ElencoRisorse = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Menu = new TalkingPaper.ControlButton();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            //this.grouppoControl.SuspendLayout();
+            this.Menu = new System.Windows.Forms.Button();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grouppoControl
-            // 
-            //this.grouppoControl.Controls.Add(this.Menu);
-            //this.grouppoControl.Controls.Add(this.button2);
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(298, 33);
-            this.sottotitolo.Text = "Ecco i tuoi cartelloni";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(36, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 62);
-            this.button2.TabIndex = 44;
-            this.button2.Text = "Indietro";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(13, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(226, 111);
-            this.button1.TabIndex = 45;
-            this.button1.Text = "Aggiungi Poster";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.sottotitolo.Size = new System.Drawing.Size(521, 33);
+            this.sottotitolo.Text = "Seleziona il cartellone da modificare";
             // 
             // ElencoRisorse
             // 
@@ -145,7 +105,7 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ElencoRisorse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.ElencoRisorse.ShowEditingIcon = false;
-            this.ElencoRisorse.Size = new System.Drawing.Size(1107, 350);
+            this.ElencoRisorse.Size = new System.Drawing.Size(961, 370);
             this.ElencoRisorse.TabIndex = 19;
             // 
             // label2
@@ -160,17 +120,6 @@ namespace TalkingPaper.Authoring
             this.label2.Text = "Non sono presenti pannelli per la mostra";
             this.label2.UseWaitCursor = true;
             this.label2.Visible = false;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Orange;
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(270, 563);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(245, 129);
-            this.groupBox1.TabIndex = 46;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
             // 
             // Menu
             // 
@@ -188,30 +137,26 @@ namespace TalkingPaper.Authoring
             this.Menu.UseVisualStyleBackColor = false;
             this.Menu.Click += new System.EventHandler(this.Menu_Click);
             // 
-            // PosterDellaMostra
+            // ModificaCartelloneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.ClientSize = new System.Drawing.Size(1192, 741);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.ElencoRisorse);
             this.Controls.Add(this.label2);
-            this.Name = "PosterDellaMostra";
+            this.Name = "ModificaCartelloneForm";
             this.Text = "PosterDellaMostra";
             this.Load += new System.EventHandler(this.PosterDellaMostra_Load);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.label2, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
             this.Controls.SetChildIndex(this.ElencoRisorse, 0);
-            //this.Controls.SetChildIndex(this.textBoxPost, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            //this.Controls.SetChildIndex(this.groupBox1, 0);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            //this.grouppoControl.ResumeLayout(false);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).EndInit();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,11 +164,8 @@ namespace TalkingPaper.Authoring
 
         #endregion
 
-        private ControlButton button2;
-        private MainButton button1;
         private System.Windows.Forms.DataGridView ElencoRisorse;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private ControlButton Menu;
+        private Button Menu;
     }
 }

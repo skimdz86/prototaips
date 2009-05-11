@@ -10,13 +10,13 @@ namespace TalkingPaper.ControlLogic
     class AdministrationControl
     {
         private ArrayList idInseriti = new ArrayList();
-        
+
         private Form caller;
         String lastRead = "";
 
-        public Model.Griglia inizializzaGriglia(String nome,String righe,String colonne)
+        public Model.Griglia inizializzaGriglia(String nome, String righe, String colonne)
         {
-            Model.Griglia griglia = new Model.Griglia(nome,Convert.ToInt32(righe),Convert.ToInt32(colonne));
+            Model.Griglia griglia = new Model.Griglia(nome, Convert.ToInt32(righe), Convert.ToInt32(colonne));
             return griglia;
         }
 
@@ -39,16 +39,16 @@ namespace TalkingPaper.ControlLogic
             }
         }
 
-        public void salvaGriglia(Model.Griglia griglia,string[,] grid)
+        public void salvaGriglia(Model.Griglia griglia, string[,] grid)
         {
             List<string> tags = new List<string>(grid.Length);
-            
+
             foreach (string a in grid)
             {
                 tags.Add(a);
             }
 
-            
+
             griglia.setListaTag(tags);
 
             if (Global.dataHandler != null)
@@ -97,19 +97,18 @@ namespace TalkingPaper.ControlLogic
             Global.reader.readerStatusUpdate -= statusUpdate;
             Global.reader.close();
         }
-        public Model.Griglia getGriglia(String nomeGriglia) 
+        public Model.Griglia getGriglia(String nomeGriglia)
         {
             return Global.dataHandler.getGriglia(nomeGriglia);
         }
-        public List<Model.Poster> getListaPoster() 
+        public List<Model.Poster> getListaPoster()
         {
             return Global.dataHandler.getListaPoster();
         }
-        public bool rimuoviPoster(String nomePoster) 
+        public bool rimuoviPoster(String nomePoster)
         {
             return Global.dataHandler.removePoster(nomePoster);
         }
 
-        
     }
 }
