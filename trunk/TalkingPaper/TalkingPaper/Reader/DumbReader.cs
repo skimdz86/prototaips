@@ -45,9 +45,10 @@ namespace TalkingPaper.Reader
             return null;
         }
 
-        public void startRead()
+        public bool startRead()
         {
             counter = 0;
+            return true;
         }
         public event ReaderDelegate readerStatusUpdate;
 

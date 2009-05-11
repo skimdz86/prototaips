@@ -77,9 +77,12 @@ namespace TalkingPaper.Common
         {
             if ((from != null) && (to != null))
             {
-                Global.back.Push(from);
-                to.Show();
-                from.Visible = false;
+                if (!(to.IsDisposed))
+                {
+                    Global.back.Push(from);
+                    to.Show();
+                    from.Visible = false;
+                }
             }
             else
             {

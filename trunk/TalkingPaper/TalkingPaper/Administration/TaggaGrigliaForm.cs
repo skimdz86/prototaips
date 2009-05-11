@@ -9,7 +9,7 @@ namespace TalkingPaper.Administration
     public partial class TaggaGrigliaForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
-        private Reader.IReader reader;
+        
         Model.Griglia griglia;
         private int riga = 1;
         private int colonna = 1;
@@ -25,7 +25,13 @@ namespace TalkingPaper.Administration
             annulla.Cursor = Cursors.Hand;
 
             control = new TalkingPaper.ControlLogic.AdministrationControl();
-            control.inizializzaReader(this);
+            bool readerOk = control.inizializzaReader(this);
+            if (!readerOk)
+            {
+                MessageBox.Show("Impossibile avviare il lettore");
+                this.Dispose();
+                return;
+            }
             inizializzaDataGrid();
             
             //Gestione Eventi

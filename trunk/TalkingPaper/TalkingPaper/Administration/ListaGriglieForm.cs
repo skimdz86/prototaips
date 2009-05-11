@@ -118,5 +118,6 @@ namespace TalkingPaper.Administration
             NavigationControl.goHome(this);
         }
 
+       
     }
 }

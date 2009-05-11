@@ -38,11 +38,17 @@ namespace TalkingPaper.Reader
             }
             RfidProperties properties;
             int port = 0;
+            id_reader = 0;
 
             //Provo a far partire il lettore leggendo l'ultima configurazione funzionante
             //leggo la configurazione da file XML \Config\rfid_config.xml
             properties = config_manager.read_config_rfid_xml();
-            id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
+            foreach (string portName in SerialPort.GetPortNames())
+            {
+                if (portName.Equals(properties.port)) 
+                    id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
+            }
+            
             if (id_reader > 0)
             {
                 isConfigured = true;
@@ -106,8 +112,12 @@ namespace TalkingPaper.Reader
             }
         }
 
-        public void startRead()
+        public bool startRead()
         {
+            if (rfid_configurator == null)
+            {
+                return false;
+            }
             if (readerStatusUpdate != null) rfid_configurator.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
             else throw new Exception("Non è stato aggiunto uno statusUpdateReader");
             //avvio la lettura
@@ -115,6 +125,7 @@ namespace TalkingPaper.Reader
             timerRead.Interval = 1000;
             timerRead.Tick += read;
             timerRead.Start();
+            return true;
         }
 
         public void read(object sender, EventArgs e)

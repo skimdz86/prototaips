@@ -20,7 +20,7 @@ namespace TalkingPaper.Reader
 
         String[] getConfiguration();
 
-        void startRead();
+        bool startRead();
 
         event ReaderDelegate readerStatusUpdate;
     }

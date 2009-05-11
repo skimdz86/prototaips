@@ -20,11 +20,16 @@ namespace TalkingPaper.ControlLogic
             return griglia;
         }
 
-        public void inizializzaReader(Form caller)
+        public bool inizializzaReader(Form caller)
         {
             Global.reader.readerStatusUpdate += statusUpdate;
-            Global.reader.startRead();
+            bool result = Global.reader.startRead();
+            if (!result)
+            {
+                return false;
+            }
             this.caller = caller;
+            return true;
         }
 
         public void statusUpdate(string id)

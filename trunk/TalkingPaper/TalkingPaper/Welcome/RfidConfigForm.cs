@@ -18,9 +18,13 @@ namespace TalkingPaper.Welcome
         {
             InitializeComponent();
             foreach (string comPort in SerialPort.GetPortNames()) {
-                comboPort.Items.Add(comPort);
+                if (!(comPort.Equals("COM1")) && !(comPort.Equals("COM2")))
+                {
+                    comboPort.Items.Add(comPort);
+                }
             }
             if (comboPort.Items.Count > 0) comboPort.SelectedIndex = 0;
+            else buttonTestConnection.Enabled = false;
         }
 
         private void buttonTestConnection_Click(object sender, EventArgs e)
