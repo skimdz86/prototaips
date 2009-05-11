@@ -6,16 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
-using System.Data.OleDb;
-using MySql.Data.MySqlClient;
-using MySql.Data.Types;
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Media;
-using QuartzTypeLib;
-using NHibernate;
-using NHibernate.Cfg;
+//using NHibernate;
 using System.Xml;
 using TalkingPaper.Common;
 
@@ -28,10 +23,10 @@ namespace TalkingPaper.Authoring
         private int id_mostra;
         private string nome_mostra;
         private string directory_principale;
-        private TalkingPaper.NHibernateManager nh_manager;
+ //       private TalkingPaper.NHibernateManager nh_manager;
         private Bitmap immagine_modifica_poster;
         private Bitmap elimina;
-        private ArrayList poster_authoring = new ArrayList();
+        private List<Model.Poster> poster_authoring;
         /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
         private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
         private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
@@ -62,9 +57,9 @@ namespace TalkingPaper.Authoring
             this.visualizza_rfid = visualizza_rfid;*/
             //this.benvenuto_aut = benvenuto_aut;
             //this.visualizza_aut = visualizza_aut;
-            this.nh_manager = new NHibernateManager();
-            immagine_modifica_poster = new System.Drawing.Bitmap(directory_principale + @"/Images/Icons/modifica3.gif");
-            elimina = new Bitmap(directory_principale + @"/Images/Icons/elimina_cestino.gif");
+   //         this.nh_manager = new NHibernateManager();
+    //        immagine_modifica_poster = new System.Drawing.Bitmap(directory_principale + @"/Images/Icons/modifica3.gif");
+    //        elimina = new Bitmap(directory_principale + @"/Images/Icons/elimina_cestino.gif");
            // label1.Text = "Ecco i poster della mostra " + '"' + nome_mostra + '"';
             //textBox1.Select(0, 0);
             
@@ -74,7 +69,7 @@ namespace TalkingPaper.Authoring
              //   label1.Text = "Ecco i Poster Singoli";
             }
             LeggiPosterCreati();
-            InterrogaDB();
+         //   InterrogaDB();
         }
 
         private void PosterDellaMostra_Load(object sender, EventArgs e)
@@ -86,47 +81,12 @@ namespace TalkingPaper.Authoring
         {
             try
             {
-                XmlTextReader iscritto = new XmlTextReader(directory_principale + "PosterAuthoring" + ".xml");
+                
                 //bool fine = false;
-                while ((iscritto.Read()))
-                {
-                    if (iscritto.NodeType == XmlNodeType.Element)
-                    {
-                        if (iscritto.LocalName.Equals("IDposter"))
-                        {
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            string ins = (string)iscritto.ReadString();
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            poster_authoring.Add(ins);
-                            //pannelli.Add(id);
-                        }
-                        if (iscritto.LocalName.Equals("IDpannello"))
-                        {
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            string ins = (string)iscritto.ReadString();
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            poster_authoring.Add(ins);
-                            //pannelli.Add(id);
-                        }
-                        if (iscritto.LocalName.Equals("NomePannello"))
-                        {
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            string ins = (string)iscritto.ReadString();
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            poster_authoring.Add(ins);
-                            //pannelli.Add(id);
-                        }
-                        if (iscritto.LocalName.Equals("Configurazione"))
-                        {
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            string ins = (string)iscritto.ReadString();
-                            //string id = (String)iscritto.GetAttribute("ID");
-                            poster_authoring.Add(ins);
-                            //pannelli.Add(id);
-                        }
-                    }
-                }
-                iscritto.Close();
+                ControlLogic.AuthoringControl logic=new TalkingPaper.ControlLogic.AuthoringControl();
+                poster_authoring = logic.getListaPoster();
+                
+                
             }
             catch
             {
@@ -135,9 +95,9 @@ namespace TalkingPaper.Authoring
         }
 
 
-        private void InterrogaDB()
+     /*   private void InterrogaDB()
         {
-            if (/*(elenco_mostre != null) ||*/ (id_mostra != -1))
+            if (/*(elenco_mostre != null) tolto fine commento|| (id_mostra != -1))
             {
                 using (ISession tempS = nh_manager.Session)
                 using (ITransaction tempT = tempS.BeginTransaction())
@@ -200,7 +160,7 @@ namespace TalkingPaper.Authoring
                             DataGridViewRow riga = new DataGridViewRow();
                             ElencoRisorse.Rows.Add("NUM", "  ", "POSTER", "  ", "     ","  ","     ");
                             ElencoRisorse.Rows.Add();
-                            ElencoRisorse.CellClick += new DataGridViewCellEventHandler(this.ClickSullaTabella);*/
+                            ElencoRisorse.CellClick += new DataGridViewCellEventHandler(this.ClickSullaTabella);ho tolto fine commento
 
                         }
                     }
@@ -215,7 +175,7 @@ namespace TalkingPaper.Authoring
                     }
                 }
             }
-            else if (/*(elenco_mostre == null) &&*/ (id_mostra == -1))
+            else if (/*(elenco_mostre == null) && tolto finecommento (id_mostra == -1))
             {
                 using (ISession tempS = nh_manager.Session)
                 using (ITransaction tempT = tempS.BeginTransaction())
@@ -267,7 +227,7 @@ namespace TalkingPaper.Authoring
                             /*ElencoRisorse.Rows[0].DefaultCellStyle.SelectionBackColor = Color.Transparent;
                             ElencoRisorse.Rows[0].DefaultCellStyle.SelectionForeColor = Color.Transparent;
                             ElencoRisorse.DefaultCellStyle.SelectionBackColor = Color.Transparent;
-                            ElencoRisorse.DefaultCellStyle.SelectionForeColor = Color.Transparent;*/
+                            ElencoRisorse.DefaultCellStyle.SelectionForeColor = Color.Transparent;tolto fine commento
                             ElencoRisorse.Rows.Add();
                             ElencoRisorse.CellClick += new DataGridViewCellEventHandler(this.ClickSullaTabella);
                             ElencoRisorse.CellMouseEnter += new DataGridViewCellEventHandler(ElencoRisorse_CellMouseEnter);
@@ -309,7 +269,7 @@ namespace TalkingPaper.Authoring
                     }
                 }
             }
-        }
+        }*/
 
         /*private void SetDataGrid () { 
             ElencoRisorse.ColumnCount = 7;

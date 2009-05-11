@@ -24,13 +24,13 @@ namespace TalkingPaper.Authoring
         private string database;
         private int cod_mostra;
         private ElementoGriglia[,] matrice;
-
+        private String directoryPrincipale = "../..";//temporaneo, per farlo andare
         private Bitmap pausa;
         private Bitmap stop;
         private Bitmap riprendi;
         private Bitmap taggato;
         private Bitmap non_taggato;
-        private NHibernateManager nh_manager;
+      //  private NHibernateManager nh_manager;
         //private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
         //private TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos;
         private string id_pannello;
@@ -73,11 +73,11 @@ namespace TalkingPaper.Authoring
             }
             else griglia = control.getGriglia(nomeGriglia);
 
-            taggato = new Bitmap(Global.directoryPrincipale + @"/Images/Icons/virgoletta.gif");
-            non_taggato = new Bitmap(Global.directoryPrincipale + @"/Images/Icons/non_taggato.gif");
-            pausa = new Bitmap(Global.directoryPrincipale + @"/Images/Icons/Pause.bmp");
-            stop = new Bitmap(Global.directoryPrincipale + @"/Images/Icons/Stop.bmp");
-            riprendi = new Bitmap(Global.directoryPrincipale + @"/Images/Icons/Play.bmp");
+            taggato = new Bitmap(directoryPrincipale + "/Images/Icons/virgoletta.gif");
+            non_taggato = new Bitmap(directoryPrincipale + "/Images/Icons/non_taggato.gif");
+            pausa = new Bitmap(directoryPrincipale + "/Images/Icons/Pause.bmp");
+            stop = new Bitmap(directoryPrincipale + "/Images/Icons/Stop.bmp");
+            riprendi = new Bitmap(directoryPrincipale + "/Images/Icons/Play.bmp");
 
             disegnaGriglia();
 
