@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Execution
 {
     partial class EsecuzioneCartelloneForm
@@ -29,13 +31,11 @@ namespace TalkingPaper.Execution
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EsecuzioneCartelloneForm));
             this.labelTitolo = new System.Windows.Forms.Label();
             this.labelEsecuzione = new System.Windows.Forms.Label();
             this.labelNoEsecuzione = new System.Windows.Forms.Label();
             this.buttonAttiva = new System.Windows.Forms.Button();
             this.buttonDisattiva = new System.Windows.Forms.Button();
-            this.buttonEsc = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -64,16 +64,35 @@ namespace TalkingPaper.Execution
             this.buttonStoricoContenuti = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.buttonSalvaErrori = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.admin1 = new System.Windows.Forms.GroupBox();
             this.admin2 = new System.Windows.Forms.GroupBox();
-            this.Admin = new TalkingPaper.ControlButton();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             this.panel1.SuspendLayout();
             this.admin1.SuspendLayout();
             this.admin2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // sottotitolo
+            // 
+            this.sottotitolo.Size = new System.Drawing.Size(375, 33);
+            this.sottotitolo.Text = "Esecuzione del tuo poster";
+            // 
+            // home
+            // 
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Visible = false;
+            // 
+            // ok
+            // 
+            this.ok.Visible = false;
+            // 
+            // boxSotto
+            // 
+            this.boxSotto.Visible = false;
             // 
             // labelTitolo
             // 
@@ -134,18 +153,6 @@ namespace TalkingPaper.Execution
             this.buttonDisattiva.Text = "disattiva";
             this.buttonDisattiva.UseVisualStyleBackColor = false;
             this.buttonDisattiva.Click += new System.EventHandler(this.buttonDisattiva_Click);
-            // 
-            // buttonEsc
-            // 
-            this.buttonEsc.BackColor = System.Drawing.Color.Yellow;
-            this.buttonEsc.ForeColor = System.Drawing.Color.Black;
-            this.buttonEsc.Location = new System.Drawing.Point(995, 31);
-            this.buttonEsc.Name = "buttonEsc";
-            this.buttonEsc.Size = new System.Drawing.Size(156, 66);
-            this.buttonEsc.TabIndex = 5;
-            this.buttonEsc.Text = "ESCI";
-            this.buttonEsc.UseVisualStyleBackColor = false;
-            this.buttonEsc.Click += new System.EventHandler(this.buttonEsc_Click);
             // 
             // label1
             // 
@@ -441,35 +448,6 @@ namespace TalkingPaper.Execution
             this.buttonSalvaErrori.UseVisualStyleBackColor = false;
             this.buttonSalvaErrori.Click += new System.EventHandler(this.buttonSalvaErrori_Click);
             // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(539, 116);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(155, 138);
-            this.panel2.TabIndex = 33;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(12, 67);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(283, 33);
-            this.label4.TabIndex = 53;
-            this.label4.Text = "Esegui il tuo poster";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(8, 6);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(454, 55);
-            this.label9.TabIndex = 52;
-            this.label9.Text = "Cartellone Parlante";
-            // 
             // admin1
             // 
             this.admin1.Controls.Add(this.buttonSalvaErrori);
@@ -499,59 +477,57 @@ namespace TalkingPaper.Execution
             // 
             this.admin2.Controls.Add(this.buttonDisattiva);
             this.admin2.Controls.Add(this.buttonAttiva);
-            this.admin2.Location = new System.Drawing.Point(822, 273);
+            this.admin2.Location = new System.Drawing.Point(666, 234);
             this.admin2.Name = "admin2";
             this.admin2.Size = new System.Drawing.Size(350, 99);
             this.admin2.TabIndex = 56;
             this.admin2.TabStop = false;
             this.admin2.Visible = false;
             // 
-            // Admin
-            // 
-            this.Admin.BackColor = System.Drawing.Color.Yellow;
-            this.Admin.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Admin.BackgroundImage")));
-            this.Admin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Admin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Admin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Admin.ForeColor = System.Drawing.Color.Black;
-            this.Admin.Location = new System.Drawing.Point(842, 35);
-            this.Admin.Name = "Admin";
-            this.Admin.Size = new System.Drawing.Size(120, 62);
-            this.Admin.TabIndex = 55;
-            this.Admin.Text = "Amministratore";
-            this.Admin.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Admin.UseVisualStyleBackColor = false;
-            this.Admin.Click += new System.EventHandler(this.Admin_Click);
-            // 
-            // FormEsecuzioneRfidPoster
+            // EsecuzioneCartelloneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.labelOrario2);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.admin2);
             this.Controls.Add(this.labelOrario);
             this.Controls.Add(this.admin1);
             this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.Admin);
+            this.Controls.Add(this.admin2);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.labelNomePoster);
             this.Controls.Add(this.labelNomeContenuto);
             this.Controls.Add(this.labelNomeRisorsa);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonEsc);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
             this.Margin = new System.Windows.Forms.Padding(5);
-            this.Name = "FormEsecuzioneRfidPoster";
+            this.Name = "EsecuzioneCartelloneForm";
             this.Text = "Esecuzione";
             this.Load += new System.EventHandler(this.FormEsecuzioneRfidPoster_Load);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.labelNomeRisorsa, 0);
+            this.Controls.SetChildIndex(this.labelNomeContenuto, 0);
+            this.Controls.SetChildIndex(this.labelNomePoster, 0);
+            this.Controls.SetChildIndex(this.label7, 0);
+            this.Controls.SetChildIndex(this.titolo, 0);
+            this.Controls.SetChildIndex(this.admin2, 0);
+            this.Controls.SetChildIndex(this.labelStatus, 0);
+            this.Controls.SetChildIndex(this.admin1, 0);
+            this.Controls.SetChildIndex(this.labelOrario, 0);
+            this.Controls.SetChildIndex(this.labelOrario2, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.sottotitolo, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.admin1.ResumeLayout(false);
@@ -569,7 +545,6 @@ namespace TalkingPaper.Execution
         private System.Windows.Forms.Label labelNoEsecuzione;
         private System.Windows.Forms.Button buttonAttiva;
         private System.Windows.Forms.Button buttonDisattiva;
-        private System.Windows.Forms.Button buttonEsc;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -598,10 +573,6 @@ namespace TalkingPaper.Execution
         private System.Windows.Forms.Button buttonStoricoContenuti;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Button buttonSalvaErrori;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label9;
-        private ControlButton Admin;
         private System.Windows.Forms.GroupBox admin1;
         private System.Windows.Forms.GroupBox admin2;
     }

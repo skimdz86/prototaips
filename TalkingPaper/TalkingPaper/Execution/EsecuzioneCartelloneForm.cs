@@ -16,9 +16,13 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper.Execution
 {
-    public partial class EsecuzioneCartelloneForm : Form
+    public partial class EsecuzioneCartelloneForm : FormSchema
     {
-        private Reader.IReader reader;
+
+        private ControlLogic.ExecutionControl control;
+        private string nomePoster;
+
+
         private Utente u_current;
         private bool attivo; // variabile che identifica lo status del sistema
         private string storicoFilePath;
@@ -49,20 +53,17 @@ namespace TalkingPaper.Execution
         private const int WS_CHILD = 0x40000000;
         private const int WS_CLIPCHILDREN = 0x2000000;
         private FormVideo f_video;
-        private int cod_poster;
-        private Welcome.ChildHomeForm inizio;
-        private string directory_principale;
-        //private Welcome inizio2;
+        
 
         #region Costruttore
 
-        public EsecuzioneCartelloneForm( int poster_passato,Welcome.ChildHomeForm inizio, string directory_principale)
+        public EsecuzioneCartelloneForm(string nomePoster)
         {
             InitializeComponent();
-            RidimensionaForm n = new RidimensionaForm(this, 90, true);
-            this.directory_principale = directory_principale;
-            cod_poster = poster_passato;
-            this.inizio = inizio;
+            
+            
+            this.nomePoster = nomePoster;
+            
             //this.inizio2 = inizio2;
             f_video = new FormVideo();
             u_current = new Utente();
@@ -72,10 +73,10 @@ namespace TalkingPaper.Execution
             arrayError = new ArrayList();
             arrayErrorData = new ArrayList();
             m_CurrentStatus = MediaStatus.None;
-            directoryPath = directory_principale;
+            
             attivo = false;
             oldId = "";
-            storicoFilePath = directory_principale + @"\Backup\";
+            
             nh_mng = new NHibernateManager();
             
                 /*rfid_num = Global.reader.connect();
@@ -116,7 +117,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         {
  
 
-            if (oldId.Equals(id) == true && (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Running))
+            /*if (oldId.Equals(id) == true && (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Running))
             //if( oldId.Equals(id) == true && ( risorsa_attiva == true || risorsa_pausa == true))
             {
                 //non fare niente
@@ -131,7 +132,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 /*
                  * ricerca dell'id
                  *  Se è un id non di controllo, e c'è file in esecuz non fai niente
-                 * */
+                 * /
                 oldId = id;
                 //Risorsamultimediale ris_current = new Risorsamultimediale();
 
@@ -167,7 +168,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                              *  quale è la corretta RisorsaMultimediale associata guardando
                              *  nella profiloLista.
                              * 
-                             * */
+                             * /
                             if (u_current.Profilo != null && u_current.Rfidtag != null)
                             {
                                 // ho l'utente e il profilo, posso fare la scelta in base ai nuovi criteri
@@ -217,7 +218,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                                     panel2.ClientRectangle.Width,
                                     panel2.ClientRectangle.Height);
                               * 
-                              * */
+                              * /
                                 m_objVideoWindow = m_objFilterGraph as IVideoWindow;
                                 m_objVideoWindow.Owner = (int)f_video.Handle;
                                 m_objVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
@@ -352,7 +353,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                          * Dovrei creare uno spazio nella form dedicato agli errori, in cui
                          *  far apparire tutti qst messaggi di errore, ed eventualmente
                          *  suggerimenti per risolverli...
-                         * */
+                         * /
 
                     }
                     catch (ArgumentOutOfRangeException argOutEx)
@@ -404,8 +405,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         tempS.Close();
                     }
                 }//fine using ITransaction
-            }// fine di else if (oldId.Equals(id) == false)
-        }// fine void statusUpdate...
+            }// fine di else if (oldId.Equals(id) == false)*/
+        }// fine void statusUpdate... 
 
         #endregion
 
@@ -438,7 +439,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
         void timer_Tick(object sender, EventArgs e)
         {
-            reader.readerStatusUpdate += rfid_StatusUpdateEvent;
+            //reader.readerStatusUpdate += rfid_StatusUpdateEvent;
             
             //rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
             //int tag_letto = rfid_cfg.letturaID(rfid_num);
@@ -955,7 +956,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                  * */
                 write_StoricoXmlRfid();
                 write_ErrorXmlRfid();
-                inizio.Visible = true;
+                
                 this.Close();
             }
             else
@@ -1018,21 +1019,13 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             buttonAttiva_Click(null,null);
         }
 
-        private void Admin_Click(object sender, EventArgs e)
+
+        private void home_Click(object sender, EventArgs e)
         {
-            if (Admin.Text.Equals("Amministratore"))
-            {
-                this.admin1.Visible = true;
-                this.admin2.Visible = true;
-                Admin.Text = "Nascondi";
-            }
-            else
-            {
-                this.admin1.Visible = false;
-                this.admin2.Visible = false;
-                Admin.Text = "Amministratore";
-            }
+            NavigationControl.goHome(this);
         }
+
+        
 
     }
 }

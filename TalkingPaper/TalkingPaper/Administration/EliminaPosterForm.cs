@@ -6,22 +6,19 @@ using System.Drawing;
 
 namespace TalkingPaper.Administration
 {
-    public partial class EliminaPosterForm : Common.FormSchema
+    public partial class EliminaPosterForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
         private List<Model.Poster> listaPoster;
         private string posterSelezionato;
         private Label lastLabelClicked;
 
-        private char[] alfabeto = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
-
         public EliminaPosterForm()
         {
             InitializeComponent();
 
-            elimina.Cursor = Cursors.Default;
-            annulla.Cursor = Cursors.Hand;
-            elimina.Enabled = false;
+            ok.Cursor = Cursors.Default;
+            ok.Enabled = false;
 
             control = new ControlLogic.AdministrationControl();
             
@@ -63,11 +60,8 @@ namespace TalkingPaper.Administration
         {
             if (posterSelezionato != null)
             {
-                control.rimuoviPoster(posterSelezionato);
-                pannello.Controls.Clear();
-                elimina.Enabled = false;
-                elimina.Cursor = Cursors.Default;
-                caricaLista();
+                QuestionEliminaPoster question = new QuestionEliminaPoster(posterSelezionato);
+                NavigationControl.goTo(this, question);
             }
             else
             {
@@ -88,8 +82,24 @@ namespace TalkingPaper.Administration
             ((Label)sender).BackColor = System.Drawing.Color.Red;
             lastLabelClicked = ((Label)sender);
 
-            elimina.Enabled = true;
-            elimina.Cursor = Cursors.Hand;
+            ok.Enabled = true;
+            ok.Cursor = Cursors.Hand;
+        }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
+        }
+
+        private void EliminaPosterForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                pannello.Controls.Clear();
+                ok.Enabled = false;
+                ok.Cursor = Cursors.Default;
+                caricaLista();
+            }
         }
     }
 }

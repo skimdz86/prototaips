@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper
 {
     partial class FormStorico
@@ -29,7 +31,7 @@ namespace TalkingPaper
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormStorico));
-            this.buttonChiudi = new TalkingPaper.ControlButton();
+            this.buttonChiudi = new Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
             //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
@@ -104,6 +106,6 @@ namespace TalkingPaper
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private ControlButton buttonChiudi;
+        private Button buttonChiudi;
     }
 }

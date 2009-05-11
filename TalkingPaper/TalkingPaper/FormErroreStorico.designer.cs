@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper
 {
     partial class FormErroreStorico
@@ -30,7 +32,7 @@ namespace TalkingPaper
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormErroreStorico));
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.buttonChiudi = new TalkingPaper.ControlButton();
+            this.buttonChiudi = new Button();
             //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
             //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
             //this.grouppoControl.SuspendLayout();
@@ -100,6 +102,6 @@ namespace TalkingPaper
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private ControlButton buttonChiudi;
+        private Button buttonChiudi;
     }
 }

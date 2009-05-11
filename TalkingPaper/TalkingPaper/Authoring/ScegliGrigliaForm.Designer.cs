@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Authoring
 {
     partial class ScegliGrigliaForm
@@ -28,30 +30,40 @@ namespace TalkingPaper.Authoring
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ScegliGrigliaForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new TalkingPaper.ControlButton();
-            this.button2 = new TalkingPaper.ControlButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.ElencoTag2 = new System.Windows.Forms.DataGridView();
+            this.SchemaGriglia = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.indietro = new TalkingPaper.ControlButton();
+            this.indietro = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.pannello = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).BeginInit();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SchemaGriglia)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(530, 33);
-            this.sottotitolo.Text = "Scegli lo schema per il tuo cartellone";
+            this.sottotitolo.AutoSize = false;
+            this.sottotitolo.Size = new System.Drawing.Size(726, 84);
+            this.sottotitolo.Text = "Seleziona la griglia che vuoi usare per il tuo cartellone";
+            // 
+            // home
+            // 
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
+            // 
+            // ok
+            // 
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // label1
             // 
@@ -64,156 +76,94 @@ namespace TalkingPaper.Authoring
             this.label1.TabIndex = 21;
             this.label1.Text = "Scegli il Supporto ed il Pattern ";
             // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(541, 25);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(245, 32);
-            this.comboBox1.TabIndex = 22;
-            this.comboBox1.Visible = false;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(446, 592);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 49);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "OK";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.Yellow;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button2.Location = new System.Drawing.Point(616, 592);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 49);
-            this.button2.TabIndex = 24;
-            this.button2.Text = "Annulla";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 121);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(267, 32);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "Scegli il cartellone";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(404, 121);
+            this.label3.Location = new System.Drawing.Point(-50, 154);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(462, 32);
             this.label3.TabIndex = 26;
             this.label3.Text = "Non sono presenti configurazioni";
             // 
-            // ElencoTag2
+            // SchemaGriglia
             // 
-            this.ElencoTag2.AllowUserToAddRows = false;
-            this.ElencoTag2.AllowUserToDeleteRows = false;
-            this.ElencoTag2.AllowUserToResizeRows = false;
-            this.ElencoTag2.BackgroundColor = System.Drawing.Color.DarkOrange;
-            this.ElencoTag2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ElencoTag2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SchemaGriglia.AllowUserToAddRows = false;
+            this.SchemaGriglia.AllowUserToDeleteRows = false;
+            this.SchemaGriglia.AllowUserToResizeRows = false;
+            this.SchemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
+            this.SchemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SchemaGriglia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoTag2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.ElencoTag2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.ElencoTag2.ColumnHeadersVisible = false;
+            this.SchemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.SchemaGriglia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.SchemaGriglia.ColumnHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoTag2.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ElencoTag2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.ElencoTag2.EnableHeadersVisualStyles = false;
-            this.ElencoTag2.GridColor = System.Drawing.Color.OrangeRed;
-            this.ElencoTag2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoTag2.Location = new System.Drawing.Point(18, 19);
-            this.ElencoTag2.MultiSelect = false;
-            this.ElencoTag2.Name = "ElencoTag2";
-            this.ElencoTag2.ReadOnly = true;
-            this.ElencoTag2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.SchemaGriglia.DefaultCellStyle = dataGridViewCellStyle2;
+            this.SchemaGriglia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
+            this.SchemaGriglia.EnableHeadersVisualStyles = false;
+            this.SchemaGriglia.GridColor = System.Drawing.Color.OrangeRed;
+            this.SchemaGriglia.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.SchemaGriglia.Location = new System.Drawing.Point(13, 18);
+            this.SchemaGriglia.MultiSelect = false;
+            this.SchemaGriglia.Name = "SchemaGriglia";
+            this.SchemaGriglia.ReadOnly = true;
+            this.SchemaGriglia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoTag2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.ElencoTag2.RowHeadersVisible = false;
-            this.ElencoTag2.RowHeadersWidth = 120;
-            this.ElencoTag2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.SchemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.SchemaGriglia.RowHeadersVisible = false;
+            this.SchemaGriglia.RowHeadersWidth = 120;
+            this.SchemaGriglia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.BlanchedAlmond;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoTag2.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.ElencoTag2.RowTemplate.Height = 33;
-            this.ElencoTag2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.ElencoTag2.ShowEditingIcon = false;
-            this.ElencoTag2.Size = new System.Drawing.Size(654, 307);
-            this.ElencoTag2.TabIndex = 27;
-            this.ElencoTag2.Click += new System.EventHandler(this.ElencoTag2_Click);
+            this.SchemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.SchemaGriglia.RowTemplate.Height = 33;
+            this.SchemaGriglia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.SchemaGriglia.ShowEditingIcon = false;
+            this.SchemaGriglia.Size = new System.Drawing.Size(639, 344);
+            this.SchemaGriglia.TabIndex = 27;
             // 
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Red;
-            this.groupBox2.Controls.Add(this.ElencoTag2);
-            this.groupBox2.Location = new System.Drawing.Point(334, 187);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.SchemaGriglia);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(334, 154);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(695, 344);
+            this.groupBox2.Size = new System.Drawing.Size(670, 377);
             this.groupBox2.TabIndex = 46;
             this.groupBox2.TabStop = false;
             this.groupBox2.Visible = false;
             // 
             // indietro
             // 
-            this.indietro.BackColor = System.Drawing.Color.Yellow;
-            this.indietro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("indietro.BackgroundImage")));
-            this.indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.indietro.Location = new System.Drawing.Point(18, 19);
+            this.indietro.Location = new System.Drawing.Point(0, 0);
             this.indietro.Name = "indietro";
-            this.indietro.Size = new System.Drawing.Size(96, 49);
-            this.indietro.TabIndex = 50;
-            this.indietro.Text = "Indietro";
-            this.indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.indietro.UseVisualStyleBackColor = false;
-            this.indietro.Click += new System.EventHandler(this.indietro_Click);
+            this.indietro.Size = new System.Drawing.Size(75, 23);
+            this.indietro.TabIndex = 0;
             // 
             // label4
             // 
@@ -228,9 +178,9 @@ namespace TalkingPaper.Authoring
             // pannello
             // 
             this.pannello.AutoScroll = true;
-            this.pannello.Location = new System.Drawing.Point(18, 171);
+            this.pannello.Location = new System.Drawing.Point(18, 154);
             this.pannello.Name = "pannello";
-            this.pannello.Size = new System.Drawing.Size(310, 578);
+            this.pannello.Size = new System.Drawing.Size(310, 398);
             this.pannello.TabIndex = 54;
             // 
             // ScegliGrigliaForm
@@ -238,32 +188,28 @@ namespace TalkingPaper.Authoring
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 732);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.pannello);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "ScegliGrigliaForm";
             this.Text = "FormScegliConfigurazione";
-            this.Controls.SetChildIndex(this.help, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
-            this.Controls.SetChildIndex(this.comboBox1, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.label4, 0);
-            this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
-            this.Controls.SetChildIndex(this.button2, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoTag2)).EndInit();
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SchemaGriglia)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,14 +218,10 @@ namespace TalkingPaper.Authoring
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private ControlButton button1;
-        private ControlButton button2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView ElencoTag2;
+        private System.Windows.Forms.DataGridView SchemaGriglia;
         private System.Windows.Forms.GroupBox groupBox2;
-        private ControlButton indietro;
+        private Button indietro;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pannello;
     }

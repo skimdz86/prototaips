@@ -34,7 +34,8 @@ namespace TalkingPaper.Administration
             this.EliminaPoster = new System.Windows.Forms.Button();
             this.modificaGriglia = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.logout = new System.Windows.Forms.Button();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,10 +44,21 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(248, 33);
             this.sottotitolo.Text = "Amministrazione";
             // 
-            // help
+            // home
             // 
-            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.help.Visible = false;
+            this.home.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Visible = false;
+            // 
+            // ok
+            // 
+            this.ok.Visible = false;
+            // 
+            // boxSotto
+            // 
+            this.boxSotto.Visible = false;
             // 
             // nuovaGriglia
             // 
@@ -121,18 +133,6 @@ namespace TalkingPaper.Administration
             this.label1.TabIndex = 33;
             this.label1.Text = "Benvenuto ";
             // 
-            // logout
-            // 
-            this.logout.BackColor = System.Drawing.Color.Yellow;
-            this.logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logout.Location = new System.Drawing.Point(904, 12);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(120, 61);
-            this.logout.TabIndex = 0;
-            this.logout.Text = "Logout";
-            this.logout.UseVisualStyleBackColor = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
-            // 
             // AdminHomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -141,17 +141,20 @@ namespace TalkingPaper.Administration
             this.ClientSize = new System.Drawing.Size(1036, 739);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.logout);
             this.Controls.Add(this.label3);
             this.Name = "AdminHomeForm";
             this.Text = "FormAmministrazione";
-            this.Controls.SetChildIndex(this.help, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.logout, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -166,6 +169,5 @@ namespace TalkingPaper.Administration
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button EliminaPoster;
         private System.Windows.Forms.Button modificaGriglia;
-        private System.Windows.Forms.Button logout;
     }
 }

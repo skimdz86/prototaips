@@ -20,7 +20,7 @@ namespace TalkingPaper.Welcome
             foreach (string comPort in SerialPort.GetPortNames()) {
                 comboPort.Items.Add(comPort);
             }
-            comboPort.SelectedIndex = 0;
+            if (comboPort.Items.Count > 0) comboPort.SelectedIndex = 0;
         }
 
         private void buttonTestConnection_Click(object sender, EventArgs e)
@@ -44,9 +44,9 @@ namespace TalkingPaper.Welcome
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void home_Click(object sender, EventArgs e)
         {
-            NavigationControl.goBack(this);
+            NavigationControl.goWelcome(this);
         }
 
     }

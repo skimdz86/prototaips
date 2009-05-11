@@ -6,10 +6,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
+using TalkingPaper.Common;
 
 namespace TalkingPaper
 {
-    public partial class FormErroreStorico : Common.FormSchema
+    public partial class FormErroreStorico : FormSchema
     {
 
         public FormErroreStorico(ArrayList arrayStorico, ArrayList arrayData)

@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Administration
 {
     partial class NuovaGrigliaForm
@@ -28,34 +30,33 @@ namespace TalkingPaper.Administration
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NuovaGrigliaForm));
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.annulla = new TalkingPaper.MainButton();
-            this.ok = new TalkingPaper.MainButton();
-            this.Indietro = new TalkingPaper.ControlButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // titolo
-            // 
-            this.titolo.Location = new System.Drawing.Point(22, 9);
             // 
             // sottotitolo
             // 
             this.sottotitolo.Size = new System.Drawing.Size(513, 33);
             this.sottotitolo.Text = "Crea nuovo supporto per i cartelloni";
             // 
-            // help
+            // home
             // 
-            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.help.Location = new System.Drawing.Point(887, 31);
+            this.home.Click += new System.EventHandler(this.home_Click);
+            // 
+            // annulla
+            // 
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
+            // 
+            // ok
+            // 
+            this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // label1
             // 
@@ -72,14 +73,14 @@ namespace TalkingPaper.Administration
             // 
             this.textBox3.Location = new System.Drawing.Point(515, 362);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(37, 20);
             this.textBox3.TabIndex = 3;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(515, 311);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(37, 20);
             this.textBox2.TabIndex = 2;
             // 
             // label2
@@ -104,68 +105,11 @@ namespace TalkingPaper.Administration
             this.label3.TabIndex = 4;
             this.label3.Text = "Numero di righe";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Orange;
-            this.groupBox1.Controls.Add(this.annulla);
-            this.groupBox1.Controls.Add(this.ok);
-            this.groupBox1.Location = new System.Drawing.Point(181, 463);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(496, 143);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
-            // annulla
-            // 
-            this.annulla.BackColor = System.Drawing.Color.Yellow;
-            this.annulla.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("annulla.BackgroundImage")));
-            this.annulla.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.annulla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.annulla.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.annulla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.annulla.Location = new System.Drawing.Point(255, 19);
-            this.annulla.Name = "annulla";
-            this.annulla.Size = new System.Drawing.Size(226, 111);
-            this.annulla.TabIndex = 7;
-            this.annulla.Text = "Annulla";
-            this.annulla.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.annulla.UseVisualStyleBackColor = false;
-            this.annulla.Click += new System.EventHandler(this.annulla_Click);
-            // 
-            // ok
-            // 
-            this.ok.BackColor = System.Drawing.Color.Yellow;
-            this.ok.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ok.BackgroundImage")));
-            this.ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ok.Location = new System.Drawing.Point(13, 19);
-            this.ok.Name = "ok";
-            this.ok.Size = new System.Drawing.Size(226, 111);
-            this.ok.TabIndex = 6;
-            this.ok.Text = "Conferma";
-            this.ok.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ok.UseVisualStyleBackColor = false;
-            this.ok.Click += new System.EventHandler(this.ok_Click);
-            // 
-            // Indietro
-            // 
-            this.Indietro.BackColor = System.Drawing.Color.Yellow;
-            this.Indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.Indietro.Location = new System.Drawing.Point(0, 0);
-            this.Indietro.Name = "Indietro";
-            this.Indietro.Size = new System.Drawing.Size(75, 23);
-            this.Indietro.TabIndex = 0;
-            this.Indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Indietro.UseVisualStyleBackColor = false;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(515, 257);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(243, 20);
             this.textBox1.TabIndex = 1;
             // 
             // label4
@@ -184,11 +128,9 @@ namespace TalkingPaper.Administration
             this.AcceptButton = this.ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.CancelButton = this.annulla;
-            this.ClientSize = new System.Drawing.Size(1036, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
@@ -196,18 +138,21 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.label3);
             this.Name = "NuovaGrigliaForm";
             this.Text = "TagRigaColonna";
-            this.Controls.SetChildIndex(this.help, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label2, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.textBox2, 0);
             this.Controls.SetChildIndex(this.textBox3, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.textBox1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            this.groupBox1.ResumeLayout(false);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,10 +165,6 @@ namespace TalkingPaper.Administration
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private MainButton ok;
-        private MainButton annulla;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private ControlButton Indietro;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
     }

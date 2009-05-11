@@ -1,3 +1,5 @@
+using TalkingPaper.Common;
+using System.Windows.Forms;
 namespace TalkingPaper.Execution
 {
     partial class ElencoCartelloniForm
@@ -28,126 +30,73 @@ namespace TalkingPaper.Execution
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ElencoCartelloniForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.Indietro = new TalkingPaper.ControlButton();
-            this.ElencoPoster = new System.Windows.Forms.DataGridView();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).BeginInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).BeginInit();
-            //this.grouppoControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoPoster)).BeginInit();
+            this.pannello = new System.Windows.Forms.Panel();
+            this.noPoster = new System.Windows.Forms.Label();
+            this.boxSotto.SuspendLayout();
+            this.boxSopra.SuspendLayout();
+            this.pannello.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // grouppoControl
-            // 
-            //this.grouppoControl.Controls.Add(this.Indietro);
-            //this.grouppoControl.Location = new System.Drawing.Point(1029, 12);
-           // this.grouppoControl.Size = new System.Drawing.Size(145, 91);
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(301, 33);
-            this.sottotitolo.Text = "Ecco tutti i tui poster";
+            this.sottotitolo.AutoSize = false;
+            this.sottotitolo.Size = new System.Drawing.Size(673, 74);
+            this.sottotitolo.Text = "Seleziona il cartellone che desideri far parlare dalla lista";
             // 
-            // Indietro
+            // home
             // 
-            this.Indietro.BackColor = System.Drawing.Color.Yellow;
-            this.Indietro.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Indietro.BackgroundImage")));
-            this.Indietro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.Indietro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Indietro.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold);
-            this.Indietro.Location = new System.Drawing.Point(15, 19);
-            this.Indietro.Name = "Indietro";
-            this.Indietro.Size = new System.Drawing.Size(96, 49);
-            this.Indietro.TabIndex = 22;
-            this.Indietro.Text = "Indietro";
-            this.Indietro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.Indietro.UseVisualStyleBackColor = false;
-            this.Indietro.Click += new System.EventHandler(this.Indietro_Click_2);
+            this.home.Click += new System.EventHandler(this.home_Click);
             // 
-            // ElencoPoster
+            // annulla
             // 
-            this.ElencoPoster.AllowUserToAddRows = false;
-            this.ElencoPoster.AllowUserToDeleteRows = false;
-            this.ElencoPoster.AllowUserToResizeRows = false;
-            this.ElencoPoster.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.ElencoPoster.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ElencoPoster.BackgroundColor = System.Drawing.Color.BlanchedAlmond;
-            this.ElencoPoster.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ElencoPoster.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.ElencoPoster.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoPoster.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.ElencoPoster.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ElencoPoster.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoPoster.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ElencoPoster.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.ElencoPoster.EnableHeadersVisualStyles = false;
-            this.ElencoPoster.GridColor = System.Drawing.Color.Cyan;
-            this.ElencoPoster.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoPoster.Location = new System.Drawing.Point(73, 128);
-            this.ElencoPoster.MinimumSize = new System.Drawing.Size(519, 340);
-            this.ElencoPoster.MultiSelect = false;
-            this.ElencoPoster.Name = "ElencoPoster";
-            this.ElencoPoster.ReadOnly = true;
-            this.ElencoPoster.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoPoster.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.ElencoPoster.RowHeadersVisible = false;
-            this.ElencoPoster.RowHeadersWidth = 120;
-            this.ElencoPoster.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoPoster.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.ElencoPoster.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.ElencoPoster.ShowEditingIcon = false;
-            this.ElencoPoster.Size = new System.Drawing.Size(1056, 458);
-            this.ElencoPoster.TabIndex = 21;
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
             // 
-            // ElencoPosterEsecuzioneSingoloModello
+            // ok
+            // 
+            this.ok.Click += new System.EventHandler(this.ok_Click);
+            // 
+            // pannello
+            // 
+            this.pannello.AutoScroll = true;
+            this.pannello.Controls.Add(this.noPoster);
+            this.pannello.Location = new System.Drawing.Point(78, 163);
+            this.pannello.Name = "pannello";
+            this.pannello.Size = new System.Drawing.Size(797, 385);
+            this.pannello.TabIndex = 55;
+            // 
+            // noPoster
+            // 
+            this.noPoster.AutoSize = true;
+            this.noPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noPoster.ForeColor = System.Drawing.Color.White;
+            this.noPoster.Location = new System.Drawing.Point(29, 199);
+            this.noPoster.Name = "noPoster";
+            this.noPoster.Size = new System.Drawing.Size(355, 32);
+            this.noPoster.TabIndex = 27;
+            this.noPoster.Text = "Non sono presenti poster";
+            this.noPoster.Visible = false;
+            // 
+            // ElencoCartelloniForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1184, 739);
-            this.Controls.Add(this.ElencoPoster);
-            this.Name = "ElencoPosterEsecuzioneSingoloModello";
+            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.Controls.Add(this.pannello);
+            this.Name = "ElencoCartelloniForm";
             this.Text = "ElencoPosterEsecuzioneSingoloModello";
-            this.Controls.SetChildIndex(this.ElencoPoster, 0);
+            this.VisibleChanged += new System.EventHandler(this.ElencoCartelloniForm_VisibleChanged);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
-            //this.Controls.SetChildIndex(this.grouppoControl, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost1, 0);
-            //this.Controls.SetChildIndex(this.pictureBoxPost2, 0);
-            //this.Controls.SetChildIndex(this.textBoxPost, 0);
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost2)).EndInit();
-            //((System.ComponentModel.ISupportInitialize)(this.pictureBoxPost1)).EndInit();
-            //this.grouppoControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoPoster)).EndInit();
+            this.Controls.SetChildIndex(this.pannello, 0);
+            this.boxSotto.ResumeLayout(false);
+            this.boxSotto.PerformLayout();
+            this.boxSopra.ResumeLayout(false);
+            this.boxSopra.PerformLayout();
+            this.pannello.ResumeLayout(false);
+            this.pannello.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,7 +104,7 @@ namespace TalkingPaper.Execution
 
         #endregion
 
-        private ControlButton Indietro;
-        private System.Windows.Forms.DataGridView ElencoPoster;
+        private Panel pannello;
+        private Label noPoster;
     }
 }

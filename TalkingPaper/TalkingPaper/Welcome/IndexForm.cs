@@ -24,11 +24,6 @@ namespace TalkingPaper.Welcome
             }
         }
 
-        private void EsciButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void LoginButton_Click(object sender, EventArgs e)
         {
             String user = textBox1.Text;
@@ -78,6 +73,11 @@ namespace TalkingPaper.Welcome
         {
             Welcome.RfidConfigForm rfid = new Welcome.RfidConfigForm();
             NavigationControl.goTo(this, rfid);
+        }
+
+        private void esci_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
     }
