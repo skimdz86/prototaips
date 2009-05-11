@@ -49,8 +49,8 @@ namespace TalkingPaper.Administration
                 }
                 catch
                 {
-                    MessageBox.Show("Errore! Le righe e le colonne devono essere dei numeri");
-                    
+                    MessageBox.Show("Errore! Le righe e le colonne devono essere dei numeri positivi");
+                    return;
                 }
 
                 if (numeroColonne > 6)
@@ -60,6 +60,10 @@ namespace TalkingPaper.Administration
                 else if (numeroRighe > 6)
                 {
                     MessageBox.Show("Le righe possono essere al massimo 6");
+                }
+                else if ((numeroRighe <= 0) || (numeroColonne <= 0))
+                {
+                    MessageBox.Show("Errore! Le righe e le colonne devono essere dei numeri positivi");
                 }
                 else
                 {

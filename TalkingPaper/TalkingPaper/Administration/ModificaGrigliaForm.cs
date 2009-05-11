@@ -25,8 +25,13 @@ namespace TalkingPaper.Administration
             ControlLogic.AdministrationControl ad = new TalkingPaper.ControlLogic.AdministrationControl();
             this.griglia = ad.getGriglia(nomeGriglia);
             control = new ControlLogic.AdministrationControl();
-            control.inizializzaReader(this);
-
+            bool readerOk = control.inizializzaReader(this);
+            if (!readerOk)
+            {
+                MessageBox.Show("Impossibile avviare il lettore");
+                this.Dispose();
+                return;
+            }
             inizializzaDataGrid();
 
             ElencoTag.CellClick += new DataGridViewCellEventHandler(ElencoTag_CellClick);
