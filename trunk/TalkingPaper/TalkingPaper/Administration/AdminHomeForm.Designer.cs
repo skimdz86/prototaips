@@ -46,6 +46,7 @@ namespace TalkingPaper.Administration
             // 
             // home
             // 
+            this.home.Text = "Logout";
             this.home.Click += new System.EventHandler(this.logout_Click);
             // 
             // annulla
