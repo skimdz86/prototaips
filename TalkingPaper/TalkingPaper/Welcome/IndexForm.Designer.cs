@@ -132,14 +132,15 @@ namespace TalkingPaper.Welcome
             // RegistrazioneButton
             // 
             this.RegistrazioneButton.BackColor = System.Drawing.Color.Yellow;
-            this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.RegistrazioneButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("RegistrazioneButton.BackgroundImage")));
+            this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RegistrazioneButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.RegistrazioneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.RegistrazioneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrazioneButton.Location = new System.Drawing.Point(415, 330);
             this.RegistrazioneButton.Name = "RegistrazioneButton";
             this.RegistrazioneButton.Size = new System.Drawing.Size(180, 88);
             this.RegistrazioneButton.TabIndex = 7;
-            this.RegistrazioneButton.Text = "REGISTRAZIONE";
+            this.RegistrazioneButton.Text = "Registrazione";
             this.RegistrazioneButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.RegistrazioneButton.UseVisualStyleBackColor = false;
             this.RegistrazioneButton.Click += new System.EventHandler(this.RegistrazioneButton_Click);
@@ -148,7 +149,7 @@ namespace TalkingPaper.Welcome
             // 
             this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.erroreRfid.ForeColor = System.Drawing.Color.Red;
-            this.erroreRfid.Location = new System.Drawing.Point(29, 469);
+            this.erroreRfid.Location = new System.Drawing.Point(29, 491);
             this.erroreRfid.Name = "erroreRfid";
             this.erroreRfid.Size = new System.Drawing.Size(835, 47);
             this.erroreRfid.TabIndex = 8;
@@ -158,15 +159,16 @@ namespace TalkingPaper.Welcome
             // LoginButton
             // 
             this.LoginButton.BackColor = System.Drawing.Color.Yellow;
-            this.LoginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.LoginButton.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("LoginButton.BackgroundImage")));
+            this.LoginButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.LoginButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.LoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButton.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
             this.LoginButton.Location = new System.Drawing.Point(628, 210);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(180, 88);
             this.LoginButton.TabIndex = 10;
-            this.LoginButton.Text = "ENTRA";
+            this.LoginButton.Text = "Entra";
             this.LoginButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
@@ -177,7 +179,7 @@ namespace TalkingPaper.Welcome
             this.configura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.configura.Cursor = System.Windows.Forms.Cursors.Hand;
             this.configura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.configura.Location = new System.Drawing.Point(882, 459);
+            this.configura.Location = new System.Drawing.Point(882, 481);
             this.configura.Name = "configura";
             this.configura.Size = new System.Drawing.Size(125, 57);
             this.configura.TabIndex = 41;
