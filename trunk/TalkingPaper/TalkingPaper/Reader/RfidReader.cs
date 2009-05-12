@@ -45,7 +45,7 @@ namespace TalkingPaper.Reader
             properties = config_manager.read_config_rfid_xml();
             foreach (string portName in SerialPort.GetPortNames())
             {
-                if (portName.Equals(properties.port)) 
+                if (portName.Equals("COM"+properties.port)) 
                     id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
             }
             
@@ -62,12 +62,12 @@ namespace TalkingPaper.Reader
                 {
                     if (!(portName.Equals("COM1")) && !(portName.Equals("COM2")))
                     {
-                        int portNum = Convert.ToInt32(portName.Substring(3, 1));
+                        port = Convert.ToInt32(portName.Substring(3, 1));
                         id_reader = rfid_configurator.connect(port, properties.communicationFrame, properties.baudRate, properties.timeout);
                         if (id_reader > 0)
                         {
                             //sono riuscito a configurare
-                            properties.port = portNum;
+                            properties.port = port;
                             config_manager.configParameter(properties);
                             isConfigured = true;
                             return true;

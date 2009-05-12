@@ -35,7 +35,7 @@ namespace TalkingPaper.Authoring
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.noGriglie = new System.Windows.Forms.Label();
             this.SchemaGriglia = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.indietro = new System.Windows.Forms.Button();
@@ -76,16 +76,17 @@ namespace TalkingPaper.Authoring
             this.label1.TabIndex = 21;
             this.label1.Text = "Scegli il Supporto ed il Pattern ";
             // 
-            // label3
+            // noGriglie
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(-50, 154);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(462, 32);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Non sono presenti configurazioni";
+            this.noGriglie.AutoSize = true;
+            this.noGriglie.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noGriglie.ForeColor = System.Drawing.Color.White;
+            this.noGriglie.Location = new System.Drawing.Point(-50, 154);
+            this.noGriglie.Name = "noGriglie";
+            this.noGriglie.Size = new System.Drawing.Size(462, 32);
+            this.noGriglie.TabIndex = 26;
+            this.noGriglie.Text = "Non sono presenti configurazioni";
+            this.noGriglie.Visible = false;
             // 
             // SchemaGriglia
             // 
@@ -148,7 +149,7 @@ namespace TalkingPaper.Authoring
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Red;
-            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.noGriglie);
             this.groupBox2.Controls.Add(this.SchemaGriglia);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(334, 154);
@@ -188,7 +189,7 @@ namespace TalkingPaper.Authoring
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.pannello);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -218,7 +219,7 @@ namespace TalkingPaper.Authoring
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label noGriglie;
         private System.Windows.Forms.DataGridView SchemaGriglia;
         private System.Windows.Forms.GroupBox groupBox2;
         private Button indietro;

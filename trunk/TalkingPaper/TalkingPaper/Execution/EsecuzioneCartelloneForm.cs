@@ -7,8 +7,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using NHibernate;
-using NHibernate.Cfg;
 using QuartzTypeLib;
 using System.Xml;
 using TalkingPaper.Common;
@@ -31,7 +29,7 @@ namespace TalkingPaper.Execution
         //Devo pensare ad una struttura dati che mi contenga lo storico...
         private int rfid_num;
         //private int cont_storico;
-        private NHibernateManager nh_mng;
+       // private NHibernateManager nh_mng;
         private ArrayList arrayStorico;
         private ArrayList arrayStoricoData;
         private ArrayList arrayError;
@@ -77,7 +75,7 @@ namespace TalkingPaper.Execution
             attivo = false;
             oldId = "";
             
-            nh_mng = new NHibernateManager();
+         //   nh_mng = new NHibernateManager();
             
                 /*rfid_num = Global.reader.connect();
                 if (rfid_num <= 0)

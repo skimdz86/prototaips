@@ -1,6 +1,6 @@
 using TalkingPaper.Common;
 using System.Windows.Forms;
-namespace TalkingPaper.Welcome
+namespace TalkingPaper.Administration
 {
     partial class RfidConfigForm
     {
@@ -38,6 +38,7 @@ namespace TalkingPaper.Welcome
             this.labelNO2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.comboPort = new System.Windows.Forms.ComboBox();
+            this.salva = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -91,7 +92,7 @@ namespace TalkingPaper.Welcome
             // 
             this.buttonTestConnection.BackColor = System.Drawing.Color.Yellow;
             this.buttonTestConnection.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonTestConnection.Location = new System.Drawing.Point(195, 110);
+            this.buttonTestConnection.Location = new System.Drawing.Point(71, 110);
             this.buttonTestConnection.Name = "buttonTestConnection";
             this.buttonTestConnection.Size = new System.Drawing.Size(160, 78);
             this.buttonTestConnection.TabIndex = 42;
@@ -139,6 +140,7 @@ namespace TalkingPaper.Welcome
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Orange;
+            this.groupBox1.Controls.Add(this.salva);
             this.groupBox1.Controls.Add(this.comboPort);
             this.groupBox1.Controls.Add(this.buttonTestConnection);
             this.groupBox1.Controls.Add(this.labelNO2);
@@ -162,12 +164,24 @@ namespace TalkingPaper.Welcome
             this.comboPort.Size = new System.Drawing.Size(92, 24);
             this.comboPort.TabIndex = 43;
             // 
+            // salva
+            // 
+            this.salva.BackColor = System.Drawing.Color.Yellow;
+            this.salva.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.salva.Location = new System.Drawing.Point(329, 110);
+            this.salva.Name = "salva";
+            this.salva.Size = new System.Drawing.Size(160, 78);
+            this.salva.TabIndex = 46;
+            this.salva.Text = "Salva ed esci";
+            this.salva.UseVisualStyleBackColor = false;
+            this.salva.Click += new System.EventHandler(this.salva_Click);
+            // 
             // RfidConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -200,6 +214,7 @@ namespace TalkingPaper.Welcome
         private System.Windows.Forms.Label labelNO2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox comboPort;
+        private Button salva;
     
     }
 }

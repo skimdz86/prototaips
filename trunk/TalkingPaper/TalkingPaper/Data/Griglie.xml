@@ -12,4 +12,13 @@
     <Cella Coordinate="B2">E004010017FE82DE</Cella>
   </Griglia>
   <Griglia Nome="hjhjgjhhg" Righe="2" Colonne="3" />
+  <Griglia Nome="griglia1" Righe="2" Colonne="2">
+    <Cella Coordinate="A1">E004010017FE82AD</Cella>
+    <Cella Coordinate="A2">E004010017FE82A6</Cella>
+    <Cella Coordinate="B1">E004010017FE8296</Cella>
+    <Cella Coordinate="B2">E004010017FE828E</Cella>
+  </Griglia>
+  <Griglia Nome="giogiog" Righe="4" Colonne="2">
+    <Cella Coordinate="A1">E004010017FE9160</Cella>
+  </Griglia>
 </GriglieTaggate>

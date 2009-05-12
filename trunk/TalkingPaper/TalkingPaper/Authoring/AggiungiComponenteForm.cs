@@ -6,16 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
-using System.Data.OleDb;
-using MySql.Data.MySqlClient;
-using MySql.Data.Types;
+
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Media;
 using QuartzTypeLib;
-using NHibernate;
-using NHibernate.Cfg;
+
 using System.Drawing.Printing;
 using Microsoft.Office.Interop.Word;
 using System.Reflection;
@@ -37,7 +34,7 @@ namespace TalkingPaper.Authoring
         private int id_poster;
         private string directory_principale;
         private string nome_poster;
-        private TalkingPaper.NHibernateManager nh_manager;
+    //    private TalkingPaper.NHibernateManager nh_manager;
         
         private bool modifica;
         private int id_contenuto;
@@ -85,7 +82,7 @@ namespace TalkingPaper.Authoring
            // this.nome_poster = nome_poster;
            // this.directory_principale = directory_principale;
            // this.id_contenuto = id_contenuto;
-            this.nh_manager = new NHibernateManager();
+      //      this.nh_manager = new NHibernateManager();
             SfogliaAudio.Cursor = Cursors.Hand;
             SfogliaImmagine.Cursor = Cursors.Hand;
             SfogliaTesto.Cursor = Cursors.Hand;
@@ -109,9 +106,9 @@ namespace TalkingPaper.Authoring
                 nomeBox.Focus();
                 nomeBox.SelectionStart = 0;
                 nomeBox.SelectionLength = 0;
-                using (ISession tempS = nh_manager.Session)
-                using (ITransaction tempT = tempS.BeginTransaction())
-                {
+            //    using (ISession tempS = nh_manager.Session)
+            //    using (ITransaction tempT = tempS.BeginTransaction())
+               /* {
                     try
                     {
                         Contenuto2 conte = new Contenuto2();
@@ -155,7 +152,7 @@ namespace TalkingPaper.Authoring
                     {
                         tempS.Close();
                     }
-                }
+                }*/
             }
             else
             {
@@ -413,8 +410,8 @@ namespace TalkingPaper.Authoring
             if ((suonoBox.Text != null) && (suonoBox.Text.CompareTo("") != 0) || (videoBox.Text != null) && (videoBox.Text.CompareTo("") != 0))
             {
                 this.Cursor = Cursors.WaitCursor;
-                using (ISession tempS = nh_manager.Session)
-                using (ITransaction tempT = tempS.BeginTransaction())
+                //using (ISession tempS = nh_manager.Session)
+              /*  using (ITransaction tempT = tempS.BeginTransaction())
                 {
                     try
                     {
@@ -480,10 +477,6 @@ namespace TalkingPaper.Authoring
                             }
                             catch 
                             {
-                                /*MessageBox.Show("File video già associato ad un'altra risorsa");
-                                NuovoComponente form = new NuovoComponente(benvenuto, poster, componenti_poster, nome_poster, id_mostra, id_poster, modifica, id_contenuto, nome_contenuto, directory_principale);
-                                form.Show();
-                                this.Close();*/
                             }
                         }
                         
@@ -582,33 +575,6 @@ namespace TalkingPaper.Authoring
                             //tempT.Commit();
                             tempS.Flush();
                         }
-                        /*Altrarisorsa text = new Altrarisorsa();
-                        Altrarisorsa imag = new Altrarisorsa();
-                        IQuery q5 = tempS.CreateQuery("FROM Altrarisorsa as al");
-                        IList risorsa_sel = q5.List();
-                        int i=0;
-                        foreach (Altrarisorsa a in risorsa_sel)
-                        {
-                            if ((risorsa_sel.Count) - 2 == i) {
-                                imag = a;
-                            }
-                            else if ((risorsa_sel.Count) - 1 == i) {
-                                text = a;
-                            }
-                            i++;
-                        }
-                         */
-                        /*Contenuto contenuto = new Contenuto();
-                        contenuto.AltrarisorsaLista = new ArrayList();
-                        contenuto.AltrarisorsaLista.Insert(0, immagine);
-                        contenuto.AltrarisorsaLista.Insert(1, testo);
-                        //contenuto.AltrarisorsaLista.Add(testo);
-                        contenuto.Barcode = "0";
-                        contenuto.Livello = 0;
-                        contenuto.Nome = textBox1.Text;
-                        contenuto.Ordine = 0;
-                        contenuto.Rfidtag = "0";
-                        contenuto.RisorsaMultimediale = risorsa;*/
                         Tipologia tipologia = new Tipologia();
                         IQuery q = tempS.CreateQuery("FROM Tipologia as tp WHERE tp.Descrizione=:Des");
                         q.SetParameter("Des", descrizione_tipologia);
@@ -618,21 +584,6 @@ namespace TalkingPaper.Authoring
                         IQuery q2 = tempS.CreateQuery("FROM Poster as pt WHERE pt.IDposter=:Pos");
                         q2.SetParameter("Pos", id_poster);
                         poster2 = (Poster3)q2.List()[0];
-                        //contenuto.Poster = poster2;
-                        //tempS.Save(contenuto);
-                        //tempS.Flush();
-                        /*Contenuto content = new Contenuto();
-                        IList contenuti_selz;
-                        IQuery q3 = tempS.CreateQuery("FROM Contenuto as cont");
-                        //q3.SetParameter("Pos", id_poster);
-                        contenuti_selz = q3.List();
-                        foreach (Contenuto c in contenuti_selz) {
-                            content = c;
-                        }
-                        immagine.ContenutoLista = new ArrayList();
-                        immagine.ContenutoLista.Add(content);
-                        testo.ContenutoLista = new ArrayList();
-                        testo.ContenutoLista.Add(content);*/
                         if (modifica == false)
                         {
                             Contenuto2 contenuto = new Contenuto2();
@@ -712,148 +663,8 @@ namespace TalkingPaper.Authoring
                             contenuto.RisorsaMultimediale = risorsa;
                             contenuto.Tipo = tipologia;
                             contenuto.Poster = poster2;
-                            /*Contenuto con_eliminare = new Contenuto();
-                            IQuery q4 = tempS.CreateQuery("FROM Contenuto as Cont WHERE Cont.IDcontenuto=:Con");
-                            q4.SetParameter("Con", id_contenuto);
-                            con_eliminare = (Contenuto)q4.List()[0];*/
                             tempS.Update(contenuto);
                         }
-                        //tempS.Update(immagine);
-                        //tempT.Commit();
-                        //tempS.Flush();
-                        //tempS.Update(testo);
-                        //tempT.Commit();
-                        //tempS.Flush();
-                        //tempS.Save(contenuto);
-                        //tempS.Save(contenuto);
-                        // tempT.Commit();
-                        // tempS.Flush();
-                        // tempS.Flush();
-
-                        //Controllo se l'utente vuole fare una modifica --> se si elimino il componente precedente
-                        /*if (modifica == true) {
-                            Contenuto contenuto = new Contenuto();
-                            contenuto.AltrarisorsaLista = new ArrayList();
-                            contenuto.AltrarisorsaLista.Insert(0, immagine);
-                            contenuto.AltrarisorsaLista.Insert(1, testo);
-                            //contenuto.AltrarisorsaLista.Add(testo);
-                            contenuto.Barcode = "0";
-                            contenuto.Livello = 0;
-                            contenuto.Nome = textBox1.Text;
-                            contenuto.Ordine = 0;
-                            contenuto.Rfidtag = "0";
-                            contenuto.RisorsaMultimediale = risorsa;
-                            contenuto.Tipo = tipologia;
-                            contenuto.Poster = poster2;
-                            Contenuto con_eliminare = new Contenuto();
-                            IQuery q4 = tempS.CreateQuery("FROM Contenuto as Cont WHERE Cont.IDcontenuto=:Con");
-                            q4.SetParameter("Con", id_contenuto);
-                            con_eliminare = (Contenuto)q4.List()[0];
-                            tempS.Delete(con_eliminare);
-                        }*/
-                        tempT.Commit();
-                        tempS.Flush();
-                        // seleziono tutte le risorse e recupero l'id assegnato all'audio/video inserito
-
-                        /*IQuery q = tempS.CreateQuery("FROM Risorsamultimediale as rs");
-                        risorse_sel = q.List();
-                        foreach (Risorsamultimediale m in risorse_sel) {
-                            (Risorsamultimediale)risorsa2 = m;
-                        }
-                        //MessageBox.Show("Risorsa creata");
-                        //IQuery q = tempS.CreateQuery("FROM Poster as pt WHERE ");
-                        //q.SetParameter("Pos", cod_poster); tipo,poster
-                        //mostra_sel = q.List();
-                        Contenuto contenuto = new Contenuto();
-                        Tipologia tipologia = new Tipologia();
-                        contenuto.Nome = textBox1.Text;
-                        contenuto.Livello = 0;
-                        contenuto.Ordine = 0;
-                        contenuto.Rfidtag = "0";
-                        contenuto.Barcode = "0";
-                        contenuto.RisorsaMultimediale = risorsa2;
-                        if (tipo.CompareTo("video") == 0) {
-                            IQuery q2 = tempS.CreateQuery("FROM Tipologia as tp");
-                            IList tipologia_sel;
-                            tipologia_sel = q2.List();
-                            foreach (Tipologia t in tipologia_sel) {
-                                if (t.Descrizione.CompareTo("Video")==0) {
-                                    tipologia = t;
-                                }
-                            }
-                        }
-                        else if (tipo.CompareTo("audio") == 0) {
-                            IQuery q2 = tempS.CreateQuery("FROM Tipologia as tp");
-                            IList tipologia_sel;
-                            tipologia_sel = q2.List();
-                            foreach (Tipologia t in tipologia_sel)
-                            {
-                                if (t.Descrizione.CompareTo("Audio")==0)
-                                {
-                                    tipologia = t;
-                                }
-                            }
-                        }*/
-
-                        /* contenuto.Tipo = tipologia;
-                        IQuery q3 = tempS.CreateQuery("FROM Poster as pt WHERE pt.IDposter=:Pos");
-                        q3.SetParameter("Pos",id_poster);
-                        Poster poster_sel=(Poster)q.List()[0];
-                        contenuto.Poster = poster_sel;
-                        tempS.Save(contenuto);
-                        tempT.Commit();
-                        int id_immagine;
-                        int id_testo;
-                        Altrarisorsa imag;
-                        Altrarisorsa text;
-                        IQuery q4 = tempS.CreateQuery("FROM Contenuto as cont");
-                        IList contenuto_sel;
-                        Contenuto content = new Contenuto();
-                        contenuto_sel = q.List();
-                        foreach (Contenuto c in contenuto_sel) {
-                            content = c;
-                        }
-                        if (((textBox5.Text.CompareTo("")) != 0) && (textBox5.Text != null)) {
-                            Altrarisorsa altra = new Altrarisorsa();
-                            int index = textBox5.Text.LastIndexOf("\\");
-                            string name_risorsa = textBox5.Text.Substring(index + 1);
-                            altra.Nome = name_risorsa;
-                            altra.Path="/Images";
-                            altra.Tipo = "Immagine";
-                            //altra.ContenutoLista = content;
-                            tempS.Save(altra);
-                            tempT.Commit();
-                            IQuery q5 = tempS.CreateQuery("FROM Altrarisorsa as al");
-                            IList risorsa_sel = q5.List();
-                            foreach (Altrarisorsa a in risorsa_sel) {
-                                imag = a;
-                            }
-                        }
-                        if (((textBox6.Text.CompareTo("")) != 0) && (textBox6.Text != null))
-                        {
-                            Altrarisorsa altra = new Altrarisorsa();
-                            int index = textBox6.Text.LastIndexOf("\\");
-                            string name_risorsa = textBox6.Text.Substring(index + 1);
-                            altra.Nome = name_risorsa;
-                            altra.Path = "/Testi";
-                            altra.Tipo = "Testo";
-                            //altra.ContenutoLista = content;
-                            tempS.Save(altra);
-                            tempT.Commit();
-                            IQuery q6 = tempS.CreateQuery("FROM Altrarisorsa as al");
-                            IList text_sel = q6.List();
-                            foreach (Altrarisorsa t in text_sel)
-                            {
-                                text = t;
-                            }
-                        }*/
-                        //MANCA SALVATAGGIO IN ALTRA_CONTENUTO
-                        //tempT.Commit();
-                        /*int id_ultima = ((Mostra)mostra_sel[mostra_sel.Count - 1]).IDmostra;
-                        string nome_mostra = ((Mostra)mostra_sel[mostra_sel.Count - 1]).Nome;
-                        PosterDellaMostra poster = new PosterDellaMostra(benvenuto, null, id_ultima, nome_mostra, directory_principale);
-                        poster.Show();
-                        this.Close();*/
 
                     }
                     catch 
@@ -868,16 +679,13 @@ namespace TalkingPaper.Authoring
                         {
                             ModificaFileXml();
                         }
-                        //Authoring.PosizionaComponentiForm n = new Authoring.PosizionaComponentiForm(/*null,*/  id_poster, nome_poster, -1, directory_principale, "talkingpaper2", benvenuto, id_pannello, nome_pannello, configurazione, null, benvenuto, provenienza, id_mostra, poster);
-                        //n.Show();
-                        //ComponentiDelPoster nuovaa = new ComponentiDelPoster(benvenuto, poster, id_mostra, id_poster, nome_poster, directory_principale, provenienza,visualizza_aut,id_pannello,nome_pannello,configurazione);
-                        //nuovaa.Show();
+                        
                         if (componenti_poster!=null)
                             componenti_poster.Close();
                         this.Cursor = Cursors.Default;
                         this.Close();
                     }
-                }
+                }*/
             }
             else
             {
