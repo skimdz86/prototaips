@@ -35,7 +35,6 @@ namespace TalkingPaper.Administration
             this.noPoster = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
-            this.pannello.SuspendLayout();
             this.SuspendLayout();
             // 
             // sottotitolo
@@ -71,10 +70,9 @@ namespace TalkingPaper.Administration
             // pannello
             // 
             this.pannello.AutoScroll = true;
-            this.pannello.Controls.Add(this.noPoster);
-            this.pannello.Location = new System.Drawing.Point(78, 163);
+            this.pannello.Location = new System.Drawing.Point(78, 202);
             this.pannello.Name = "pannello";
-            this.pannello.Size = new System.Drawing.Size(797, 385);
+            this.pannello.Size = new System.Drawing.Size(797, 346);
             this.pannello.TabIndex = 54;
             // 
             // noPoster
@@ -82,7 +80,7 @@ namespace TalkingPaper.Administration
             this.noPoster.AutoSize = true;
             this.noPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noPoster.ForeColor = System.Drawing.Color.White;
-            this.noPoster.Location = new System.Drawing.Point(29, 199);
+            this.noPoster.Location = new System.Drawing.Point(72, 158);
             this.noPoster.Name = "noPoster";
             this.noPoster.Size = new System.Drawing.Size(355, 32);
             this.noPoster.TabIndex = 27;
@@ -94,7 +92,8 @@ namespace TalkingPaper.Administration
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.noPoster);
             this.Controls.Add(this.pannello);
             this.Name = "EliminaPosterForm";
             this.Text = "FormScegliConfigurazione";
@@ -104,12 +103,11 @@ namespace TalkingPaper.Administration
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
+            this.Controls.SetChildIndex(this.noPoster, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
-            this.pannello.ResumeLayout(false);
-            this.pannello.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

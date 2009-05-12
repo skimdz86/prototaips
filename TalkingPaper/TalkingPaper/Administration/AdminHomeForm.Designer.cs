@@ -34,9 +34,12 @@ namespace TalkingPaper.Administration
             this.EliminaPoster = new System.Windows.Forms.Button();
             this.modificaGriglia = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.configRfid = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sottotitolo
@@ -134,12 +137,38 @@ namespace TalkingPaper.Administration
             this.label1.TabIndex = 33;
             this.label1.Text = "Benvenuto ";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Orange;
+            this.groupBox1.Controls.Add(this.configRfid);
+            this.groupBox1.Location = new System.Drawing.Point(738, 227);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(270, 177);
+            this.groupBox1.TabIndex = 31;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
+            // 
+            // configRfid
+            // 
+            this.configRfid.BackColor = System.Drawing.Color.Yellow;
+            this.configRfid.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.configRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configRfid.Location = new System.Drawing.Point(37, 37);
+            this.configRfid.Name = "configRfid";
+            this.configRfid.Size = new System.Drawing.Size(202, 109);
+            this.configRfid.TabIndex = 4;
+            this.configRfid.Text = "Configura lettore Rfid";
+            this.configRfid.UseVisualStyleBackColor = false;
+            this.configRfid.Visible = false;
+            this.configRfid.Click += new System.EventHandler(this.configRfid_Click);
+            // 
             // AdminHomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1036, 739);
+            this.ClientSize = new System.Drawing.Size(1036, 732);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label3);
@@ -150,6 +179,7 @@ namespace TalkingPaper.Administration
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.groupBox3, 0);
             this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.boxSotto.ResumeLayout(false);
@@ -157,6 +187,7 @@ namespace TalkingPaper.Administration
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,5 +201,7 @@ namespace TalkingPaper.Administration
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button EliminaPoster;
         private System.Windows.Forms.Button modificaGriglia;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button configRfid;
     }
 }

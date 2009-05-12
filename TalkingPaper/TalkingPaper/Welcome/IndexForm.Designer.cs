@@ -40,7 +40,8 @@ namespace TalkingPaper.Welcome
             this.RegistrazioneButton = new System.Windows.Forms.Button();
             this.erroreRfid = new System.Windows.Forms.Label();
             this.LoginButton = new System.Windows.Forms.Button();
-            this.configura = new System.Windows.Forms.Button();
+            this.config = new System.Windows.Forms.Button();
+            this.messaggioOK = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.SuspendLayout();
@@ -74,23 +75,23 @@ namespace TalkingPaper.Welcome
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(31, 151);
+            this.label2.Location = new System.Drawing.Point(21, 96);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(357, 34);
+            this.label2.Size = new System.Drawing.Size(711, 84);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Se sei già registrato effettua il login";
+            this.label2.Text = "Se sei già registrato inserisci il nome della classe e premi il bottone \"Entra\"";
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label3.Location = new System.Drawing.Point(31, 210);
+            this.label3.Location = new System.Drawing.Point(31, 195);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 20);
+            this.label3.Size = new System.Drawing.Size(176, 51);
             this.label3.TabIndex = 2;
-            this.label3.Text = "USERNAME";
+            this.label3.Text = "NOME CLASSE";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label4
@@ -99,9 +100,9 @@ namespace TalkingPaper.Welcome
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label4.Location = new System.Drawing.Point(31, 271);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(139, 20);
+            this.label4.Size = new System.Drawing.Size(188, 20);
             this.label4.TabIndex = 3;
-            this.label4.Text = "PASSWORD";
+            this.label4.Text = "PAROLA CHIAVE";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // textBox1
@@ -149,11 +150,12 @@ namespace TalkingPaper.Welcome
             // 
             this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.erroreRfid.ForeColor = System.Drawing.Color.Red;
-            this.erroreRfid.Location = new System.Drawing.Point(29, 491);
+            this.erroreRfid.Location = new System.Drawing.Point(29, 504);
             this.erroreRfid.Name = "erroreRfid";
-            this.erroreRfid.Size = new System.Drawing.Size(835, 47);
+            this.erroreRfid.Size = new System.Drawing.Size(731, 117);
             this.erroreRfid.TabIndex = 8;
-            this.erroreRfid.Text = "Attenzione! Il lettore Rfid non risulta essere collegato!";
+            this.erroreRfid.Text = "Attenzione! Il lettore Rfid non risulta essere collegato! Collegarlo e premere il" +
+                " bottone \"Cerca lettore RFID\"";
             this.erroreRfid.Visible = false;
             // 
             // LoginButton
@@ -167,26 +169,37 @@ namespace TalkingPaper.Welcome
             this.LoginButton.Location = new System.Drawing.Point(628, 210);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(180, 88);
-            this.LoginButton.TabIndex = 10;
+            this.LoginButton.TabIndex = 6;
             this.LoginButton.Text = "Entra";
             this.LoginButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.LoginButton.UseVisualStyleBackColor = false;
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // configura
+            // config
             // 
-            this.configura.BackColor = System.Drawing.Color.Yellow;
-            this.configura.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.configura.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.configura.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.configura.Location = new System.Drawing.Point(882, 481);
-            this.configura.Name = "configura";
-            this.configura.Size = new System.Drawing.Size(125, 57);
-            this.configura.TabIndex = 41;
-            this.configura.Text = "Configura Manualmente";
-            this.configura.UseVisualStyleBackColor = false;
-            this.configura.Visible = false;
-            this.configura.Click += new System.EventHandler(this.configura_Click);
+            this.config.BackColor = System.Drawing.Color.Yellow;
+            this.config.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.config.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.config.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.config.Location = new System.Drawing.Point(780, 504);
+            this.config.Name = "config";
+            this.config.Size = new System.Drawing.Size(180, 88);
+            this.config.TabIndex = 43;
+            this.config.Text = "Cerca lettore RFID";
+            this.config.UseVisualStyleBackColor = false;
+            this.config.Visible = false;
+            this.config.Click += new System.EventHandler(this.config_Click);
+            // 
+            // messaggioOK
+            // 
+            this.messaggioOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.messaggioOK.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.messaggioOK.Location = new System.Drawing.Point(29, 504);
+            this.messaggioOK.Name = "messaggioOK";
+            this.messaggioOK.Size = new System.Drawing.Size(731, 41);
+            this.messaggioOK.TabIndex = 44;
+            this.messaggioOK.Text = "Il lettore è stato configurato correttamente!";
+            this.messaggioOK.Visible = false;
             // 
             // IndexForm
             // 
@@ -195,32 +208,35 @@ namespace TalkingPaper.Welcome
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
-            this.Controls.Add(this.configura);
+            this.Controls.Add(this.messaggioOK);
+            this.Controls.Add(this.config);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.RegistrazioneButton);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.erroreRfid);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.erroreRfid);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Name = "IndexForm";
             this.Text = "Index";
-            this.Controls.SetChildIndex(this.boxSopra, 0);
-            this.Controls.SetChildIndex(this.boxSotto, 0);
+            this.VisibleChanged += new System.EventHandler(this.IndexForm_VisibleChanged);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.label3, 0);
+            this.Controls.SetChildIndex(this.erroreRfid, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.textBox1, 0);
             this.Controls.SetChildIndex(this.textBox2, 0);
-            this.Controls.SetChildIndex(this.erroreRfid, 0);
             this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.RegistrazioneButton, 0);
             this.Controls.SetChildIndex(this.LoginButton, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.configura, 0);
+            this.Controls.SetChildIndex(this.config, 0);
+            this.Controls.SetChildIndex(this.messaggioOK, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -241,6 +257,7 @@ namespace TalkingPaper.Welcome
         private Button RegistrazioneButton;
         private System.Windows.Forms.Label erroreRfid;
         private Button LoginButton;
-        private Button configura;
+        private Button config;
+        private Label messaggioOK;
     }
 }

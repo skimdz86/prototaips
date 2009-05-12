@@ -7,9 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Collections;
 using System.IO;
-using NHibernate;
-using NHibernate.Cfg;
-using QuartzTypeLib;
 using System.Xml;
 using TalkingPaper.Common;
 
@@ -39,6 +36,10 @@ namespace TalkingPaper.Authoring
 
             control = new ControlLogic.AuthoringControl();
             griglie = control.leggiGriglie();
+            if ((griglie == null) || (griglie.Count == 0))
+            {
+                noGriglie.Visible = true;
+            }
             caricaPannello();
         }
         

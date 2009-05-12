@@ -9,7 +9,7 @@ using System.IO;
 using TalkingPaper.Common;
 using System.IO.Ports;
 
-namespace TalkingPaper.Welcome
+namespace TalkingPaper.Administration
 {
     public partial class RfidConfigForm : FormSchema
     {
@@ -49,6 +49,11 @@ namespace TalkingPaper.Welcome
         }
 
         private void home_Click(object sender, EventArgs e)
+        {
+            NavigationControl.goHome(this);
+        }
+
+        private void salva_Click(object sender, EventArgs e)
         {
             NavigationControl.goWelcome(this);
         }

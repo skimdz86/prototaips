@@ -22,7 +22,7 @@ namespace TalkingPaper.Administration
 
             control = new ControlLogic.AdministrationControl();
             
-            caricaLista();
+            //caricaLista();
         }
 
         private void caricaLista()
@@ -30,7 +30,7 @@ namespace TalkingPaper.Administration
             int i = 0;
             noPoster.Visible = false;
             listaPoster = control.getListaPoster();
-            if (listaPoster == null)
+            if ((listaPoster == null) || (listaPoster.Count == 0))
             {
                 noPoster.Visible = true;
             }

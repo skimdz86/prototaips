@@ -6,8 +6,6 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using log4net;
-using NHibernate;
-using NHibernate.Cfg;
 using System.Collections;
 using System.IO;
 
@@ -55,7 +53,7 @@ namespace TalkingPaper
             // the mappings between your classes and the database.  You
             // will always create a Configuration object.
 
-            Configuration configuration = new Configuration();
+      //      Configuration configuration = new Configuration();
 
             // The Configure method (without parameters) instructs NHibernate
             // to look for its configuration from app.config.  If no
@@ -69,7 +67,7 @@ namespace TalkingPaper
             // of the file from the Solution Explorer panel).
 
             Console.WriteLine("Loading hibernate.cfg.xml...");
-            configuration.Configure();
+//            configuration.Configure();
 
             // The next step is to load and parse all of the files that
             // define the mappings between your objects and the underlying
@@ -90,7 +88,7 @@ namespace TalkingPaper
             // session represents a connection to the database with all of
             // the functionality provided by NHibernate.  
 
-            ISessionFactory factory = configuration.BuildSessionFactory();
+ /*           ISessionFactory factory = configuration.BuildSessionFactory();
             using (ISession session = factory.OpenSession())
             {
                 Console.WriteLine("Provo a leggere l'intera tabella dei poster");
@@ -116,7 +114,7 @@ namespace TalkingPaper
                 }
 
 
-            }
+            }*/
 
 
             Console.WriteLine("Fine form2, x il momento..");

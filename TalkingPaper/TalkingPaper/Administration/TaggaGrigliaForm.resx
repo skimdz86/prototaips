@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label3.Text" xml:space="preserve">
-    <value>CLICCA SU OGNI CASELLA E ASSEGNA UN TAG A CIASCUNA DI ESSE. PREMI OK PER TERMINARE  LA CREAZIONE DELLA GRIGLIA (NON TUTTE LE CASELLE NECESSITANO DI ESSERE TAGGATE).  ANNULLA PER TORNARE AL MENU’ PRINCIPALE SENZA SALVARE LE MODIFICHE.</value>
+    <value>Per assegnare un tag ad una casella, selezionala sulla griglia e avvicina il tag al lettore RFID (non è necessario taggare tutte le caselle). Per taggare le caselle in sequenza, avvicina i tag al lettore uno dopo l'altro senza selezionare le caselle. Seleziona una casella già riempita per eliminare un tag. Premi ANNULLA per tornare indietro senza salvare le modifiche.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>

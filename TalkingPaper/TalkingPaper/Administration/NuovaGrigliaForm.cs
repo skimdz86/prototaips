@@ -53,13 +53,13 @@ namespace TalkingPaper.Administration
                     return;
                 }
 
-                if (numeroColonne > 6)
+                if (numeroColonne > 10)
                 {
-                    MessageBox.Show("Le colonne possono essere al massimo 6");
+                    MessageBox.Show("Le colonne possono essere al massimo 10");
                 }
-                else if (numeroRighe > 6)
+                else if (numeroRighe > 10)
                 {
-                    MessageBox.Show("Le righe possono essere al massimo 6");
+                    MessageBox.Show("Le righe possono essere al massimo 10");
                 }
                 else if ((numeroRighe <= 0) || (numeroColonne <= 0))
                 {

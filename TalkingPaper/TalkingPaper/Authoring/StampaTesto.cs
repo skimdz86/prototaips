@@ -6,16 +6,12 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Collections;
-using System.Data.OleDb;
-using MySql.Data.MySqlClient;
-using MySql.Data.Types;
+
 using System.IO;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Media;
 using QuartzTypeLib;
-using NHibernate;
-using NHibernate.Cfg;
 using System.Drawing.Printing;
 using Microsoft.Office.Interop.Word;
 using System.Reflection;

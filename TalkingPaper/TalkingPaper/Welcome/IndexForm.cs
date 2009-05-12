@@ -12,16 +12,14 @@ namespace TalkingPaper.Welcome
 {
     public partial class IndexForm : FormSchema
     {
+        private bool isConfigured;
+
         public IndexForm()
         {
             InitializeComponent();
             
             NavigationControl.setWelcome(this);
-            if (!(Global.reader.configure()))
-            {
-                erroreRfid.Visible = true;
-                configura.Visible = true;
-            }
+            
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -38,15 +36,22 @@ namespace TalkingPaper.Welcome
                 {
                     textBox1.Clear();
                     textBox2.Clear();
-                    Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user);
+                    Administration.AdminHomeForm adminHome = new Administration.AdminHomeForm(user, isConfigured);
                     NavigationControl.goTo(this, adminHome);
                 }
                 else if (res == "utente")
                 {
                     textBox1.Clear();
                     textBox2.Clear();
-                    Welcome.ChildHomeForm childHome = new ChildHomeForm();
-                    NavigationControl.goTo(this, childHome);
+                    if (!(isConfigured))
+                    {
+                        MessageBox.Show("Il lettore non è configurato! Non puoi entrare");
+                    }
+                    else
+                    {
+                        Welcome.ChildHomeForm childHome = new ChildHomeForm();
+                        NavigationControl.goTo(this, childHome);
+                    }
                 }
                 else 
                 {
@@ -69,15 +74,48 @@ namespace TalkingPaper.Welcome
             NavigationControl.goTo(this, reg);
         }
 
-        private void configura_Click(object sender, EventArgs e)
-        {
-            Welcome.RfidConfigForm rfid = new Welcome.RfidConfigForm();
-            NavigationControl.goTo(this, rfid);
-        }
-
         private void esci_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void IndexForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (Visible)
+            {
+                isConfigured = Global.reader.configure();
+                if (!(isConfigured))
+                {
+                    erroreRfid.Visible = true;
+                    config.Visible = true;
+                    messaggioOK.Visible = false;
+                }
+                else { 
+                    erroreRfid.Visible = false; 
+                    config.Visible = false;
+                    messaggioOK.Visible = false;
+                }
+            }
+        }
+
+        private void config_Click(object sender, EventArgs e)
+        {
+            isConfigured = Global.reader.configure();
+            if (!(isConfigured))
+            {
+                erroreRfid.Visible = true;
+                config.Visible = true;
+                messaggioOK.Visible = false;
+            }
+            else
+            {
+                erroreRfid.Visible = false;
+                config.Visible = false;
+                messaggioOK.Visible = true;
+            }
+            
+            
+            
         }
 
     }

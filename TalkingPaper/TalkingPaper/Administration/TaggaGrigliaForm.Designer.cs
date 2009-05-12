@@ -90,7 +90,7 @@ namespace TalkingPaper.Administration
             this.ElencoTag.EnableHeadersVisualStyles = false;
             this.ElencoTag.GridColor = System.Drawing.Color.OrangeRed;
             this.ElencoTag.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoTag.Location = new System.Drawing.Point(9, 222);
+            this.ElencoTag.Location = new System.Drawing.Point(9, 237);
             this.ElencoTag.MinimumSize = new System.Drawing.Size(900, 300);
             this.ElencoTag.MultiSelect = false;
             this.ElencoTag.Name = "ElencoTag";
@@ -115,7 +115,7 @@ namespace TalkingPaper.Administration
             this.ElencoTag.RowTemplate.Height = 33;
             this.ElencoTag.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.ElencoTag.ShowEditingIcon = false;
-            this.ElencoTag.Size = new System.Drawing.Size(1007, 328);
+            this.ElencoTag.Size = new System.Drawing.Size(1007, 313);
             this.ElencoTag.TabIndex = 0;
             this.ElencoTag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ElencoTag_CellClick);
             // 
@@ -123,9 +123,9 @@ namespace TalkingPaper.Administration
             // 
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 140);
+            this.label3.Location = new System.Drawing.Point(14, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(990, 74);
+            this.label3.Size = new System.Drawing.Size(990, 99);
             this.label3.TabIndex = 0;
             this.label3.Text = resources.GetString("label3.Text");
             // 
@@ -134,7 +134,7 @@ namespace TalkingPaper.Administration
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.CancelButton = this.annulla;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.ElencoTag);
             this.Controls.Add(this.label3);
             this.Name = "TaggaGrigliaForm";

@@ -24,6 +24,10 @@ namespace TalkingPaper.Administration
 
             control = new ControlLogic.AdministrationControl();
             griglie = control.leggiGriglie();
+            if ((griglie == null) || (griglie.Count == 0))
+            {
+                noGriglie.Visible = true;
+            }
             caricaPannello();
         }
         
