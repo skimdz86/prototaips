@@ -20,10 +20,10 @@ namespace TalkingPaper
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 90, true);
             cont = 0;
-            Contenuto2[] arr_cont = (Contenuto2[])arrayStorico.ToArray(typeof(Contenuto2));
+          //  Contenuto2[] arr_cont = (Contenuto2[])arrayStorico.ToArray(typeof(Contenuto2));
             DateTime[] arr_data = (DateTime[]) arrayData.ToArray(typeof(DateTime));
 
-            if( arr_cont.Length != arr_data.Length)
+           /* if( arr_cont.Length != arr_data.Length)
             {
                 Console.WriteLine("Errore nelle dimensioni array");
             }else
@@ -37,7 +37,7 @@ namespace TalkingPaper
                 this.richTextBox1.Text += testo;
 
             
-            }
+            }*/
            }
 
 

@@ -269,8 +269,8 @@ namespace TalkingPaper.Authoring
 
         private void menuItem5_Click(object sender, System.EventArgs e)
         {
-            Form2 dlg = new Form2();
-            dlg.ShowDialog();
+          //  Form2 dlg = new Form2();
+          //  dlg.ShowDialog();
         }
 
         private void Form1_Load(object sender, EventArgs e)
