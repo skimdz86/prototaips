@@ -72,28 +72,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\AxInterop.swISCReader.dll</HintPath>
     </Reference>
-    <Reference Include="Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>bin\Debug\Interop.Microsoft_VisualStudio_OfficeTools_UnmanagedWrapper.dll</HintPath>
-    </Reference>
     <Reference Include="Interop.QuartzTypeLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Interop.QuartzTypeLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.VSTOLoaderLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>bin\Debug\Interop.VSTOLoaderLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.VSTOPersistLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>bin\Debug\Interop.VSTOPersistLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.VSTOStgLib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>bin\Debug\Interop.VSTOStgLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.VSTOStorage, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>bin\Debug\Interop.VSTOStorage.dll</HintPath>
-    </Reference>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=10.0.4504.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
@@ -426,74 +407,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <COMReference Include="LCC11">
-      <Guid>{EDCD5812-6A06-43C3-AFAC-46EF5D14E22C}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MsoEuro">
-      <Guid>{76F6F3F5-9937-11D2-93BB-00105A994D2C}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MSORUNLib">
-      <Guid>{B35FBDE9-7042-11D3-9C0F-00C04F72DD5F}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MSOSOAPLib30">
-      <Guid>{67EA4C27-A47C-11D6-9500-00065B874123}</Guid>
-      <VersionMajor>3</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="MSXML2">
-      <Guid>{F5078F18-C551-11D3-89B9-0000F81FE221}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>0</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="SmartTagLib">
-      <Guid>{9B92EB61-CBC1-11D3-8C2D-00A0CC37B591}</Guid>
-      <VersionMajor>1</VersionMajor>
-      <VersionMinor>2</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
     <COMReference Include="swISCReader">
       <Guid>{2BAB0067-DF1E-482D-9812-9EFA4946C2E6}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>4</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-    </COMReference>
-    <COMReference Include="WinInetConnectorLib">
-      <Guid>{FEE17FA9-A46F-11D6-9500-00065B874123}</Guid>
-      <VersionMajor>3</VersionMajor>
-      <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
