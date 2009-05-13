@@ -21,11 +21,11 @@ namespace TalkingPaper.Execution
         private string nomePoster;
 
 
-        private Utente u_current;
+     //   private Utente u_current;
         private bool attivo; // variabile che identifica lo status del sistema
         private string storicoFilePath;
         private string oldId; // serve per capire se il tag è quello del precedente o no
-        private Contenuto2 cont_current;
+     //   private Contenuto2 cont_current;
         //Devo pensare ad una struttura dati che mi contenga lo storico...
         private int rfid_num;
         //private int cont_storico;
@@ -64,8 +64,8 @@ namespace TalkingPaper.Execution
             
             //this.inizio2 = inizio2;
             f_video = new FormVideo();
-            u_current = new Utente();
-            cont_current = new Contenuto2(); ;
+      //      u_current = new Utente();
+      //      cont_current = new Contenuto2(); ;
             arrayStorico = new ArrayList();
             arrayStoricoData = new ArrayList();
             arrayError = new ArrayList();
@@ -528,20 +528,20 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.labelNomeContenuto.Visible = false;
                 this.labelTagNonPresente.Visible = false;
 
-                u_current = new Utente();
+ //               u_current = new Utente();
 
             }
             else if (m_CurrentStatus != MediaStatus.None && m_CurrentStatus != MediaStatus.Stopped)
                 
             {
                 // sono in esecuzione
-                this.labelRfidTag.Text = cont_current.Rfidtag;
+   //             this.labelRfidTag.Text = cont_current.Rfidtag;
 
-                this.labelNomePoster.Text = cont_current.Poster.Nome;
+   //             this.labelNomePoster.Text = cont_current.Poster.Nome;
                 try
                 {
-                    this.labelNomeRisorsa.Text = cont_current.RisorsaMultimediale.Nome;
-                    this.labelNomeContenuto.Text = cont_current.Nome;
+                  //  this.labelNomeRisorsa.Text = cont_current.RisorsaMultimediale.Nome;
+                  //  this.labelNomeContenuto.Text = cont_current.Nome;
                 }
                 catch { }
                 this.labelRfidTag.Visible = true;
@@ -627,7 +627,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 int indice = 0;
                 if (arrayStorico.Count != 0)
                 {
-                    foreach (Contenuto2 c in arrayStorico)
+                   /* foreach (Contenuto2 c in arrayStorico)
                     {
                         wr.WriteStartElement("Contenuto");
                         wr.WriteElementString("IDcontenuto", Convert.ToString(c.IDcontenuto));
@@ -647,7 +647,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         wr.WriteElementString("Data", Convert.ToString(arrayStoricoData[indice]));
                         indice++;
                         wr.WriteEndElement();//chiudo tag <Contenuto>
-                    }
+                    }*/
                     wr.WriteEndElement();//chiudo tag <events>
                     wr.WriteEndDocument();
                 }
@@ -692,7 +692,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 int indice = 0;
                 if (arrayStorico.Count != 0)
                 {
-                    foreach (Contenuto2 c in arrayStorico)
+                   /* foreach (Contenuto2 c in arrayStorico)
                     {
                         wr.WriteStartElement("Contenuto");
                         wr.WriteElementString("IDcontenuto", Convert.ToString(c.IDcontenuto));
@@ -706,7 +706,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                         wr.WriteElementString("Data", Convert.ToString(arrayStoricoData[indice]));
                         indice++;
                         wr.WriteEndElement();//chiudo tag <Contenuto>
-                    }
+                    }*/
                     wr.WriteEndElement();//chiudo tag <events>
                     wr.WriteEndDocument();
                 }

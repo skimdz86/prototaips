@@ -137,7 +137,6 @@
     <Compile Include="ControlLogic\ExecutionControl.cs" />
     <Compile Include="ControlLogic\LoginControl.cs" />
     <Compile Include="DataAccess\GeneralDataHandler.cs" />
-    <Compile Include="Altrarisorsa.cs" />
     <Compile Include="Authoring\ElementoGriglia.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -188,18 +187,11 @@
       <DependentUpon>RfidConfigForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Reader\RfidProperties.cs" />
-    <Compile Include="Contenuto2.cs" />
     <Compile Include="Execution\ElencoCartelloniForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\ElencoCartelloniForm.Designer.cs">
       <DependentUpon>ElencoCartelloniForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
     <Compile Include="Common\FormSchema.cs">
       <SubType>Form</SubType>
@@ -295,9 +287,6 @@
     </Compile>
     <Compile Include="Authoring\StampaImmagine.cs" />
     <Compile Include="Authoring\StampaTesto.cs" />
-    <Compile Include="Mostra.cs" />
-    <Compile Include="Poster3.cs" />
-    <Compile Include="Profilo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="Properties\Settings.settings">
@@ -319,30 +308,20 @@
     <Compile Include="Welcome\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Risorsamultimediale.cs" />
     <Compile Include="TestForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TestForm.Designer.cs">
       <DependentUpon>TestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tipologia.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="DataAccess\UserHandler.cs" />
-    <Compile Include="Utente.cs" />
     <Compile Include="Welcome\ChildHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Welcome\ChildHomeForm.Designer.cs">
       <DependentUpon>ChildHomeForm.cs</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Mappings\Mostra.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Poster.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Profilo.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Risorsamultimediale.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Tipologia.hbm.xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Administration\EliminaPosterForm.resx">
@@ -361,10 +340,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\ElencoCartelloniForm.resx">
       <DependentUpon>ElencoCartelloniForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Common\FormSchema.resx">
@@ -435,13 +410,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>ModificaCartelloneForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mappings\Altrarisorsa.hbm.xml" />
     <EmbeddedResource Include="Administration\RfidConfigForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>RfidConfigForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Mappings\Utente.hbm.xml" />
-    <EmbeddedResource Include="Mappings\Contenuto.hbm.xml" />
     <EmbeddedResource Include="Welcome\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </EmbeddedResource>
