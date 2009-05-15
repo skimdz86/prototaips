@@ -3,6 +3,8 @@ using TalkingPaper.Common;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections;
+using TalkingPaper.Model;
+using System.Collections.Generic;
 
 namespace TalkingPaper.Authoring
 {
@@ -30,6 +32,7 @@ namespace TalkingPaper.Authoring
         private Bitmap riprendi;
         private Bitmap taggato;
         private Bitmap non_taggato;
+        private Label lastLabelClicked;
       //  private NHibernateManager nh_manager;
         //private TalkingPaper.GestioneDisposizione.ComponentiDelPoster componenti_pos;
         //private TalkingPaper.Authoring.BenvenutoGestioneDisposizione benvenuto_pos;
@@ -54,6 +57,8 @@ namespace TalkingPaper.Authoring
         private Authoring.ModificaCartelloneForm posterMostra;
         private string provenienza;
 
+        private Contenuto contenuto;
+        private List<Contenuto> listaContenuti = new List<Contenuto>();
 
 
         public PosizionaComponentiForm(string nomePoster, string descrizionePoster, string nomeClasse, string nomeGriglia)
@@ -79,7 +84,40 @@ namespace TalkingPaper.Authoring
             stop = new Bitmap(directoryPrincipale + "/Images/Icons/Stop.bmp");
             riprendi = new Bitmap(directoryPrincipale + "/Images/Icons/Play.bmp");
 
+            contenuto = new Contenuto();
+
             disegnaGriglia();
+
+            ricaricaElencoRisorse();
+
+        }
+
+        private void nomi_Click(object sender, System.EventArgs e)
+        {
+            if (lastLabelClicked != null) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+            ((Label)sender).BackColor = System.Drawing.Color.Red;
+            lastLabelClicked = ((Label)sender);
+        }
+
+        private void ricaricaElencoRisorse()
+        {
+            int i = 0;
+            foreach (Contenuto c in listaContenuti)
+            {
+                Label nome = new Label();
+                nome.Text = c.getNomeContenuto() + "(" + (c.getAudioPath() != null ? 'A'.ToString() : "") + (c.getVideoPath() != null ? 'V'.ToString() : "") + (c.getImagePath() != null ? " I" : "") + (c.getTextPath() != null ? " T" : "")+")";
+                nome.Tag = c.getNomeContenuto();
+                nome.BackColor = Color.Orange;
+                nome.ForeColor = Color.White;
+                nome.Size = new System.Drawing.Size(175, 25);
+                nome.AutoSize = false;
+                nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                nome.Click += new System.EventHandler(nomi_Click);
+                nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
+                nome.Visible = true;
+
+                ElencoRisorse.Controls.Add(nome);
+            }
 
         }
 
@@ -99,13 +137,20 @@ namespace TalkingPaper.Authoring
             DataGridViewRow riga = new DataGridViewRow();
             ElencoRisorse.Rows.Add("NUM", " ", "NOME", " ", "POSIZIONA", " ", "AUDIO/VIDEO", " ", "IMMAGINE", " ", "TESTO", " ", "POSIZIONA");
             num_righe++;
-            ElencoRisorse.Rows[0].DefaultCellStyle.ForeColor = Color.Red;
+            ElencoRisorse.Rows[0].DefaultCellStyle.ForeColor = Color.Blue;
             ElencoRisorse.Rows.Add();
             num_righe++;
 
-            ElencoRisorse.CellClick += new DataGridViewCellEventHandler(this.ClickSullaTabella);
-            ElencoRisorse.CellMouseEnter += new DataGridViewCellEventHandler(ElencoRisorse_CellMouseEnter);
             
+            ElencoRisorse.CellMouseEnter += new DataGridViewCellEventHandler(ElencoRisorse_CellMouseEnter);
+            ElencoRisorse.Click += new System.EventHandler(ElencoRisorse_Click);
+            //ElencoRisorse.Click += new DataGridViewCellEventHandler(ElencoRisorse_Click);
+            
+        }
+
+        private void ElencoRisorse_Click(object sender, System.EventArgs e)
+        {
+            ElencoRisorse.GridColor = Color.Blue;
         }
 
 
@@ -133,61 +178,61 @@ namespace TalkingPaper.Authoring
         private void ClickSullaTabella(object sender, DataGridViewCellEventArgs e)
         {
            
-            if ((ElencoRisorse[e.ColumnIndex, e.RowIndex].Value != null) && (e.ColumnIndex == 2 || e.ColumnIndex == 12))
-            {
-                ElencoRisorse[e.ColumnIndex, e.RowIndex].Selected = false;
-                if (id_contenuto_selezionato != -1)
-                {
-                    for (int i = 0; i < num_colonne; i++)
-                    {
+        //    if ((ElencoRisorse[e.ColumnIndex, e.RowIndex].Value != null) && (e.ColumnIndex == 2 || e.ColumnIndex == 12))
+        //    {
+        //        ElencoRisorse[e.ColumnIndex, e.RowIndex].Selected = false;
+        //        if (id_contenuto_selezionato != -1)
+        //        {
+        //            for (int i = 0; i < num_colonne; i++)
+        //            {
 
-                        for (int j = 0; j < num_righe; j++)
-                        {
-                            if (i == 2 && j % 2 == 0 && j != 0)
-                                ElencoRisorse[i, j].Style.BackColor = Color.Red;
-                            else
-                                ElencoRisorse[i, j].Style.BackColor = Color.BlanchedAlmond;
-                        }
-                    }
-                    for (int i = 0; i < 7; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            ElencoControlli1[i, j].Style.BackColor = Color.BlanchedAlmond;
-                        }
-                    }
-                    for (int i = 0; i < 7; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            ElencoControlli2[i, j].Style.BackColor = Color.BlanchedAlmond;
-                        }
-                    }
-                    for (int i = 0; i < 7; i++)
-                    {
-                        for (int j = 0; j < 3; j++)
-                        {
-                            ElencoControlli3[i, j].Style.BackColor = Color.BlanchedAlmond;
-                        }
-                    }
-                }
-                if (id_contenuto_selezionato == (int)ElencoRisorse[0, e.RowIndex].Value && e.RowIndex != 0)
-                {
-                    id_contenuto_selezionato = -1;
-                    nome_contenuto_selezionato = null;
-                }
-                else
-                {
-                    id_contenuto_selezionato = (int)ElencoRisorse[0, e.RowIndex].Value;
-                    nome_contenuto_selezionato = (string)ElencoRisorse[2, e.RowIndex].Value;
-                    for (int i = 0; i < num_colonne; i++)
-                    {
-                        ElencoRisorse[i, e.RowIndex].Style.BackColor = Color.DeepSkyBlue;
-                        id_contenuto_selezionato = (int)ElencoRisorse[0, e.RowIndex].Value;
-                        nome_contenuto_selezionato = (string)ElencoRisorse[2, e.RowIndex].Value;
-                    }
-                }
-            }
+        //                for (int j = 0; j < num_righe; j++)
+        //                {
+        //                    if (i == 2 && j % 2 == 0 && j != 0)
+        //                        ElencoRisorse[i, j].Style.BackColor = Color.Red;
+        //                    else
+        //                        ElencoRisorse[i, j].Style.BackColor = Color.BlanchedAlmond;
+        //                }
+        //            }
+        //            for (int i = 0; i < 7; i++)
+        //            {
+        //                for (int j = 0; j < 3; j++)
+        //                {
+        //                    ElencoControlli1[i, j].Style.BackColor = Color.BlanchedAlmond;
+        //                }
+        //            }
+        //            for (int i = 0; i < 7; i++)
+        //            {
+        //                for (int j = 0; j < 3; j++)
+        //                {
+        //                    ElencoControlli2[i, j].Style.BackColor = Color.BlanchedAlmond;
+        //                }
+        //            }
+        //            for (int i = 0; i < 7; i++)
+        //            {
+        //                for (int j = 0; j < 3; j++)
+        //                {
+        //                    ElencoControlli3[i, j].Style.BackColor = Color.BlanchedAlmond;
+        //                }
+        //            }
+        //        }
+        //        if (id_contenuto_selezionato == (int)ElencoRisorse[0, e.RowIndex].Value && e.RowIndex != 0)
+        //        {
+        //            id_contenuto_selezionato = -1;
+        //            nome_contenuto_selezionato = null;
+        //        }
+        //        else
+        //        {
+        //            id_contenuto_selezionato = (int)ElencoRisorse[0, e.RowIndex].Value;
+        //            nome_contenuto_selezionato = (string)ElencoRisorse[2, e.RowIndex].Value;
+        //            for (int i = 0; i < num_colonne; i++)
+        //            {
+        //                ElencoRisorse[i, e.RowIndex].Style.BackColor = Color.DeepSkyBlue;
+        //                id_contenuto_selezionato = (int)ElencoRisorse[0, e.RowIndex].Value;
+        //                nome_contenuto_selezionato = (string)ElencoRisorse[2, e.RowIndex].Value;
+        //            }
+        //        }
+        //    }
         }
 
         private void ClickSullaTabellaDeiControlli1(object sender, DataGridViewCellEventArgs e)
@@ -869,7 +914,7 @@ namespace TalkingPaper.Authoring
                 }
                 id_contenuto_selezionato = -1;
                 nome_contenuto_selezionato = null;
-            }
+            } 
         }
 
         private void home_Click(object sender, EventArgs e)
@@ -890,10 +935,40 @@ namespace TalkingPaper.Authoring
 
         private void aggiungi_Click(object sender, EventArgs e)
         {
-            AggiungiComponenteForm aggiungiComp = new AggiungiComponenteForm();
+            AggiungiComponenteForm aggiungiComp = new AggiungiComponenteForm(contenuto);
             NavigationControl.goTo(this, aggiungiComp);
         }
 
+        private void PosizionaComponentiForm_VisibleChanged(object sender, EventArgs e)
+        {
+            if (this.Visible == true && contenuto.getNomeContenuto() != null)
+            {
+                listaContenuti.Add(new Contenuto(contenuto.getNomeContenuto(),contenuto.getAudioPath(),contenuto.getVideoPath(),contenuto.getImagePath(),contenuto.getTextPath()));
+            }
+            contenuto.setNomeContenuto(null);
+            ricaricaElencoRisorse();
+        }
+
+        private void yan_Click(object sender, EventArgs e)
+        {
+            if (listaContenuti.Count != 0)
+            {
+                yan.Text = listaContenuti[listaContenuti.Count - 1].getNomeContenuto();
+            }
+            else
+            {
+                yan.Text = "empty";
+            }
+        }
+
+        private void schemaGriglia_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            yan.Text = "cucù";
+        }
+
+        
+
+       
 
 
     }

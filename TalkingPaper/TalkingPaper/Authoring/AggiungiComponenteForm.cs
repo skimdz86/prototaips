@@ -18,6 +18,7 @@ using Microsoft.Office.Interop.Word;
 using System.Reflection;
 using System.Xml;
 using TalkingPaper.Common;
+using TalkingPaper.Model;
 
 
 
@@ -51,17 +52,22 @@ namespace TalkingPaper.Authoring
         private string configurazione;
         private Authoring.ElementoGriglia[,] matrice;
         private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
+        private Contenuto contenuto;
+        
 
         
 //        public NuovoComponente(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, ComponentiDelPoster componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione,int tag_per_riga, int tag_per_colonna)
         //public AggiungiComponenteForm(Authoring.BenvenutoGestioneDisposizione benvenuto, ModificaCartelloneForm poster, Authoring.PosizionaComponentiForm componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut, string id_pannello, string nome_pannello, string configurazione, int tag_per_riga, int tag_per_colonna)
-        public AggiungiComponenteForm()
+        public AggiungiComponenteForm(Contenuto cont)
         {
             InitializeComponent();
             RidimensionaForm n = new RidimensionaForm(this, 70, true);
             //this.tag_per_colonna = tag_per_colonna;
             //this.tag_per_riga = tag_per_riga;
             matrice = new Authoring.ElementoGriglia[tag_per_colonna + 1, tag_per_riga + 1];
+
+            contenuto = cont;
+
             //this.provenienza = provenienza;
             //this.id_pannello = id_pannello;
             //this.nome_pannello = nome_pannello;
@@ -182,6 +188,8 @@ namespace TalkingPaper.Authoring
                 string path = openFileDialog.FileName;
                 suonoBox.Text = path;
                 videoBox.Text = "";
+                contenuto.setAudioPath(path);
+                contenuto.setVideoPath(null);
                 EliminaAudio.Visible = true;
                 PreviewAudio.Visible = true;
                 EliminaVideo.Visible = false;
@@ -210,6 +218,8 @@ namespace TalkingPaper.Authoring
                 string path = openFileDialog.FileName;
                 videoBox.Text = path;
                 suonoBox.Text = "";
+                contenuto.setVideoPath(path);
+                contenuto.setAudioPath(null);
                 EliminaVideo.Visible = true;
                 PreviewVideo.Visible = true;
                 EliminaAudio.Visible = false;
@@ -236,6 +246,7 @@ namespace TalkingPaper.Authoring
             {
                 string path = openFileDialog.FileName;
                 immagineBox.Text = path;
+                contenuto.setImagePath(path);
                 EliminaImmagine.Visible = true;
                 PreviewImmagine.Visible = true;
                 //MessageBox.Show(path.Length.ToString());
@@ -260,6 +271,7 @@ namespace TalkingPaper.Authoring
             {
                 string path = openFileDialog.FileName;
                 testoBox.Text = path;
+                contenuto.setTextPath(path);
                 EliminaTesto.Visible = true;
                 PreviewTesto.Visible = true;
                 //MessageBox.Show(path.Length.ToString());
@@ -277,6 +289,7 @@ namespace TalkingPaper.Authoring
         {
             this.Cursor = Cursors.WaitCursor;
             suonoBox.Text = "";
+            contenuto.setAudioPath(null);
             EliminaAudio.Visible = false;
             PreviewAudio.Visible = false;
             this.Cursor = Cursors.Default;
@@ -286,6 +299,7 @@ namespace TalkingPaper.Authoring
         {
             this.Cursor = Cursors.WaitCursor;
             videoBox.Text = "";
+            contenuto.setVideoPath(null);
             EliminaVideo.Visible = false;
             PreviewVideo.Visible = false;
             this.Cursor = Cursors.Default;
@@ -295,6 +309,7 @@ namespace TalkingPaper.Authoring
         {
             this.Cursor = Cursors.WaitCursor;
             immagineBox.Text = "";
+            contenuto.setImagePath(null);
             EliminaImmagine.Visible = false;
             PreviewImmagine.Visible = false;
             this.Cursor = Cursors.Default;
@@ -304,6 +319,7 @@ namespace TalkingPaper.Authoring
         {
             this.Cursor = Cursors.WaitCursor;
             testoBox.Text = "";
+            contenuto.setTextPath(null);
             EliminaTesto.Visible = false;
             PreviewTesto.Visible = false;
             this.Cursor = Cursors.Default;
@@ -852,10 +868,6 @@ namespace TalkingPaper.Authoring
 
         private void NuovoComponente_Load(object sender, EventArgs e)
         {
-            
-
-
-
             this.PreviewAudio.Visible = false;
             this.PreviewVideo.Visible = false;
             this.PreviewImmagine.Visible = false;
@@ -873,7 +885,7 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
-            //TO DO bisogna salvare
+            contenuto.setNomeContenuto(nomeBox.Text);
             NavigationControl.goBack(this);
         }
 

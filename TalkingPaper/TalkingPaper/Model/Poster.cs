@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace TalkingPaper.Model
 {
-    class Poster
+    public class Poster
     {
 
         private String nomePoster;

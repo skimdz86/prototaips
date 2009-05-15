@@ -4,7 +4,7 @@ using System.Text;
 
 namespace TalkingPaper.Model
 {
-    class Contenuto
+    public class Contenuto
     {
         private String nomeContenuto;
 
@@ -15,6 +15,18 @@ namespace TalkingPaper.Model
 
         private String coordinate;
 
+        //Forse serve solo questo costruttore (e non quello più sotto)
+        public Contenuto()
+        {
+            this.nomeContenuto = null;
+            this.audioPath = null;
+            this.videoPath = null;
+            this.imagePath = null;
+            this.textPath = null;
+            this.coordinate = "00";
+        }
+        
+        
         //Il valore 'null' indica che la risorsa corrispondente non è disponibile
         public Contenuto(String nomeContenuto, String audioPath, String videoPath, String imagePath, String textPath)
         {

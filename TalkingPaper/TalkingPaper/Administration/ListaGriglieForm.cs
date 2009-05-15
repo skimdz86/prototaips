@@ -122,6 +122,13 @@ namespace TalkingPaper.Administration
             NavigationControl.goHome(this);
         }
 
+        private void ListaGriglieForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
        
     }
 }
