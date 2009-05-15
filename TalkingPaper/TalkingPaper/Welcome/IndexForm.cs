@@ -43,15 +43,15 @@ namespace TalkingPaper.Welcome
                 {
                     textBox1.Clear();
                     textBox2.Clear();
-                    if (!(isConfigured))
+                    /*if (!(isConfigured))
                     {
                         MessageBox.Show("Il lettore non è configurato! Non puoi entrare");
-                    }
-                    else
-                    {
+                    }*/
+                    //else
+                    //{
                         Welcome.ChildHomeForm childHome = new ChildHomeForm();
                         NavigationControl.goTo(this, childHome);
-                    }
+                    //}
                 }
                 else 
                 {
