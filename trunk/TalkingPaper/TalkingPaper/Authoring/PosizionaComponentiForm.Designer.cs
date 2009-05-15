@@ -60,6 +60,7 @@ namespace TalkingPaper.Authoring
             this.aggiungi = new System.Windows.Forms.Button();
             this.scegliOggetto = new System.Windows.Forms.Label();
             this.trascina = new System.Windows.Forms.Label();
+            this.yan = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli3)).BeginInit();
@@ -378,6 +379,7 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.ShowEditingIcon = false;
             this.schemaGriglia.Size = new System.Drawing.Size(635, 360);
             this.schemaGriglia.TabIndex = 54;
+            this.schemaGriglia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schemaGriglia_CellContentClick);
             // 
             // controlloBox
             // 
@@ -431,11 +433,26 @@ namespace TalkingPaper.Authoring
             this.trascina.Text = "Trascina il componente su una casella per aggiungerlo";
             this.trascina.Visible = false;
             // 
+            // yan
+            // 
+            this.yan.BackColor = System.Drawing.Color.Yellow;
+            this.yan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.yan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.yan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yan.Location = new System.Drawing.Point(514, 21);
+            this.yan.Name = "yan";
+            this.yan.Size = new System.Drawing.Size(124, 62);
+            this.yan.TabIndex = 66;
+            this.yan.Text = "yan";
+            this.yan.UseVisualStyleBackColor = false;
+            this.yan.Click += new System.EventHandler(this.yan_Click);
+            // 
             // PosizionaComponentiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.Controls.Add(this.yan);
             this.Controls.Add(this.trascina);
             this.Controls.Add(this.controlloBox);
             this.Controls.Add(this.schemaGriglia);
@@ -445,6 +462,7 @@ namespace TalkingPaper.Authoring
             this.Controls.Add(this.ElencoRisorse);
             this.Name = "PosizionaComponentiForm";
             this.Text = "FormVisualizzaElementiAuthoring";
+            this.VisibleChanged += new System.EventHandler(this.PosizionaComponentiForm_VisibleChanged);
             this.Controls.SetChildIndex(this.ElencoRisorse, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.noComponenti, 0);
@@ -456,6 +474,7 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.trascina, 0);
+            this.Controls.SetChildIndex(this.yan, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -483,5 +502,6 @@ namespace TalkingPaper.Authoring
         private Button aggiungi;
         private System.Windows.Forms.Label scegliOggetto;
         private Label trascina;
+        private Button yan;
     }
 }

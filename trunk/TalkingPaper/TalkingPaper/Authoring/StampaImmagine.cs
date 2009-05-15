@@ -15,6 +15,7 @@ using QuartzTypeLib;
 using System.Drawing.Printing;
 using Microsoft.Office.Interop.Word;
 using System.Reflection;
+using TalkingPaper.Model;
 
 namespace TalkingPaper.Authoring
 {
@@ -62,8 +63,9 @@ namespace TalkingPaper.Authoring
             //float x = e.MarginBounds.Left;
             //float y = e.MarginBounds.Top;
             PointF f;
+            Contenuto c = new Contenuto();
             e.Graphics.DrawImage(nuova1, 0, 0);
-            AggiungiComponenteForm nuovo = new AggiungiComponenteForm();
+            AggiungiComponenteForm nuovo = new AggiungiComponenteForm(c);
             if (doc.DefaultPageSettings.PaperSize.Width > doc.DefaultPageSettings.PaperSize.Height)
             {
                 f = new PointF(100, 540);
