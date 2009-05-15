@@ -12,21 +12,12 @@ namespace TalkingPaper.Reader
     /// </summary>
     class RFidConfigManager
     {
-        private XmlWriterSettings settings;
-        private string path;
+        
         private String filepath = Global.directoryPrincipale+"\\Config\\rfid_config.xml";
 
         /// <summary>
         /// Costruttore
         /// </summary>
-        public RFidConfigManager(string path)
-        {
-            this.path = path;
-        }
-        public void RFidConfigManager2()
-        {
-            path = Directory.GetCurrentDirectory() + @"\Config\";
-        }
         //nuovo costruttore: autogenera il file se nn c'è
         public RFidConfigManager()
         {
@@ -34,7 +25,7 @@ namespace TalkingPaper.Reader
             {
                 if(!File.Exists(filepath)) createXMLConfig();
 
-            }catch(IOException e){Console.Write("Erroreeeeeeeeeeeeeeeeeee!");}
+            }catch(IOException e){ throw new Exception("Erroreeeeeeeeeeeeeeeeeee! Di I/O");}
         }
         
         //crea il file vuoto (o standard)
@@ -76,56 +67,7 @@ namespace TalkingPaper.Reader
             stream.Close();
             doc.Save(filepath);
         }
-        /// <summary>
-        /// This function allow to read the parameter in file XML
-        /// </summary>
-        /// <returns>return the object RfidProperties</returns>
-        public RfidProperties read_config_rfid_xml2()
-        {
-            RfidProperties prop = new RfidProperties();
-            FileStream fs = new FileStream(path+"rfid_config.xml", FileMode.Open);
-            XmlReader rdr = XmlReader.Create(fs);
-
-            while (!rdr.EOF)
-            {
-                if (rdr.MoveToContent() == XmlNodeType.Element && rdr.Name == "parameters")
-                {
-                    rdr.Read();
-                    if (rdr.MoveToContent() == XmlNodeType.Element && rdr.Name == "reader")
-                    {   
-                        rdr.Read();
-                        while (rdr.MoveToContent() != XmlNodeType.EndElement)
-                        {
-                            switch (rdr.Name)
-                            {
-                                case "port":
-                                    prop.port = Convert.ToInt32(rdr.ReadElementString());
-                                    break;
-                                case "comunication_frame":
-                                    prop.communicationFrame = rdr.ReadElementString();
-                                    break;
-                                case "baud_rate":
-                                    prop.baudRate = rdr.ReadElementString();
-                                    break;
-                                case "time_out":
-                                    prop.timeout = Convert.ToInt16(rdr.ReadElementString());
-                                    break;
-                                default: rdr.Read();
-                                    break;
-                            }
-                        } 
-                        rdr.Read();
-                    }
-                }
-                else
-                {
-                    rdr.Read();
-                }
-            }
-            fs.Close();
-            return prop;
-        }//fine metodo lettura
-
+        
         /// <summary>
         /// Nuova funzione per lettura xml
         /// </summary>
@@ -159,52 +101,7 @@ namespace TalkingPaper.Reader
             catch (XmlException e) { return null; }
         }
 
-        /// <summary>
-        /// This function allow to create the configuration file
-        /// </summary>
-        /// <param name="port">reader port (COM)</param>
-        /// <param name="frame">comunication frame</param>
-        /// <param name="rate">baud rate</param>
-        /// <param name="to">time out</param>
-        /// <returns>true if the file is created</returns>
-        public bool configParameter2(int port, string frame, string rate, short to )
-        {
-            settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            try
-            {
-                XmlWriter writer = XmlWriter.Create(path + "rfid_config.xml", settings);
-
-                writer.WriteStartDocument();
-                writer.WriteStartElement("parameters");
-
-                writer.WriteStartElement("reader");
-                writer.WriteElementString("port", Convert.ToString(port));
-                writer.WriteElementString("comunication_frame", frame);
-                writer.WriteElementString("baud_rate", rate);
-                writer.WriteElementString("time_out", Convert.ToString(to));
-                writer.WriteEndElement();
-
-                writer.WriteEndElement();
-
-                writer.WriteEndDocument();
-
-                writer.Flush();
-                writer.Close();
-
-                Console.WriteLine("Fine scrittura del file di configurazione rfid");
-
-                return true;
-            }
-            catch (XmlException xmlExc)
-            {
-                Console.WriteLine("Errore nella creazione del file di RfidConfig.xml\n " + xmlExc.Message);
-                return false;
-            }
-        }
-
+        
         /// <summary>
         /// nuova funzione scrittura xml
         /// </summary>
@@ -237,29 +134,7 @@ namespace TalkingPaper.Reader
             catch (XmlException e) { return false; }
         }
 
-        /// <summary>
-        /// This function allow to verify if the configuration files have been created
-        /// </summary>
-        /// <returns>true if the files exist false if they don't exist</returns>
-        public bool exist2()
-        {
-            Console.WriteLine("Verifico se il file rfid_config.xml esiste nel percorso: "+ path);
-            bool exist = false;
-            if (!Directory.Exists(path))
-            {
-                exist = false;
-                Console.WriteLine("Il file non esiste");
-
-            }
-            else
-            {
-                exist = true;
-                Console.WriteLine("Il file esiste");
-
-            }
-            return exist;
-        }
-
+        
         ////nuova exist
         public bool exist()
         {
