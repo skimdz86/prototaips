@@ -25,6 +25,12 @@ namespace TalkingPaper.Administration
 
 
             }
+            else
+            {
+                configRfid.Visible = true;
+                groupBox1.Visible = true;
+                
+            }//è codice di sicurezza per config rfid
         }
         
         private void logout_Click(object sender, EventArgs e)

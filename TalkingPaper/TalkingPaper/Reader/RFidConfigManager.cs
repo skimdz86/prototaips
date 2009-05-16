@@ -47,16 +47,16 @@ namespace TalkingPaper.Reader
             XmlElement xreader=(XmlElement)l[0];
 
             XmlElement port=(XmlElement)doc.CreateElement("port");
-            XmlText tport=(XmlText)doc.CreateTextNode("");
+            XmlText tport=(XmlText)doc.CreateTextNode("0");
             port.AppendChild(tport);
             XmlElement cf=(XmlElement)doc.CreateElement("communication_frame");
-            XmlText tcf=(XmlText)doc.CreateTextNode("");
+            XmlText tcf=(XmlText)doc.CreateTextNode("8E1");
             cf.AppendChild(tcf);
             XmlElement baud=(XmlElement)doc.CreateElement("baud_rate");
-            XmlText tbaud=(XmlText)doc.CreateTextNode("");
+            XmlText tbaud=(XmlText)doc.CreateTextNode("38400");
             baud.AppendChild(tbaud);
             XmlElement to=(XmlElement)doc.CreateElement("time_out");
-            XmlText tto=(XmlText)doc.CreateTextNode("");
+            XmlText tto=(XmlText)doc.CreateTextNode("1000");
             to.AppendChild(tto);
 
             xreader.AppendChild(port);
