@@ -23,7 +23,7 @@ namespace TalkingPaper.DataAccess
                 writer.WriteEndDocument();
                 writer.Close();
             }
-            catch (XmlException e) { Console.Write(e.StackTrace); }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         public bool setGriglia(Model.Griglia gr)
         {
@@ -31,7 +31,7 @@ namespace TalkingPaper.DataAccess
             {
                 if (!File.Exists(filepath)) CreateGriglieTaggate();
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -70,7 +70,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         
 
@@ -101,9 +101,13 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return null; }
+                if (!File.Exists(filepath)) 
+                { 
+                    CreateGriglieTaggate();
+                    throw new Exception("Il file non esiste!"); 
+                }
             }
-            catch (IOException e) { return null; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -126,15 +130,19 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return tempGr;
             }
-            catch (XmlException e) { return null; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         public Model.Griglia getGriglia(String nome)
         {
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return null; }
+                if (!File.Exists(filepath)) 
+                {
+                    CreateGriglieTaggate();
+                    throw new Exception("Il file non esiste!"); 
+                }
             }
-            catch (IOException e) { return null; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -172,7 +180,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return tempGr;
             }
-            catch (XmlException e) { return null; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
 
     }
