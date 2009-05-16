@@ -88,7 +88,6 @@ namespace TalkingPaper.Authoring
             this.PreviewAudio.Size = new System.Drawing.Size(120, 62);
             this.PreviewAudio.TabIndex = 44;
             this.PreviewAudio.Text = "Che suono ho scelto?";
-            this.PreviewAudio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.PreviewAudio.UseVisualStyleBackColor = false;
             this.PreviewAudio.Click += new System.EventHandler(this.PreviewAudio_Click);
             // 
@@ -103,7 +102,6 @@ namespace TalkingPaper.Authoring
             this.PreviewVideo.Size = new System.Drawing.Size(120, 62);
             this.PreviewVideo.TabIndex = 45;
             this.PreviewVideo.Text = "Che video ho scelto?";
-            this.PreviewVideo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.PreviewVideo.UseVisualStyleBackColor = false;
             this.PreviewVideo.Click += new System.EventHandler(this.PreviewVideo_Click);
             // 
@@ -118,7 +116,6 @@ namespace TalkingPaper.Authoring
             this.PreviewImmagine.Size = new System.Drawing.Size(120, 62);
             this.PreviewImmagine.TabIndex = 46;
             this.PreviewImmagine.Text = "Che immagine ho scelto?";
-            this.PreviewImmagine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.PreviewImmagine.UseVisualStyleBackColor = false;
             this.PreviewImmagine.Click += new System.EventHandler(this.PreviewImmagine_Click);
             // 
@@ -133,7 +130,6 @@ namespace TalkingPaper.Authoring
             this.PreviewTesto.Size = new System.Drawing.Size(120, 62);
             this.PreviewTesto.TabIndex = 47;
             this.PreviewTesto.Text = "Che testo ho scelto?";
-            this.PreviewTesto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.PreviewTesto.UseVisualStyleBackColor = false;
             this.PreviewTesto.Click += new System.EventHandler(this.PreviewTesto_Click);
             // 
@@ -148,7 +144,6 @@ namespace TalkingPaper.Authoring
             this.EliminaTesto.Size = new System.Drawing.Size(120, 62);
             this.EliminaTesto.TabIndex = 48;
             this.EliminaTesto.Text = "Elimina il testo";
-            this.EliminaTesto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EliminaTesto.UseVisualStyleBackColor = false;
             this.EliminaTesto.Click += new System.EventHandler(this.EliminaTesto_Click);
             // 
@@ -163,7 +158,6 @@ namespace TalkingPaper.Authoring
             this.EliminaImmagine.Size = new System.Drawing.Size(120, 62);
             this.EliminaImmagine.TabIndex = 49;
             this.EliminaImmagine.Text = "Elimina l\'immagine";
-            this.EliminaImmagine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EliminaImmagine.UseVisualStyleBackColor = false;
             this.EliminaImmagine.Click += new System.EventHandler(this.EliminaImmagine_Click);
             // 
@@ -178,7 +172,6 @@ namespace TalkingPaper.Authoring
             this.EliminaVideo.Size = new System.Drawing.Size(120, 62);
             this.EliminaVideo.TabIndex = 50;
             this.EliminaVideo.Text = "Elimina il video";
-            this.EliminaVideo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EliminaVideo.UseVisualStyleBackColor = false;
             this.EliminaVideo.Click += new System.EventHandler(this.EliminaVideo_Click);
             // 
@@ -193,7 +186,6 @@ namespace TalkingPaper.Authoring
             this.EliminaAudio.Size = new System.Drawing.Size(120, 62);
             this.EliminaAudio.TabIndex = 51;
             this.EliminaAudio.Text = "Elimina il suono";
-            this.EliminaAudio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.EliminaAudio.UseVisualStyleBackColor = false;
             this.EliminaAudio.Click += new System.EventHandler(this.EliminaAudio_Click);
             // 
@@ -208,7 +200,6 @@ namespace TalkingPaper.Authoring
             this.SfogliaTesto.Size = new System.Drawing.Size(120, 62);
             this.SfogliaTesto.TabIndex = 52;
             this.SfogliaTesto.Text = "Scegli il testo";
-            this.SfogliaTesto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SfogliaTesto.UseVisualStyleBackColor = false;
             this.SfogliaTesto.Click += new System.EventHandler(this.SfogliaTesto_Click);
             // 
@@ -223,7 +214,6 @@ namespace TalkingPaper.Authoring
             this.SfogliaImmagine.Size = new System.Drawing.Size(120, 62);
             this.SfogliaImmagine.TabIndex = 53;
             this.SfogliaImmagine.Text = "Scegli l\'immagine";
-            this.SfogliaImmagine.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SfogliaImmagine.UseVisualStyleBackColor = false;
             this.SfogliaImmagine.Click += new System.EventHandler(this.SfogliaImmagine_Click);
             // 
@@ -238,7 +228,6 @@ namespace TalkingPaper.Authoring
             this.SfogliaVideo.Size = new System.Drawing.Size(120, 62);
             this.SfogliaVideo.TabIndex = 54;
             this.SfogliaVideo.Text = "Scegli il video";
-            this.SfogliaVideo.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SfogliaVideo.UseVisualStyleBackColor = false;
             this.SfogliaVideo.Click += new System.EventHandler(this.SfogliaVideo_Click);
             // 
@@ -313,7 +302,6 @@ namespace TalkingPaper.Authoring
             this.SfogliaAudio.Size = new System.Drawing.Size(120, 62);
             this.SfogliaAudio.TabIndex = 56;
             this.SfogliaAudio.Text = "Scegli il suono";
-            this.SfogliaAudio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.SfogliaAudio.UseVisualStyleBackColor = false;
             this.SfogliaAudio.Click += new System.EventHandler(this.SfogliaAudio_Click);
             // 

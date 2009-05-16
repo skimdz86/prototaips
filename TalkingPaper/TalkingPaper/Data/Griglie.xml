@@ -21,4 +21,14 @@
   <Griglia Nome="giogiog" Righe="4" Colonne="2">
     <Cella Coordinate="A1">E004010017FE9160</Cella>
   </Griglia>
+  <Griglia Nome="yan" Righe="4" Colonne="4">
+    <Cella Coordinate="A1">E004010017FE82AD</Cella>
+    <Cella Coordinate="A2">E004010017FE82A6</Cella>
+    <Cella Coordinate="B1">E004010017FE8296</Cella>
+    <Cella Coordinate="B2">E004010017FE828E</Cella>
+    <Cella Coordinate="C3">E004010017FE82A1</Cella>
+    <Cella Coordinate="C4">E004010017FE82A2</Cella>
+    <Cella Coordinate="D1">E004010017FE8293</Cella>
+    <Cella Coordinate="D4">E004010017FE8284</Cella>
+  </Griglia>    
 </GriglieTaggate>

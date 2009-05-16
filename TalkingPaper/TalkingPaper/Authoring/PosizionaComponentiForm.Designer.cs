@@ -55,20 +55,19 @@ namespace TalkingPaper.Authoring
             this.ElencoControlli1 = new System.Windows.Forms.DataGridView();
             this.noComponenti = new System.Windows.Forms.Label();
             this.ElencoRisorse = new System.Windows.Forms.DataGridView();
-            this.schemaGriglia = new System.Windows.Forms.DataGridView();
             this.controlloBox = new System.Windows.Forms.GroupBox();
             this.aggiungi = new System.Windows.Forms.Button();
             this.scegliOggetto = new System.Windows.Forms.Label();
             this.trascina = new System.Windows.Forms.Label();
-            this.yan = new System.Windows.Forms.Button();
+            this.schemaGriglia = new System.Windows.Forms.DataGridView();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).BeginInit();
             this.controlloBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).BeginInit();
             this.SuspendLayout();
             // 
             // sottotitolo
@@ -325,62 +324,6 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.Size = new System.Drawing.Size(336, 368);
             this.ElencoRisorse.TabIndex = 42;
             // 
-            // schemaGriglia
-            // 
-            this.schemaGriglia.AllowUserToAddRows = false;
-            this.schemaGriglia.AllowUserToDeleteRows = false;
-            this.schemaGriglia.AllowUserToResizeColumns = false;
-            this.schemaGriglia.AllowUserToResizeRows = false;
-            this.schemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
-            this.schemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.schemaGriglia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.schemaGriglia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.schemaGriglia.ColumnHeadersVisible = false;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.schemaGriglia.DefaultCellStyle = dataGridViewCellStyle18;
-            this.schemaGriglia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.schemaGriglia.EnableHeadersVisualStyles = false;
-            this.schemaGriglia.GridColor = System.Drawing.Color.DarkRed;
-            this.schemaGriglia.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.schemaGriglia.Location = new System.Drawing.Point(375, 224);
-            this.schemaGriglia.MultiSelect = false;
-            this.schemaGriglia.Name = "schemaGriglia";
-            this.schemaGriglia.ReadOnly = true;
-            this.schemaGriglia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.schemaGriglia.RowHeadersVisible = false;
-            this.schemaGriglia.RowHeadersWidth = 120;
-            this.schemaGriglia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.schemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.schemaGriglia.RowTemplate.Height = 33;
-            this.schemaGriglia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.schemaGriglia.ShowEditingIcon = false;
-            this.schemaGriglia.Size = new System.Drawing.Size(635, 360);
-            this.schemaGriglia.TabIndex = 54;
-            this.schemaGriglia.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schemaGriglia_CellContentClick);
-            // 
             // controlloBox
             // 
             this.controlloBox.BackColor = System.Drawing.Color.Orange;
@@ -433,29 +376,70 @@ namespace TalkingPaper.Authoring
             this.trascina.Text = "Trascina il componente su una casella per aggiungerlo";
             this.trascina.Visible = false;
             // 
-            // yan
+            // schemaGriglia
             // 
-            this.yan.BackColor = System.Drawing.Color.Yellow;
-            this.yan.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.yan.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.yan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.yan.Location = new System.Drawing.Point(514, 21);
-            this.yan.Name = "yan";
-            this.yan.Size = new System.Drawing.Size(124, 62);
-            this.yan.TabIndex = 66;
-            this.yan.Text = "yan";
-            this.yan.UseVisualStyleBackColor = false;
-            this.yan.Click += new System.EventHandler(this.yan_Click);
+            this.schemaGriglia.AllowUserToAddRows = false;
+            this.schemaGriglia.AllowUserToDeleteRows = false;
+            this.schemaGriglia.AllowUserToResizeColumns = false;
+            this.schemaGriglia.AllowUserToResizeRows = false;
+            this.schemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
+            this.schemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.schemaGriglia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.schemaGriglia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.schemaGriglia.ColumnHeadersVisible = false;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schemaGriglia.DefaultCellStyle = dataGridViewCellStyle18;
+            this.schemaGriglia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
+            this.schemaGriglia.EnableHeadersVisualStyles = false;
+            this.schemaGriglia.GridColor = System.Drawing.Color.Black;
+            this.schemaGriglia.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.schemaGriglia.Location = new System.Drawing.Point(350, 232);
+            this.schemaGriglia.MultiSelect = false;
+            this.schemaGriglia.Name = "schemaGriglia";
+            this.schemaGriglia.ReadOnly = true;
+            this.schemaGriglia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.schemaGriglia.RowHeadersVisible = false;
+            this.schemaGriglia.RowHeadersWidth = 120;
+            this.schemaGriglia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Peru;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
+            this.schemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.schemaGriglia.RowTemplate.Height = 33;
+            this.schemaGriglia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.schemaGriglia.ShowEditingIcon = false;
+            this.schemaGriglia.Size = new System.Drawing.Size(635, 360);
+            this.schemaGriglia.TabIndex = 67;
+            this.schemaGriglia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schemaGriglia_CellClick);
             // 
             // PosizionaComponentiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 739);
-            this.Controls.Add(this.yan);
+            this.Controls.Add(this.schemaGriglia);
             this.Controls.Add(this.trascina);
             this.Controls.Add(this.controlloBox);
-            this.Controls.Add(this.schemaGriglia);
             this.Controls.Add(this.scegliOggetto);
             this.Controls.Add(this.aggiungi);
             this.Controls.Add(this.noComponenti);
@@ -469,12 +453,11 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.aggiungi, 0);
             this.Controls.SetChildIndex(this.scegliOggetto, 0);
-            this.Controls.SetChildIndex(this.schemaGriglia, 0);
             this.Controls.SetChildIndex(this.controlloBox, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.trascina, 0);
-            this.Controls.SetChildIndex(this.yan, 0);
+            this.Controls.SetChildIndex(this.schemaGriglia, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -483,8 +466,8 @@ namespace TalkingPaper.Authoring
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).EndInit();
             this.controlloBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,11 +480,10 @@ namespace TalkingPaper.Authoring
         private System.Windows.Forms.DataGridView ElencoControlli1;
         private System.Windows.Forms.Label noComponenti;
         private System.Windows.Forms.DataGridView ElencoRisorse;
-        private System.Windows.Forms.DataGridView schemaGriglia;
         private System.Windows.Forms.GroupBox controlloBox;
         private Button aggiungi;
         private System.Windows.Forms.Label scegliOggetto;
         private Label trascina;
-        private Button yan;
+        private DataGridView schemaGriglia;
     }
 }

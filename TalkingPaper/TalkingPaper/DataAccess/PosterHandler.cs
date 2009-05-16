@@ -88,7 +88,7 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                Model.Poster tempPoster = new Model.Poster("", "", "", "");
+                Model.Poster tempPoster = new Model.Poster(null,null,null,null);
                 XmlNodeList posList = doc.GetElementsByTagName("Poster");
                 for (int i = 0; i < posList.Count; i++)
                 {
@@ -106,7 +106,7 @@ namespace TalkingPaper.DataAccess
                         for (int j = 0; j < contList.Count; j++)
                         {
                             XmlElement y = (XmlElement)x.GetElementsByTagName("Contenuto")[j];
-                            Model.Contenuto c = new Model.Contenuto("", "", "", "", "");
+                            Model.Contenuto c = new Model.Contenuto(null,null,null,null,null);
                             c.setNomeContenuto(y.GetAttribute("Nome"));
                             c.setAudioPath(y.GetAttribute("AudioPath"));
                             c.setVideoPath(y.GetAttribute("VideoPath"));
