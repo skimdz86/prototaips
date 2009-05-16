@@ -88,17 +88,7 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                ////controllo nome gia esistente
-                XmlNodeList l = doc.GetElementsByTagName("Poster");
-                for (int k = 0; k < l.Count; k++)
-                {
-                    XmlElement xel = (XmlElement)l[k];
-                    if (xel.GetAttribute("Nome") == nomePoster)
-                    {
-                        stream.Close();
-                        return null;
-                    }
-                }
+                
                 Model.Poster tempPoster = new Model.Poster(null,null,null,null);
                 XmlNodeList posList = doc.GetElementsByTagName("Poster");
                 for (int i = 0; i < posList.Count; i++)
@@ -196,6 +186,26 @@ namespace TalkingPaper.DataAccess
                 return true;
             }
             catch (XmlException e) { return false; }
+        }
+
+        public bool existPoster(String nomePoster)
+        {
+            XmlDocument doc = new XmlDocument();
+            FileStream stream = new FileStream(filepath, FileMode.Open);
+            doc.Load(stream);
+            ////controllo nome gia esistente
+            XmlNodeList l = doc.GetElementsByTagName("Poster");
+            for (int k = 0; k < l.Count; k++)
+            {
+                XmlElement xel = (XmlElement)l[k];
+                if (xel.GetAttribute("Nome") == nomePoster)
+                {
+                    stream.Close();
+                    return true;
+                }
+            }
+            stream.Close();
+            return false;
         }
         
     }

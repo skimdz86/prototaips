@@ -82,6 +82,10 @@ namespace TalkingPaper.DataAccess
             bool b = pos.removePoster(nomePoster);
             return b;
         }
+        public bool existPoster(String nomePoster) 
+        {
+            return pos.existPoster(nomePoster);
+        }
 
         #endregion
     }
