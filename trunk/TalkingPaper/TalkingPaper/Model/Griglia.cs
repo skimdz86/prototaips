@@ -43,8 +43,8 @@ namespace TalkingPaper.Model
         public String getCoordFromIndex(int index)
         {
             char x, y;
-            int offset = 'A';
-            x = (char)((int)(index / numColonne) + offset);
+            int start = 'A';
+            x = (char)((int)(index / numColonne) + start);
             y = (char) ((index % numColonne) + '1');
             return x.ToString() + y.ToString();
         }
@@ -63,6 +63,13 @@ namespace TalkingPaper.Model
         public void delTag(int index) 
         {
             tagRFID[index] = null;
+        }
+
+        public string getTagFromNumericCoord(int col, int row)
+        {
+            col--;
+            row--;
+            return tagRFID[row * numColonne + col];
         }
 
         

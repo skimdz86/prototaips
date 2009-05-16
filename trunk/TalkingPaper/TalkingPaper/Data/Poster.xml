@@ -1,1 +1,10 @@
-﻿<?xml version="1.0" encoding="utf-8"?><ElencoPoster />
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ElencoPoster>
+  <Poster idUtente="" Nome="prova" idGriglia="yan">
+    <Descrizione>pp</Descrizione>
+    <Contenuto Nome="a" AudioPath="C:\Users\Public\Music\Sample Music\Amanda.wma" VideoPath="" ImagePath="" TextPath="" Cella="A1" />
+    <Contenuto Nome="c" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="A2" />
+    <Contenuto Nome="d" AudioPath="c:\users\Public\Music\Sample Music\Symphony_No_3.wma" VideoPath="" ImagePath="" TextPath="c:\Users\yans\Desktop\talking paper\TalkingPaper\TalkingPaper\obj\Debug\TalkingPaper.csproj.FileListAbsolute.txt" Cella="C3" />
+    <Contenuto Nome="e" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="D3" />
+  </Poster>
+</ElencoPoster>

@@ -38,6 +38,16 @@ namespace TalkingPaper.Model
             this.coordinate = "00";
         }
 
+        public void resetContenuto()
+        {
+            this.nomeContenuto = null;
+            this.audioPath = null;
+            this.videoPath = null;
+            this.imagePath = null;
+            this.textPath = null;
+            this.coordinate = null;
+        }
+
         public String getNomeContenuto() { return nomeContenuto; }
         public String getAudioPath() { return audioPath; }
         public String getVideoPath() { return videoPath; }
@@ -46,11 +56,11 @@ namespace TalkingPaper.Model
         public String getCoordinate() { return coordinate; }
 
         public void setNomeContenuto(String nomeContenuto) { this.nomeContenuto = nomeContenuto; }
-        public void setAudioPath(String audioPath) { this.audioPath = audioPath; }
-        public void setVideoPath(String videoPath) { this.videoPath = videoPath; }
-        public void setImagePath(String imagePath) { this.imagePath = imagePath; }
-        public void setTextPath(String textPath) { this.textPath = textPath; }
-        public void setCoordinate(String coordinate) { this.coordinate = coordinate; }
+        public void setAudioPath(String audioPath) { if (audioPath != "") this.audioPath = audioPath; else this.audioPath = null; }
+        public void setVideoPath(String videoPath) { if (videoPath != "") this.videoPath = videoPath; else videoPath = null; }
+        public void setImagePath(String imagePath) { if (imagePath != "")  this.imagePath = imagePath; else imagePath = null; }
+        public void setTextPath(String textPath) { if (textPath != "")  this.textPath = textPath; else textPath = null; }
+        public void setCoordinate(String coordinate) { if (coordinate != "" && coordinate != null)  this.coordinate = coordinate; else coordinate = "00"; }
 
     }
 }
