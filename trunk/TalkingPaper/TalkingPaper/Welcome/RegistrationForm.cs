@@ -23,24 +23,19 @@ namespace TalkingPaper.Welcome
 
         private void annulla_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
-            new IndexForm().Show();
-            this.Cursor = Cursors.Default;
-            this.Visible = false;
+            NavigationControl.goBack(this);
         }
 
         private void ok_Click(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
+            
             if (textBox2.Text == textBox3.Text)
             {
                 
                 if (logc.registration(textBox1.Text, textBox2.Text))
                 {
                     MessageBox.Show("Ti sei registrato con successo!");
-                    new ChildHomeForm().Show();
-                    this.Cursor = Cursors.Default;
-                    this.Visible = false;
+                    NavigationControl.goBack(this);
                 }
                 else
                 {
