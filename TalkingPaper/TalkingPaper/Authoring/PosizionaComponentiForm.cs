@@ -78,10 +78,19 @@ namespace TalkingPaper.Authoring
 
             disegnaGriglia();
 
-            //controllo se il poster 'nomePoster' esiste già
-            Poster p = Global.dataHandler.getPoster(nomePoster);
+            //controllo se il poster 'nomePoster' esiste già: non dovrebbe servire piu
+           // bool b = Global.dataHandler.existPoster(nomePoster);
+           // if (b) 
+           // {
+                Poster p = Global.dataHandler.getPoster(nomePoster);
+                if (p.getNome() != null)
+                {
+                    listaContenuti = p.getContenuti();
+                    riempiGriglia(p);
+                }
+           // }
 
-            if (p != null)
+           /* if (p != null)
             {
                 if (p.getNome() != null)
                 {
@@ -89,7 +98,7 @@ namespace TalkingPaper.Authoring
                     riempiGriglia(p);
                 }
             }
-            p = null;
+            p = null;*/  //Ma p=null a che serviva???
 
             ricaricaElencoRisorse();
 

@@ -24,10 +24,14 @@ namespace TalkingPaper.Authoring
             {
                 MessageBox.Show("Devi inserire una descrizione per il cartellone");
             }
+            else if (Global.dataHandler.existPoster(Nome.Text)) 
+            {
+                MessageBox.Show("Questo poster esiste già");
+            }
             else
             {
-                ScegliGrigliaForm sc = new ScegliGrigliaForm(Nome.Text, Descrizione.Text, Classe.Text);
-                NavigationControl.goTo(this, sc);
+               ScegliGrigliaForm sc = new ScegliGrigliaForm(Nome.Text, Descrizione.Text, Classe.Text);
+               NavigationControl.goTo(this, sc);
             }
         }
 

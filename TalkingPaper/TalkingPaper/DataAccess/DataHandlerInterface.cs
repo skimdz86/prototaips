@@ -56,6 +56,9 @@ namespace TalkingPaper.DataAccess
         //rimuove un poster
         bool removePoster(String nomePoster);
 
+        //controlla l'esistenza di un poster
+        bool existPoster(String nomePoster);
+
         /*
          * Non c'è la sezione COMPONENTE, perchè i componenti
          * vengono gestiti solamente 'in locale'. I componenti
