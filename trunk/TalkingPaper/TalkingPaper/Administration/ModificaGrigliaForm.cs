@@ -22,15 +22,15 @@ namespace TalkingPaper.Administration
         public ModificaGrigliaForm(String nomeGriglia)
         {
             InitializeComponent();
-            ControlLogic.AdministrationControl ad = new TalkingPaper.ControlLogic.AdministrationControl();
-            this.griglia = ad.getGriglia(nomeGriglia);
+            control = new ControlLogic.AdministrationControl();
+            this.griglia = control.getGriglia(nomeGriglia);
             control = new ControlLogic.AdministrationControl();
             bool readerOk = control.inizializzaReader(this);
             if (!readerOk)
             {
                 MessageBox.Show("Impossibile avviare il lettore");
-                this.Dispose();
-                return;
+                //this.Dispose();
+                //return;
             }
             inizializzaDataGrid();
 
@@ -61,8 +61,16 @@ namespace TalkingPaper.Administration
             {
                 for (int j = 1; j < (griglia.getNumColonne() + 1); j++)
                 {
-                    if (!(tags[(i - 1) * griglia.getNumColonne() + (j - 1)].Equals(""))) control.addId(tags[(i - 1) * griglia.getNumColonne() + (j - 1)]);
-                    ElencoTag[j, i].Value = tags[(i-1) * griglia.getNumColonne() + (j-1)];
+                    if (!(tags[(i - 1) * griglia.getNumColonne() + (j - 1)].Equals("")))
+                    {
+                        control.addId(tags[(i - 1) * griglia.getNumColonne() + (j - 1)]);
+                        ElencoTag[j, i].Value = tags[(i - 1) * griglia.getNumColonne() + (j - 1)];
+                    }
+                    else
+                    {
+                        ElencoTag[j, i].Value = null;
+
+                    }
                 }
             }
         }
