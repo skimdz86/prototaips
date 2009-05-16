@@ -21,7 +21,7 @@ namespace TalkingPaper.DataAccess
                 writer.WriteEndDocument();
                 writer.Close();
             }
-            catch (XmlException e) { Console.Write(e.StackTrace); }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         public bool setPoster(Model.Poster poster)
         {
@@ -29,7 +29,7 @@ namespace TalkingPaper.DataAccess
             {
                 if (!File.Exists(filepath)) CreateElencoPoster();
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -73,15 +73,19 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         public Model.Poster getPoster(String nomePoster) {
 
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return null; }
+                if (!File.Exists(filepath)) 
+                {
+                    CreateElencoPoster();
+                    //throw new Exception("Il file non esiste!");
+                }
             }
-            catch (IOException e) { return null; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -122,15 +126,19 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return tempPoster;
             }
-            catch (XmlException e) { return null; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         public List<Model.Poster> getListaPoster() {
 
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return null; }
+                if (!File.Exists(filepath)) 
+                {
+                    CreateElencoPoster();
+                    //throw new Exception("Il file non esiste!"); 
+                }
             }
-            catch (IOException e) { return null; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -154,15 +162,19 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return tempPos;
             }
-            catch (XmlException e) { return null; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         public bool removePoster(String nomePoster) {
 
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!"); return false; }
+                if (!File.Exists(filepath)) 
+                {
+                    CreateElencoPoster();
+                    //throw new Exception("Il file non esiste!"); 
+                }
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -185,27 +197,41 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
 
         public bool existPoster(String nomePoster)
         {
-            XmlDocument doc = new XmlDocument();
-            FileStream stream = new FileStream(filepath, FileMode.Open);
-            doc.Load(stream);
-            ////controllo nome gia esistente
-            XmlNodeList l = doc.GetElementsByTagName("Poster");
-            for (int k = 0; k < l.Count; k++)
+            try
             {
-                XmlElement xel = (XmlElement)l[k];
-                if (xel.GetAttribute("Nome") == nomePoster)
+                if (!File.Exists(filepath)) 
                 {
-                    stream.Close();
-                    return true;
+                    CreateElencoPoster();
+                    //throw new Exception("Il file non esiste!"); 
                 }
             }
-            stream.Close();
-            return false;
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                FileStream stream = new FileStream(filepath, FileMode.Open);
+                doc.Load(stream);
+                ////controllo nome gia esistente
+                XmlNodeList l = doc.GetElementsByTagName("Poster");
+                for (int k = 0; k < l.Count; k++)
+                {
+                    XmlElement xel = (XmlElement)l[k];
+                    if (xel.GetAttribute("Nome") == nomePoster)
+                    {
+                        stream.Close();
+                        return true;
+                    }
+                }
+                stream.Close();
+                return false;
+            }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         
     }

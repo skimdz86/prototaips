@@ -26,7 +26,7 @@ namespace TalkingPaper.DataAccess
                 if (b) return true;
                 else return false;
             }
-            catch (XmlException e) { Console.Write(e.StackTrace); return false; }
+            catch (XmlException e) { throw new Exception("Errore nella creazione del file utenti", e); }
         }
         public bool createAdmin(){
             try
@@ -50,7 +50,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         //ereditata
         public bool registraUtente(String login, String password)
@@ -59,7 +59,7 @@ namespace TalkingPaper.DataAccess
             {
                 if (!File.Exists(filepath)) CreateListaUtenti();
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
             
             try
             {
@@ -92,7 +92,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         ////da vedere se serve
         public bool RemoveUtente(String login, String filepath)
@@ -101,7 +101,7 @@ namespace TalkingPaper.DataAccess
             {
                 if (!File.Exists(filepath)) CreateListaUtenti();
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
             
             try
             {
@@ -121,16 +121,16 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         ////autentica
         public bool autenticaUtente(String login, String password)
         {
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!Lo creo"); CreateListaUtenti(); }
+                if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -156,16 +156,16 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return flag;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         //listautenti
         public List<Model.User> getListaUtenti()
         {
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!Lo creo"); CreateListaUtenti(); }
+                if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
-            catch (IOException e) { return null; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -189,16 +189,16 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return temp;
             }
-            catch (XmlException e) { return null; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
         //verifica admin
         public bool isAdmin(String username) {
             
             try
             {
-                if (!File.Exists(filepath)) { Console.Write("Il file non esiste!Lo creo"); CreateListaUtenti(); }
+                if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
-            catch (IOException e) { return false; }
+            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
 
             try
             {
@@ -226,7 +226,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return false;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException e) { throw new Exception("Errore xml", e); }
         }
     }
 }
