@@ -155,7 +155,7 @@ namespace TalkingPaper.Reader
 
         bool IReader.close()
         {
-            timerRead.Stop();
+            if (timerRead != null) timerRead.Stop();
             return true;
         }
     }

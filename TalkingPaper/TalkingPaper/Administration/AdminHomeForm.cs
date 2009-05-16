@@ -20,8 +20,8 @@ namespace TalkingPaper.Administration
             {
                 configRfid.Visible = true;
                 groupBox1.Visible = true;
-                nuovaGriglia.Enabled = false;
-                modificaGriglia.Enabled = false;
+            //    nuovaGriglia.Enabled = false;
+            //    modificaGriglia.Enabled = false;
 
 
             }
