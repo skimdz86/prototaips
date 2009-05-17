@@ -167,8 +167,8 @@ namespace TalkingPaper.Authoring
             schemaGriglia.Rows[0].Height = 35;
             schemaGriglia.Columns[0].Width = 50;
 
-            schemaGriglia[0, 0].Style.BackColor = Color.LimeGreen;
-            schemaGriglia[0, 0].Style.SelectionBackColor = Color.LimeGreen;
+            schemaGriglia[0, 0].Style.BackColor = Color.ForestGreen;
+            schemaGriglia[0, 0].Style.SelectionBackColor = Color.ForestGreen;
 
             Font font = new Font("Arial", 16);
 
@@ -177,8 +177,8 @@ namespace TalkingPaper.Authoring
             {
                 schemaGriglia[0, i].Value = i;
                 schemaGriglia[0, i].Style.Font = font;
-                schemaGriglia[0, i].Style.BackColor = Color.LimeGreen;
-                schemaGriglia[0, i].Style.SelectionBackColor = Color.LimeGreen;
+                schemaGriglia[0, i].Style.BackColor = Color.ForestGreen;
+                schemaGriglia[0, i].Style.SelectionBackColor = Color.ForestGreen;
             }
 
             //header colonne
@@ -187,8 +187,8 @@ namespace TalkingPaper.Authoring
                 schemaGriglia.Columns[j].Width = 120;
                 schemaGriglia[j, 0].Value = (char)('A' + j - 1);
                 schemaGriglia[j, 0].Style.Font = font;
-                schemaGriglia[j, 0].Style.BackColor = Color.LimeGreen;
-                schemaGriglia[j, 0].Style.SelectionBackColor = Color.LimeGreen;
+                schemaGriglia[j, 0].Style.BackColor = Color.ForestGreen;
+                schemaGriglia[j, 0].Style.SelectionBackColor = Color.ForestGreen;
             }
 
             //singole celle

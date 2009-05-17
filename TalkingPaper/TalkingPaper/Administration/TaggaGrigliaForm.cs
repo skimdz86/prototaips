@@ -48,21 +48,21 @@ namespace TalkingPaper.Administration
             ElencoTag.Columns[0].DefaultCellStyle.Font = font;
             ElencoTag.Columns[0].Width = 50;
             ElencoTag.Rows[0].Height = 35;
-            ElencoTag[0, 0].Style.BackColor = Color.LimeGreen;
-            ElencoTag[0, 0].Style.SelectionBackColor = Color.LimeGreen;
+            ElencoTag[0, 0].Style.BackColor = Color.ForestGreen;
+            ElencoTag[0, 0].Style.SelectionBackColor = Color.ForestGreen;
 
             for (int i = 1; i <= griglia.getNumRighe(); i++)
             {
                 ElencoTag[0, i].Value = i;
-                ElencoTag[0, i].Style.BackColor = Color.LimeGreen;
-                ElencoTag[0, i].Style.SelectionBackColor = Color.LimeGreen;
+                ElencoTag[0, i].Style.BackColor = Color.ForestGreen;
+                ElencoTag[0, i].Style.SelectionBackColor = Color.ForestGreen;
             }
             for (int j = 1; j <= griglia.getNumColonne(); j++)
             {
                 ElencoTag.Columns[j].Width = 110;
                 ElencoTag[j, 0].Value = alfabeto[j - 1];
-                ElencoTag[j, 0].Style.BackColor = Color.LimeGreen;
-                ElencoTag[j, 0].Style.SelectionBackColor = Color.LimeGreen;
+                ElencoTag[j, 0].Style.BackColor = Color.ForestGreen;
+                ElencoTag[j, 0].Style.SelectionBackColor = Color.ForestGreen;
             }
             ElencoTag[1, 1].Style.SelectionBackColor = Color.Yellow;
             ElencoTag[colonna, riga].Selected = true;
