@@ -30,10 +30,6 @@ namespace TalkingPaper.Execution
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.labelTitolo = new System.Windows.Forms.Label();
-            this.labelEsecuzione = new System.Windows.Forms.Label();
-            this.labelNoEsecuzione = new System.Windows.Forms.Label();
             this.buttonAttiva = new System.Windows.Forms.Button();
             this.buttonDisattiva = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,34 +38,13 @@ namespace TalkingPaper.Execution
             this.labelNomeRisorsa = new System.Windows.Forms.Label();
             this.labelNomeContenuto = new System.Windows.Forms.Label();
             this.labelNomePoster = new System.Windows.Forms.Label();
-            this.labelRfidTag = new System.Windows.Forms.Label();
-            this.label = new System.Windows.Forms.Label();
-            this.linkLabelStorico = new System.Windows.Forms.LinkLabel();
-            this.labelUtente = new System.Windows.Forms.Label();
-            this.labelProfilo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.labelStatus = new System.Windows.Forms.Label();
-            this.timer = new System.Windows.Forms.Timer(this.components);
-            this.timerRisorsa = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.buttonSalvaDisplay = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.labelOrario = new System.Windows.Forms.Label();
             this.labelOrario2 = new System.Windows.Forms.Label();
-            this.labelTagNonPresente = new System.Windows.Forms.Label();
-            this.buttonSalvaConsole = new System.Windows.Forms.Button();
-            this.buttonStoricoContenuti = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
-            this.buttonSalvaErrori = new System.Windows.Forms.Button();
-            this.admin1 = new System.Windows.Forms.GroupBox();
             this.admin2 = new System.Windows.Forms.GroupBox();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.admin1.SuspendLayout();
             this.admin2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,50 +69,16 @@ namespace TalkingPaper.Execution
             // 
             this.boxSotto.Visible = false;
             // 
-            // labelTitolo
-            // 
-            this.labelTitolo.AutoSize = true;
-            this.labelTitolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitolo.ForeColor = System.Drawing.Color.Black;
-            this.labelTitolo.Location = new System.Drawing.Point(12, 22);
-            this.labelTitolo.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelTitolo.Name = "labelTitolo";
-            this.labelTitolo.Size = new System.Drawing.Size(185, 20);
-            this.labelTitolo.TabIndex = 0;
-            this.labelTitolo.Text = "Il sistema è in modalità di";
-            // 
-            // labelEsecuzione
-            // 
-            this.labelEsecuzione.AutoSize = true;
-            this.labelEsecuzione.ForeColor = System.Drawing.Color.White;
-            this.labelEsecuzione.Location = new System.Drawing.Point(207, 22);
-            this.labelEsecuzione.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelEsecuzione.Name = "labelEsecuzione";
-            this.labelEsecuzione.Size = new System.Drawing.Size(102, 20);
-            this.labelEsecuzione.TabIndex = 1;
-            this.labelEsecuzione.Text = "Esecuzione";
-            this.labelEsecuzione.Visible = false;
-            // 
-            // labelNoEsecuzione
-            // 
-            this.labelNoEsecuzione.AutoSize = true;
-            this.labelNoEsecuzione.ForeColor = System.Drawing.Color.White;
-            this.labelNoEsecuzione.Location = new System.Drawing.Point(205, 22);
-            this.labelNoEsecuzione.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.labelNoEsecuzione.Name = "labelNoEsecuzione";
-            this.labelNoEsecuzione.Size = new System.Drawing.Size(142, 20);
-            this.labelNoEsecuzione.TabIndex = 2;
-            this.labelNoEsecuzione.Text = "NON esecuzione";
-            // 
             // buttonAttiva
             // 
             this.buttonAttiva.BackColor = System.Drawing.Color.Yellow;
+            this.buttonAttiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAttiva.ForeColor = System.Drawing.Color.Black;
-            this.buttonAttiva.Location = new System.Drawing.Point(40, 25);
+            this.buttonAttiva.Location = new System.Drawing.Point(34, 34);
             this.buttonAttiva.Name = "buttonAttiva";
-            this.buttonAttiva.Size = new System.Drawing.Size(109, 66);
+            this.buttonAttiva.Size = new System.Drawing.Size(119, 80);
             this.buttonAttiva.TabIndex = 3;
-            this.buttonAttiva.Text = "ATTIVA";
+            this.buttonAttiva.Text = "Attiva";
             this.buttonAttiva.UseVisualStyleBackColor = false;
             this.buttonAttiva.Click += new System.EventHandler(this.buttonAttiva_Click);
             // 
@@ -145,12 +86,13 @@ namespace TalkingPaper.Execution
             // 
             this.buttonDisattiva.BackColor = System.Drawing.Color.Yellow;
             this.buttonDisattiva.Enabled = false;
+            this.buttonDisattiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDisattiva.ForeColor = System.Drawing.Color.Black;
-            this.buttonDisattiva.Location = new System.Drawing.Point(173, 25);
+            this.buttonDisattiva.Location = new System.Drawing.Point(196, 34);
             this.buttonDisattiva.Name = "buttonDisattiva";
-            this.buttonDisattiva.Size = new System.Drawing.Size(109, 66);
+            this.buttonDisattiva.Size = new System.Drawing.Size(119, 80);
             this.buttonDisattiva.TabIndex = 4;
-            this.buttonDisattiva.Text = "disattiva";
+            this.buttonDisattiva.Text = "Disattiva";
             this.buttonDisattiva.UseVisualStyleBackColor = false;
             this.buttonDisattiva.Click += new System.EventHandler(this.buttonDisattiva_Click);
             // 
@@ -217,84 +159,6 @@ namespace TalkingPaper.Execution
             this.labelNomePoster.Text = "labelNomePoster";
             this.labelNomePoster.Visible = false;
             // 
-            // labelRfidTag
-            // 
-            this.labelRfidTag.AutoSize = true;
-            this.labelRfidTag.ForeColor = System.Drawing.Color.White;
-            this.labelRfidTag.Location = new System.Drawing.Point(129, 143);
-            this.labelRfidTag.Name = "labelRfidTag";
-            this.labelRfidTag.Size = new System.Drawing.Size(77, 20);
-            this.labelRfidTag.TabIndex = 12;
-            this.labelRfidTag.Text = "Rfid Tag";
-            this.labelRfidTag.Visible = false;
-            // 
-            // label
-            // 
-            this.label.AutoSize = true;
-            this.label.ForeColor = System.Drawing.Color.Black;
-            this.label.Location = new System.Drawing.Point(39, 143);
-            this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(73, 20);
-            this.label.TabIndex = 14;
-            this.label.Text = "Rfid tag";
-            this.label.Visible = false;
-            // 
-            // linkLabelStorico
-            // 
-            this.linkLabelStorico.AutoSize = true;
-            this.linkLabelStorico.Enabled = false;
-            this.linkLabelStorico.Location = new System.Drawing.Point(760, 58);
-            this.linkLabelStorico.Name = "linkLabelStorico";
-            this.linkLabelStorico.Size = new System.Drawing.Size(213, 20);
-            this.linkLabelStorico.TabIndex = 16;
-            this.linkLabelStorico.TabStop = true;
-            this.linkLabelStorico.Text = "Elenco dei contenuti visiti";
-            this.linkLabelStorico.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelStorico_LinkClicked);
-            // 
-            // labelUtente
-            // 
-            this.labelUtente.AutoSize = true;
-            this.labelUtente.ForeColor = System.Drawing.Color.White;
-            this.labelUtente.Location = new System.Drawing.Point(129, 68);
-            this.labelUtente.Name = "labelUtente";
-            this.labelUtente.Size = new System.Drawing.Size(102, 20);
-            this.labelUtente.TabIndex = 17;
-            this.labelUtente.Text = "labelUtente";
-            this.labelUtente.Visible = false;
-            // 
-            // labelProfilo
-            // 
-            this.labelProfilo.AutoSize = true;
-            this.labelProfilo.ForeColor = System.Drawing.Color.White;
-            this.labelProfilo.Location = new System.Drawing.Point(129, 105);
-            this.labelProfilo.Name = "labelProfilo";
-            this.labelProfilo.Size = new System.Drawing.Size(98, 20);
-            this.labelProfilo.TabIndex = 18;
-            this.labelProfilo.Text = "labelProfilo";
-            this.labelProfilo.Visible = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(39, 105);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(78, 20);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "di profilo";
-            this.label5.Visible = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(39, 68);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 20);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Utente";
-            this.label6.Visible = false;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -315,52 +179,6 @@ namespace TalkingPaper.Execution
             this.labelStatus.TabIndex = 22;
             this.labelStatus.Text = "labelStatus";
             this.labelStatus.Visible = false;
-            // 
-            // timerRisorsa
-            // 
-            this.timerRisorsa.Enabled = true;
-            this.timerRisorsa.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panel1
-            // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.richTextBox1);
-            this.panel1.Controls.Add(this.buttonSalvaDisplay);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(16, 198);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(960, 167);
-            this.panel1.TabIndex = 24;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(26, 23);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(917, 127);
-            this.richTextBox1.TabIndex = 29;
-            this.richTextBox1.Text = "";
-            // 
-            // buttonSalvaDisplay
-            // 
-            this.buttonSalvaDisplay.Location = new System.Drawing.Point(36, 407);
-            this.buttonSalvaDisplay.Name = "buttonSalvaDisplay";
-            this.buttonSalvaDisplay.Size = new System.Drawing.Size(149, 29);
-            this.buttonSalvaDisplay.TabIndex = 2;
-            this.buttonSalvaDisplay.Text = "Salva";
-            this.buttonSalvaDisplay.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(188, 16);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "Internal Message Console";
             // 
             // labelOrario
             // 
@@ -386,100 +204,15 @@ namespace TalkingPaper.Execution
             this.labelOrario2.Text = "orario2";
             this.labelOrario2.Visible = false;
             // 
-            // labelTagNonPresente
-            // 
-            this.labelTagNonPresente.AutoSize = true;
-            this.labelTagNonPresente.ForeColor = System.Drawing.Color.White;
-            this.labelTagNonPresente.Location = new System.Drawing.Point(454, 22);
-            this.labelTagNonPresente.Name = "labelTagNonPresente";
-            this.labelTagNonPresente.Size = new System.Drawing.Size(272, 20);
-            this.labelTagNonPresente.TabIndex = 28;
-            this.labelTagNonPresente.Text = "Ultimo Tag letto non è eseguibile";
-            this.labelTagNonPresente.Visible = false;
-            // 
-            // buttonSalvaConsole
-            // 
-            this.buttonSalvaConsole.BackColor = System.Drawing.Color.Yellow;
-            this.buttonSalvaConsole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSalvaConsole.ForeColor = System.Drawing.Color.Black;
-            this.buttonSalvaConsole.Location = new System.Drawing.Point(993, 244);
-            this.buttonSalvaConsole.Name = "buttonSalvaConsole";
-            this.buttonSalvaConsole.Size = new System.Drawing.Size(156, 66);
-            this.buttonSalvaConsole.TabIndex = 29;
-            this.buttonSalvaConsole.Text = "Salva Contenuto Console";
-            this.buttonSalvaConsole.UseVisualStyleBackColor = false;
-            this.buttonSalvaConsole.Click += new System.EventHandler(this.buttonSalvaConsole_Click);
-            // 
-            // buttonStoricoContenuti
-            // 
-            this.buttonStoricoContenuti.BackColor = System.Drawing.Color.Yellow;
-            this.buttonStoricoContenuti.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonStoricoContenuti.ForeColor = System.Drawing.Color.Black;
-            this.buttonStoricoContenuti.Location = new System.Drawing.Point(993, 35);
-            this.buttonStoricoContenuti.Name = "buttonStoricoContenuti";
-            this.buttonStoricoContenuti.Size = new System.Drawing.Size(156, 66);
-            this.buttonStoricoContenuti.TabIndex = 30;
-            this.buttonStoricoContenuti.Text = "Salva Storico Contenuti";
-            this.buttonStoricoContenuti.UseVisualStyleBackColor = false;
-            this.buttonStoricoContenuti.Click += new System.EventHandler(this.buttonStoricoContenuti_Click);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Enabled = false;
-            this.linkLabel1.Location = new System.Drawing.Point(760, 133);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(154, 20);
-            this.linkLabel1.TabIndex = 31;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Elenco degli errori";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
-            // 
-            // buttonSalvaErrori
-            // 
-            this.buttonSalvaErrori.BackColor = System.Drawing.Color.Yellow;
-            this.buttonSalvaErrori.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSalvaErrori.ForeColor = System.Drawing.Color.Black;
-            this.buttonSalvaErrori.Location = new System.Drawing.Point(991, 110);
-            this.buttonSalvaErrori.Name = "buttonSalvaErrori";
-            this.buttonSalvaErrori.Size = new System.Drawing.Size(156, 66);
-            this.buttonSalvaErrori.TabIndex = 32;
-            this.buttonSalvaErrori.Text = "Salva Storico Errori";
-            this.buttonSalvaErrori.UseVisualStyleBackColor = false;
-            this.buttonSalvaErrori.Click += new System.EventHandler(this.buttonSalvaErrori_Click);
-            // 
-            // admin1
-            // 
-            this.admin1.Controls.Add(this.buttonSalvaErrori);
-            this.admin1.Controls.Add(this.linkLabel1);
-            this.admin1.Controls.Add(this.buttonSalvaConsole);
-            this.admin1.Controls.Add(this.label6);
-            this.admin1.Controls.Add(this.label5);
-            this.admin1.Controls.Add(this.buttonStoricoContenuti);
-            this.admin1.Controls.Add(this.labelProfilo);
-            this.admin1.Controls.Add(this.labelUtente);
-            this.admin1.Controls.Add(this.panel1);
-            this.admin1.Controls.Add(this.linkLabelStorico);
-            this.admin1.Controls.Add(this.labelTagNonPresente);
-            this.admin1.Controls.Add(this.label);
-            this.admin1.Controls.Add(this.labelRfidTag);
-            this.admin1.Controls.Add(this.labelTitolo);
-            this.admin1.Controls.Add(this.labelNoEsecuzione);
-            this.admin1.Controls.Add(this.labelEsecuzione);
-            this.admin1.Location = new System.Drawing.Point(2, 367);
-            this.admin1.Name = "admin1";
-            this.admin1.Size = new System.Drawing.Size(1170, 371);
-            this.admin1.TabIndex = 0;
-            this.admin1.TabStop = false;
-            this.admin1.Visible = false;
-            // 
             // admin2
             // 
-            this.admin2.Controls.Add(this.buttonDisattiva);
+            this.admin2.BackColor = System.Drawing.Color.Orange;
             this.admin2.Controls.Add(this.buttonAttiva);
-            this.admin2.Location = new System.Drawing.Point(666, 234);
+            this.admin2.Controls.Add(this.buttonDisattiva);
+            this.admin2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.admin2.Location = new System.Drawing.Point(666, 568);
             this.admin2.Name = "admin2";
-            this.admin2.Size = new System.Drawing.Size(350, 99);
+            this.admin2.Size = new System.Drawing.Size(350, 142);
             this.admin2.TabIndex = 56;
             this.admin2.TabStop = false;
             this.admin2.Visible = false;
@@ -492,9 +225,8 @@ namespace TalkingPaper.Execution
             this.ClientSize = new System.Drawing.Size(1028, 739);
             this.Controls.Add(this.labelOrario2);
             this.Controls.Add(this.labelOrario);
-            this.Controls.Add(this.admin1);
-            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.admin2);
+            this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.labelNomePoster);
             this.Controls.Add(this.labelNomeContenuto);
@@ -517,9 +249,8 @@ namespace TalkingPaper.Execution
             this.Controls.SetChildIndex(this.labelNomePoster, 0);
             this.Controls.SetChildIndex(this.label7, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
-            this.Controls.SetChildIndex(this.admin2, 0);
             this.Controls.SetChildIndex(this.labelStatus, 0);
-            this.Controls.SetChildIndex(this.admin1, 0);
+            this.Controls.SetChildIndex(this.admin2, 0);
             this.Controls.SetChildIndex(this.labelOrario, 0);
             this.Controls.SetChildIndex(this.labelOrario2, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
@@ -528,10 +259,6 @@ namespace TalkingPaper.Execution
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.admin1.ResumeLayout(false);
-            this.admin1.PerformLayout();
             this.admin2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -540,9 +267,6 @@ namespace TalkingPaper.Execution
 
         #endregion
 
-        private System.Windows.Forms.Label labelTitolo;
-        private System.Windows.Forms.Label labelEsecuzione;
-        private System.Windows.Forms.Label labelNoEsecuzione;
         private System.Windows.Forms.Button buttonAttiva;
         private System.Windows.Forms.Button buttonDisattiva;
         private System.Windows.Forms.Label label1;
@@ -551,29 +275,10 @@ namespace TalkingPaper.Execution
         private System.Windows.Forms.Label labelNomeRisorsa;
         private System.Windows.Forms.Label labelNomeContenuto;
         private System.Windows.Forms.Label labelNomePoster;
-        private System.Windows.Forms.Label labelRfidTag;
-        private System.Windows.Forms.Label label;
-        private System.Windows.Forms.LinkLabel linkLabelStorico;
-        private System.Windows.Forms.Label labelUtente;
-        private System.Windows.Forms.Label labelProfilo;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.Timer timerRisorsa;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button buttonSalvaDisplay;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label labelOrario;
         private System.Windows.Forms.Label labelOrario2;
-        private System.Windows.Forms.Label labelTagNonPresente;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button buttonSalvaConsole;
-        private System.Windows.Forms.Button buttonStoricoContenuti;
-        private System.Windows.Forms.LinkLabel linkLabel1;
-        private System.Windows.Forms.Button buttonSalvaErrori;
-        private System.Windows.Forms.GroupBox admin1;
         private System.Windows.Forms.GroupBox admin2;
     }
 }

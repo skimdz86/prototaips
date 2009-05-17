@@ -18,22 +18,11 @@ namespace TalkingPaper.Execution
     {
 
         private ControlLogic.ExecutionControl control;
-        private string nomePoster;
+        private Model.Poster poster;
 
-
-     //   private Utente u_current;
         private bool attivo; // variabile che identifica lo status del sistema
-        private string storicoFilePath;
-        private string oldId; // serve per capire se il tag è quello del precedente o no
-     //   private Contenuto2 cont_current;
-        //Devo pensare ad una struttura dati che mi contenga lo storico...
-        private int rfid_num;
-        //private int cont_storico;
-       // private NHibernateManager nh_mng;
-        private ArrayList arrayStorico;
-        private ArrayList arrayStoricoData;
-        private ArrayList arrayError;
-        private ArrayList arrayErrorData;
+
+        
         //Per gestire lo stato della risorsamultimediale
         private enum MediaStatus { None, Stopped, Paused, Running, End };
         private MediaStatus m_CurrentStatus;
@@ -44,7 +33,7 @@ namespace TalkingPaper.Execution
         private IMediaEventEx m_objMediaEventEx = null;
         private IMediaPosition m_objMediaPosition = null;
         private IMediaControl m_objMediaControl = null;
-        private string directoryPath;
+        
         private const int WM_APP = 0x8000;
         private const int WM_GRAPHNOTIFY = WM_APP + 1;
         private const int EC_COMPLETE = 0x01;
@@ -53,68 +42,43 @@ namespace TalkingPaper.Execution
         private FormVideo f_video;
         
 
-        #region Costruttore
+        
 
         public EsecuzioneCartelloneForm(string nomePoster)
         {
             InitializeComponent();
-            
-            
-            this.nomePoster = nomePoster;
-            
-            //this.inizio2 = inizio2;
-            f_video = new FormVideo();
-      //      u_current = new Utente();
-      //      cont_current = new Contenuto2(); ;
-            arrayStorico = new ArrayList();
-            arrayStoricoData = new ArrayList();
-            arrayError = new ArrayList();
-            arrayErrorData = new ArrayList();
-            m_CurrentStatus = MediaStatus.None;
-            
-            attivo = false;
-            oldId = "";
-            
-         //   nh_mng = new NHibernateManager();
-            
-                /*rfid_num = Global.reader.connect();
-                if (rfid_num <= 0)
-                {
-                    //Qualcosa non ha funzionato, rifare...
-                    MessageBox.Show("Errore di collegamento con il RFID Reader.\nControllare che sia correttamente collegato al computer\nTerminazione forzata del programma.", "ATTENZIONE",
-MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    string error = "Errore in costruttore FormEsecuzione: probabilmente l'RFID reader non è correttamente collegato al computer";
-                    arrayError.Add(error);
-                    arrayErrorData.Add(DateTime.Now);
-                    this.richTextBox1.Text += "\n" + error;
-                    this.Close();
-                    inizio.Close();
-                }
-                else
-                {
-                    Console.WriteLine("SONO in costruttore di FormEsecuzione, tutto ok");
-                    this.richTextBox1.Text += "\nInizializzazione Form: OK ";
-                }*/
-            
 
+            control = new ControlLogic.ExecutionControl();
+            poster = control.getPoster(nomePoster);
+            if (poster == null)
+            {
+                throw new Exception("Errore!! Esecuzione di un poster inesistente");
+            }
+            
+            f_video = new FormVideo();
+      
+            m_CurrentStatus = MediaStatus.None;
+
+            attivo = true;
+            
             UpdateStatusBar();
 
 
         }
 
-        #endregion
+        
 
-        #region RFId
+        
 
         /// <summary>
         /// metodo per la gestione della lettura del tag
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void rfid_StatusUpdateEvent(string id)
+        public void rfid_StatusUpdateEvent(string id)
         {
  
-
+            
             /*if (oldId.Equals(id) == true && (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Running))
             //if( oldId.Equals(id) == true && ( risorsa_attiva == true || risorsa_pausa == true))
             {
@@ -406,9 +370,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }// fine di else if (oldId.Equals(id) == false)*/
         }// fine void statusUpdate... 
 
-        #endregion
+        
 
-        #region altre funzioni
+        
 
         private void CleanUp()
         {
@@ -435,23 +399,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             if (m_objFilterGraph != null) m_objFilterGraph = null;
         }
 
-        void timer_Tick(object sender, EventArgs e)
-        {
-            //reader.readerStatusUpdate += rfid_StatusUpdateEvent;
-            
-            //rfid_cfg.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(rfid_StatusUpdateEvent);
-            //int tag_letto = rfid_cfg.letturaID(rfid_num);
-            //Console.WriteLine("In timer_tick, tag_letto = " + tag_letto +"\nvediamo un po'...");
-            //this.richTextBox1.Text += "\aciao\r";
-        }
-
-        private void timer1_Tick(object sender, System.EventArgs e)
-        {
-            if (m_CurrentStatus == MediaStatus.Running)
-            {
-                UpdateStatusBar();
-            }
-        }
+        
 
         private void UpdateStatusBar()
         {
@@ -464,10 +412,9 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 case MediaStatus.End: labelStatus.Text = "End"; break;
                 default: Console.WriteLine("Probabile errore nell'updateStatus");
                     labelStatus.Text = "";
-                    this.richTextBox1.Text += "\nProbabile errore nell'updateSTatusBar";
+                    
                     string err = "Probabile errore nell'updateStatusBar";
-                    arrayError.Add(err);
-                    arrayErrorData.Add(DateTime.Now);
+                    
                     break;
             }
 
@@ -494,85 +441,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
-        private void updateLabelForm()
-        {
-            if (attivo == false)
-            {
-
-                labelEsecuzione.Visible = false;
-                labelNoEsecuzione.Visible = true;
-                buttonAttiva.Enabled = true;
-                buttonDisattiva.Enabled = false;
-                linkLabelStorico.Enabled = true;
-                linkLabel1.Enabled = true;
-                label1.Visible = false;
-                label2.Visible = false;
-                label3.Visible = false;
-                label5.Visible = false;
-                label6.Visible = false;
-                label7.Visible = false;
-                label.Visible = false;
-                this.labelRfidTag.Text = "";
-                this.labelNomeRisorsa.Text = "";
-                this.labelNomePoster.Text = "";
-                this.labelNomeContenuto.Text = "";
-                this.labelStatus.Text = "";
-                this.labelUtente.Text = " ";
-                this.labelProfilo.Text = " ";
-                this.labelOrario.Visible = false;
-                this.labelOrario2.Visible = false;
-                this.labelRfidTag.Visible = false;
-                this.labelStatus.Visible = false;
-                this.labelNomeRisorsa.Visible = false;
-                this.labelNomePoster.Visible = false;
-                this.labelNomeContenuto.Visible = false;
-                this.labelTagNonPresente.Visible = false;
-
- //               u_current = new Utente();
-
-            }
-            else if (m_CurrentStatus != MediaStatus.None && m_CurrentStatus != MediaStatus.Stopped)
-                
-            {
-                // sono in esecuzione
-   //             this.labelRfidTag.Text = cont_current.Rfidtag;
-
-   //             this.labelNomePoster.Text = cont_current.Poster.Nome;
-                try
-                {
-                  //  this.labelNomeRisorsa.Text = cont_current.RisorsaMultimediale.Nome;
-                  //  this.labelNomeContenuto.Text = cont_current.Nome;
-                }
-                catch { }
-                this.labelRfidTag.Visible = true;
-                this.labelStatus.Visible = true;
-                this.labelNomeRisorsa.Visible = true;
-                this.labelNomePoster.Visible = true;
-                this.labelNomeContenuto.Visible = true;
-            }
-            else //se attivo e non ho nulla in esecuzione, all'inizio quindi
-            {
-
-                labelEsecuzione.Visible = true;
-                labelNoEsecuzione.Visible = false;
-                buttonAttiva.Enabled = false;
-                buttonDisattiva.Enabled = true;
-                linkLabelStorico.Enabled = true;
-                linkLabel1.Enabled = true;
-                label1.Visible = true;
-                label2.Visible = true;
-                label3.Visible = true;
-                label5.Visible = true;
-                label6.Visible = true;
-                label7.Visible = true;
-                label.Visible = true;
-                this.labelOrario.Visible = true;
-                this.labelOrario2.Visible = true;
-            }
-
-        }
-
-        protected override void WndProc(ref Message m)
+       protected override void WndProc(ref Message m)
         {
             if (m.Msg == WM_GRAPHNOTIFY)
             {
@@ -595,7 +464,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             m_objMediaControl.Stop();
                             m_objMediaPosition.CurrentPosition = 0;
                             m_CurrentStatus = MediaStatus.End;
-                            oldId = "";
+                            
                             UpdateStatusBar();
                         }
                     }
@@ -609,237 +478,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             base.WndProc(ref m);
         }
 
-        #endregion
-
-        #region write file
-
-        private void write_StoricoXmlRfid()
-        {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            try
-            {
-                XmlWriter wr = XmlWriter.Create(this.storicoFilePath + "Storico_rfid.xml", settings);
-                wr.WriteStartDocument();
-                wr.WriteStartElement("events");
-                int indice = 0;
-                if (arrayStorico.Count != 0)
-                {
-                   /* foreach (Contenuto2 c in arrayStorico)
-                    {
-                        wr.WriteStartElement("Contenuto");
-                        wr.WriteElementString("IDcontenuto", Convert.ToString(c.IDcontenuto));
-                        wr.WriteElementString("Nome", c.Nome);
-                        wr.WriteElementString("Livello", Convert.ToString(c.Livello));
-                        wr.WriteElementString("Ordine", Convert.ToString(c.Ordine));
-                        wr.WriteElementString("Tipologia", c.Tipo.Tipo);
-                        wr.WriteElementString("RfidTag", c.Rfidtag);
-                        try
-                        {
-                            wr.WriteElementString("NomeRisorsamultimediale", c.RisorsaMultimediale.Nome);
-                        }
-                        catch {
-                            wr.WriteElementString("NomeRisorsamultimediale","nessuna risorsa");
-                        }
-                        wr.WriteElementString("NomePoster", c.Poster.Nome);
-                        wr.WriteElementString("Data", Convert.ToString(arrayStoricoData[indice]));
-                        indice++;
-                        wr.WriteEndElement();//chiudo tag <Contenuto>
-                    }*/
-                    wr.WriteEndElement();//chiudo tag <events>
-                    wr.WriteEndDocument();
-                }
-                else // non ci sono eventi
-                {
-                    wr.WriteStartElement("NessunEventoRilevato");
-                    wr.WriteElementString("Data", Convert.ToString(DateTime.Now));
-                    wr.WriteEndElement();//chiudo NessunErrore
-                    wr.WriteEndElement();//chiudo tag <Errors>
-                    wr.WriteEndDocument();
-                }
-
-                wr.Flush();
-                wr.Close();
-
-                Console.WriteLine("Scrittura file di Storico eseguita con successo,nel percorso = " + this.storicoFilePath);
-                MessageBox.Show("Scrittura file di Storico eseguita con successo.\nNel percorso = " + this.storicoFilePath, "Conferma Scrittura file"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (XmlException xmlExc)
-            {
-                Console.WriteLine("Errore nella creazione del file Storico.\nException Message = " + xmlExc.Message);
-                string error = "Errore nella creazione del file Storico.\nException Message = " + xmlExc.Message;
-                arrayError.Add(error);
-                arrayErrorData.Add(DateTime.Now);
-                MessageBox.Show("Errore nella creazione del file Storico.\nException Message = " + xmlExc.Message, "ERRORE"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void write_StoricoXmlRfid(string percorsoCompleto)
-        {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            try
-            {
-                XmlWriter wr = XmlWriter.Create(percorsoCompleto, settings);
-                wr.WriteStartDocument();
-                wr.WriteStartElement("events");
-                int indice = 0;
-                if (arrayStorico.Count != 0)
-                {
-                   /* foreach (Contenuto2 c in arrayStorico)
-                    {
-                        wr.WriteStartElement("Contenuto");
-                        wr.WriteElementString("IDcontenuto", Convert.ToString(c.IDcontenuto));
-                        wr.WriteElementString("Nome", c.Nome);
-                        wr.WriteElementString("Livello", Convert.ToString(c.Livello));
-                        wr.WriteElementString("Ordine", Convert.ToString(c.Ordine));
-                        wr.WriteElementString("Tipologia", c.Tipo.Tipo);
-                        wr.WriteElementString("RfidTag", c.Rfidtag);
-                        wr.WriteElementString("NomeRisorsamultimediale", c.RisorsaMultimediale.Nome);
-                        wr.WriteElementString("NomePoster", c.Poster.Nome);
-                        wr.WriteElementString("Data", Convert.ToString(arrayStoricoData[indice]));
-                        indice++;
-                        wr.WriteEndElement();//chiudo tag <Contenuto>
-                    }*/
-                    wr.WriteEndElement();//chiudo tag <events>
-                    wr.WriteEndDocument();
-                }
-                else // non ci sono eventi
-                {
-                    wr.WriteStartElement("NessunEventoRilevato");
-                    wr.WriteElementString("Data", Convert.ToString(DateTime.Now));
-                    wr.WriteEndElement();//chiudo NessunErrore
-                    wr.WriteEndElement();//chiudo tag <Errors>
-                    wr.WriteEndDocument();
-                }
-
-                wr.Flush();
-                wr.Close();
-
-                Console.WriteLine("Scrittura file di Storico eseguita con successo,nel percorso = " + percorsoCompleto);
-                MessageBox.Show("Scrittura file di Storico eseguita con successo.\nNel percorso = " + percorsoCompleto, "Conferma Scrittura file"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.richTextBox1.Text += "\nScrittura file di Storico eseguita con successo,nel percorso = " + percorsoCompleto;
-            }
-            catch (XmlException xmlExc)
-            {
-                Console.WriteLine("Errore nella creazione del file Storico.\nException Message = " + xmlExc.Message);
-                string error = "Errore nella creazione del file Storico.\nException Message = " + xmlExc.Message;
-                arrayError.Add(error);
-                arrayErrorData.Add(DateTime.Now);
-                MessageBox.Show("Errore nella creazione del file Storico.\nException Message = " + xmlExc.Message, "ERRORE"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.richTextBox1.Text += "\n" + error;
-            }
-        }
-
-        private void write_ErrorXmlRfid()
-        {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            try
-            {
-                XmlWriter wr = XmlWriter.Create(this.storicoFilePath + "Error_rfid.xml", settings);
-                wr.WriteStartDocument();
-                wr.WriteStartElement("Errors");
-                if (arrayError.Count != 0)
-                {
-                    for (int i = 0; i < arrayError.Count; i++)
-                    {
-                        wr.WriteStartElement("Error"); ;
-                        wr.WriteElementString("Message", arrayError[i].ToString());
-                        wr.WriteElementString("Data", Convert.ToString(arrayErrorData[i]));
-                        wr.WriteEndElement();//chiudo tag <Error>
-                    }
-                    wr.WriteEndElement();//chiudo tag <Errors>
-                    wr.WriteEndDocument();
-                }
-                else // non ci sono errori
-                {
-                    wr.WriteStartElement("NessunErroreRilevato");
-                    wr.WriteElementString("Data", Convert.ToString(DateTime.Now));
-                    wr.WriteEndElement();//chiudo NessunErrore
-                    wr.WriteEndElement();//chiudo tag <Errors>
-                    wr.WriteEndDocument();
-                }
-
-                wr.Flush();
-                wr.Close();
-
-                Console.WriteLine("Scrittura file di Errore eseguita con successo,nel percorso = " + this.storicoFilePath);
-                MessageBox.Show("Scrittura file di Errore eseguita con successo.\nNel percorso = " + this.storicoFilePath, "Conferma Scrittura file"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (XmlException xmlExc)
-            {
-                Console.WriteLine("Errore nella creazione del file Errore.\nException Message = " + xmlExc.Message);
-                MessageBox.Show("Errore nella creazione del file Errore.\nException Message = " + xmlExc.Message, "ERRORE"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void write_ErrorXmlRfid(string percorsoCompleto)
-        {
-            XmlWriterSettings settings = new XmlWriterSettings();
-            settings.Indent = true;
-            settings.NewLineOnAttributes = true;
-
-            try
-            {
-                XmlWriter wr = XmlWriter.Create(percorsoCompleto, settings);
-                wr.WriteStartDocument();
-                wr.WriteStartElement("Errors");
-                if (arrayError.Count != 0)
-                {
-                    for (int i = 0; i < arrayError.Count; i++)
-                    {
-                        wr.WriteStartElement("Error"); ;
-                        wr.WriteElementString("Message", arrayError[i].ToString());
-                        wr.WriteElementString("Data", Convert.ToString(arrayErrorData[i]));
-                        wr.WriteEndElement();//chiudo tag <Error>
-                    }
-                    wr.WriteEndElement();//chiudo tag <Errors>
-                    wr.WriteEndDocument();
-                }
-                else // non ci sono errori
-                {
-                    wr.WriteStartElement("NessunErroreRilevato");
-                    wr.WriteElementString("Data", Convert.ToString(DateTime.Now));
-                    wr.WriteEndElement();//chiudo NessunErrore
-                    wr.WriteEndElement();//chiudo tag <Errors>
-                    wr.WriteEndDocument();
-                }
-
-                wr.Flush();
-                wr.Close();
-
-                Console.WriteLine("Scrittura file di Errore eseguita con successo,nel percorso = " + percorsoCompleto);
-                MessageBox.Show("Scrittura file di Errore eseguita con successo.\nNel percorso = " + percorsoCompleto, "Conferma Scrittura file"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.richTextBox1.Text += "\nScrittura file di Errore eseguita con successo,nel percorso = " + percorsoCompleto;
-            }
-            catch (XmlException xmlExc)
-            {
-                Console.WriteLine("Errore nella creazione del file Errore.\nException Message = " + xmlExc.Message);
-                MessageBox.Show("Errore nella creazione del file Errore.\nException Message = " + xmlExc.Message, "ERRORE"
-                    , MessageBoxButtons.OK, MessageBoxIcon.Error);
-                this.richTextBox1.Text += "\nErrore nella creazione del file +" + percorsoCompleto + "\nException Message = " + xmlExc.Message;
-            }
-
-        }
-
-        #endregion
-
-        #region Button
+        
 
         private void buttonSalvaConsole_Click(object sender, EventArgs e)
         {
@@ -850,15 +489,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             saveFile1.DefaultExt = "*.rtf";
             saveFile1.Filter = "RTF Files|*.rtf";
 
-            // Determine if the user selected a file name from the saveFileDialog.
-            if (saveFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
-               saveFile1.FileName.Length > 0)
-            {
-
-                write_StoricoXmlRfid();
-                // Save the contents of the RichTextBox into the file.
-                richTextBox1.SaveFile(saveFile1.FileName, RichTextBoxStreamType.PlainText);
-            }
+            
+            
         }
 
         private void buttonStoricoContenuti_Click(object sender, EventArgs e)
@@ -871,12 +503,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             saveFile1.DefaultExt = "*.xml";
             saveFile1.Filter = "XML Files|*.xml";
 
-            // Determine if the user selected a file name from the saveFileDialog.
-            if (saveFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
-               saveFile1.FileName.Length > 0)
-            {
-                this.write_StoricoXmlRfid(saveFile1.FileName);
-            }
+            
         }
 
         private void buttonSalvaErrori_Click(object sender, EventArgs e)
@@ -888,47 +515,17 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             saveFile1.DefaultExt = "*.xml";
             saveFile1.Filter = "XML Files|*.xml";
 
-            // Determine if the user selected a file name from the saveFileDialog.
-            if (saveFile1.ShowDialog() == System.Windows.Forms.DialogResult.OK &&
-               saveFile1.FileName.Length > 0)
-            {
-                this.write_ErrorXmlRfid(saveFile1.FileName);
-            }
+            
         }
 
-        private void linkLabelStorico_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Console.WriteLine("Apertura della finestra FormStorico");
-            FormStorico fs = new FormStorico(this.arrayStorico, this.arrayStoricoData);
-            fs.Show();
-            fs.Activate();
-        }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Console.WriteLine("Apertura della finestra FormErrore");
-            FormErroreStorico fs = new FormErroreStorico(this.arrayError, this.arrayErrorData);
-            fs.Show();
-            fs.Activate();
-
-        }
+        
 
         private void buttonAttiva_Click(object sender, EventArgs e)
         {
-            /*
-             * Devo fare in modo che il reader sia sempre pronto a leggere
-             *  e tutte le info lette devo salvarle in qualche struttura per poterle 
-             *  poi salvare nello storico, e mostrarle nella FormStorico
-             * */
-
+            
             attivo = true;
-            updateLabelForm();
-            timer.Interval = 1000;
-            timer.Start();
-
-            timer.Tick += new EventHandler(timer_Tick);
-            timerRisorsa.Start();
-
+            
+            
         }
 
         private void buttonEsc_Click(object sender, EventArgs e)
@@ -946,14 +543,13 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             if (dr == DialogResult.Yes)
             {
-                Console.Write("Chiusura dell'applicazione, e salvataggio storico in " + storicoFilePath);
+                
                 //MessageBox.Show("Bisogna fare il codice per salvataggio file storico!!!", "ATTENZIONE",
                 //MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 /*
                  * Codice per salvare....
                  * */
-                write_StoricoXmlRfid();
-                write_ErrorXmlRfid();
+               
                 
                 this.Close();
             }
@@ -976,7 +572,7 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 if (dr == DialogResult.Yes)
                 {
                     attivo = false;
-                    oldId = "";
+
                     //UpdateStatusBar();
                     if (m_objMediaControl != null)
                     {
@@ -990,9 +586,8 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.labelOrario2.Text = "00:00:00";
                         }
                     }
-                    updateLabelForm();
-                    timer.Stop();
-                    timerRisorsa.Stop();
+
+
 
                 }
                 else
@@ -1003,14 +598,12 @@ MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else // non c'è nulla in esecuzione
             {
                 attivo = false;
-                oldId = "";
-                updateLabelForm();
-                timer.Stop();
-                timerRisorsa.Stop();
-            }
+
+            }  
+                
         }
 
-        #endregion
+        
 
         private void FormEsecuzioneRfidPoster_Load(object sender, EventArgs e)
         {
