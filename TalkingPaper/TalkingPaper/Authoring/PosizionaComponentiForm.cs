@@ -275,34 +275,69 @@ namespace TalkingPaper.Authoring
             //inserisco un contenuto in una cella
             if (lastLabelClicked != null)
             {
-                int x = lastLabelClicked.Text.IndexOf('(');
-                string nome = lastLabelClicked.Text.Substring(0, x);
+                string nome;
                 string coord;
                 int index;
+                string tag;
 
-                string tag = griglia.getTagFromNumericCoord(col, row);
-
-                //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                if (tag.Equals("") == false)
+                if (lastLabelClicked.Text != "Play" && lastLabelClicked.Text != "Pausa" && lastLabelClicked.Text != "Stop")
                 {
-                    index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                    if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
+                    int x = lastLabelClicked.Text.IndexOf('(');
+                    nome = lastLabelClicked.Text.Substring(0, x);      
 
-                    //il contenuto era già associato: cancello l'associazione precedente
-                    if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                    tag = griglia.getTagFromNumericCoord(col, row);
+
+                    //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
+                    if (tag.Equals("") == false)
                     {
-                        coord = listaContenuti[index].getCoordinate();
-                        int c = coord[0] - 'A' + 1;
-                        int r = coord[1] - '1' + 1;
-                        schemaGriglia[c, r].Value = null;
+                        index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                        if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
+
+                        //il contenuto era già associato: cancello l'associazione precedente
+                        if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                        {
+                            coord = listaContenuti[index].getCoordinate();
+                            int c = coord[0] - 'A' + 1;
+                            int r = coord[1] - '1' + 1;
+                            schemaGriglia[c, r].Value = null;
+                        }
+
+                        coord = control.getStringCoordFromNumericCoord(col, row);
+                        listaContenuti[index].setCoordinate(coord);
+
+                        grid[col, row].Value = nome;
+                        lastLabelClicked.BackColor = Color.Orange;
+                        lastLabelClicked = null;
                     }
+                }
+                else 
+                { 
+                    nome = lastLabelClicked.Text; 
+                    tag = griglia.getTagFromNumericCoord(col, row);
 
-                    coord = control.getStringCoordFromNumericCoord(col, row);
-                    listaContenuti[index].setCoordinate(coord);
+                    //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
+                    if (tag.Equals("") == false)
+                    {
+                        listaContenuti.Add(new Contenuto(lastLabelClicked.Text,null,null,null,null));
+                      //  index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                       // if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
 
-                    grid[col, row].Value = nome;
-                    lastLabelClicked.BackColor = Color.Orange;
-                    lastLabelClicked = null;
+                        //il contenuto era già associato: cancello l'associazione precedente
+                      //  if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                     //   {
+                      //      coord = listaContenuti[index].getCoordinate();
+                        //    int c = coord[0] - 'A' + 1;
+                          //  int r = coord[1] - '1' + 1;
+                            //schemaGriglia[c, r].Value = null;
+                       // }
+
+                        coord = control.getStringCoordFromNumericCoord(col, row);
+                        listaContenuti[listaContenuti.Count-1].setCoordinate(coord);
+
+                        grid[col, row].Value = nome;
+                        lastLabelClicked.BackColor = Color.Orange;
+                        lastLabelClicked = null;
+                        }
                 }
             }
             //elimino un contenuto da una cella
@@ -318,6 +353,21 @@ namespace TalkingPaper.Authoring
 
             
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            lastLabelClicked = label1;
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            lastLabelClicked = label2;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            lastLabelClicked = label3;
         }
 
     }

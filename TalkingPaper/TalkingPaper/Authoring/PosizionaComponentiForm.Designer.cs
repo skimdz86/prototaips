@@ -162,27 +162,42 @@ namespace TalkingPaper.Authoring
             // 
             // label3
             // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label3.Location = new System.Drawing.Point(384, 38);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 100);
+            this.label3.Size = new System.Drawing.Size(100, 110);
             this.label3.TabIndex = 54;
+            this.label3.Text = "Stop";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label2
             // 
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label2.Location = new System.Drawing.Point(218, 38);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 100);
+            this.label2.Size = new System.Drawing.Size(100, 110);
             this.label2.TabIndex = 53;
+            this.label2.Text = "Pausa";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(47, 38);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 100);
+            this.label1.Size = new System.Drawing.Size(100, 110);
             this.label1.TabIndex = 52;
+            this.label1.Text = "Play";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // aggiungi
             // 
