@@ -22,6 +22,7 @@ namespace TalkingPaper.Authoring
         //private BenvenutoAuthoring partenza;
 
         private String directoryPrincipale = "../..";//temporaneo, per farlo andare
+        
         private Bitmap pausa;
         private Bitmap stop;
         private Bitmap riprendi;
@@ -33,6 +34,8 @@ namespace TalkingPaper.Authoring
         private string nome_contenuto_selezionato;
         private int num_colonne;
         private int num_righe;
+            
+        
         private ArrayList cont_modificati = new ArrayList();
 
 
@@ -41,6 +44,7 @@ namespace TalkingPaper.Authoring
         private Authoring.ModificaCartelloneForm posterMostra;
         private string provenienza;
 
+        
         private Contenuto contenuto;
         private List<Contenuto> listaContenuti = new List<Contenuto>();
 
@@ -67,6 +71,11 @@ namespace TalkingPaper.Authoring
             pausa = new Bitmap(directoryPrincipale + "/Images/Pause.png");
             stop = new Bitmap(directoryPrincipale + "/Images/Stop.png");
             riprendi = new Bitmap(directoryPrincipale + "/Images/Play.png");
+            taggato = new Bitmap(Global.directoryPrincipale + "/Images/Icons/virgoletta.gif");
+            non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/Icons/non_taggato.gif");
+            pausa = new Bitmap(Global.directoryPrincipale + "/Images/Pause.png");
+            stop = new Bitmap(Global.directoryPrincipale + "/Images/Stop.png");
+            riprendi = new Bitmap(Global.directoryPrincipale + "/Images/Play.png");
 
             contenuto = new Contenuto();
 
@@ -86,6 +95,7 @@ namespace TalkingPaper.Authoring
                 if (p.getNome() != null)
                 {
                     listaContenuti = p.getContenuti();
+                    listaContenuti.AddRange(p.getContenuti());
                     riempiGriglia(p);
                 }
            // }
@@ -150,6 +160,7 @@ namespace TalkingPaper.Authoring
                 nome.Click += new System.EventHandler(nomeRisorsa_Click);
                 nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
                 nome.Visible = true;
+                nome.MouseDown += new MouseEventHandler(label_MouseDown);
 
                 ElencoRisorse.Controls.Add(nome);
             }
@@ -354,6 +365,76 @@ namespace TalkingPaper.Authoring
             
 
         }
+
+        private void label_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
+                
+            }       
+        }
+
+        private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
+        {
+            String nome = e.Data.GetData(DataFormats.Text).ToString();
+            Point point = schemaGriglia.PointToClient(new Point(e.X, e.Y));
+            DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X, point.Y);
+
+            int row = info.RowIndex;
+            int col = info.ColumnIndex;
+
+            //click su un header
+            if (row == 0 || col == 0) return;
+
+            string coord;
+            int index;
+
+            string tag = griglia.getTagFromNumericCoord(col, row);
+
+            //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
+            if (tag.Equals("") == false)
+            {
+                if ((nome.Equals("Play")) || (nome.Equals("Pausa")) || (nome.Equals("Stop")) )
+                {
+                    schemaGriglia[col, row].Value = nome;
+                }
+                else
+                {
+                    index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                    if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
+
+                    //il contenuto era già associato: cancello l'associazione precedente
+                    if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                    {
+                        coord = listaContenuti[index].getCoordinate();
+                        int c = coord[0] - 'A' + 1;
+                        int r = coord[1] - '1' + 1;
+                        schemaGriglia[c, r].Value = null;
+                    }
+
+                    coord = control.getStringCoordFromNumericCoord(col, row);
+                    listaContenuti[index].setCoordinate(coord);
+
+                    schemaGriglia[col, row].Value = nome;
+                    lastLabelClicked.BackColor = Color.Orange;
+                    lastLabelClicked = null;
+                }
+            }
+
+
+
+        }
+
+        private void schemaGriglia_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+                e.Effect = DragDropEffects.Move;
+            else
+                e.Effect = DragDropEffects.None;
+        }
+
+        
 
         private void label1_Click(object sender, EventArgs e)
         {

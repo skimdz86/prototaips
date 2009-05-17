@@ -169,9 +169,11 @@ namespace TalkingPaper.Authoring
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 110);
             this.label3.TabIndex = 54;
+            this.label3.Tag = "Stop";
             this.label3.Text = "Stop";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
             // 
             // label2
             // 
@@ -182,9 +184,11 @@ namespace TalkingPaper.Authoring
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 110);
             this.label2.TabIndex = 53;
+            this.label2.Tag = "Pausa";
             this.label2.Text = "Pausa";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
             // 
             // label1
             // 
@@ -195,9 +199,11 @@ namespace TalkingPaper.Authoring
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 110);
             this.label1.TabIndex = 52;
+            this.label1.Tag = "Play";
             this.label1.Text = "Play";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
             // 
             // aggiungi
             // 
@@ -238,6 +244,7 @@ namespace TalkingPaper.Authoring
             // 
             // schemaGriglia
             // 
+            this.schemaGriglia.AllowDrop = true;
             this.schemaGriglia.AllowUserToAddRows = false;
             this.schemaGriglia.AllowUserToDeleteRows = false;
             this.schemaGriglia.AllowUserToResizeColumns = false;
@@ -291,6 +298,8 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.Size = new System.Drawing.Size(635, 360);
             this.schemaGriglia.TabIndex = 67;
             this.schemaGriglia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schemaGriglia_CellClick);
+            this.schemaGriglia.DragEnter += new System.Windows.Forms.DragEventHandler(this.schemaGriglia_DragEnter);
+            this.schemaGriglia.DragDrop += new System.Windows.Forms.DragEventHandler(this.schemaGriglia_DragDrop);
             // 
             // PosizionaComponentiForm
             // 
