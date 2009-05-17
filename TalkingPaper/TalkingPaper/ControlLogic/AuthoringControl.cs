@@ -39,11 +39,6 @@ namespace TalkingPaper.ControlLogic
             return -1;
         }
 
-        public string getStringCoordFromNumericCoord(int col, int row)
-        {
-            return ((char)('A' + col - 1)).ToString() + row.ToString();
-        }
-
         public List<Model.Contenuto> getListWithUsefulContents(List<Model.Contenuto> listaCompleta)
         {
             List<Model.Contenuto> listaUtile = new List<Model.Contenuto>();

@@ -41,18 +41,17 @@ namespace TalkingPaper.Authoring
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.noComponenti = new System.Windows.Forms.Label();
             this.ElencoRisorse = new System.Windows.Forms.DataGridView();
-            this.controlloBox = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.play = new System.Windows.Forms.Label();
+            this.stop = new System.Windows.Forms.Label();
+            this.pausa = new System.Windows.Forms.Label();
             this.aggiungi = new System.Windows.Forms.Button();
             this.scegliOggetto = new System.Windows.Forms.Label();
             this.trascina = new System.Windows.Forms.Label();
             this.schemaGriglia = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).BeginInit();
-            this.controlloBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,8 +91,10 @@ namespace TalkingPaper.Authoring
             // 
             // ElencoRisorse
             // 
+            this.ElencoRisorse.AllowDrop = true;
             this.ElencoRisorse.AllowUserToAddRows = false;
             this.ElencoRisorse.AllowUserToDeleteRows = false;
+            this.ElencoRisorse.AllowUserToResizeColumns = false;
             this.ElencoRisorse.AllowUserToResizeRows = false;
             this.ElencoRisorse.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.ElencoRisorse.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -121,7 +122,7 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.EnableHeadersVisualStyles = false;
             this.ElencoRisorse.GridColor = System.Drawing.Color.Cyan;
             this.ElencoRisorse.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoRisorse.Location = new System.Drawing.Point(14, 224);
+            this.ElencoRisorse.Location = new System.Drawing.Point(8, 232);
             this.ElencoRisorse.MultiSelect = false;
             this.ElencoRisorse.Name = "ElencoRisorse";
             this.ElencoRisorse.ReadOnly = true;
@@ -145,65 +146,56 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.Size = new System.Drawing.Size(336, 346);
             this.ElencoRisorse.TabIndex = 42;
             // 
-            // controlloBox
+            // play
             // 
-            this.controlloBox.BackColor = System.Drawing.Color.Orange;
-            this.controlloBox.Controls.Add(this.label3);
-            this.controlloBox.Controls.Add(this.label2);
-            this.controlloBox.Controls.Add(this.label1);
-            this.controlloBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.controlloBox.ForeColor = System.Drawing.Color.White;
-            this.controlloBox.Location = new System.Drawing.Point(5, 576);
-            this.controlloBox.Name = "controlloBox";
-            this.controlloBox.Size = new System.Drawing.Size(570, 157);
-            this.controlloBox.TabIndex = 58;
-            this.controlloBox.TabStop = false;
-            this.controlloBox.Text = "Componenti di controllo";
+            this.play.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.play.ForeColor = System.Drawing.Color.White;
+            this.play.Image = ((System.Drawing.Image)(resources.GetObject("play.Image")));
+            this.play.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.play.Location = new System.Drawing.Point(45, 604);
+            this.play.Name = "play";
+            this.play.Size = new System.Drawing.Size(100, 110);
+            this.play.TabIndex = 52;
+            this.play.Tag = "Play";
+            this.play.Text = "Play";
+            this.play.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.play.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
+            this.play.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
+            this.play.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label_MouseUp);
             // 
-            // label3
+            // stop
             // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label3.Location = new System.Drawing.Point(384, 38);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 110);
-            this.label3.TabIndex = 54;
-            this.label3.Tag = "Stop";
-            this.label3.Text = "Stop";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label3.Click += new System.EventHandler(this.label3_Click);
-            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
+            this.stop.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stop.ForeColor = System.Drawing.Color.White;
+            this.stop.Image = ((System.Drawing.Image)(resources.GetObject("stop.Image")));
+            this.stop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.stop.Location = new System.Drawing.Point(362, 604);
+            this.stop.Name = "stop";
+            this.stop.Size = new System.Drawing.Size(100, 110);
+            this.stop.TabIndex = 54;
+            this.stop.Tag = "Stop";
+            this.stop.Text = "Stop";
+            this.stop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.stop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
+            this.stop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
+            this.stop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label_MouseUp);
             // 
-            // label2
+            // pausa
             // 
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label2.Location = new System.Drawing.Point(218, 38);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 110);
-            this.label2.TabIndex = 53;
-            this.label2.Tag = "Pausa";
-            this.label2.Text = "Pausa";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Location = new System.Drawing.Point(47, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 110);
-            this.label1.TabIndex = 52;
-            this.label1.Tag = "Play";
-            this.label1.Text = "Play";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
+            this.pausa.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pausa.ForeColor = System.Drawing.Color.White;
+            this.pausa.Image = ((System.Drawing.Image)(resources.GetObject("pausa.Image")));
+            this.pausa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.pausa.Location = new System.Drawing.Point(205, 604);
+            this.pausa.Name = "pausa";
+            this.pausa.Size = new System.Drawing.Size(100, 110);
+            this.pausa.TabIndex = 53;
+            this.pausa.Tag = "Pausa";
+            this.pausa.Text = "Pausa";
+            this.pausa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.pausa.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
+            this.pausa.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
+            this.pausa.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label_MouseUp);
             // 
             // aggiungi
             // 
@@ -299,40 +291,55 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.TabIndex = 67;
             this.schemaGriglia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schemaGriglia_CellClick);
             this.schemaGriglia.DragEnter += new System.Windows.Forms.DragEventHandler(this.schemaGriglia_DragEnter);
-            this.schemaGriglia.DragDrop += new System.Windows.Forms.DragEventHandler(this.schemaGriglia_DragDrop);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(33, 559);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(345, 33);
+            this.label4.TabIndex = 68;
+            this.label4.Text = "Componenti di controllo";
             // 
             // PosizionaComponentiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 732);
-            this.Controls.Add(this.schemaGriglia);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.stop);
+            this.Controls.Add(this.play);
+            this.Controls.Add(this.pausa);
             this.Controls.Add(this.trascina);
-            this.Controls.Add(this.controlloBox);
             this.Controls.Add(this.scegliOggetto);
             this.Controls.Add(this.aggiungi);
             this.Controls.Add(this.noComponenti);
             this.Controls.Add(this.ElencoRisorse);
+            this.Controls.Add(this.schemaGriglia);
             this.Name = "PosizionaComponentiForm";
             this.Text = "FormVisualizzaElementiAuthoring";
             this.VisibleChanged += new System.EventHandler(this.PosizionaComponentiForm_VisibleChanged);
+            this.Controls.SetChildIndex(this.schemaGriglia, 0);
             this.Controls.SetChildIndex(this.ElencoRisorse, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.noComponenti, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.aggiungi, 0);
             this.Controls.SetChildIndex(this.scegliOggetto, 0);
-            this.Controls.SetChildIndex(this.controlloBox, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.trascina, 0);
-            this.Controls.SetChildIndex(this.schemaGriglia, 0);
+            this.Controls.SetChildIndex(this.pausa, 0);
+            this.Controls.SetChildIndex(this.play, 0);
+            this.Controls.SetChildIndex(this.stop, 0);
+            this.Controls.SetChildIndex(this.label4, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).EndInit();
-            this.controlloBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -343,13 +350,13 @@ namespace TalkingPaper.Authoring
 
         private System.Windows.Forms.Label noComponenti;
         private System.Windows.Forms.DataGridView ElencoRisorse;
-        private System.Windows.Forms.GroupBox controlloBox;
         private Button aggiungi;
         private System.Windows.Forms.Label scegliOggetto;
         private Label trascina;
         private DataGridView schemaGriglia;
-        private Label label3;
-        private Label label2;
-        private Label label1;
+        private Label stop;
+        private Label pausa;
+        private Label play;
+        private Label label4;
     }
 }

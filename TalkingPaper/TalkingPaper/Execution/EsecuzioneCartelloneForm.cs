@@ -19,6 +19,7 @@ namespace TalkingPaper.Execution
 
         private ControlLogic.ExecutionControl control;
         private Model.Poster poster;
+        private Model.Griglia griglia;
 
         private bool attivo; // variabile che identifica lo status del sistema
 
@@ -49,7 +50,11 @@ namespace TalkingPaper.Execution
             InitializeComponent();
 
             control = new ControlLogic.ExecutionControl();
+
             poster = control.getPoster(nomePoster);
+            String nomeGriglia = poster.getNomeGriglia();
+            griglia = control.getGriglia(nomeGriglia);
+
             if (poster == null)
             {
                 throw new Exception("Errore!! Esecuzione di un poster inesistente");
@@ -66,9 +71,6 @@ namespace TalkingPaper.Execution
 
         }
 
-        
-
-        
 
         /// <summary>
         /// metodo per la gestione della lettura del tag
@@ -77,7 +79,8 @@ namespace TalkingPaper.Execution
         /// <param name="e"></param>
         public void rfid_StatusUpdateEvent(string id)
         {
- 
+            List<Model.Contenuto> contenuti;
+            int[] coord = griglia.getCoordFromTag(id);
             
             /*if (oldId.Equals(id) == true && (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Running))
             //if( oldId.Equals(id) == true && ( risorsa_attiva == true || risorsa_pausa == true))

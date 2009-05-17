@@ -16,33 +16,23 @@ namespace TalkingPaper.Authoring
         private string nomeClasse;
         private string nomeGriglia;
         private Model.Griglia griglia;
-
-
+        private int clickOffsetX, clickOffsetY;
+        private int posizioneStartX, posizioneStartY;
+        private Label dragging;
+        private Label lastLabelClicked;
+    
         //private FormScegliPosterAuthoring scelta_poster;
         //private BenvenutoAuthoring partenza;
 
-        private String directoryPrincipale = "../..";//temporaneo, per farlo andare
         
-        private Bitmap pausa;
-        private Bitmap stop;
-        private Bitmap riprendi;
-        private Bitmap taggato;
-        private Bitmap non_taggato;
-        private Label lastLabelClicked;
-    
-        private int id_contenuto_selezionato;
-        private string nome_contenuto_selezionato;
-        private int num_colonne;
-        private int num_righe;
+        
+        
             
         
         private ArrayList cont_modificati = new ArrayList();
 
 
-        //occhio a queste!!!
-        private int id_mosta;
-        private Authoring.ModificaCartelloneForm posterMostra;
-        private string provenienza;
+        
 
         
         private Contenuto contenuto;
@@ -66,16 +56,10 @@ namespace TalkingPaper.Authoring
             }
             else griglia = control.getGriglia(nomeGriglia);
 
-            taggato = new Bitmap(directoryPrincipale + "/Images/Icons/virgoletta.gif");
-            non_taggato = new Bitmap(directoryPrincipale + "/Images/Icons/non_taggato.gif");
-            pausa = new Bitmap(directoryPrincipale + "/Images/Pause.png");
-            stop = new Bitmap(directoryPrincipale + "/Images/Stop.png");
-            riprendi = new Bitmap(directoryPrincipale + "/Images/Play.png");
+            
          //   taggato = new Bitmap(Global.directoryPrincipale + "/Images/virgoletta.gif");
           //  non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/non_taggato.gif");
-            pausa = new Bitmap(Global.directoryPrincipale + "/Images/Pause.png");
-            stop = new Bitmap(Global.directoryPrincipale + "/Images/Stop.png");
-            riprendi = new Bitmap(Global.directoryPrincipale + "/Images/Play.png");
+            
 
             contenuto = new Contenuto();
 
@@ -91,13 +75,12 @@ namespace TalkingPaper.Authoring
            // bool b = Global.dataHandler.existPoster(nomePoster);
            // if (b) 
            // {
-                Poster p = Global.dataHandler.getPoster(nomePoster);
-                if (p.getNome() != null)
-                {
-                    listaContenuti = p.getContenuti();
-                    listaContenuti.AddRange(p.getContenuti());
-                    riempiGriglia(p);
-                }
+           Poster p = Global.dataHandler.getPoster(nomePoster);
+           if (p.getNome() != null)
+           {
+               listaContenuti.AddRange(p.getContenuti());
+               riempiGriglia(p);
+           }
            // }
 
            /* if (p != null)
@@ -110,7 +93,7 @@ namespace TalkingPaper.Authoring
             }
             p = null;*/  //Ma p=null a che serviva???
 
-            ricaricaElencoRisorse();
+            
 
         }
 
@@ -118,53 +101,39 @@ namespace TalkingPaper.Authoring
         {
             foreach (Contenuto c in listaContenuti)
             {
-                string coord = c.getCoordinate();
+                int[] coord = c.getCoordinate();
                 
-                if (coord.Equals("00") || coord.Equals("") || coord == null) throw new Exception("Contenuto non previsto");
+                if (coord == null || coord[0] == 0 || coord[1] == 0) throw new Exception("Contenuto non previsto");
 
-                int col = coord[0] - 'A' + 1;
-                int row = coord[1] - '1' + 1;
+                int row = coord[0];
+                int col = coord[1];
 
                 schemaGriglia[col, row].Value = c.getNomeContenuto();
             }
         }
 
-        private void nomeRisorsa_Click(object sender, System.EventArgs e)
-        {
-            if (((Label)sender).BackColor == Color.Red)
-            {
-                ((Label)sender).BackColor = Color.Orange;
-                lastLabelClicked = null;
-            }
-            else
-            {
-                if (lastLabelClicked != null) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
-                ((Label)sender).BackColor = System.Drawing.Color.Red;
-                lastLabelClicked = ((Label)sender);
-            }
-        }
-
         private void ricaricaElencoRisorse()
         {
+            ElencoRisorse.Controls.Clear();
             int i = 0;
             foreach (Contenuto c in listaContenuti)
             {
-                if(c.getNomeContenuto()!="Play" && c.getNomeContenuto()!="Pausa" && c.getNomeContenuto()!="Stop")
+                if ((c.getNomeContenuto() != "Play") && (c.getNomeContenuto() != "Pausa") && (c.getNomeContenuto() != "Stop"))
                 {
                     Label nome = new Label();
-                nome.Text = c.getNomeContenuto() + "(" + (c.getAudioPath() != null ? 'A'.ToString() : "") + (c.getVideoPath() != null ? 'V'.ToString() : "") + (c.getImagePath() != null ? " I" : "") + (c.getTextPath() != null ? " T" : "")+")";
-                nome.Tag = c.getNomeContenuto();
-                nome.BackColor = Color.Orange;
-                nome.ForeColor = Color.White;
-                nome.Size = new System.Drawing.Size(175, 25);
-                nome.AutoSize = false;
-                nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                nome.Click += new System.EventHandler(nomeRisorsa_Click);
-                nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
-                nome.Visible = true;
-                nome.MouseDown += new MouseEventHandler(label_MouseDown);
-
-                ElencoRisorse.Controls.Add(nome);
+                    nome.Text = c.getNomeContenuto() + "(" + (c.getAudioPath() != null ? 'A'.ToString() : "") + (c.getVideoPath() != null ? 'V'.ToString() : "") + (c.getImagePath() != null ? " I" : "") + (c.getTextPath() != null ? " T" : "") + ")";
+                    nome.Tag = c.getNomeContenuto();
+                    nome.BackColor = Color.Orange;
+                    nome.ForeColor = Color.White;
+                    nome.Size = new System.Drawing.Size(175, 25);
+                    nome.AutoSize = false;
+                    nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                    nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
+                    nome.Visible = true;
+                    nome.MouseDown += new MouseEventHandler(label_MouseDown);
+                    nome.MouseMove += new MouseEventHandler(label_MouseMove);
+                    nome.MouseUp += new MouseEventHandler(label_MouseUp);
+                    ElencoRisorse.Controls.Add(nome);
                 }
             }
 
@@ -290,7 +259,7 @@ namespace TalkingPaper.Authoring
             if (lastLabelClicked != null)
             {
                 string nome;
-                string coord;
+                int[] coord;
                 int index;
                 string tag;
 
@@ -308,15 +277,16 @@ namespace TalkingPaper.Authoring
                         if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
 
                         //il contenuto era già associato: cancello l'associazione precedente
-                        if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                        coord = listaContenuti[index].getCoordinate();
+                        if ((coord[0] != 0) && (coord[1] != 0))
                         {
-                            coord = listaContenuti[index].getCoordinate();
-                            int c = coord[0] - 'A' + 1;
-                            int r = coord[1] - '1' + 1;
+                            
+                            int r = coord[0];
+                            int c = coord[1];
                             schemaGriglia[c, r].Value = null;
                         }
-
-                        coord = control.getStringCoordFromNumericCoord(col, row);
+                        coord = new int[2] { row, col };
+                        
                         listaContenuti[index].setCoordinate(coord);
 
                         grid[col, row].Value = nome;
@@ -362,7 +332,7 @@ namespace TalkingPaper.Authoring
                             schemaGriglia[c, r].Value = null;
                         }*/
                         listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
-                        coord = control.getStringCoordFromNumericCoord(col, row);
+                        coord = new int[2] { row, col };
                         listaContenuti[listaContenuti.Count-1].setCoordinate(coord);
 
                         grid[col, row].Value = nome;
@@ -372,13 +342,14 @@ namespace TalkingPaper.Authoring
                 }
             }
             //elimino un contenuto da una cella
-            else if (lastLabelClicked == null && grid[col, row].Value != null)
+            else if (grid[col, row].Value != null)
             {
                 string nome = grid[col, row].Value.ToString();
                 int index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-
-                listaContenuti[index].setCoordinate("00");
+                int[] coord = new int[2] { 0, 0 };
+                listaContenuti[index].setCoordinate(coord);
                 grid[col, row].Value = null;
+                grid[col, row].Selected = false;
             }
 
 
@@ -390,24 +361,50 @@ namespace TalkingPaper.Authoring
         {
             if (e.Button == MouseButtons.Left)
             {
-                ((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
+                dragging = (Label)sender;
+                clickOffsetX = e.X;
+                clickOffsetY = e.Y;
+                posizioneStartX = dragging.Left;
+                posizioneStartY = dragging.Top;
                 
+                if (((Label)sender).Image == null)
+                {
+                    if (((Label)sender).BackColor == Color.Red)
+                    {
+                        ((Label)sender).BackColor = Color.Orange;
+                        lastLabelClicked = null;
+                    }
+                    else
+                    {
+                        if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                        ((Label)sender).BackColor = Color.Red;
+                        lastLabelClicked = ((Label)sender);
+                    }
+                }
+                else
+                {
+                    if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                    lastLabelClicked = ((Label)sender);
+                }
+                //((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
             }       
         }
 
-        private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
+        //private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
+        private void schemaGriglia_Drop(String nome,int x,int y)    
         {
-            String nome = e.Data.GetData(DataFormats.Text).ToString();
-            Point point = schemaGriglia.PointToClient(new Point(e.X, e.Y));
-            DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X, point.Y);
+            //String nome = e.Data.GetData(DataFormats.Text).ToString();
+            DataGridView.HitTestInfo info;
+            if ((y - schemaGriglia.Top) <= 0)  info = schemaGriglia.HitTest((x - schemaGriglia.Left), y);
+            else info = schemaGriglia.HitTest((x - schemaGriglia.Left), (y - schemaGriglia.Top));
 
             int row = info.RowIndex;
             int col = info.ColumnIndex;
 
             //click su un header
-            if (row == 0 || col == 0) return;
+            if (row <= 0 || col <= 0) return;
 
-            string coord;
+            int[] coord = new int[2];
             int index;
 
             string tag = griglia.getTagFromNumericCoord(col, row);
@@ -425,15 +422,17 @@ namespace TalkingPaper.Authoring
                     if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
 
                     //il contenuto era già associato: cancello l'associazione precedente
-                    if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                    coord = listaContenuti[index].getCoordinate();
+                    if ( (coord[0] != 0) && (coord[1] != 0))
                     {
-                        coord = listaContenuti[index].getCoordinate();
-                        int c = coord[0] - 'A' + 1;
-                        int r = coord[1] - '1' + 1;
+                        
+                        int r = coord[0];
+                        int c = coord[1];
                         schemaGriglia[c, r].Value = null;
                     }
 
-                    coord = control.getStringCoordFromNumericCoord(col, row);
+                    coord[0] = row;
+                    coord[1] = col;
                     listaContenuti[index].setCoordinate(coord);
 
                     schemaGriglia[col, row].Value = nome;
@@ -454,21 +453,25 @@ namespace TalkingPaper.Authoring
                 e.Effect = DragDropEffects.None;
         }
 
-        
-
-        private void label1_Click(object sender, EventArgs e)
+        private void label_MouseMove(object sender, MouseEventArgs e)
         {
-            lastLabelClicked = label1;
+            if (dragging == ((Label)sender))
+            {
+                dragging.Left = e.X + dragging.Left - clickOffsetX;
+                dragging.Top = e.Y + dragging.Top - clickOffsetY;
+                Console.WriteLine((e.X + ((Label)sender).Left - clickOffsetX).ToString() + " " + (e.Y + ((Label)sender).Top - clickOffsetY).ToString() );
+            }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void label_MouseUp(object sender, MouseEventArgs e)
         {
-            lastLabelClicked = label2;
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            lastLabelClicked = label3;
+            schemaGriglia_Drop((String)dragging.Tag, dragging.Left + clickOffsetX, dragging.Top + clickOffsetY);
+            dragging.Left = posizioneStartX;
+            dragging.Top = posizioneStartY;
+            
+            
+            dragging = null;
+            
         }
 
     }

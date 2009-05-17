@@ -65,7 +65,7 @@ namespace TalkingPaper.DataAccess
                     x.SetAttribute("VideoPath", c.getVideoPath());
                     x.SetAttribute("ImagePath", c.getImagePath());
                     x.SetAttribute("TextPath", c.getTextPath());
-                    x.SetAttribute("Cella", c.getCoordinate());
+                    x.SetAttribute("Cella", c.getCoordinate()[0].ToString() + c.getCoordinate()[1].ToString());
                     el.AppendChild(x);
                 }
                 doc.DocumentElement.AppendChild(el);
@@ -117,7 +117,11 @@ namespace TalkingPaper.DataAccess
                             c.setVideoPath(y.GetAttribute("VideoPath"));
                             c.setImagePath(y.GetAttribute("ImagePath"));
                             c.setTextPath(y.GetAttribute("TextPath"));
-                            c.setCoordinate(y.GetAttribute("Cella"));
+                            String temp = y.GetAttribute("Cella");
+                            int[] coord = new int[2];
+                            coord[0] = Convert.ToInt32(temp.Substring(0, 1));
+                            coord[1] = Convert.ToInt32(temp.Substring(1, 1));
+                            c.setCoordinate(coord);
                             tempCont.Add(c);
                         }
                         tempPoster.setContenuti(tempCont);
