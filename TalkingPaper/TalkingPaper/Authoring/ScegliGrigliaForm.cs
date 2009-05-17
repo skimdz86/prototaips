@@ -98,6 +98,7 @@ namespace TalkingPaper.Authoring
                 if (!(grigliaSelezionata.getTagFromIndex(i).Equals("")))
                 {
                     SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.BackColor = Color.Coral;
+                    SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.SelectionBackColor = Color.Coral;
                 }
             }
             
