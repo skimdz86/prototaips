@@ -72,6 +72,26 @@ namespace TalkingPaper.Model
             return tagRFID[row * numColonne + col];
         }
 
+        public int[] getCoordFromTag(string tag)
+        {
+            int[] coord = new int[2];
+            int i = 0;
+            int index = -1;
+            foreach (string nomeTag in tagRFID) {
+                i++;
+                if (nomeTag.Equals(tag))
+                {
+                    index = i;
+                    break;
+                }
+            }
+            if (index == -1) return null;
+            coord[0] = index / numColonne;
+            coord[1] = index % numColonne;
+            return coord;
+
+        }
+
         
         
 
