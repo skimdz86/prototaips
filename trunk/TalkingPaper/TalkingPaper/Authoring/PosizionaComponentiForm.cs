@@ -64,9 +64,9 @@ namespace TalkingPaper.Authoring
 
             taggato = new Bitmap(directoryPrincipale + "/Images/Icons/virgoletta.gif");
             non_taggato = new Bitmap(directoryPrincipale + "/Images/Icons/non_taggato.gif");
-            pausa = new Bitmap(directoryPrincipale + "/Images/Icons/Pause.bmp");
-            stop = new Bitmap(directoryPrincipale + "/Images/Icons/Stop.bmp");
-            riprendi = new Bitmap(directoryPrincipale + "/Images/Icons/Play.bmp");
+            pausa = new Bitmap(directoryPrincipale + "/Images/Pause.png");
+            stop = new Bitmap(directoryPrincipale + "/Images/Stop.png");
+            riprendi = new Bitmap(directoryPrincipale + "/Images/Play.png");
 
             contenuto = new Contenuto();
 

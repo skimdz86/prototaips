@@ -34,37 +34,23 @@ namespace TalkingPaper.Authoring
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosizionaComponentiForm));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.ElencoControlli3 = new System.Windows.Forms.DataGridView();
-            this.ElencoControlli2 = new System.Windows.Forms.DataGridView();
-            this.ElencoControlli1 = new System.Windows.Forms.DataGridView();
             this.noComponenti = new System.Windows.Forms.Label();
             this.ElencoRisorse = new System.Windows.Forms.DataGridView();
             this.controlloBox = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.aggiungi = new System.Windows.Forms.Button();
             this.scegliOggetto = new System.Windows.Forms.Label();
             this.trascina = new System.Windows.Forms.Label();
             this.schemaGriglia = new System.Windows.Forms.DataGridView();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).BeginInit();
             this.controlloBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).BeginInit();
@@ -91,171 +77,6 @@ namespace TalkingPaper.Authoring
             // 
             this.boxSotto.Location = new System.Drawing.Point(610, 591);
             // 
-            // ElencoControlli3
-            // 
-            this.ElencoControlli3.AllowUserToAddRows = false;
-            this.ElencoControlli3.AllowUserToDeleteRows = false;
-            this.ElencoControlli3.AllowUserToResizeRows = false;
-            this.ElencoControlli3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.ElencoControlli3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ElencoControlli3.BackgroundColor = System.Drawing.Color.DarkOrange;
-            this.ElencoControlli3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ElencoControlli3.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.ElencoControlli3.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoControlli3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.ElencoControlli3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ElencoControlli3.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoControlli3.DefaultCellStyle = dataGridViewCellStyle2;
-            this.ElencoControlli3.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.ElencoControlli3.EnableHeadersVisualStyles = false;
-            this.ElencoControlli3.GridColor = System.Drawing.Color.Cyan;
-            this.ElencoControlli3.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoControlli3.Location = new System.Drawing.Point(394, 46);
-            this.ElencoControlli3.MultiSelect = false;
-            this.ElencoControlli3.Name = "ElencoControlli3";
-            this.ElencoControlli3.ReadOnly = true;
-            this.ElencoControlli3.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoControlli3.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.ElencoControlli3.RowHeadersVisible = false;
-            this.ElencoControlli3.RowHeadersWidth = 120;
-            this.ElencoControlli3.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoControlli3.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.ElencoControlli3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.ElencoControlli3.ShowEditingIcon = false;
-            this.ElencoControlli3.Size = new System.Drawing.Size(161, 80);
-            this.ElencoControlli3.TabIndex = 51;
-            // 
-            // ElencoControlli2
-            // 
-            this.ElencoControlli2.AllowUserToAddRows = false;
-            this.ElencoControlli2.AllowUserToDeleteRows = false;
-            this.ElencoControlli2.AllowUserToResizeRows = false;
-            this.ElencoControlli2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.ElencoControlli2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ElencoControlli2.BackgroundColor = System.Drawing.Color.DarkOrange;
-            this.ElencoControlli2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ElencoControlli2.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.ElencoControlli2.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoControlli2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.ElencoControlli2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ElencoControlli2.ColumnHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoControlli2.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ElencoControlli2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.ElencoControlli2.EnableHeadersVisualStyles = false;
-            this.ElencoControlli2.GridColor = System.Drawing.Color.Cyan;
-            this.ElencoControlli2.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoControlli2.Location = new System.Drawing.Point(204, 46);
-            this.ElencoControlli2.MultiSelect = false;
-            this.ElencoControlli2.Name = "ElencoControlli2";
-            this.ElencoControlli2.ReadOnly = true;
-            this.ElencoControlli2.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoControlli2.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.ElencoControlli2.RowHeadersVisible = false;
-            this.ElencoControlli2.RowHeadersWidth = 120;
-            this.ElencoControlli2.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoControlli2.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.ElencoControlli2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.ElencoControlli2.ShowEditingIcon = false;
-            this.ElencoControlli2.Size = new System.Drawing.Size(161, 80);
-            this.ElencoControlli2.TabIndex = 50;
-            // 
-            // ElencoControlli1
-            // 
-            this.ElencoControlli1.AllowUserToAddRows = false;
-            this.ElencoControlli1.AllowUserToDeleteRows = false;
-            this.ElencoControlli1.AllowUserToResizeRows = false;
-            this.ElencoControlli1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.ElencoControlli1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.ElencoControlli1.BackgroundColor = System.Drawing.Color.DarkOrange;
-            this.ElencoControlli1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ElencoControlli1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.ElencoControlli1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoControlli1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.ElencoControlli1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ElencoControlli1.ColumnHeadersVisible = false;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoControlli1.DefaultCellStyle = dataGridViewCellStyle10;
-            this.ElencoControlli1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
-            this.ElencoControlli1.EnableHeadersVisualStyles = false;
-            this.ElencoControlli1.GridColor = System.Drawing.Color.Cyan;
-            this.ElencoControlli1.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoControlli1.Location = new System.Drawing.Point(16, 46);
-            this.ElencoControlli1.MultiSelect = false;
-            this.ElencoControlli1.Name = "ElencoControlli1";
-            this.ElencoControlli1.ReadOnly = true;
-            this.ElencoControlli1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoControlli1.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.ElencoControlli1.RowHeadersVisible = false;
-            this.ElencoControlli1.RowHeadersWidth = 120;
-            this.ElencoControlli1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoControlli1.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.ElencoControlli1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.ElencoControlli1.ShowEditingIcon = false;
-            this.ElencoControlli1.Size = new System.Drawing.Size(161, 80);
-            this.ElencoControlli1.TabIndex = 49;
-            // 
             // noComponenti
             // 
             this.noComponenti.AutoSize = true;
@@ -280,22 +101,22 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ElencoRisorse.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.ElencoRisorse.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoRisorse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ElencoRisorse.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.ElencoRisorse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ElencoRisorse.ColumnHeadersVisible = false;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ElencoRisorse.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ElencoRisorse.DefaultCellStyle = dataGridViewCellStyle2;
             this.ElencoRisorse.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.ElencoRisorse.EnableHeadersVisualStyles = false;
             this.ElencoRisorse.GridColor = System.Drawing.Color.Cyan;
@@ -305,39 +126,63 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.Name = "ElencoRisorse";
             this.ElencoRisorse.ReadOnly = true;
             this.ElencoRisorse.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ElencoRisorse.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ElencoRisorse.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.ElencoRisorse.RowHeadersVisible = false;
             this.ElencoRisorse.RowHeadersWidth = 120;
             this.ElencoRisorse.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black;
-            this.ElencoRisorse.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.BlanchedAlmond;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlanchedAlmond;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.ElencoRisorse.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.ElencoRisorse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.ElencoRisorse.ShowEditingIcon = false;
-            this.ElencoRisorse.Size = new System.Drawing.Size(336, 368);
+            this.ElencoRisorse.Size = new System.Drawing.Size(336, 346);
             this.ElencoRisorse.TabIndex = 42;
             // 
             // controlloBox
             // 
             this.controlloBox.BackColor = System.Drawing.Color.Orange;
-            this.controlloBox.Controls.Add(this.ElencoControlli1);
-            this.controlloBox.Controls.Add(this.ElencoControlli3);
-            this.controlloBox.Controls.Add(this.ElencoControlli2);
+            this.controlloBox.Controls.Add(this.label3);
+            this.controlloBox.Controls.Add(this.label2);
+            this.controlloBox.Controls.Add(this.label1);
             this.controlloBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.controlloBox.ForeColor = System.Drawing.Color.White;
-            this.controlloBox.Location = new System.Drawing.Point(5, 601);
+            this.controlloBox.Location = new System.Drawing.Point(5, 576);
             this.controlloBox.Name = "controlloBox";
-            this.controlloBox.Size = new System.Drawing.Size(570, 132);
+            this.controlloBox.Size = new System.Drawing.Size(570, 157);
             this.controlloBox.TabIndex = 58;
             this.controlloBox.TabStop = false;
             this.controlloBox.Text = "Componenti di controllo";
+            // 
+            // label3
+            // 
+            this.label3.Image = ((System.Drawing.Image)(resources.GetObject("label3.Image")));
+            this.label3.Location = new System.Drawing.Point(384, 38);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(100, 100);
+            this.label3.TabIndex = 54;
+            // 
+            // label2
+            // 
+            this.label2.Image = ((System.Drawing.Image)(resources.GetObject("label2.Image")));
+            this.label2.Location = new System.Drawing.Point(218, 38);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(100, 100);
+            this.label2.TabIndex = 53;
+            // 
+            // label1
+            // 
+            this.label1.Image = ((System.Drawing.Image)(resources.GetObject("label1.Image")));
+            this.label1.Location = new System.Drawing.Point(47, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 100);
+            this.label1.TabIndex = 52;
             // 
             // aggiungi
             // 
@@ -385,22 +230,22 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
             this.schemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.schemaGriglia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.schemaGriglia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.schemaGriglia.ColumnHeadersVisible = false;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.schemaGriglia.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schemaGriglia.DefaultCellStyle = dataGridViewCellStyle6;
             this.schemaGriglia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.schemaGriglia.EnableHeadersVisualStyles = false;
             this.schemaGriglia.GridColor = System.Drawing.Color.Black;
@@ -410,21 +255,21 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.Name = "schemaGriglia";
             this.schemaGriglia.ReadOnly = true;
             this.schemaGriglia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.schemaGriglia.RowHeadersVisible = false;
             this.schemaGriglia.RowHeadersWidth = 120;
             this.schemaGriglia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.Peru;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black;
-            this.schemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Peru;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+            this.schemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.schemaGriglia.RowTemplate.Height = 33;
             this.schemaGriglia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.schemaGriglia.ShowEditingIcon = false;
@@ -436,7 +281,7 @@ namespace TalkingPaper.Authoring
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.schemaGriglia);
             this.Controls.Add(this.trascina);
             this.Controls.Add(this.controlloBox);
@@ -462,9 +307,6 @@ namespace TalkingPaper.Authoring
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ElencoControlli1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).EndInit();
             this.controlloBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).EndInit();
@@ -475,9 +317,6 @@ namespace TalkingPaper.Authoring
 
         #endregion
 
-        private System.Windows.Forms.DataGridView ElencoControlli3;
-        private System.Windows.Forms.DataGridView ElencoControlli2;
-        private System.Windows.Forms.DataGridView ElencoControlli1;
         private System.Windows.Forms.Label noComponenti;
         private System.Windows.Forms.DataGridView ElencoRisorse;
         private System.Windows.Forms.GroupBox controlloBox;
@@ -485,5 +324,8 @@ namespace TalkingPaper.Authoring
         private System.Windows.Forms.Label scegliOggetto;
         private Label trascina;
         private DataGridView schemaGriglia;
+        private Label label3;
+        private Label label2;
+        private Label label1;
     }
 }

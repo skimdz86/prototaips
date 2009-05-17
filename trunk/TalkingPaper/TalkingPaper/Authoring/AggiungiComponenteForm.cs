@@ -885,8 +885,12 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
-            contenuto.setNomeContenuto(nomeBox.Text);
-            NavigationControl.goBack(this);
+            if (nomeBox.Text == "") MessageBox.Show("Devi inserire un nome per il contenuto!");
+            else
+            {
+                contenuto.setNomeContenuto(nomeBox.Text);
+                NavigationControl.goBack(this);
+            }
         }
 
         private void annulla_Click_1(object sender, EventArgs e)
