@@ -12,7 +12,7 @@ namespace TalkingPaper.Welcome
 {
     public partial class IndexForm : FormSchema
     {
-        private bool isConfigured;
+        private int isConfigured;
 
         public IndexForm()
         {
@@ -84,16 +84,26 @@ namespace TalkingPaper.Welcome
             if (Visible)
             {
                 isConfigured = Global.reader.configure();
-                if (!(isConfigured))
+                if (isConfigured <= 0)
                 {
                     erroreRfid.Visible = true;
                     config.Visible = true;
                     messaggioOK.Visible = false;
+                    multiPorta.Visible = false;
                 }
-                else { 
-                    erroreRfid.Visible = false; 
+                else if (isConfigured > 1)
+                {
+                    erroreRfid.Visible = false;
                     config.Visible = false;
                     messaggioOK.Visible = false;
+                    multiPorta.Visible = true;
+                }
+                else
+                {
+                    erroreRfid.Visible = false;
+                    config.Visible = false;
+                    messaggioOK.Visible = false;
+                    multiPorta.Visible = false;
                 }
             }
         }
@@ -101,7 +111,7 @@ namespace TalkingPaper.Welcome
         private void config_Click(object sender, EventArgs e)
         {
             isConfigured = Global.reader.configure();
-            if (!(isConfigured))
+            if (isConfigured <= 0)
             {
                 erroreRfid.Visible = true;
                 config.Visible = true;

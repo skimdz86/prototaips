@@ -36,7 +36,7 @@ namespace TalkingPaper.Administration
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.question = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.ok = new System.Windows.Forms.Button();
@@ -97,16 +97,15 @@ namespace TalkingPaper.Administration
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
-            // label2
+            // question
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(160, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(455, 29);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "Sei sicuro di voler eliminare il poster?";
+            this.question.BackColor = System.Drawing.Color.Transparent;
+            this.question.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.question.Location = new System.Drawing.Point(129, 89);
+            this.question.Name = "question";
+            this.question.Size = new System.Drawing.Size(531, 62);
+            this.question.TabIndex = 12;
+            this.question.Text = "Sei sicuro di voler eliminare il poster";
             // 
             // label6
             // 
@@ -127,7 +126,7 @@ namespace TalkingPaper.Administration
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.button3.Location = new System.Drawing.Point(405, 173);
+            this.button3.Location = new System.Drawing.Point(403, 154);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 72);
             this.button3.TabIndex = 49;
@@ -144,7 +143,7 @@ namespace TalkingPaper.Administration
             this.ok.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ok.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ok.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
-            this.ok.Location = new System.Drawing.Point(222, 173);
+            this.ok.Location = new System.Drawing.Point(220, 154);
             this.ok.Name = "ok";
             this.ok.Size = new System.Drawing.Size(112, 72);
             this.ok.TabIndex = 48;
@@ -157,11 +156,11 @@ namespace TalkingPaper.Administration
             // 
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(639, 276);
+            this.ClientSize = new System.Drawing.Size(672, 253);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.ok);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.question);
             this.Controls.Add(this.pictureBox2);
             this.Name = "QuestionEliminaPoster";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -176,7 +175,7 @@ namespace TalkingPaper.Administration
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label question;
         private Button Annulla;
         private Button Si;
         private System.Windows.Forms.Label label6;

@@ -108,6 +108,7 @@ namespace TalkingPaper.Common
             this.help.Text = "Aiuto";
             this.help.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // boxSotto
             // 
@@ -168,7 +169,7 @@ namespace TalkingPaper.Common
             this.Name = "FormSchema";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Ciao";
+            this.Text = "Cartellone Parlante";
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
             this.boxSotto.ResumeLayout(false);

@@ -18,7 +18,7 @@ namespace TalkingPaper
             int cont;
             string testo = "";
             InitializeComponent();
-            RidimensionaForm n = new RidimensionaForm(this, 80, true);
+            
             cont = 0;
             String[] arr_cont = (String[])arrayStorico.ToArray(typeof(String));
             DateTime[] arr_data = (DateTime[])arrayData.ToArray(typeof(DateTime));

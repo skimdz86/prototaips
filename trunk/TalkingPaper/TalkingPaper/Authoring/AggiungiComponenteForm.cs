@@ -61,7 +61,7 @@ namespace TalkingPaper.Authoring
         public AggiungiComponenteForm(Contenuto cont)
         {
             InitializeComponent();
-            RidimensionaForm n = new RidimensionaForm(this, 70, true);
+            
             //this.tag_per_colonna = tag_per_colonna;
             //this.tag_per_riga = tag_per_riga;
             matrice = new Authoring.ElementoGriglia[tag_per_colonna + 1, tag_per_riga + 1];

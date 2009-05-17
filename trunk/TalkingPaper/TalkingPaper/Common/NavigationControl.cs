@@ -113,6 +113,32 @@ namespace TalkingPaper.Common
                 throw new Exception("Parametro non corretto (welcome == null)");
             }
         }
+
+        public static void showDialog(Form dialog)
+        {
+            if ((dialog != null) && (!(dialog.IsDisposed)))
+            {
+                dialog.Show();
+            }
+            else
+            {
+                throw new Exception("Parametro non corretto (dialog == null) || (dialog.isDisposed)");
+            }
+
+        }
+
+        public static void closeDialog(Form dialog)
+        {
+            if ((dialog != null) && (!(dialog.IsDisposed)))
+            {
+                dialog.Close();
+            }
+            else
+            {
+                throw new Exception("Parametro non corretto (dialog == null) || (dialog.isDisposed)");
+            }
+
+        }
     }
 
 

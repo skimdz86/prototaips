@@ -30,16 +30,18 @@ namespace TalkingPaper.Administration
         {
             this.nuovaGriglia = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.EliminaPoster = new System.Windows.Forms.Button();
+            this.groupBoxGriglia = new System.Windows.Forms.GroupBox();
             this.modificaGriglia = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.EliminaPoster = new System.Windows.Forms.Button();
+            this.benvenuto = new System.Windows.Forms.Label();
+            this.groupBoxRfid = new System.Windows.Forms.GroupBox();
             this.configRfid = new System.Windows.Forms.Button();
+            this.groupBoxPoster = new System.Windows.Forms.GroupBox();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxGriglia.SuspendLayout();
+            this.groupBoxRfid.SuspendLayout();
+            this.groupBoxPoster.SuspendLayout();
             this.SuspendLayout();
             // 
             // sottotitolo
@@ -69,7 +71,7 @@ namespace TalkingPaper.Administration
             this.nuovaGriglia.BackColor = System.Drawing.Color.Yellow;
             this.nuovaGriglia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.nuovaGriglia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nuovaGriglia.Location = new System.Drawing.Point(114, 37);
+            this.nuovaGriglia.Location = new System.Drawing.Point(67, 49);
             this.nuovaGriglia.Name = "nuovaGriglia";
             this.nuovaGriglia.Size = new System.Drawing.Size(202, 109);
             this.nuovaGriglia.TabIndex = 4;
@@ -88,37 +90,24 @@ namespace TalkingPaper.Administration
             this.label3.TabIndex = 21;
             this.label3.Text = "Cartellone Parlante";
             // 
-            // groupBox3
+            // groupBoxGriglia
             // 
-            this.groupBox3.BackColor = System.Drawing.Color.Orange;
-            this.groupBox3.Controls.Add(this.EliminaPoster);
-            this.groupBox3.Controls.Add(this.modificaGriglia);
-            this.groupBox3.Controls.Add(this.nuovaGriglia);
-            this.groupBox3.Location = new System.Drawing.Point(278, 227);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(409, 490);
-            this.groupBox3.TabIndex = 30;
-            this.groupBox3.TabStop = false;
-            // 
-            // EliminaPoster
-            // 
-            this.EliminaPoster.BackColor = System.Drawing.Color.Yellow;
-            this.EliminaPoster.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.EliminaPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EliminaPoster.Location = new System.Drawing.Point(114, 347);
-            this.EliminaPoster.Name = "EliminaPoster";
-            this.EliminaPoster.Size = new System.Drawing.Size(202, 109);
-            this.EliminaPoster.TabIndex = 7;
-            this.EliminaPoster.Text = "Elimina Poster";
-            this.EliminaPoster.UseVisualStyleBackColor = false;
-            this.EliminaPoster.Click += new System.EventHandler(this.EliminaPoster_Click);
+            this.groupBoxGriglia.BackColor = System.Drawing.Color.Orange;
+            this.groupBoxGriglia.Controls.Add(this.modificaGriglia);
+            this.groupBoxGriglia.Controls.Add(this.nuovaGriglia);
+            this.groupBoxGriglia.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxGriglia.Location = new System.Drawing.Point(173, 210);
+            this.groupBoxGriglia.Name = "groupBoxGriglia";
+            this.groupBoxGriglia.Size = new System.Drawing.Size(679, 203);
+            this.groupBoxGriglia.TabIndex = 30;
+            this.groupBoxGriglia.TabStop = false;
             // 
             // modificaGriglia
             // 
             this.modificaGriglia.BackColor = System.Drawing.Color.Yellow;
             this.modificaGriglia.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modificaGriglia.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modificaGriglia.Location = new System.Drawing.Point(114, 193);
+            this.modificaGriglia.Location = new System.Drawing.Point(422, 49);
             this.modificaGriglia.Name = "modificaGriglia";
             this.modificaGriglia.Size = new System.Drawing.Size(202, 109);
             this.modificaGriglia.TabIndex = 5;
@@ -126,34 +115,48 @@ namespace TalkingPaper.Administration
             this.modificaGriglia.UseVisualStyleBackColor = false;
             this.modificaGriglia.Click += new System.EventHandler(this.modificaGriglia_Click);
             // 
-            // label1
+            // EliminaPoster
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(293, 127);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 32);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Benvenuto ";
+            this.EliminaPoster.BackColor = System.Drawing.Color.Yellow;
+            this.EliminaPoster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.EliminaPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EliminaPoster.Location = new System.Drawing.Point(67, 37);
+            this.EliminaPoster.Name = "EliminaPoster";
+            this.EliminaPoster.Size = new System.Drawing.Size(202, 109);
+            this.EliminaPoster.TabIndex = 7;
+            this.EliminaPoster.Text = "Elimina Poster";
+            this.EliminaPoster.UseVisualStyleBackColor = false;
+            this.EliminaPoster.Click += new System.EventHandler(this.EliminaPoster_Click);
             // 
-            // groupBox1
+            // benvenuto
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Orange;
-            this.groupBox1.Controls.Add(this.configRfid);
-            this.groupBox1.Location = new System.Drawing.Point(738, 227);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(270, 177);
-            this.groupBox1.TabIndex = 31;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Visible = false;
+            this.benvenuto.AutoSize = true;
+            this.benvenuto.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.benvenuto.ForeColor = System.Drawing.Color.White;
+            this.benvenuto.Location = new System.Drawing.Point(435, 130);
+            this.benvenuto.Name = "benvenuto";
+            this.benvenuto.Size = new System.Drawing.Size(161, 32);
+            this.benvenuto.TabIndex = 33;
+            this.benvenuto.Text = "Benvenuto";
+            // 
+            // groupBoxRfid
+            // 
+            this.groupBoxRfid.BackColor = System.Drawing.Color.Orange;
+            this.groupBoxRfid.Controls.Add(this.configRfid);
+            this.groupBoxRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxRfid.Location = new System.Drawing.Point(537, 458);
+            this.groupBoxRfid.Name = "groupBoxRfid";
+            this.groupBoxRfid.Size = new System.Drawing.Size(315, 177);
+            this.groupBoxRfid.TabIndex = 31;
+            this.groupBoxRfid.TabStop = false;
+            this.groupBoxRfid.Visible = false;
             // 
             // configRfid
             // 
             this.configRfid.BackColor = System.Drawing.Color.Yellow;
             this.configRfid.Cursor = System.Windows.Forms.Cursors.Hand;
             this.configRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.configRfid.Location = new System.Drawing.Point(37, 37);
+            this.configRfid.Location = new System.Drawing.Point(58, 37);
             this.configRfid.Name = "configRfid";
             this.configRfid.Size = new System.Drawing.Size(202, 109);
             this.configRfid.TabIndex = 4;
@@ -162,32 +165,45 @@ namespace TalkingPaper.Administration
             this.configRfid.Visible = false;
             this.configRfid.Click += new System.EventHandler(this.configRfid_Click);
             // 
+            // groupBoxPoster
+            // 
+            this.groupBoxPoster.BackColor = System.Drawing.Color.Orange;
+            this.groupBoxPoster.Controls.Add(this.EliminaPoster);
+            this.groupBoxPoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxPoster.Location = new System.Drawing.Point(173, 458);
+            this.groupBoxPoster.Name = "groupBoxPoster";
+            this.groupBoxPoster.Size = new System.Drawing.Size(334, 177);
+            this.groupBoxPoster.TabIndex = 32;
+            this.groupBoxPoster.TabStop = false;
+            // 
             // AdminHomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1036, 732);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBoxPoster);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBoxRfid);
+            this.Controls.Add(this.benvenuto);
+            this.Controls.Add(this.groupBoxGriglia);
             this.Name = "AdminHomeForm";
-            this.Text = "FormAmministrazione";
-            this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
+            this.Controls.SetChildIndex(this.groupBoxGriglia, 0);
+            this.Controls.SetChildIndex(this.benvenuto, 0);
+            this.Controls.SetChildIndex(this.groupBoxRfid, 0);
+            this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.label3, 0);
-            this.Controls.SetChildIndex(this.groupBox3, 0);
-            this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
+            this.Controls.SetChildIndex(this.groupBoxPoster, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
+            this.groupBoxGriglia.ResumeLayout(false);
+            this.groupBoxRfid.ResumeLayout(false);
+            this.groupBoxPoster.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,11 +213,12 @@ namespace TalkingPaper.Administration
 
         private System.Windows.Forms.Button nuovaGriglia;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBoxGriglia;
+        private System.Windows.Forms.Label benvenuto;
         private System.Windows.Forms.Button EliminaPoster;
         private System.Windows.Forms.Button modificaGriglia;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxRfid;
         private System.Windows.Forms.Button configRfid;
+        private System.Windows.Forms.GroupBox groupBoxPoster;
     }
 }

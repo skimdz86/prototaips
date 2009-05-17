@@ -13,7 +13,7 @@ namespace TalkingPaper
         public FormVideo()
         {
             InitializeComponent();
-            RidimensionaForm n = new RidimensionaForm(this, 90, true);
+            
         }
 
         private void FormVideo_Load(object sender, EventArgs e)

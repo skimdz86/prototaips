@@ -48,6 +48,7 @@ namespace TalkingPaper.Administration
             // 
             // annulla
             // 
+            this.annulla.Text = "Indietro";
             this.annulla.Click += new System.EventHandler(this.annulla_Click);
             // 
             // ok
@@ -97,7 +98,7 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.pannello);
             this.Name = "EliminaPosterForm";
             this.Text = "FormScegliConfigurazione";
-            this.VisibleChanged += new System.EventHandler(this.EliminaPosterForm_VisibleChanged);
+            this.Activated += new System.EventHandler(this.EliminaPosterForm_Activated);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);

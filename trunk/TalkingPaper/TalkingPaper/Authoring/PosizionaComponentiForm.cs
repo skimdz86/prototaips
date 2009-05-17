@@ -184,7 +184,7 @@ namespace TalkingPaper.Authoring
             //header colonne
             for (int j = 1; j <= griglia.getNumColonne(); j++)
             {
-                schemaGriglia.Columns[j].Width = 90;
+                schemaGriglia.Columns[j].Width = 120;
                 schemaGriglia[j, 0].Value = (char)('A' + j - 1);
                 schemaGriglia[j, 0].Style.Font = font;
                 schemaGriglia[j, 0].Style.BackColor = Color.LimeGreen;

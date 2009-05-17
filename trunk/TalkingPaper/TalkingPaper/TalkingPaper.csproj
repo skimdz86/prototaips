@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -51,22 +51,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\x64\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
-    <OutputPath>bin\x64\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AxInterop.swISCReader, Version=2.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -112,12 +96,18 @@
     <Compile Include="Authoring\PannelliConfigurazione.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Common\HelpFormSchema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Common\HelpFormSchema.Designer.cs">
+      <DependentUpon>HelpFormSchema.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlLogic\AdministrationControl.cs" />
     <Compile Include="Common\NavigationControl.cs" />
     <Compile Include="ControlLogic\AuthoringControl.cs" />
     <Compile Include="ControlLogic\ExecutionControl.cs" />
     <Compile Include="ControlLogic\LoginControl.cs" />
-    <Compile Include="DataAccess\GeneralDataHandler.cs" />
+    <Compile Include="DataAccess\XmlHandler\XmlDataHandler.cs" />
     <Compile Include="Authoring\ElementoGriglia.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -139,14 +129,10 @@
     <Compile Include="Model\Contenuto.cs" />
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
     <Compile Include="Model\Griglia.cs" />
-    <Compile Include="DataAccess\GrigliaHandler.cs" />
+    <Compile Include="DataAccess\XmlHandler\GrigliaHandler.cs" />
     <Compile Include="Reader\DumbReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="RidimensionaForm.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="TestXML.cs" />
     <Compile Include="Welcome\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,11 +140,11 @@
       <DependentUpon>IndexForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Poster.cs" />
-    <Compile Include="DataAccess\PosterHandler.cs" />
+    <Compile Include="DataAccess\XmlHandler\PosterHandler.cs" />
     <Compile Include="Reader\IReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Reader\RFidConfigManager.cs">
+    <Compile Include="Reader\RfidReader\RFidConfigManager.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\RfidConfigForm.cs">
@@ -167,7 +153,7 @@
     <Compile Include="Administration\RfidConfigForm.Designer.cs">
       <DependentUpon>RfidConfigForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reader\RfidProperties.cs" />
+    <Compile Include="Reader\RfidReader\RfidProperties.cs" />
     <Compile Include="Execution\ElencoCartelloniForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,13 +260,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="TalkingPaper_TemporaryKey.pfx" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Reader\RfidReader.cs">
+    <Compile Include="Reader\RfidReader\RfidReader.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Welcome\RegistrationForm.cs">
@@ -289,14 +274,8 @@
     <Compile Include="Welcome\RegistrationForm.Designer.cs">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TestForm.Designer.cs">
-      <DependentUpon>TestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Model\User.cs" />
-    <Compile Include="DataAccess\UserHandler.cs" />
+    <Compile Include="DataAccess\XmlHandler\UserHandler.cs" />
     <Compile Include="Welcome\ChildHomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +296,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Authoring\PosizionaComponentiForm.resx">
       <DependentUpon>PosizionaComponentiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Common\HelpFormSchema.resx">
+      <DependentUpon>HelpFormSchema.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Execution\ElencoCartelloniForm.resx">
@@ -397,9 +380,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome\RegistrationForm.resx">
       <DependentUpon>RegistrationForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestForm.resx">
-      <DependentUpon>TestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome\ChildHomeForm.resx">
       <SubType>Designer</SubType>

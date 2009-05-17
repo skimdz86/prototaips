@@ -42,18 +42,25 @@ namespace TalkingPaper.Administration
             Font font = new Font("Arial", 16);
             ElencoTag.ColumnCount = griglia.getNumColonne() + 1;
             ElencoTag.Rows.Add(griglia.getNumRighe() + 1);
-            ElencoTag.Rows[0].DefaultCellStyle.ForeColor = Color.Red;
-            ElencoTag.Columns[0].DefaultCellStyle.ForeColor = Color.Red;
             ElencoTag.Rows[0].DefaultCellStyle.Font = font;
             ElencoTag.Columns[0].DefaultCellStyle.Font = font;
+            ElencoTag.Columns[0].Width = 50;
+            ElencoTag.Rows[0].Height = 35;
+            ElencoTag[0, 0].Style.BackColor = Color.LimeGreen;
+            ElencoTag[0, 0].Style.SelectionBackColor = Color.LimeGreen;
+
             for (int i = 1; i <= griglia.getNumRighe(); i++)
             {
                 ElencoTag[0, i].Value = i;
+                ElencoTag[0, i].Style.BackColor = Color.LimeGreen;
+                ElencoTag[0, i].Style.SelectionBackColor = Color.LimeGreen;
             }
             for (int j = 1; j <= griglia.getNumColonne(); j++)
             {
                 ElencoTag.Columns[j].Width = 110;
                 ElencoTag[j, 0].Value = alfabeto[j - 1];
+                ElencoTag[j, 0].Style.BackColor = Color.LimeGreen;
+                ElencoTag[j, 0].Style.SelectionBackColor = Color.LimeGreen;
             }
             List<String> tags = griglia.getListaTag();
 
@@ -65,6 +72,7 @@ namespace TalkingPaper.Administration
                     {
                         control.addId(tags[(i - 1) * griglia.getNumColonne() + (j - 1)]);
                         ElencoTag[j, i].Value = tags[(i - 1) * griglia.getNumColonne() + (j - 1)];
+                        ElencoTag[j, i].Style.BackColor = Color.Coral;
                     }
                     else
                     {
@@ -150,34 +158,31 @@ namespace TalkingPaper.Administration
 
         private void ElencoTag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            int row = e.RowIndex;
+            int col = e.ColumnIndex;
 
-            int i, j;
-            for (i = 1; i <= griglia.getNumRighe(); i++) // se c'è qualche cella che risulta autoselezionata, la deseleziono
+            //click su un header
+            if (row == 0 || col == 0) return;
+
+            if ((riga != -1) && (colonna != -1))
             {
-                for (j = 1; j <= griglia.getNumColonne(); j++)
-                {
-                    if (ElencoTag[i, j].Style.BackColor == Color.Coral && String.IsNullOrEmpty(ElencoTag[i, j].Value.ToString()) == true)
-                        ElencoTag[i, j].Style.BackColor = Color.BlanchedAlmond;
-                }
+                ElencoTag[colonna, riga].Selected = false;
+                ElencoTag[colonna, riga].Style.BackColor = Color.BlanchedAlmond;
             }
-            if ((ElencoTag[e.ColumnIndex, e.RowIndex] != null) && (ElencoTag[e.ColumnIndex, e.RowIndex].Value != null) && (e.ColumnIndex != 0) && (e.RowIndex != 0))
+
+
+            if (ElencoTag[col, row] != null)
             {
-                control.delId((string)ElencoTag[e.ColumnIndex, e.RowIndex].Value);
-                ElencoTag[e.ColumnIndex, e.RowIndex].Value = null;
-                ElencoTag[e.ColumnIndex, e.RowIndex].Style.BackColor = Color.BlanchedAlmond;
-                ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;
-                riga = e.RowIndex;
-                colonna = e.ColumnIndex;
-            }
-            else
-            {
-                if ((e.ColumnIndex != 0) && (e.RowIndex != 0))
+                if (ElencoTag[col, row].Value != null)
                 {
-                    ElencoTag[e.ColumnIndex, e.RowIndex].Style.SelectionBackColor = Color.Yellow;
-                    ElencoTag[e.ColumnIndex, e.RowIndex].Selected = true;
-                    riga = e.RowIndex;
-                    colonna = e.ColumnIndex;
+                    control.delId((string)ElencoTag[col, row].Value);
+                    ElencoTag[col, row].Value = null;
                 }
+                ElencoTag[col, row].Style.SelectionBackColor = Color.Yellow;
+                ElencoTag[col, row].Selected = true;
+                riga = row;
+                colonna = col;
+
             }
         }
 
