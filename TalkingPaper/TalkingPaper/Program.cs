@@ -18,7 +18,7 @@ namespace TalkingPaper
             Application.SetCompatibleTextRenderingDefault(false);
 
             //Inizializzo le variabili globali
-            Global.dataHandler = new DataAccess.GeneralDataHandler();
+            Global.dataHandler = new DataAccess.XmlDataHandler();
             Global.directoryPrincipale = Directory.GetCurrentDirectory();
             Global.reader = new Reader.RfidReader();
             Global.back = new Stack<Form>();

@@ -12,7 +12,12 @@ namespace TalkingPaper.Reader
 
         string readValue();
 
-        bool configure();
+        /// <summary>
+        /// Configura il lettore in maniera automatica o leggendo i parametri inseriti
+        /// con il comando saveConfiguration.        
+        /// </summary>
+        /// <returns> un intero che indica il risultato della configurazione</returns>
+        int configure();
 
         bool close();
 

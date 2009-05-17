@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ListaUtenti>
+  <Utente Login="admin" Password="21-23-2F-29-7A-57-A5-A7-43-89-4A-0E-4A-80-1F-C3" FlagAmministratore="Si" />
+  <Utente Login="marco" Password="F5-88-8D-0B-B5-8D-61-11-07-E1-1F-7C-BC-41-C9-7A" FlagAmministratore="No" />
+</ListaUtenti>

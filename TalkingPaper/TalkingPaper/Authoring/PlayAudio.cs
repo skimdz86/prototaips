@@ -43,7 +43,7 @@ namespace TalkingPaper.Authoring
         public PlayAudio(string path, AggiungiComponenteForm componente_nuovo, /*ComponentiDelPoster elenco_componenti,BarCode.FormVisualizzaElementi visualizza_elementi, EccoLaStoria la_storia,*/Authoring.PosizionaComponentiForm visualizza_elementi_rfid)
         {
             InitializeComponent();
-            RidimensionaForm n = new RidimensionaForm(this, 50, true);
+            
             //this.nome_file = nome_file;
             this.path = path;
             this.componente_nuovo = componente_nuovo;

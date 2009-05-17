@@ -79,6 +79,7 @@ namespace TalkingPaper.Administration
             // 
             this.SchemaGriglia.AllowUserToAddRows = false;
             this.SchemaGriglia.AllowUserToDeleteRows = false;
+            this.SchemaGriglia.AllowUserToResizeColumns = false;
             this.SchemaGriglia.AllowUserToResizeRows = false;
             this.SchemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
             this.SchemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -177,7 +178,6 @@ namespace TalkingPaper.Administration
             this.Controls.Add(this.pannello);
             this.Name = "ListaGriglieForm";
             this.Text = "Scegli una griglia";
-            this.Load += new System.EventHandler(this.ListaGriglieForm_Load);
             this.Controls.SetChildIndex(this.pannello, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);

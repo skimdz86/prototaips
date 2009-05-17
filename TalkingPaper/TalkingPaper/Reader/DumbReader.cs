@@ -30,9 +30,9 @@ namespace TalkingPaper.Reader
             return (counter++).ToString();
         }
 
-        public bool configure()
+        public int configure()
         {
-            return true;
+            return 1;
         }
 
         public bool saveConfiguration(params string[] parameters)

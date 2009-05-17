@@ -61,7 +61,7 @@ namespace TalkingPaper.Administration
             if (posterSelezionato != null)
             {
                 QuestionEliminaPoster question = new QuestionEliminaPoster(posterSelezionato);
-                NavigationControl.goTo(this, question);
+                NavigationControl.showDialog(question);
             }
             else
             {
@@ -91,7 +91,7 @@ namespace TalkingPaper.Administration
             NavigationControl.goHome(this);
         }
 
-        private void EliminaPosterForm_VisibleChanged(object sender, EventArgs e)
+        private void EliminaPosterForm_Activated(object sender, EventArgs e)
         {
             if (Visible)
             {

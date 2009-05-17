@@ -14,6 +14,7 @@ namespace TalkingPaper.Administration
             InitializeComponent();
 
             this.nomePoster = nomePoster;
+            question.Text += " " + nomePoster + " ?";
 
             control = new ControlLogic.AdministrationControl();
 
@@ -29,7 +30,7 @@ namespace TalkingPaper.Administration
                 {
                     throw new Exception("Impossibile eliminare il poster");
                 }
-                NavigationControl.goBack(this);
+                NavigationControl.closeDialog(this);
             }
             else
             {
@@ -39,7 +40,7 @@ namespace TalkingPaper.Administration
 
         private void button3_Click(object sender, EventArgs e)
         {
-            NavigationControl.goBack(this);
+            NavigationControl.closeDialog(this);
         }
 
 

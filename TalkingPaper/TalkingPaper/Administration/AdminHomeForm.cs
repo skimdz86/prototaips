@@ -8,18 +8,21 @@ namespace TalkingPaper.Administration
     {
         private ControlLogic.AdministrationControl control;
                
-        public AdminHomeForm(string user,bool isConfigured)
+        public AdminHomeForm(string user,int isConfigured)
         {
             InitializeComponent();
             control = new ControlLogic.AdministrationControl();
             NavigationControl.setHome(this);
-            
-            label1.Text = label1.Text + " " + user;
 
-            if (!(isConfigured))
+            //Auto centramento della label di benvenuto in base alla dimensione del nome amministratore
+            int dimensione = benvenuto.Size.Width;
+            benvenuto.Text = benvenuto.Text + " " + user;
+            benvenuto.Left -= (benvenuto.Size.Width - dimensione) / 2;
+
+            if (isConfigured > 1)
             {
                 configRfid.Visible = true;
-                groupBox1.Visible = true;
+                groupBoxRfid.Visible = true;
             //    nuovaGriglia.Enabled = false;
             //    modificaGriglia.Enabled = false;
 
@@ -27,8 +30,8 @@ namespace TalkingPaper.Administration
             }
             else
             {
-                configRfid.Visible = true;
-                groupBox1.Visible = true;
+                configRfid.Visible = false;
+                groupBoxRfid.Visible = false;
                 
             }//è codice di sicurezza per config rfid
         }
