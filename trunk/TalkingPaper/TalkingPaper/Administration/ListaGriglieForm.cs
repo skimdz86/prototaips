@@ -65,21 +65,21 @@ namespace TalkingPaper.Administration
             SchemaGriglia.Columns[0].DefaultCellStyle.Font = font;
             SchemaGriglia.Columns[0].Width = 50;
             SchemaGriglia.Rows[0].Height = 35;
-            SchemaGriglia[0, 0].Style.BackColor = Color.LimeGreen;
-            SchemaGriglia[0, 0].Style.SelectionBackColor = Color.LimeGreen;
+            SchemaGriglia[0, 0].Style.BackColor = Color.ForestGreen;
+            SchemaGriglia[0, 0].Style.SelectionBackColor = Color.ForestGreen;
 
             for (int i = 1; i <= grigliaSelezionata.getNumRighe(); i++)
             {
                 SchemaGriglia[0, i].Value = i;
-                SchemaGriglia[0, i].Style.BackColor = Color.LimeGreen;
-                SchemaGriglia[0, i].Style.SelectionBackColor = Color.LimeGreen;
+                SchemaGriglia[0, i].Style.BackColor = Color.ForestGreen;
+                SchemaGriglia[0, i].Style.SelectionBackColor = Color.ForestGreen;
             }
             for (int j = 1; j <= grigliaSelezionata.getNumColonne(); j++)
             {
                 SchemaGriglia.Columns[j].Width = 90;
                 SchemaGriglia[j, 0].Value = alfabeto[j - 1];
-                SchemaGriglia[j, 0].Style.BackColor = Color.LimeGreen;
-                SchemaGriglia[j, 0].Style.SelectionBackColor = Color.LimeGreen;
+                SchemaGriglia[j, 0].Style.BackColor = Color.ForestGreen;
+                SchemaGriglia[j, 0].Style.SelectionBackColor = Color.ForestGreen;
             }
             for (int i = 0; i < (grigliaSelezionata.getNumRighe() * grigliaSelezionata.getNumColonne()); i++)
             {
