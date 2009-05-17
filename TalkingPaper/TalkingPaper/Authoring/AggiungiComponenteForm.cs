@@ -187,13 +187,14 @@ namespace TalkingPaper.Authoring
             {
                 string path = openFileDialog.FileName;
                 suonoBox.Text = path;
-                videoBox.Text = "";
+               // videoBox.Text = "";
                 contenuto.setAudioPath(path);
-                contenuto.setVideoPath(null);
+               // contenuto.setVideoPath(null);
                 EliminaAudio.Visible = true;
                 PreviewAudio.Visible = true;
-                EliminaVideo.Visible = false;
-                PreviewVideo.Visible = false;
+              //  EliminaVideo.Visible = false;
+              //  PreviewVideo.Visible = false;
+                
                 //MessageBox.Show(path.Length.ToString());
                 //int indice=path.LastIndexOf("\\");
                 //int lunghezza= path.Length-(indice+1);
@@ -217,13 +218,14 @@ namespace TalkingPaper.Authoring
             {
                 string path = openFileDialog.FileName;
                 videoBox.Text = path;
-                suonoBox.Text = "";
+               // suonoBox.Text = "";
                 contenuto.setVideoPath(path);
-                contenuto.setAudioPath(null);
+               // contenuto.setAudioPath(null);
                 EliminaVideo.Visible = true;
                 PreviewVideo.Visible = true;
-                EliminaAudio.Visible = false;
-                PreviewAudio.Visible = false;
+               // EliminaAudio.Visible = false;
+               // PreviewAudio.Visible = false;
+                
                 //MessageBox.Show(path.Length.ToString());
                 //int indice=path.LastIndexOf("\\");
                 //int lunghezza= path.Length-(indice+1);
@@ -886,6 +888,8 @@ namespace TalkingPaper.Authoring
         private void ok_Click(object sender, EventArgs e)
         {
             if (nomeBox.Text == "") MessageBox.Show("Devi inserire un nome per il contenuto!");
+            else if (suonoBox.Text == "" && videoBox.Text == "") MessageBox.Show("Devi inserire almeno un contenuto fra suono e video");
+            else if (suonoBox.Text != "" && videoBox.Text != "") MessageBox.Show("Non puoi inserire insieme un suono e un video, cancellane uno dei due");
             else
             {
                 contenuto.setNomeContenuto(nomeBox.Text);
