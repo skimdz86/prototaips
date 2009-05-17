@@ -64,6 +64,7 @@ namespace TalkingPaper.Administration
             // 
             this.ElencoTag.AllowUserToAddRows = false;
             this.ElencoTag.AllowUserToDeleteRows = false;
+            this.ElencoTag.AllowUserToResizeColumns = false;
             this.ElencoTag.AllowUserToResizeRows = false;
             this.ElencoTag.BackgroundColor = System.Drawing.Color.BlanchedAlmond;
             this.ElencoTag.BorderStyle = System.Windows.Forms.BorderStyle.None;

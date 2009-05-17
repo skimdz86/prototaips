@@ -74,9 +74,10 @@ namespace TalkingPaper.Welcome
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(311, 212);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 20);
+            this.textBox1.Size = new System.Drawing.Size(296, 26);
             this.textBox1.TabIndex = 6;
             // 
             // label3
@@ -92,9 +93,10 @@ namespace TalkingPaper.Welcome
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(311, 266);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(296, 20);
+            this.textBox2.Size = new System.Drawing.Size(296, 26);
             this.textBox2.TabIndex = 8;
             this.textBox2.UseSystemPasswordChar = true;
             // 
@@ -111,9 +113,10 @@ namespace TalkingPaper.Welcome
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.Location = new System.Drawing.Point(311, 321);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(296, 20);
+            this.textBox3.Size = new System.Drawing.Size(296, 26);
             this.textBox3.TabIndex = 10;
             this.textBox3.UseSystemPasswordChar = true;
             // 

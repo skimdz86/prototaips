@@ -92,6 +92,7 @@ namespace TalkingPaper.Authoring
             // 
             this.SchemaGriglia.AllowUserToAddRows = false;
             this.SchemaGriglia.AllowUserToDeleteRows = false;
+            this.SchemaGriglia.AllowUserToResizeColumns = false;
             this.SchemaGriglia.AllowUserToResizeRows = false;
             this.SchemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
             this.SchemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
