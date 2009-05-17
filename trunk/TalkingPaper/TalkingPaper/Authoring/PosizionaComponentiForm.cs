@@ -71,8 +71,8 @@ namespace TalkingPaper.Authoring
             pausa = new Bitmap(directoryPrincipale + "/Images/Pause.png");
             stop = new Bitmap(directoryPrincipale + "/Images/Stop.png");
             riprendi = new Bitmap(directoryPrincipale + "/Images/Play.png");
-            taggato = new Bitmap(Global.directoryPrincipale + "/Images/Icons/virgoletta.gif");
-            non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/Icons/non_taggato.gif");
+         //   taggato = new Bitmap(Global.directoryPrincipale + "/Images/virgoletta.gif");
+          //  non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/non_taggato.gif");
             pausa = new Bitmap(Global.directoryPrincipale + "/Images/Pause.png");
             stop = new Bitmap(Global.directoryPrincipale + "/Images/Stop.png");
             riprendi = new Bitmap(Global.directoryPrincipale + "/Images/Play.png");
@@ -149,7 +149,9 @@ namespace TalkingPaper.Authoring
             int i = 0;
             foreach (Contenuto c in listaContenuti)
             {
-                Label nome = new Label();
+                if(c.getNomeContenuto()!="Play" && c.getNomeContenuto()!="Pausa" && c.getNomeContenuto()!="Stop")
+                {
+                    Label nome = new Label();
                 nome.Text = c.getNomeContenuto() + "(" + (c.getAudioPath() != null ? 'A'.ToString() : "") + (c.getVideoPath() != null ? 'V'.ToString() : "") + (c.getImagePath() != null ? " I" : "") + (c.getTextPath() != null ? " T" : "")+")";
                 nome.Tag = c.getNomeContenuto();
                 nome.BackColor = Color.Orange;
@@ -163,6 +165,7 @@ namespace TalkingPaper.Authoring
                 nome.MouseDown += new MouseEventHandler(label_MouseDown);
 
                 ElencoRisorse.Controls.Add(nome);
+                }
             }
 
         }
@@ -329,19 +332,36 @@ namespace TalkingPaper.Authoring
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
                     if (tag.Equals("") == false)
                     {
-                        listaContenuti.Add(new Contenuto(lastLabelClicked.Text,null,null,null,null));
-                      //  index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                       // if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
+                        
+                       //index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                      // if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
 
-                        //il contenuto era già associato: cancello l'associazione precedente
-                      //  if (listaContenuti[index].getCoordinate().Equals("00") == false)
-                     //   {
-                      //      coord = listaContenuti[index].getCoordinate();
-                        //    int c = coord[0] - 'A' + 1;
-                          //  int r = coord[1] - '1' + 1;
-                            //schemaGriglia[c, r].Value = null;
-                       // }
-
+                      //il contenuto era già associato: cancello l'associazione precedente
+                        for (int i = 0; i < col; i++) 
+                        {
+                            for (int j = 0; j < row; j++) 
+                            {
+                                if (grid[i, j].Value != null)
+                                {
+                                    String a = grid[i, j].Value.ToString();
+                                    if (a == nome)
+                                    {
+                                        int c = i - 'A' + 1;
+                                        int r = j - '1' + 1;
+                                        schemaGriglia[c, r].Value = null;
+                                    }
+                                }
+                            }
+                        }
+                        
+                        /*if (listaContenuti[index].getCoordinate().Equals("00") == false)
+                        {
+                            coord = listaContenuti[index].getCoordinate();
+                            int c = coord[0] - 'A' + 1;
+                            int r = coord[1] - '1' + 1;
+                            schemaGriglia[c, r].Value = null;
+                        }*/
+                        listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
                         coord = control.getStringCoordFromNumericCoord(col, row);
                         listaContenuti[listaContenuti.Count-1].setCoordinate(coord);
 
