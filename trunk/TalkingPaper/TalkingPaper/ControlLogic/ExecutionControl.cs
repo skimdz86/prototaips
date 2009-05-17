@@ -23,6 +23,11 @@ namespace TalkingPaper.ControlLogic
             return Global.dataHandler.getPoster(nomePoster);
         }
 
+        public Model.Griglia getGriglia(String nomeGriglia)
+        {
+            return Global.dataHandler.getGriglia(nomeGriglia);
+        }
+
         public bool inizializzaReader(Form caller)
         {
             Global.reader.readerStatusUpdate += statusUpdate;
