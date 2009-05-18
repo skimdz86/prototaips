@@ -86,6 +86,18 @@ namespace TalkingPaper.DataAccess
         {
             return pos.existPoster(nomePoster);
         }
-
+        ////metodi interclasse
+        public Model.Contenuto getContenutoFromTag(String nomePoster, String tag) 
+        {
+            String nomeGriglia = getPoster(nomePoster).getNomeGriglia();
+            Model.Griglia grTemp = getGriglia(nomeGriglia);
+            int[] coord=grTemp.getCoordFromTag(tag);
+            List<Model.Contenuto> tempList = getPoster(nomePoster).getContenuti();
+            for (int i = 0; i < tempList.Count; i++) 
+            {
+                if (((Model.Contenuto)tempList[i]).getCoordinate() == coord) return (Model.Contenuto)tempList[i];
+            }
+            return null;
+        }
     }
 }
