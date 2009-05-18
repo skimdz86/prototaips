@@ -59,6 +59,9 @@ namespace TalkingPaper.DataAccess
         //controlla l'esistenza di un poster
         bool existPoster(String nomePoster);
 
+        /*------------SEZIONE MISTA--------------*/
+        Model.Contenuto getContenutoFromTag(String nomePoster, String tag);
+
         /*
          * Non c'è la sezione COMPONENTE, perchè i componenti
          * vengono gestiti solamente 'in locale'. I componenti
