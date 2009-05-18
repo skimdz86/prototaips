@@ -302,35 +302,18 @@ namespace TalkingPaper.Authoring
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
                     if (tag.Equals("") == false)
                     {
-                        
-                       //index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                      // if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
-
                       //il contenuto era già associato: cancello l'associazione precedente
-                        for (int i = 0; i < col; i++) 
+                        for (int i = 0; i < listaContenuti.Count; i++) 
                         {
-                            for (int j = 0; j < row; j++) 
+                            if (((Contenuto)listaContenuti[i]).getNomeContenuto() == nome) 
                             {
-                                if (grid[i, j].Value != null)
-                                {
-                                    String a = grid[i, j].Value.ToString();
-                                    if (a == nome)
-                                    {
-                                        int c = i - 'A' + 1;
-                                        int r = j - '1' + 1;
-                                        schemaGriglia[c, r].Value = null;
-                                    }
-                                }
+                                coord = listaContenuti[i].getCoordinate();
+                                int r = coord[0];
+                                int c = coord[1];
+                                schemaGriglia[c, r].Value = null;
                             }
                         }
-                        
-                        /*if (listaContenuti[index].getCoordinate().Equals("00") == false)
-                        {
-                            coord = listaContenuti[index].getCoordinate();
-                            int c = coord[0] - 'A' + 1;
-                            int r = coord[1] - '1' + 1;
-                            schemaGriglia[c, r].Value = null;
-                        }*/
+                       
                         listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
                         coord = new int[2] { row, col };
                         listaContenuti[listaContenuti.Count-1].setCoordinate(coord);
@@ -414,7 +397,31 @@ namespace TalkingPaper.Authoring
             {
                 if ((nome.Equals("Play")) || (nome.Equals("Pausa")) || (nome.Equals("Stop")) )
                 {
-                    schemaGriglia[col, row].Value = nome;
+                    nome = lastLabelClicked.Text; 
+                    tag = griglia.getTagFromNumericCoord(col, row);
+
+                    //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
+                    if (tag.Equals("") == false)
+                    {
+
+                        //il contenuto era già associato: cancello l'associazione precedente
+                        for (int i = 0; i < listaContenuti.Count; i++)
+                        {
+                            if (((Contenuto)listaContenuti[i]).getNomeContenuto() == nome)
+                            {
+                                coord = listaContenuti[i].getCoordinate();
+                                int r = coord[0];
+                                int c = coord[1];
+                                schemaGriglia[c, r].Value = null;
+                            }
+                        }
+
+                        listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
+                        coord = new int[2] { row, col };
+                        listaContenuti[listaContenuti.Count - 1].setCoordinate(coord);
+
+                        schemaGriglia[col, row].Value = nome;
+                    }      
                 }
                 else
                 {
@@ -441,7 +448,7 @@ namespace TalkingPaper.Authoring
                 }
             }
 
-
+            
 
         }
 
