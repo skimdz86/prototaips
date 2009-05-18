@@ -159,9 +159,7 @@ namespace TalkingPaper.Authoring
             this.play.Tag = "Play";
             this.play.Text = "Play";
             this.play.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.play.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
             this.play.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
-            this.play.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label_MouseUp);
             // 
             // stop
             // 
@@ -176,9 +174,7 @@ namespace TalkingPaper.Authoring
             this.stop.Tag = "Stop";
             this.stop.Text = "Stop";
             this.stop.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.stop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
             this.stop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
-            this.stop.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label_MouseUp);
             // 
             // pausa
             // 
@@ -193,9 +189,7 @@ namespace TalkingPaper.Authoring
             this.pausa.Tag = "Pausa";
             this.pausa.Text = "Pausa";
             this.pausa.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.pausa.MouseMove += new System.Windows.Forms.MouseEventHandler(this.label_MouseMove);
             this.pausa.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label_MouseDown);
-            this.pausa.MouseUp += new System.Windows.Forms.MouseEventHandler(this.label_MouseUp);
             // 
             // aggiungi
             // 
@@ -291,6 +285,7 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.TabIndex = 67;
             this.schemaGriglia.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.schemaGriglia_CellClick);
             this.schemaGriglia.DragEnter += new System.Windows.Forms.DragEventHandler(this.schemaGriglia_DragEnter);
+            this.schemaGriglia.DragDrop += new System.Windows.Forms.DragEventHandler(this.schemaGriglia_DragDrop);
             // 
             // label4
             // 

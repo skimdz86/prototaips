@@ -131,11 +131,11 @@ namespace TalkingPaper.Authoring
                     nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
                     nome.Visible = true;
                     nome.MouseDown += new MouseEventHandler(label_MouseDown);
-                    nome.MouseMove += new MouseEventHandler(label_MouseMove);
-                    nome.MouseUp += new MouseEventHandler(label_MouseUp);
                     ElencoRisorse.Controls.Add(nome);
                 }
             }
+            
+            
 
         }
 
@@ -344,12 +344,6 @@ namespace TalkingPaper.Authoring
         {
             if (e.Button == MouseButtons.Left)
             {
-                dragging = (Label)sender;
-                clickOffsetX = e.X;
-                clickOffsetY = e.Y;
-                posizioneStartX = dragging.Left;
-                posizioneStartY = dragging.Top;
-                
                 if (((Label)sender).Image == null)
                 {
                     if (((Label)sender).BackColor == Color.Red)
@@ -366,20 +360,19 @@ namespace TalkingPaper.Authoring
                 }
                 else
                 {
-                    if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                    if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) 
+                        lastLabelClicked.BackColor = System.Drawing.Color.Orange;
                     lastLabelClicked = ((Label)sender);
                 }
-                //((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
+                ((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
             }       
         }
 
-        //private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
-        private void schemaGriglia_Drop(String nome,int x,int y)    
+        private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
         {
-            //String nome = e.Data.GetData(DataFormats.Text).ToString();
-            DataGridView.HitTestInfo info;
-            if ((y - schemaGriglia.Top) <= 0)  info = schemaGriglia.HitTest((x - schemaGriglia.Left), y);
-            else info = schemaGriglia.HitTest((x - schemaGriglia.Left), (y - schemaGriglia.Top));
+            String nome = e.Data.GetData(DataFormats.Text).ToString();
+            Point point = schemaGriglia.PointToClient(new Point(e.X,e.Y));
+            DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X,point.Y);
 
             int row = info.RowIndex;
             int col = info.ColumnIndex;
@@ -460,26 +453,7 @@ namespace TalkingPaper.Authoring
                 e.Effect = DragDropEffects.None;
         }
 
-        private void label_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging == ((Label)sender))
-            {
-                dragging.Left = e.X + dragging.Left - clickOffsetX;
-                dragging.Top = e.Y + dragging.Top - clickOffsetY;
-                Console.WriteLine((e.X + ((Label)sender).Left - clickOffsetX).ToString() + " " + (e.Y + ((Label)sender).Top - clickOffsetY).ToString() );
-            }
-        }
-
-        private void label_MouseUp(object sender, MouseEventArgs e)
-        {
-            schemaGriglia_Drop((String)dragging.Tag, dragging.Left + clickOffsetX, dragging.Top + clickOffsetY);
-            dragging.Left = posizioneStartX;
-            dragging.Top = posizioneStartY;
-            
-            
-            dragging = null;
-            
-        }
+        
 
     }
 }
