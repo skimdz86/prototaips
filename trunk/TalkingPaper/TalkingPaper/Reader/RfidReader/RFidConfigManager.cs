@@ -47,7 +47,7 @@ namespace TalkingPaper.Reader
             XmlElement xreader=(XmlElement)l[0];
 
             XmlElement port=(XmlElement)doc.CreateElement("port");
-            XmlText tport=(XmlText)doc.CreateTextNode("3");
+            XmlText tport=(XmlText)doc.CreateTextNode("2");
             port.AppendChild(tport);
             XmlElement cf=(XmlElement)doc.CreateElement("communication_frame");
             XmlText tcf=(XmlText)doc.CreateTextNode("8E1");

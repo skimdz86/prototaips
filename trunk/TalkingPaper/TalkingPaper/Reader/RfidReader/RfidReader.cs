@@ -47,7 +47,7 @@ namespace TalkingPaper.Reader
             
             foreach (string portName in SerialPort.GetPortNames())
             {
-                if (!(portName.Equals("COM1")) && !(portName.Equals("COM2")))
+                if (!(portName.Equals("COM1")))
                 {
                     portCounter++;
                     if (portName.Equals("COM" + properties.port)) id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
@@ -70,7 +70,7 @@ namespace TalkingPaper.Reader
 
                 foreach (string portName in SerialPort.GetPortNames())
                 {
-                    if (!(portName.Equals("COM1")) && !(portName.Equals("COM2")))
+                    if (!(portName.Equals("COM1")))
                     {
                         port = Convert.ToInt32(portName.Substring(3, 1));
                         id_reader = rfid_configurator.connect(port, properties.communicationFrame, properties.baudRate, properties.timeout);
@@ -131,6 +131,7 @@ namespace TalkingPaper.Reader
             if (readerStatusUpdate != null) rfid_configurator.StatusUpdateEvent += new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
             else throw new Exception("Non è stato aggiunto uno statusUpdateReader");
             //avvio la lettura
+            
             timerRead = new Timer();
             timerRead.Interval = 1000;
             timerRead.Tick += read;
@@ -166,6 +167,11 @@ namespace TalkingPaper.Reader
         bool IReader.close()
         {
             if (timerRead != null) timerRead.Stop();
+            if (readerStatusUpdate != null)
+            {
+                rfid_configurator.StatusUpdateEvent -= new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
+                readerStatusUpdate = null;
+            }
             return true;
         }
     }

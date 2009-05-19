@@ -4,12 +4,13 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using System.Collections;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.DataAccess
 {
     class GrigliaHandler
     {
-        String filepath = "./Data/Griglie.xml";
+        String filepath = Global.directoryPrincipale + @"/Data/Griglie.xml";
 
         //crea il file
         public void CreateGriglieTaggate()
@@ -45,8 +46,8 @@ namespace TalkingPaper.DataAccess
                     XmlElement x = (XmlElement)l[k];
                     if (x.GetAttribute("Nome") == gr.getNome())
                     {
-                        stream.Close();
-                        return false;
+                        doc.DocumentElement.RemoveChild(x);
+                        
                     }
                 }
                 XmlElement el = doc.CreateElement("Griglia");
@@ -59,7 +60,7 @@ namespace TalkingPaper.DataAccess
                     if (tempTags[i] != "")
                     {
                         XmlElement cella = (XmlElement)doc.CreateElement("Cella");
-                        cella.SetAttribute("Coordinate", gr.getCoordFromIndex(i));
+                        cella.SetAttribute("Coordinate", gr.getCoordFromIndex(i)[0].ToString() + gr.getCoordFromIndex(i)[1].ToString());
                         XmlText tag = (XmlText)doc.CreateTextNode(tempTags[i]);
                         cella.AppendChild(tag);
                         el.AppendChild(cella);
@@ -74,7 +75,6 @@ namespace TalkingPaper.DataAccess
         }
         
 
-        //utile?
         /*public void RemoveGriglia(String idGriglia, String filepath)
         {
             try
@@ -170,8 +170,9 @@ namespace TalkingPaper.DataAccess
                             {
                                 //////cercare le coord e metterci li il valore
                                 XmlElement y = (XmlElement)x.GetElementsByTagName("Cella")[j];
-                                String tempCoo = y.GetAttribute("Coordinate");
-                                int index = tempGr.getIndexFromCoord(tempCoo);
+                                String tempString = y.GetAttribute("Coordinate");
+                                int[] coord = new int[2] { Convert.ToInt32(tempString.Substring(0, 1)), Convert.ToInt32(tempString.Substring(1, 1)) };
+                                int index = tempGr.getIndexFromCoord(coord);
                                 tags[index] = y.InnerText;//ma le coordinate nn le ripassso piu???
                             }
                         tempGr.setListaTag(tags);

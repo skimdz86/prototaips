@@ -6,18 +6,13 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
-namespace TalkingPaper
+namespace TalkingPaper.Execution
 {
     public partial class FormVideo : Form
     {
         public FormVideo()
         {
             InitializeComponent();
-            
-        }
-
-        private void FormVideo_Load(object sender, EventArgs e)
-        {
 
         }
     }

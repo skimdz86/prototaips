@@ -11,6 +11,7 @@ namespace TalkingPaper.ControlLogic
     {
         Form caller;
         String lastRead = "";
+
         private ArrayList idInseriti = new ArrayList();
 
         public List<Model.Poster> getListaPoster()
@@ -32,6 +33,7 @@ namespace TalkingPaper.ControlLogic
         {
             Global.reader.readerStatusUpdate += statusUpdate;
             bool result = Global.reader.startRead();
+            lastRead = "";
             if (!result)
             {
                 return false;
@@ -52,8 +54,20 @@ namespace TalkingPaper.ControlLogic
 
         public void stopReader()
         {
-            Global.reader.readerStatusUpdate -= statusUpdate;
             Global.reader.close();
+        }
+
+        public Model.Contenuto getContenutoFromTag(String nomePoster, String tag)
+        {
+            return Global.dataHandler.getContenutoFromTag(nomePoster, tag);
+        }
+
+        public bool verificaId(string id)
+        {
+            if (id.Equals(lastRead)) return false;
+            else lastRead = id;
+
+            return true;
         }
     }
 }

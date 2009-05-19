@@ -35,6 +35,7 @@ namespace TalkingPaper.Welcome
             this.modificaCartellone = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.parla = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -82,6 +83,7 @@ namespace TalkingPaper.Welcome
             this.groupBox1.BackColor = System.Drawing.Color.Orange;
             this.groupBox1.Controls.Add(this.nuovoCartellone);
             this.groupBox1.Controls.Add(this.modificaCartellone);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(200, 215);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(621, 178);
@@ -105,10 +107,12 @@ namespace TalkingPaper.Welcome
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Orange;
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.parla);
-            this.groupBox2.Location = new System.Drawing.Point(347, 423);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(200, 425);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(325, 178);
+            this.groupBox2.Size = new System.Drawing.Size(621, 178);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
@@ -126,19 +130,32 @@ namespace TalkingPaper.Welcome
             this.parla.UseVisualStyleBackColor = false;
             this.parla.Click += new System.EventHandler(this.parlaSchema_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(356, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 95);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Stampa un cartellone";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // ChildHomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 739);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "ChildHomeForm";
             this.Text = "Menu";
             this.Controls.SetChildIndex(this.boxSotto, 0);
-            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.groupBox2, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
@@ -160,5 +177,6 @@ namespace TalkingPaper.Welcome
         private Button modificaCartellone;
         private GroupBox groupBox2;
         private Button parla;
+        private Button button1;
     }
 }

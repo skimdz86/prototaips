@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Xml;
 using System.IO;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.DataAccess
 {
     class PosterHandler 
     {
-        String filepath = "./Data/Poster.xml";
+        String filepath = Global.directoryPrincipale + @"/Data/Poster.xml";
 
         public void CreateElencoPoster()
         {
@@ -43,8 +44,7 @@ namespace TalkingPaper.DataAccess
                     XmlElement xel = (XmlElement)l[k];
                     if (xel.GetAttribute("Nome") == poster.getNome())
                     {
-                        stream.Close();
-                        return false;
+                        doc.DocumentElement.RemoveChild(xel);
                     }
                 }
                 XmlElement el = doc.CreateElement("Poster");
@@ -59,14 +59,17 @@ namespace TalkingPaper.DataAccess
                 for (int i = 0; i < tempList.Count; i++)
                 {
                     Model.Contenuto c = (Model.Contenuto)tempList[i];
-                    XmlElement x = doc.CreateElement("Contenuto");
-                    x.SetAttribute("Nome", c.getNomeContenuto());
-                    x.SetAttribute("AudioPath", c.getAudioPath());
-                    x.SetAttribute("VideoPath", c.getVideoPath());
-                    x.SetAttribute("ImagePath", c.getImagePath());
-                    x.SetAttribute("TextPath", c.getTextPath());
-                    x.SetAttribute("Cella", c.getCoordinate()[0].ToString() + c.getCoordinate()[1].ToString());
-                    el.AppendChild(x);
+                    if (!((c.getCoordinate()[0].ToString() + c.getCoordinate()[1].ToString()).Equals("00")))
+                    {
+                        XmlElement x = doc.CreateElement("Contenuto");
+                        x.SetAttribute("Nome", c.getNomeContenuto());
+                        x.SetAttribute("AudioPath", c.getAudioPath());
+                        x.SetAttribute("VideoPath", c.getVideoPath());
+                        x.SetAttribute("ImagePath", c.getImagePath());
+                        x.SetAttribute("TextPath", c.getTextPath());
+                        x.SetAttribute("Cella", c.getCoordinate()[0].ToString() + c.getCoordinate()[1].ToString());
+                        el.AppendChild(x);
+                    }
                 }
                 doc.DocumentElement.AppendChild(el);
                 stream.Close();

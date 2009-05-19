@@ -70,7 +70,7 @@ namespace TalkingPaper.Authoring
                     nome.Text = p.getNome();
                     nome.BackColor = Color.Orange;
                     nome.ForeColor = Color.White;
-                    nome.Size = new System.Drawing.Size(175, 25);
+                    nome.Size = new System.Drawing.Size(500, 25);
                     nome.AutoSize = false;
                     nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     nome.Click += new System.EventHandler(nomePoster_Click);

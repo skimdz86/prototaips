@@ -222,7 +222,7 @@ namespace TalkingPaper.Authoring
             //listaUtile contiene solo i contenuti che vanno salvati (perchè associati alla griglia)
             //la dimensione di listaUtile dipende dai contenuti
 
-            Global.dataHandler.removePoster(nomePoster);
+            //Global.dataHandler.removePoster(nomePoster);
 
             Global.dataHandler.setPoster(poster);
 
@@ -265,10 +265,10 @@ namespace TalkingPaper.Authoring
 
                 if (lastLabelClicked.Text != "Play" && lastLabelClicked.Text != "Pausa" && lastLabelClicked.Text != "Stop")
                 {
-                    int x = lastLabelClicked.Text.IndexOf('(');
-                    nome = lastLabelClicked.Text.Substring(0, x);      
+                    
+                    nome = (string)lastLabelClicked.Tag;     
 
-                    tag = griglia.getTagFromNumericCoord(col, row);
+                    tag = griglia.getTagFromNumericCoord(row, col);
 
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
                     if (tag.Equals("") == false)
@@ -297,7 +297,7 @@ namespace TalkingPaper.Authoring
                 else 
                 { 
                     nome = lastLabelClicked.Text; 
-                    tag = griglia.getTagFromNumericCoord(col, row);
+                    tag = griglia.getTagFromNumericCoord(row, col);
 
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
                     if (tag.Equals("") == false)
@@ -371,8 +371,8 @@ namespace TalkingPaper.Authoring
         private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
         {
             String nome = e.Data.GetData(DataFormats.Text).ToString();
-            Point point = schemaGriglia.PointToClient(new Point(e.X,e.Y));
-            DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X,point.Y);
+            Point point = schemaGriglia.PointToClient(new Point(e.X, e.Y));
+            DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X, point.Y);
 
             int row = info.RowIndex;
             int col = info.ColumnIndex;
@@ -383,15 +383,15 @@ namespace TalkingPaper.Authoring
             int[] coord = new int[2];
             int index;
 
-            string tag = griglia.getTagFromNumericCoord(col, row);
+            string tag = griglia.getTagFromNumericCoord(row, col);
 
             //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
             if (tag.Equals("") == false)
             {
-                if ((nome.Equals("Play")) || (nome.Equals("Pausa")) || (nome.Equals("Stop")) )
+                if ((nome.Equals("Play")) || (nome.Equals("Pausa")) || (nome.Equals("Stop")))
                 {
-                    nome = lastLabelClicked.Text; 
-                    tag = griglia.getTagFromNumericCoord(col, row);
+                    nome = lastLabelClicked.Text;
+                    tag = griglia.getTagFromNumericCoord(row, col);
 
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
                     if (tag.Equals("") == false)
@@ -414,7 +414,7 @@ namespace TalkingPaper.Authoring
                         listaContenuti[listaContenuti.Count - 1].setCoordinate(coord);
 
                         schemaGriglia[col, row].Value = nome;
-                    }      
+                    }
                 }
                 else
                 {
@@ -423,9 +423,9 @@ namespace TalkingPaper.Authoring
 
                     //il contenuto era già associato: cancello l'associazione precedente
                     coord = listaContenuti[index].getCoordinate();
-                    if ( (coord[0] != 0) && (coord[1] != 0))
+                    if ((coord[0] != 0) && (coord[1] != 0))
                     {
-                        
+
                         int r = coord[0];
                         int c = coord[1];
                         schemaGriglia[c, r].Value = null;
@@ -436,13 +436,10 @@ namespace TalkingPaper.Authoring
                     listaContenuti[index].setCoordinate(coord);
 
                     schemaGriglia[col, row].Value = nome;
-                    lastLabelClicked.BackColor = Color.Orange;
+                    if (lastLabelClicked != null) lastLabelClicked.BackColor = Color.Orange;
                     lastLabelClicked = null;
                 }
             }
-
-            
-
         }
 
         private void schemaGriglia_DragEnter(object sender, DragEventArgs e)

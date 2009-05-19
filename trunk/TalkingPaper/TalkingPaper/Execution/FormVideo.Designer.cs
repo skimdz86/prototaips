@@ -1,4 +1,4 @@
-namespace TalkingPaper
+namespace TalkingPaper.Execution
 {
     partial class FormVideo
     {
@@ -51,7 +51,6 @@ namespace TalkingPaper
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormVideo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FormVideo_Load);
             this.ResumeLayout(false);
 
         }

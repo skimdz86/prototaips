@@ -118,20 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        R0lGODlhPwAlAPMAAAAAAIAAAACAAICAAAAAgIAAgACAgICAgMDAwP8AAAD/AP//AAAA//8A/wD/////
-        /yH5BAEAAAgALAAAAAA/ACUAAAT/EMlJq60g63y7/2CXKWRJAh4XrixgvqelPShriy78bvND1zeJCrfZ
-        aXa+pBIYHFI2yVwJsEQqJT6mjerMKLNWsKl2QJSjTe8P+qUhsdJYG71Vz9txBTUaTp5/Wwh7dxIHWTx2
-        eXsVSyuIc2WGd4duYw9Yd044goKXkWYIX2ZzI5ahopJZIByskxOTlVNXjF9aGKyCg0mvuxR8sj6gsKod
-        CSgqg5+oeJaXp8NRtgjGuUKwo6TAmNC1ttScB7rBhZljusqE3RXGx7mD2z6pvyfvd59/dBQJ1O12vc9/
-        4syA52uSJgnf+r3Dhy+WHhpKIkFjpUEfv2r+4j2b91DXRoNkwirqa4fx3UZsjyB6GlaxzMFpnGpQnAOP
-        VLBuPJ4cy7Bvwr52LoV4/BhliTiRt7QA6OnzYrVcu0i5SGRUhsgygvYlsMBPJlZxtayooZhzggatxboK
-        MYszz4ksaxAh0rr1Q0Kz1taY1SGXJ92/dVf8XMup00G3fZkGuZBQpjuhRcYUmEyZ52IPaAvHfJyLnZ6l
-        lAucvQzCWFCXZJcyRfFzg2LSaXdWrJh53V/YghtzoIu7t+0N0177Hh48uHDixGsjDxIBADs=
-</value>
-  </data>
-  <data name="pictureBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="immagine.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlheACZAPcAAAAAAAiUEP///xDFQgjFEADFKTrvUgCtGUr3YyneQhnOOhDmQkLWaxDFKUrvUiHv
         QiHWQgC9ITrmYwCtIRCcEBmlKVr3YzHmUhBzCBDWKRDeOkqlOko6QkqlEBlaaxkQa6UQ3qUQWqUQnKUQ
@@ -245,7 +232,7 @@
         MEIJJ6SwQgsvxDBDDTfksEMPPwQxRBFHJLFEE0+MMCAAOw==
 </value>
   </data>
-  <data name="button3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="annulla.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhgACiAPcAAN73/8UZANYpENY6Ic4xENYZAO+UjOZzWuaMe7XmveZ7a94ZKd5SQrUQIbW1va0Q
         COYpEN4xQuYQUuaUveYQpbWUvbUQpeZrveYQe7VrvbUQe+YQzrUQzrVrc73v77WUlO9aUrUxSuaMKeaM

@@ -95,7 +95,7 @@ namespace TalkingPaper.DataAccess
             List<Model.Contenuto> tempList = getPoster(nomePoster).getContenuti();
             for (int i = 0; i < tempList.Count; i++) 
             {
-                if (((Model.Contenuto)tempList[i]).getCoordinate() == coord) return (Model.Contenuto)tempList[i];
+                if ((((Model.Contenuto)tempList[i]).getCoordinate()[0] == coord[0]) && (((Model.Contenuto)tempList[i]).getCoordinate()[1] == coord[1])) return (Model.Contenuto)tempList[i];
             }
             return null;
         }

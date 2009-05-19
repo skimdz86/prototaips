@@ -30,23 +30,19 @@ namespace TalkingPaper.Model
         public void setNumColonne(int numColonne) { this.numColonne = numColonne; }
         public void setListaTag(List<String> tagRFID) { this.tagRFID = tagRFID; }
         
-        // x appartiene a {A,B,..} e indica la coordinata verticale
-        // y appartiene a {1,2,..} e indica la coordinata orizzontale
-        //...funziona quindi come le matrici
-        //ATTENZIONE: l'index parte da ZERO: A1 -> 0, A2 -> 1
-        public int getIndexFromCoord(String coord) 
+        
+        //ATTENZIONE: l'index parte da ZERO: 11 -> 0, 12 -> 1
+        public int getIndexFromCoord(int[] coord) 
         {
-            int index = (coord[0] - 'A') * numColonne + (coord[1] - '1');
+            int index = (coord[0] - 1) * numColonne + (coord[1] - 1);
             return index;
         }
 
-        public String getCoordFromIndex(int index)
+        public int[] getCoordFromIndex(int index)
         {
-            char x, y;
-            int start = 'A';
-            x = (char)((int)(index / numColonne) + start);
-            y = (char) ((index % numColonne) + '1');
-            return x.ToString() + y.ToString();
+            int[] coord = new int[2] { (index / numColonne)+ 1, (index % numColonne)+1 };
+            
+            return coord;
         }
         
         //se è più comodo, si può fare getTag(x,y)
@@ -65,7 +61,7 @@ namespace TalkingPaper.Model
             tagRFID[index] = null;
         }
 
-        public string getTagFromNumericCoord(int col, int row)
+        public string getTagFromNumericCoord(int row, int col)
         {
             col--;
             row--;
@@ -78,16 +74,16 @@ namespace TalkingPaper.Model
             int i = 0;
             int index = -1;
             foreach (string nomeTag in tagRFID) {
-                i++;
                 if (nomeTag.Equals(tag))
                 {
                     index = i;
                     break;
                 }
+                i++;
             }
             if (index == -1) return null;
-            coord[0] = index / numColonne;
-            coord[1] = index % numColonne;
+            coord[0] = (index / numColonne) + 1;
+            coord[1] = (index % numColonne) + 1;
             return coord;
 
         }

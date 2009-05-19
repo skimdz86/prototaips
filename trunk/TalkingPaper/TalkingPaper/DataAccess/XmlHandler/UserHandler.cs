@@ -4,12 +4,13 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using System.Security.Cryptography;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.DataAccess
 {
     class UserHandler 
     {
-        String filepath = "./Data/Users.xml";
+        String filepath = Global.directoryPrincipale + @"/Data/Users.xml";
 
         //crea il file
         public bool CreateListaUtenti()
