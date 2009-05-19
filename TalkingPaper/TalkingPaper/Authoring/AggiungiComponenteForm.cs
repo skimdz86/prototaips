@@ -888,6 +888,9 @@ namespace TalkingPaper.Authoring
         private void ok_Click(object sender, EventArgs e)
         {
             if (nomeBox.Text == "") MessageBox.Show("Devi inserire un nome per il contenuto!");
+            else if (nomeBox.Text == "Play") MessageBox.Show("Il nome non puo essere Play");
+            else if (nomeBox.Text == "Pausa") MessageBox.Show("Il nome non puo essere Pausa");
+            else if (nomeBox.Text == "Stop") MessageBox.Show("Il nome non puo essere Stop");
             else if (suonoBox.Text == "" && videoBox.Text == "") MessageBox.Show("Devi inserire almeno un contenuto fra suono e video");
             else if (suonoBox.Text != "" && videoBox.Text != "") MessageBox.Show("Non puoi inserire insieme un suono e un video, cancellane uno dei due");
             else
