@@ -3,6 +3,7 @@ using TalkingPaper.Common;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Threading;
 
 namespace TalkingPaper.Administration
 {
@@ -43,7 +44,7 @@ namespace TalkingPaper.Administration
                     nome.Tag = poster.getNome();
                     nome.BackColor = Color.Orange;
                     nome.ForeColor = Color.White;
-                    nome.Size = new System.Drawing.Size(175, 25);
+                    nome.Size = new System.Drawing.Size(500, 25);
                     nome.AutoSize = false;
                     nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                     nome.Click += new System.EventHandler(poster_Click);
@@ -60,15 +61,28 @@ namespace TalkingPaper.Administration
         {
             if (posterSelezionato != null)
             {
-                QuestionEliminaPoster question = new QuestionEliminaPoster(posterSelezionato);
+                QuestionSchema question = new QuestionSchema("Vuoi eliminare il poster " + posterSelezionato + " ?", this,null);
                 NavigationControl.showDialog(question);
+                
+                
             }
             else
             {
                 throw new Exception("Errore sul controllo del tasto ok");
             }
         }
-
+        public void questionAnswer(string param,string response)
+        {
+            if (response.Equals("yes"))
+            {
+                bool result;
+                result = control.rimuoviPoster(posterSelezionato);
+                if (result == false)
+                {
+                    throw new Exception("Impossibile eliminare il poster");
+                }
+            }
+        }
         private void annulla_Click(object sender, EventArgs e)
         {
             NavigationControl.goBack(this);

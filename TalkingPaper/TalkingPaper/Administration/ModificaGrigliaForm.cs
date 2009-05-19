@@ -158,6 +158,7 @@ namespace TalkingPaper.Administration
 
         private void ElencoTag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            control.resetControlReader();
             int row = e.RowIndex;
             int col = e.ColumnIndex;
 
@@ -167,7 +168,14 @@ namespace TalkingPaper.Administration
             if ((riga != -1) && (colonna != -1))
             {
                 ElencoTag[colonna, riga].Selected = false;
-                ElencoTag[colonna, riga].Style.BackColor = Color.BlanchedAlmond;
+                if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                {
+                    ElencoTag[colonna, riga].Style.BackColor = Color.BlanchedAlmond;
+                }
+                else
+                {
+                    ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
+                }
             }
 
 
@@ -194,6 +202,7 @@ namespace TalkingPaper.Administration
 
         private void home_Click(object sender, EventArgs e)
         {
+            control.stopReader();
             NavigationControl.goHome(this);
         }
 

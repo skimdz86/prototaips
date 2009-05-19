@@ -13,4 +13,11 @@
     <Contenuto Nome="boh2" AudioPath="" VideoPath="" ImagePath="C:\Users\Marco\Desktop\test2.png" TextPath="" Cella="21" />
     <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
   </Poster>
+  <Poster idUtente="" Nome="test Esecuzione" idGriglia="testEsecuzione">
+    <Descrizione>test</Descrizione>
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
+    <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="22" />
+    <Contenuto Nome="suono" AudioPath="C:\WINDOWS\Media\Windows XP - Esecuzione automatica.wav" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
 </ElencoPoster>

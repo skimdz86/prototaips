@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -166,12 +166,6 @@
     <Compile Include="Common\FormSchema.Designer.cs">
       <DependentUpon>FormSchema.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStorico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormStorico.Designer.cs">
-      <DependentUpon>FormStorico.cs</DependentUpon>
-    </Compile>
     <Compile Include="Authoring\NuovoCartelloneForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,11 +175,11 @@
     <Compile Include="Authoring\PulisciStringa.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Administration\QuestionEliminaPoster.cs">
+    <Compile Include="Common\QuestionSchema.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administration\QuestionEliminaPoster.Designer.cs">
-      <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
+    <Compile Include="Common\QuestionSchema.Designer.cs">
+      <DependentUpon>QuestionSchema.cs</DependentUpon>
     </Compile>
     <Compile Include="Administration\TaggaGrigliaForm.cs">
       <SubType>Form</SubType>
@@ -210,22 +204,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="FormErroreStorico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormErroreStorico.designer.cs">
-      <DependentUpon>FormErroreStorico.cs</DependentUpon>
-    </Compile>
     <Compile Include="Execution\EsecuzioneCartelloneForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Execution\EsecuzioneCartelloneForm.designer.cs">
       <DependentUpon>EsecuzioneCartelloneForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormVideo.cs">
+    <Compile Include="Execution\FormVideo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormVideo.Designer.cs">
+    <Compile Include="Execution\FormVideo.Designer.cs">
       <DependentUpon>FormVideo.cs</DependentUpon>
     </Compile>
     <Compile Include="Authoring\AggiungiComponenteForm.cs">
@@ -310,10 +298,6 @@
       <DependentUpon>FormSchema.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStorico.resx">
-      <DependentUpon>FormStorico.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Authoring\ScegliGrigliaForm.resx">
       <DependentUpon>ScegliGrigliaForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -322,8 +306,8 @@
       <DependentUpon>NuovoCartelloneForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administration\QuestionEliminaPoster.resx">
-      <DependentUpon>QuestionEliminaPoster.cs</DependentUpon>
+    <EmbeddedResource Include="Common\QuestionSchema.resx">
+      <DependentUpon>QuestionSchema.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\TaggaGrigliaForm.resx">
@@ -346,15 +330,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormErroreStorico.resx">
-      <DependentUpon>FormErroreStorico.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="Execution\EsecuzioneCartelloneForm.resx">
       <SubType>Designer</SubType>
       <DependentUpon>EsecuzioneCartelloneForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormVideo.resx">
+    <EmbeddedResource Include="Execution\FormVideo.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FormVideo.cs</DependentUpon>
     </EmbeddedResource>

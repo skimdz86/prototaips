@@ -10,7 +10,7 @@ namespace TalkingPaper.ControlLogic
     class AdministrationControl
     {
         private ArrayList idInseriti = new ArrayList();
-
+        int type = 0;
         private Form caller;
         String lastRead = "";
 
@@ -24,24 +24,28 @@ namespace TalkingPaper.ControlLogic
         {
             Global.reader.readerStatusUpdate += statusUpdate;
             bool result = Global.reader.startRead();
+            lastRead = "";
             if (!result)
             {
                 return false;
             }
             this.caller = caller;
+            if (caller is Administration.TaggaGrigliaForm) type = 1;
+            else if (caller is Administration.ModificaGrigliaForm) type = 2;
             return true;
         }
 
         public void statusUpdate(string id)
         {
-            if (caller != null)
+            if (type == 1)
             {
-                if (caller is Administration.TaggaGrigliaForm)
-                    ((Administration.TaggaGrigliaForm)caller).rfid_StatusUpdateEvent(id);
-                else if (caller is Administration.ModificaGrigliaForm)
-                    ((Administration.ModificaGrigliaForm)caller).rfid_StatusUpdateEvent(id);
-
+                ((Administration.TaggaGrigliaForm)caller).rfid_StatusUpdateEvent(id);
             }
+            else if (type == 2)
+            {
+                ((Administration.ModificaGrigliaForm)caller).rfid_StatusUpdateEvent(id);
+            }
+               
         }
 
         public void salvaGriglia(Model.Griglia griglia, string[,] grid)
@@ -99,7 +103,6 @@ namespace TalkingPaper.ControlLogic
 
         public void stopReader()
         {
-            Global.reader.readerStatusUpdate -= statusUpdate;
             Global.reader.close();
         }
         public Model.Griglia getGriglia(String nomeGriglia)
@@ -115,5 +118,10 @@ namespace TalkingPaper.ControlLogic
             return Global.dataHandler.removePoster(nomePoster);
         }
 
+
+        public void resetControlReader()
+        {
+            lastRead = "";
+        }
     }
 }
