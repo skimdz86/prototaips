@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using TalkingPaper.Common;
 using TalkingPaper.ControlLogic;
 
+/* AHAHAHAHAHAHAHAHAH */
+
 namespace TalkingPaper.Welcome
 {
     public partial class IndexForm : FormSchema
