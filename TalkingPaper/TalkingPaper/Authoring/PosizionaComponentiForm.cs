@@ -76,10 +76,27 @@ namespace TalkingPaper.Authoring
            // if (b) 
            // {
            Poster p = Global.dataHandler.getPoster(nomePoster);
+           int countPlay=0,countPausa=0,countStop=0;
            if (p.getNome() != null)
            {
+               for(int j=0;j<p.getContenuti().Count;j++) 
+               {
+                   if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Play") countPlay++;
+                   if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Pausa") countPausa++;
+                   if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Stop") countStop++;
+               }
+               if(countPlay==0) listaContenuti.Add(new Contenuto("Play",null,null,null,null));
+               if(countPausa==0) listaContenuti.Add(new Contenuto("Pausa",null,null,null,null));
+               if(countStop==0) listaContenuti.Add(new Contenuto("Stop",null,null,null,null));
+
                listaContenuti.AddRange(p.getContenuti());
                riempiGriglia(p);
+           }
+           else if (p.getNome() == null) 
+           {
+               listaContenuti.Add(new Contenuto("Play",null,null,null,null));
+               listaContenuti.Add(new Contenuto("Pausa",null,null,null,null));
+               listaContenuti.Add(new Contenuto("Stop",null,null,null,null));
            }
            // }
 
@@ -102,13 +119,16 @@ namespace TalkingPaper.Authoring
             foreach (Contenuto c in listaContenuti)
             {
                 int[] coord = c.getCoordinate();
-                
-                if (coord == null || coord[0] == 0 || coord[1] == 0) throw new Exception("Contenuto non previsto");
 
-                int row = coord[0];
-                int col = coord[1];
+                if (coord != null && coord[0] != 0 && coord[1] != 0)
+                {
 
-                schemaGriglia[col, row].Value = c.getNomeContenuto();
+                    int row = coord[0];
+                    int col = coord[1];
+
+                    schemaGriglia[col, row].Value = c.getNomeContenuto();
+                }
+                else { }//throw new Exception("Contenuto non previsto");
             }
         }
 
@@ -263,8 +283,8 @@ namespace TalkingPaper.Authoring
                 int index;
                 string tag;
 
-                if (lastLabelClicked.Text != "Play" && lastLabelClicked.Text != "Pausa" && lastLabelClicked.Text != "Stop")
-                {
+               // if (lastLabelClicked.Text != "Play" && lastLabelClicked.Text != "Pausa" && lastLabelClicked.Text != "Stop")
+               // {
                     
                     nome = (string)lastLabelClicked.Tag;     
 
@@ -273,6 +293,16 @@ namespace TalkingPaper.Authoring
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
                     if (tag.Equals("") == false)
                     {
+                        ///// elimino quel che c'è gia quando reinserisco sopra
+                        int[] temp=new int[2];
+                        for (int k = 0; k < listaContenuti.Count; k++)
+                        {
+                            temp=listaContenuti[k].getCoordinate();
+                            int x=temp[0];
+                            int y = temp[1];
+                            if (x==row && y==col) { listaContenuti[k].setCoordinate(new int[2] { 0, 0 }); break; }
+                        }
+
                         index = control.getIndexFromNomeContenuto(listaContenuti, nome);
                         if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
 
@@ -293,8 +323,9 @@ namespace TalkingPaper.Authoring
                         lastLabelClicked.BackColor = Color.Orange;
                         lastLabelClicked = null;
                     }
-                }
-                else 
+                    MessageBox.Show(listaContenuti[0].getCoordinate()[0].ToString() + "\n" + listaContenuti[0].getCoordinate()[1].ToString() + "\n" + listaContenuti[1].getCoordinate()[0].ToString() + "\n" + listaContenuti[1].getCoordinate()[1].ToString() + "\n" + listaContenuti[2].getCoordinate()[0].ToString() + "\n" + listaContenuti[2].getCoordinate()[1].ToString() + "\n" + listaContenuti[3].getCoordinate()[0].ToString() + "\n" + listaContenuti[3].getCoordinate()[1].ToString());
+                //}
+                /*else 
                 { 
                     nome = lastLabelClicked.Text; 
                     tag = griglia.getTagFromNumericCoord(row, col);
@@ -303,6 +334,8 @@ namespace TalkingPaper.Authoring
                     if (tag.Equals("") == false)
                     {
                       //il contenuto era già associato: cancello l'associazione precedente
+                        int counter = 0;
+                        int indiceComponente=-1;
                         for (int i = 0; i < listaContenuti.Count; i++) 
                         {
                             if (((Contenuto)listaContenuti[i]).getNomeContenuto() == nome) 
@@ -311,18 +344,33 @@ namespace TalkingPaper.Authoring
                                 int r = coord[0];
                                 int c = coord[1];
                                 schemaGriglia[c, r].Value = null;
+                                indiceComponente = i;
+                                counter++;
                             }
                         }
-                       
-                        listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
-                        coord = new int[2] { row, col };
-                        listaContenuti[listaContenuti.Count-1].setCoordinate(coord);
+                        //accidenti, va ma: non elimina dalla lista i controlli, elimina i controlli se inserisco un contenuto
+                        //ma se no inserire di base i controlli nella lista e usare l efunzioini di yan
+                        if (counter == 0)
+                        {
+                            listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
+                            coord = new int[2] { row, col };
+                            listaContenuti[listaContenuti.Count - 1].setCoordinate(coord);
 
-                        grid[col, row].Value = nome;
-                        lastLabelClicked.BackColor = Color.Orange;
-                        lastLabelClicked = null;
+                            grid[col, row].Value = nome;
+                            lastLabelClicked.BackColor = Color.Orange;
+                            lastLabelClicked = null;
                         }
-                }
+                        else 
+                        {
+                            coord = new int[2] { row, col };
+                            listaContenuti[indiceComponente].setCoordinate(coord);
+
+                            grid[col, row].Value = nome;
+                            lastLabelClicked.BackColor = Color.Orange;
+                            lastLabelClicked = null;
+                        }
+                    }
+                }*/
             }
             //elimino un contenuto da una cella
             else if (grid[col, row].Value != null)
