@@ -23,4 +23,8 @@
     <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
     <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
   </Poster>
+  <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
+    <Descrizione>vkjnjknjkcsn</Descrizione>
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
+  </Poster>
 </ElencoPoster>
