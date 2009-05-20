@@ -21,20 +21,12 @@
   <Griglia Nome="giogiog" Righe="4" Colonne="2">
     <Cella Coordinate="11">E004010017FE9160</Cella>
   </Griglia>
-  <Griglia Nome="yan" Righe="4" Colonne="4">
-    <Cella Coordinate="11">E004010017FE82AD</Cella>
-    <Cella Coordinate="21">E004010017FE82A6</Cella>
-    <Cella Coordinate="12">E004010017FE8296</Cella>
-    <Cella Coordinate="22">E004010017FE828E</Cella>
-    <Cella Coordinate="33">E004010017FE82A1</Cella>
-    <Cella Coordinate="43">E004010017FE82A2</Cella>
-    <Cella Coordinate="14">E004010017FE8293</Cella>
-    <Cella Coordinate="44">E004010017FE8284</Cella>
-  </Griglia>
   <Griglia Nome="testEsecuzione" Righe="2" Colonne="2">
     <Cella Coordinate="11">E004010017FE82AD</Cella>
     <Cella Coordinate="12">E004010017FE82A6</Cella>
     <Cella Coordinate="21">E004010017FE8296</Cella>
     <Cella Coordinate="22">E004010017FE828E</Cella>
   </Griglia>
+  <Griglia Nome="senzaniente" Righe="2" Colonne="2" />
+  <Griglia Nome="yan" Righe="4" Colonne="4" />
 </GriglieTaggate>

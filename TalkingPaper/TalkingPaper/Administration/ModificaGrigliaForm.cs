@@ -149,9 +149,22 @@ namespace TalkingPaper.Administration
                         matrix[i, j] = "";
                 }
             }
-            control.salvaGriglia(griglia, matrix);
-            control.stopReader();
-            NavigationControl.goHome(this);
+            ////controllo che ci sia almeno un tag
+            int counter = 0;
+            for (int k = 0; k < ElencoTag.RowCount - 1; k++)
+            {
+                for (int w = 0; w < ElencoTag.ColumnCount - 1; w++)
+                {
+                    if (matrix[k, w] != "") counter++;
+                }
+            }
+            if (counter > 0)
+            {
+                control.salvaGriglia(griglia, matrix);
+                control.stopReader();
+                NavigationControl.goHome(this);
+            }
+            else MessageBox.Show("Inserisci almeno un tag nella griglia!");
         }
 
 
@@ -183,6 +196,8 @@ namespace TalkingPaper.Administration
             {
                 if (ElencoTag[col, row].Value != null)
                 {
+                    /////////////mettere una form piccola solo con ok/annulla per dire che la modifica avra effetto sui seguenti poster...
+
                     control.delId((string)ElencoTag[col, row].Value);
                     ElencoTag[col, row].Value = null;
                 }

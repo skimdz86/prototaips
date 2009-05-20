@@ -137,60 +137,65 @@ namespace TalkingPaper.Execution
                     }
                     else if ((contenuto.getVideoPath() != null) && !(contenuto.getVideoPath().Equals("")))
                     {
-                        CleanUp();
-                        m_objFilterGraph = new FilgraphManager();
-                        m_objFilterGraph.RenderFile(contenuto.getVideoPath());
-
-                        //m_objBasicAudio = m_objFilterGraph as IBasicAudio;
-
-                        try
+                        if (File.Exists(contenuto.getVideoPath()))
                         {
-                            formVideo = new FormVideo();
-                            m_objVideoWindow = m_objFilterGraph as IVideoWindow;
-                            m_objVideoWindow.Owner = (int)formVideo.Handle;
-                            m_objVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
-                            //m_objVideoWindow.FullScreenMode = 1;
-                            m_objVideoWindow.SetWindowPosition(formVideo.ClientRectangle.Left,
-                            formVideo.ClientRectangle.Top,
-                            formVideo.ClientRectangle.Width,
-                            formVideo.ClientRectangle.Height);
-                            
 
-                            m_objMediaEvent = m_objFilterGraph as IMediaEvent;
+                            CleanUp();
+                            m_objFilterGraph = new FilgraphManager();
+                            m_objFilterGraph.RenderFile(contenuto.getVideoPath());
 
-                            m_objMediaEventEx = m_objFilterGraph as IMediaEventEx;
-                            m_objMediaEventEx.SetNotifyWindow((int)this.Handle, WM_GRAPHNOTIFY, 0);
+                            //m_objBasicAudio = m_objFilterGraph as IBasicAudio;
 
-                            m_objMediaPosition = m_objFilterGraph as IMediaPosition;
+                            try
+                            {
+                                formVideo = new FormVideo();
+                                m_objVideoWindow = m_objFilterGraph as IVideoWindow;
+                                m_objVideoWindow.Owner = (int)formVideo.Handle;
+                                m_objVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
+                                //m_objVideoWindow.FullScreenMode = 1;
+                                m_objVideoWindow.SetWindowPosition(formVideo.ClientRectangle.Left,
+                                formVideo.ClientRectangle.Top,
+                                formVideo.ClientRectangle.Width,
+                                formVideo.ClientRectangle.Height);
 
-                            m_objMediaControl = m_objFilterGraph as IMediaControl;
 
-                            m_objMediaControl.Run();
-                            m_CurrentStatus = MediaStatus.Running;
+                                m_objMediaEvent = m_objFilterGraph as IMediaEvent;
 
-                            
-                            updateTimer.Start();
-                            
-                            labelEsecuzioneDi.Visible = true;
-                            nomeContenuto.Text = contenuto.getNomeContenuto();
-                            nomeContenuto.Visible = true;
-                            labelStato.Visible = true;
-                            stato.Visible = true;
-                            tempoTotale.Visible = true;
-                            tempoTrascorso.Visible = true;
-                            labelSu.Visible = true;
+                                m_objMediaEventEx = m_objFilterGraph as IMediaEventEx;
+                                m_objMediaEventEx.SetNotifyWindow((int)this.Handle, WM_GRAPHNOTIFY, 0);
 
-                            formVideo.Show();
+                                m_objMediaPosition = m_objFilterGraph as IMediaPosition;
+
+                                m_objMediaControl = m_objFilterGraph as IMediaControl;
+
+                                m_objMediaControl.Run();
+                                m_CurrentStatus = MediaStatus.Running;
+
+
+                                updateTimer.Start();
+
+                                labelEsecuzioneDi.Visible = true;
+                                nomeContenuto.Text = contenuto.getNomeContenuto();
+                                nomeContenuto.Visible = true;
+                                labelStato.Visible = true;
+                                stato.Visible = true;
+                                tempoTotale.Visible = true;
+                                tempoTrascorso.Visible = true;
+                                labelSu.Visible = true;
+
+                                formVideo.Show();
+                            }
+                            catch (Exception)
+                            {
+                                m_objVideoWindow = null;
+                            }
+
                         }
-                        catch (Exception)
-                        {
-                            m_objVideoWindow = null;
-                        }
-
-
+                        else MessageBox.Show("Non esiste più il contenuto"+contenuto.getNomeContenuto()+"!! Aggiornare il cartellone");
                     }
                     else if ((contenuto.getAudioPath() != null) && !(contenuto.getAudioPath().Equals("")))
                     {
+                        if(File.Exists(contenuto.getAudioPath())){
 
                         CleanUp();
                         m_objFilterGraph = new FilgraphManager();
@@ -222,6 +227,8 @@ namespace TalkingPaper.Execution
                         tempoTotale.Visible = true;
                         tempoTrascorso.Visible = true;
                         labelSu.Visible = true;
+                    }
+                        else MessageBox.Show("Non esiste più il contenuto"+contenuto.getNomeContenuto()+"!! Aggiornare il cartellone");
                     }
                     else throw new Exception("Il contenuto " + contenuto.getNomeContenuto() + " è malformato");
 
