@@ -7,17 +7,20 @@
     <Contenuto Nome="d" AudioPath="c:\users\Public\Music\Sample Music\Symphony_No_3.wma" VideoPath="" ImagePath="" TextPath="c:\Users\yans\Desktop\talking paper\TalkingPaper\TalkingPaper\obj\Debug\TalkingPaper.csproj.FileListAbsolute.txt" Cella="33" />
     <Contenuto Nome="e" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="34" />
   </Poster>
-  <Poster idUtente="4C" Nome="Poster00" idGriglia="massi">
-    <Descrizione>Prova di marco</Descrizione>
-    <Contenuto Nome="contenuto 1" AudioPath="C:\Users\Marco\Music\Febbraio 07\Da_Blitz_-_Movin'_On_(Gabry_Ponte_Remix).mp3" VideoPath="" ImagePath="C:\Users\Marco\Desktop\tasti.png" TextPath="" Cella="11" />
-    <Contenuto Nome="boh2" AudioPath="" VideoPath="" ImagePath="C:\Users\Marco\Desktop\test2.png" TextPath="" Cella="21" />
-    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
-  </Poster>
   <Poster idUtente="" Nome="test Esecuzione" idGriglia="testEsecuzione">
     <Descrizione>test</Descrizione>
     <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
     <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
     <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="22" />
     <Contenuto Nome="suono" AudioPath="C:\WINDOWS\Media\Windows XP - Esecuzione automatica.wav" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
+  <Poster idUtente="4C" Nome="Poster00" idGriglia="massi">
+    <Descrizione>Prova di marco</Descrizione>
+    <Contenuto Nome="contenuto 1" AudioPath="C:\Users\Marco\Music\Febbraio 07\Da_Blitz_-_Movin'_On_(Gabry_Ponte_Remix).mp3" VideoPath="" ImagePath="C:\Users\Marco\Desktop\tasti.png" TextPath="" Cella="11" />
+    <Contenuto Nome="boh2" AudioPath="" VideoPath="" ImagePath="C:\Users\Marco\Desktop\test2.png" TextPath="" Cella="11" />
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
+    <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
   </Poster>
 </ElencoPoster>

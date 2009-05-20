@@ -333,10 +333,14 @@ namespace TalkingPaper.Authoring
             int indice = suonoBox.Text.LastIndexOf("\\");
             int lenght = suonoBox.Text.Length - (indice + 1);
             string nome_file = suonoBox.Text.Substring(indice + 1, lenght);
-            this.Enabled = false;
-            PlayAudio nuovo = new PlayAudio(suonoBox.Text, this, /*null, null, null,*/ null);
-            nuovo.Show();
-            this.Cursor = Cursors.Default;
+            if (File.Exists(suonoBox.Text))
+            {
+                this.Enabled = false;
+                PlayAudio nuovo = new PlayAudio(suonoBox.Text, this, /*null, null, null,*/ null);
+                nuovo.Show();
+                this.Cursor = Cursors.Default;
+            }
+            else MessageBox.Show("Il file non esiste più");
         }
 
         private void PreviewVideo_Click(object sender, EventArgs e)
@@ -345,10 +349,14 @@ namespace TalkingPaper.Authoring
             int indice = videoBox.Text.LastIndexOf("\\");
             int lenght = videoBox.Text.Length - (indice + 1);
             string nome_file = videoBox.Text.Substring(indice + 1, lenght);
-            this.Enabled = false;
-            PlayVideo nuovo = new PlayVideo(videoBox.Text, this, /*null, null, null,*/ null);
-            nuovo.Show();
-            this.Cursor = Cursors.Default;
+            if (File.Exists(videoBox.Text))
+            {
+                this.Enabled = false;
+                PlayVideo nuovo = new PlayVideo(videoBox.Text, this, /*null, null, null,*/ null);
+                nuovo.Show();
+                this.Cursor = Cursors.Default;
+            }
+            else MessageBox.Show("Il file non esiste più");
         }
 
         /* private void Doc_PrintPage(object sender, PrintPageEventArgs e)
