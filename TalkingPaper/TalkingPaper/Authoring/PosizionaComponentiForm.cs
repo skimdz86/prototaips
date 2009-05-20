@@ -283,9 +283,7 @@ namespace TalkingPaper.Authoring
                 int index;
                 string tag;
 
-               // if (lastLabelClicked.Text != "Play" && lastLabelClicked.Text != "Pausa" && lastLabelClicked.Text != "Stop")
-               // {
-                    
+                   
                     nome = (string)lastLabelClicked.Tag;     
 
                     tag = griglia.getTagFromNumericCoord(row, col);
@@ -323,54 +321,8 @@ namespace TalkingPaper.Authoring
                         lastLabelClicked.BackColor = Color.Orange;
                         lastLabelClicked = null;
                     }
-                    MessageBox.Show(listaContenuti[0].getCoordinate()[0].ToString() + "\n" + listaContenuti[0].getCoordinate()[1].ToString() + "\n" + listaContenuti[1].getCoordinate()[0].ToString() + "\n" + listaContenuti[1].getCoordinate()[1].ToString() + "\n" + listaContenuti[2].getCoordinate()[0].ToString() + "\n" + listaContenuti[2].getCoordinate()[1].ToString() + "\n" + listaContenuti[3].getCoordinate()[0].ToString() + "\n" + listaContenuti[3].getCoordinate()[1].ToString());
-                //}
-                /*else 
-                { 
-                    nome = lastLabelClicked.Text; 
-                    tag = griglia.getTagFromNumericCoord(row, col);
-
-                    //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                    if (tag.Equals("") == false)
-                    {
-                      //il contenuto era già associato: cancello l'associazione precedente
-                        int counter = 0;
-                        int indiceComponente=-1;
-                        for (int i = 0; i < listaContenuti.Count; i++) 
-                        {
-                            if (((Contenuto)listaContenuti[i]).getNomeContenuto() == nome) 
-                            {
-                                coord = listaContenuti[i].getCoordinate();
-                                int r = coord[0];
-                                int c = coord[1];
-                                schemaGriglia[c, r].Value = null;
-                                indiceComponente = i;
-                                counter++;
-                            }
-                        }
-                        //accidenti, va ma: non elimina dalla lista i controlli, elimina i controlli se inserisco un contenuto
-                        //ma se no inserire di base i controlli nella lista e usare l efunzioini di yan
-                        if (counter == 0)
-                        {
-                            listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
-                            coord = new int[2] { row, col };
-                            listaContenuti[listaContenuti.Count - 1].setCoordinate(coord);
-
-                            grid[col, row].Value = nome;
-                            lastLabelClicked.BackColor = Color.Orange;
-                            lastLabelClicked = null;
-                        }
-                        else 
-                        {
-                            coord = new int[2] { row, col };
-                            listaContenuti[indiceComponente].setCoordinate(coord);
-
-                            grid[col, row].Value = nome;
-                            lastLabelClicked.BackColor = Color.Orange;
-                            lastLabelClicked = null;
-                        }
-                    }
-                }*/
+                    
+                
             }
             //elimino un contenuto da una cella
             else if (grid[col, row].Value != null)
@@ -433,60 +385,42 @@ namespace TalkingPaper.Authoring
 
             string tag = griglia.getTagFromNumericCoord(row, col);
 
+            nome = (string)lastLabelClicked.Tag;
+
+            tag = griglia.getTagFromNumericCoord(row, col);
+
             //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
             if (tag.Equals("") == false)
             {
-                if ((nome.Equals("Play")) || (nome.Equals("Pausa")) || (nome.Equals("Stop")))
+                ///// elimino quel che c'è gia quando reinserisco sopra
+                int[] temp = new int[2];
+                for (int k = 0; k < listaContenuti.Count; k++)
                 {
-                    nome = lastLabelClicked.Text;
-                    tag = griglia.getTagFromNumericCoord(row, col);
-
-                    //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                    if (tag.Equals("") == false)
-                    {
-
-                        //il contenuto era già associato: cancello l'associazione precedente
-                        for (int i = 0; i < listaContenuti.Count; i++)
-                        {
-                            if (((Contenuto)listaContenuti[i]).getNomeContenuto() == nome)
-                            {
-                                coord = listaContenuti[i].getCoordinate();
-                                int r = coord[0];
-                                int c = coord[1];
-                                schemaGriglia[c, r].Value = null;
-                            }
-                        }
-
-                        listaContenuti.Add(new Contenuto(lastLabelClicked.Text, null, null, null, null));
-                        coord = new int[2] { row, col };
-                        listaContenuti[listaContenuti.Count - 1].setCoordinate(coord);
-
-                        schemaGriglia[col, row].Value = nome;
-                    }
+                    temp = listaContenuti[k].getCoordinate();
+                    int x = temp[0];
+                    int y = temp[1];
+                    if (x == row && y == col) { listaContenuti[k].setCoordinate(new int[2] { 0, 0 }); break; }
                 }
-                else
+
+                index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
+
+                //il contenuto era già associato: cancello l'associazione precedente
+                coord = listaContenuti[index].getCoordinate();
+                if ((coord[0] != 0) && (coord[1] != 0))
                 {
-                    index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                    if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
 
-                    //il contenuto era già associato: cancello l'associazione precedente
-                    coord = listaContenuti[index].getCoordinate();
-                    if ((coord[0] != 0) && (coord[1] != 0))
-                    {
-
-                        int r = coord[0];
-                        int c = coord[1];
-                        schemaGriglia[c, r].Value = null;
-                    }
-
-                    coord[0] = row;
-                    coord[1] = col;
-                    listaContenuti[index].setCoordinate(coord);
-
-                    schemaGriglia[col, row].Value = nome;
-                    if (lastLabelClicked != null) lastLabelClicked.BackColor = Color.Orange;
-                    lastLabelClicked = null;
+                    int r = coord[0];
+                    int c = coord[1];
+                    schemaGriglia[c, r].Value = null;
                 }
+                coord = new int[2] { row, col };
+
+                listaContenuti[index].setCoordinate(coord);
+
+                schemaGriglia[col, row].Value = nome;
+                lastLabelClicked.BackColor = Color.Orange;
+                lastLabelClicked = null;
             }
         }
 
