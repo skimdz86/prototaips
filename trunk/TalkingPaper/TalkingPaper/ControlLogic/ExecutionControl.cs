@@ -11,6 +11,7 @@ namespace TalkingPaper.ControlLogic
     {
         Form caller;
         String lastRead = "";
+        Timer resetLastRead;
 
         private ArrayList idInseriti = new ArrayList();
 
@@ -34,6 +35,10 @@ namespace TalkingPaper.ControlLogic
             Global.reader.readerStatusUpdate += statusUpdate;
             bool result = Global.reader.startRead();
             lastRead = "";
+            resetLastRead = new Timer();
+            resetLastRead.Interval = 5000;
+            resetLastRead.Tick += reset;
+            resetLastRead.Start();
             if (!result)
             {
                 return false;
@@ -54,6 +59,7 @@ namespace TalkingPaper.ControlLogic
 
         public void stopReader()
         {
+            resetLastRead.Stop();
             Global.reader.close();
         }
 
@@ -68,6 +74,11 @@ namespace TalkingPaper.ControlLogic
             else lastRead = id;
 
             return true;
+        }
+
+        public void reset(object sender, EventArgs e)
+        {
+            lastRead = "";
         }
     }
 }
