@@ -92,6 +92,7 @@ namespace TalkingPaper.DataAccess
             String nomeGriglia = getPoster(nomePoster).getNomeGriglia();
             Model.Griglia grTemp = getGriglia(nomeGriglia);
             int[] coord=grTemp.getCoordFromTag(tag);
+            if (coord == null) return null;
             List<Model.Contenuto> tempList = getPoster(nomePoster).getContenuti();
             for (int i = 0; i < tempList.Count; i++) 
             {
