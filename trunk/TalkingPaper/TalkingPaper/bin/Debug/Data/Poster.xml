@@ -14,17 +14,10 @@
     <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="22" />
     <Contenuto Nome="suono" AudioPath="C:\WINDOWS\Media\Windows XP - Esecuzione automatica.wav" VideoPath="" ImagePath="" TextPath="" Cella="11" />
   </Poster>
-  <Poster idUtente="4C" Nome="Poster00" idGriglia="massi">
-    <Descrizione>Prova di marco</Descrizione>
-    <Contenuto Nome="contenuto 1" AudioPath="C:\Users\Marco\Music\Febbraio 07\Da_Blitz_-_Movin'_On_(Gabry_Ponte_Remix).mp3" VideoPath="" ImagePath="C:\Users\Marco\Desktop\tasti.png" TextPath="" Cella="11" />
-    <Contenuto Nome="boh2" AudioPath="" VideoPath="" ImagePath="C:\Users\Marco\Desktop\test2.png" TextPath="" Cella="11" />
-    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
-    <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
-    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
-    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
-  </Poster>
   <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
     <Descrizione>vkjnjknjkcsn</Descrizione>
-    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="12" />
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+    <Contenuto Nome="gggg" AudioPath="C:\Users\Marco\Music\Fall 2008\03-sam_sparro-21st_century_life.mp3" VideoPath="" ImagePath="" TextPath="" Cella="12" />
   </Poster>
 </ElencoPoster>
