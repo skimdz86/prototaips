@@ -54,6 +54,16 @@ namespace TalkingPaper.Model
         {
             contenuti[index] = null;
         }
+
+        public Contenuto getContenutoFromName(string name)
+        {
+            foreach (Contenuto contenuto in contenuti)
+            {
+                if (contenuto.getNomeContenuto().Equals(name))
+                    return contenuto;
+            }
+            return null;
+        }
         
     }
 }

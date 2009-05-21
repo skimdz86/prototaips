@@ -71,7 +71,7 @@ namespace TalkingPaper.Authoring
             // 
             // annulla
             // 
-            this.annulla.Click += new System.EventHandler(this.annulla_Click_1);
+            this.annulla.Click += new System.EventHandler(this.annulla_Click);
             // 
             // ok
             // 

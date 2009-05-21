@@ -26,152 +26,24 @@ namespace TalkingPaper.Authoring
 {
     public partial class AggiungiComponenteForm : FormSchema
     {
-        private int tag_per_riga;
-        private int tag_per_colonna;
-        private Authoring.PosizionaComponentiForm componenti_poster;
-        //private Authoring.BenvenutoGestioneDisposizione benvenuto;
-        private ModificaCartelloneForm poster;
-        private int id_mostra;
-        private int id_poster;
-        private string directory_principale;
-        private string nome_poster;
-    //    private TalkingPaper.NHibernateManager nh_manager;
-        
-        private bool modifica;
-        private int id_contenuto;
-        private string nome_contenuto;
-        private string provenienza;
-        /*private TalkingPaper.BarCode.BenvenutoBarCode benvenuto_bar;
-        private TalkingPaper.RfidCode.BenvenutoRFID benvenuto_rfid;
-        private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_bar;
-        private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_rfid;
-        private TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut;*/
-        private TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut;
-        private string id_pannello;
-        private string nome_pannello;
-        private string configurazione;
-        private Authoring.ElementoGriglia[,] matrice;
-        private char[] alfabeto ={ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
         private Contenuto contenuto;
-        
+        private ControlLogic.AuthoringControl control;
 
-        
-//        public NuovoComponente(BenvenutoGestioneDisposizione benvenuto, PosterDellaMostra poster, ComponentiDelPoster componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut, TalkingPaper.Authoring.FormVisualizzaElementiAuthoring visualizza_aut, string id_pannello, string nome_pannello, string configurazione,int tag_per_riga, int tag_per_colonna)
-        //public AggiungiComponenteForm(Authoring.BenvenutoGestioneDisposizione benvenuto, ModificaCartelloneForm poster, Authoring.PosizionaComponentiForm componenti_poster, string nome_poster, int id_mostra, int id_poster, bool modifica, int id_contenuto, string nome_contenuto, string directory_principale, string provenienza, /*TalkingPaper.Authoring.BenvenutoAuthoring benvenuto_aut,*/ TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut, string id_pannello, string nome_pannello, string configurazione, int tag_per_riga, int tag_per_colonna)
-        public AggiungiComponenteForm(Contenuto cont)
+        public AggiungiComponenteForm(Contenuto contenuto)
         {
             InitializeComponent();
             
-            //this.tag_per_colonna = tag_per_colonna;
-            //this.tag_per_riga = tag_per_riga;
-            matrice = new Authoring.ElementoGriglia[tag_per_colonna + 1, tag_per_riga + 1];
-
-            contenuto = cont;
-
-            //this.provenienza = provenienza;
-            //this.id_pannello = id_pannello;
-            //this.nome_pannello = nome_pannello;
-            //this.configurazione = configurazione;
-            /*this.benvenuto_bar = benvenuto_bar;
-            this.benvenuto_rfid = benvenuto_rfid;
-            this.visualizza_bar = visualizza_bar;
-            this.visualizza_rfid = visualizza_rfid;*/
-            //this.benvenuto_aut = benvenuto_aut;
-            //this.visualizza_aut = visualizza_aut;
-            //this.benvenuto = benvenuto;
-            //this.nome_contenuto = nome_contenuto;
-            //this.poster = poster;
-            //this.modifica = modifica;
-            //this.componenti_poster = componenti_poster;
-            //this.id_mostra = id_mostra;
-           // this.id_poster = id_poster;
-           // this.nome_poster = nome_poster;
-           // this.directory_principale = directory_principale;
-           // this.id_contenuto = id_contenuto;
-      //      this.nh_manager = new NHibernateManager();
-            SfogliaAudio.Cursor = Cursors.Hand;
-            SfogliaImmagine.Cursor = Cursors.Hand;
-            SfogliaTesto.Cursor = Cursors.Hand;
-            SfogliaVideo.Cursor = Cursors.Hand;
-            PreviewAudio.Cursor = Cursors.Hand;
-            PreviewImmagine.Cursor = Cursors.Hand;
-            PreviewTesto.Cursor = Cursors.Hand;
-            PreviewVideo.Cursor = Cursors.Hand;
-            EliminaAudio.Cursor = Cursors.Hand;
-            EliminaImmagine.Cursor = Cursors.Hand;
-            EliminaTesto.Cursor = Cursors.Hand;
-            EliminaVideo.Cursor = Cursors.Hand;
+            this.contenuto = contenuto;
+            control = new ControlLogic.AuthoringControl();
             
-            if (modifica == true)
-            {
-                this.sottotitolo.Text = "Modifica del componente " + '"' + nome_contenuto + '"';
-                LeggiFileXml();
-                //label1.Visible = false;
-                //textBox1.Visible = false;
-                nomeBox.Text = nome_contenuto;
-                nomeBox.Focus();
-                nomeBox.SelectionStart = 0;
-                nomeBox.SelectionLength = 0;
-            //    using (ISession tempS = nh_manager.Session)
-            //    using (ITransaction tempT = tempS.BeginTransaction())
-               /* {
-                    try
-                    {
-                        Contenuto2 conte = new Contenuto2();
-                        IQuery q = tempS.CreateQuery("FROM Contenuto as cont WHERE cont.IDcontenuto=:Con");
-                        q.SetParameter("Con", id_contenuto);
-                        conte = (Contenuto2)q.List()[0];
-                        if (conte.Tipo.Descrizione.CompareTo("Musica") == 0)
-                        {
-                            suonoBox.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
-                            EliminaAudio.Visible = true;
-                            PreviewAudio.Visible = true;
-                        }
-                        else if (conte.Tipo.Descrizione.CompareTo("Video") == 0)
-                        {
-                            videoBox.Text = directory_principale + conte.RisorsaMultimediale.Path + "/" + conte.RisorsaMultimediale.Nome;
-                            EliminaVideo.Visible = true;
-                            PreviewVideo.Visible = true;
-                        }
-                        foreach (Altrarisorsa a in conte.AltrarisorsaLista)
-                        {
-                            if (a.Tipo.CompareTo("immagine") == 0)
-                            {
-                                immagineBox.Text = directory_principale + a.Path + "/" + a.Nome;
-                                EliminaImmagine.Visible = true;
-                                PreviewImmagine.Visible = true;
-                            }
-                            else if (a.Tipo.CompareTo("testo") == 0)
-                            {
-                                testoBox.Text = directory_principale + a.Path + "/" + a.Nome;
-                                EliminaTesto.Visible = true;
-                                PreviewTesto.Visible = true;
-                            }
-                        }
-                    }
-                    catch 
-                    {
-                        tempT.Rollback();
-                        Console.WriteLine("Eccezione in Salva Poster");
-                    }
-                    finally
-                    {
-                        tempS.Close();
-                    }
-                }*/
-            }
-            else
-            {
-                this.sottotitolo.Text = this.sottotitolo.Text + " " + nome_poster;
-            }
         }
 
-        #region Gestione Eventi
+        
 
         private void Annulla_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            this.visualizza_aut.Visible = true;
+            
             this.Cursor = Cursors.Default;
             this.Close();
         }
@@ -446,7 +318,7 @@ namespace TalkingPaper.Authoring
             this.Cursor = Cursors.Default;
         }
 
-        private void ModificaFileXml() {
+        /*private void ModificaFileXml() {
             try
             {
                 string nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + id_poster.ToString() + ".xml";
@@ -520,9 +392,9 @@ namespace TalkingPaper.Authoring
                 //esiste = false;
             }
 
-        }
+        }*/
 
-        private void LeggiFileXml() {
+        /*private void LeggiFileXml() {
             try
             {
                 string nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + id_poster.ToString() + ".xml";
@@ -589,18 +461,9 @@ namespace TalkingPaper.Authoring
             {
                 //esiste = false;
             }
-        }
+        }*/
 
-        #endregion
-
-        private void indietro_Click(object sender, EventArgs e)
-        {
-            this.Cursor = Cursors.WaitCursor;
-            this.visualizza_aut.Visible = true;
-            this.Cursor = Cursors.Default;
-            this.Close();
-        }
-
+        
         private void NuovoComponente_Load(object sender, EventArgs e)
         {
             this.PreviewAudio.Visible = false;
@@ -633,7 +496,7 @@ namespace TalkingPaper.Authoring
             }
         }
 
-        private void annulla_Click_1(object sender, EventArgs e)
+        private void annulla_Click(object sender, EventArgs e)
         {
             NavigationControl.goBack(this);
         }
