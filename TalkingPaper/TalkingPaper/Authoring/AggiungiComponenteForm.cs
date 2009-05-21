@@ -27,23 +27,48 @@ namespace TalkingPaper.Authoring
     public partial class AggiungiComponenteForm : FormSchema
     {
         private Contenuto contenuto;
+        private Contenuto tempCont;
+
         private ControlLogic.AuthoringControl control;
 
         public AggiungiComponenteForm(Contenuto contenuto)
         {
             InitializeComponent();
+
             
             this.contenuto = contenuto;
             control = new ControlLogic.AuthoringControl();
-            
+
+            tempCont = new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
+            tempCont.setCoordinate(contenuto.getCoordinate());
+            /*contenuto.setNomeContenuto(cont.getNomeContenuto());
+            contenuto.setAudioPath(cont.getAudioPath());
+            contenuto.setVideoPath(cont.getVideoPath());
+            contenuto.setImagePath(cont.getImagePath());
+            contenuto.setTextPath(cont.getTextPath());
+            contenuto.setCoordinate(cont.getCoordinate());*/
+
+
+            SfogliaAudio.Cursor = Cursors.Hand;
+            SfogliaImmagine.Cursor = Cursors.Hand;
+            SfogliaTesto.Cursor = Cursors.Hand;
+            SfogliaVideo.Cursor = Cursors.Hand;
+            PreviewAudio.Cursor = Cursors.Hand;
+            PreviewImmagine.Cursor = Cursors.Hand;
+            PreviewTesto.Cursor = Cursors.Hand;
+            PreviewVideo.Cursor = Cursors.Hand;
+            EliminaAudio.Cursor = Cursors.Hand;
+            EliminaImmagine.Cursor = Cursors.Hand;
+            EliminaTesto.Cursor = Cursors.Hand;
+            EliminaVideo.Cursor = Cursors.Hand;
+                       
         }
 
-        
+        #region Gestione Eventi
 
         private void Annulla_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            
             this.Cursor = Cursors.Default;
             this.Close();
         }
@@ -59,14 +84,14 @@ namespace TalkingPaper.Authoring
             {
                 string path = openFileDialog.FileName;
                 suonoBox.Text = path;
-               // videoBox.Text = "";
+                // videoBox.Text = "";
                 contenuto.setAudioPath(path);
-               // contenuto.setVideoPath(null);
+                // contenuto.setVideoPath(null);
                 EliminaAudio.Visible = true;
                 PreviewAudio.Visible = true;
-              //  EliminaVideo.Visible = false;
-              //  PreviewVideo.Visible = false;
-                
+                //  EliminaVideo.Visible = false;
+                //  PreviewVideo.Visible = false;
+
                 //MessageBox.Show(path.Length.ToString());
                 //int indice=path.LastIndexOf("\\");
                 //int lunghezza= path.Length-(indice+1);
@@ -90,14 +115,14 @@ namespace TalkingPaper.Authoring
             {
                 string path = openFileDialog.FileName;
                 videoBox.Text = path;
-               // suonoBox.Text = "";
+                // suonoBox.Text = "";
                 contenuto.setVideoPath(path);
-               // contenuto.setAudioPath(null);
+                // contenuto.setAudioPath(null);
                 EliminaVideo.Visible = true;
                 PreviewVideo.Visible = true;
-               // EliminaAudio.Visible = false;
-               // PreviewAudio.Visible = false;
-                
+                // EliminaAudio.Visible = false;
+                // PreviewAudio.Visible = false;
+
                 //MessageBox.Show(path.Length.ToString());
                 //int indice=path.LastIndexOf("\\");
                 //int lunghezza= path.Length-(indice+1);
@@ -258,7 +283,7 @@ namespace TalkingPaper.Authoring
             //PreviewImmagine nuovo = new PreviewImmagine(textBox5.Text,this,null);
             //nuovo.Show();
             this.Cursor = Cursors.WaitCursor;
-            StampaImmagine img = new StampaImmagine(immagineBox.Text,null);
+            StampaImmagine img = new StampaImmagine(immagineBox.Text, null);
             this.Cursor = Cursors.Default;
 
             /*PrintDocument doc = new PrintDocument();
@@ -303,167 +328,169 @@ namespace TalkingPaper.Authoring
             this.Cursor = Cursors.Default;
         }
 
-        private void Salva_Click(object sender, EventArgs e)
-        {
-            if ((suonoBox.Text != null) && (suonoBox.Text.CompareTo("") != 0) || (videoBox.Text != null) && (videoBox.Text.CompareTo("") != 0))
-            {
-                this.Cursor = Cursors.WaitCursor;
+        /* private void Salva_Click(object sender, EventArgs e)
+         {
+             if ((suonoBox.Text != null) && (suonoBox.Text.CompareTo("") != 0) || (videoBox.Text != null) && (videoBox.Text.CompareTo("") != 0))
+             {
+                 this.Cursor = Cursors.WaitCursor;
               
-            }
-            else
-            {
-                MessageBox.Show("Non hai inserito nè l'audio nè il video");
-                this.Cursor = Cursors.Default;
-            }
-            this.Cursor = Cursors.Default;
-        }
+             }
+             else
+             {
+                 MessageBox.Show("Non hai inserito nè l'audio nè il video");
+                 this.Cursor = Cursors.Default;
+             }
+             this.Cursor = Cursors.Default;
+         }
 
-        /*private void ModificaFileXml() {
-            try
-            {
-                string nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + id_poster.ToString() + ".xml";
-                bool esiste = System.IO.File.Exists(nome_file);
-                if (esiste == true)
-                {
-                    //nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + poster.ToString() + ".xml";
-                    XmlWriterSettings settings = new XmlWriterSettings();
-                    settings.Indent = true;
-                    settings.NewLineOnAttributes = true;
-                    XmlWriter wr = XmlWriter.Create(nome_file);
-                    wr.WriteStartDocument();
-                    wr.WriteStartElement("GrigliaTaggata");
-                    wr.WriteStartElement("NomePannello");
-                    wr.WriteStartAttribute("ID");
-                    wr.WriteString(id_pannello);
-                    wr.WriteEndAttribute();
-                    wr.WriteString(nome_pannello);
-                    wr.WriteStartElement("Configurazione");
-                    wr.WriteString(configurazione);
-                    wr.WriteStartElement("Poster");
-                    wr.WriteString(poster.ToString());
-                    foreach (Authoring.ElementoGriglia el in matrice)
-                    {
-                        if (el != null)
-                        {
-                            wr.WriteStartElement(el.getColonna() + el.GetRiga().ToString());
-                            wr.WriteStartAttribute("ID");
-                            wr.WriteString(el.GetTagContenuto());
-                            wr.WriteEndAttribute();
-                            if (el.GetUtilizzato() == true)
-                            {
-                                wr.WriteStartElement("IDcontenuto");
-                                wr.WriteString(el.GetIdContenuto().ToString());
-                                wr.WriteEndElement();
-                                wr.WriteStartElement("NomeContenuto");
-                                if (el.GetIdContenuto() == id_contenuto)
-                                {
-                                    wr.WriteString(nomeBox.Text);
-                                }
-                                else
-                                {
-                                    wr.WriteString(el.GetNomeContenuto());
-                                }
-                                wr.WriteEndElement();
-                                wr.WriteStartElement("Utilizzato");
-                                wr.WriteString(el.GetUtilizzato().ToString());
-                                wr.WriteEndElement();
-                            }
-                            else
-                            {
-                                wr.WriteStartElement("Utilizzato");
-                                wr.WriteString(el.GetUtilizzato().ToString());
-                                wr.WriteEndElement();
-                            }
-                            wr.WriteEndElement();
-                            //wr.WriteStartElement("Configurazione", textBox1.Text);
-                        }
-                    }
-                    wr.WriteEndElement();
-                    wr.WriteEndElement();
-                    wr.WriteEndElement();
-                    wr.WriteEndElement();
-                    wr.WriteEndDocument();
-                    wr.Flush();
-                    wr.Close();
-                }
-            }
-            catch
-            {
-                //esiste = false;
-            }
+         private void ModificaFileXml() {
+             try
+             {
+                 string nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + id_poster.ToString() + ".xml";
+                 bool esiste = System.IO.File.Exists(nome_file);
+                 if (esiste == true)
+                 {
+                     //nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + poster.ToString() + ".xml";
+                     XmlWriterSettings settings = new XmlWriterSettings();
+                     settings.Indent = true;
+                     settings.NewLineOnAttributes = true;
+                     XmlWriter wr = XmlWriter.Create(nome_file);
+                     wr.WriteStartDocument();
+                     wr.WriteStartElement("GrigliaTaggata");
+                     wr.WriteStartElement("NomePannello");
+                     wr.WriteStartAttribute("ID");
+                     wr.WriteString(id_pannello);
+                     wr.WriteEndAttribute();
+                     wr.WriteString(nome_pannello);
+                     wr.WriteStartElement("Configurazione");
+                     wr.WriteString(configurazione);
+                     wr.WriteStartElement("Poster");
+                     wr.WriteString(poster.ToString());
+                     foreach (Authoring.ElementoGriglia el in matrice)
+                     {
+                         if (el != null)
+                         {
+                             wr.WriteStartElement(el.getColonna() + el.GetRiga().ToString());
+                             wr.WriteStartAttribute("ID");
+                             wr.WriteString(el.GetTagContenuto());
+                             wr.WriteEndAttribute();
+                             if (el.GetUtilizzato() == true)
+                             {
+                                 wr.WriteStartElement("IDcontenuto");
+                                 wr.WriteString(el.GetIdContenuto().ToString());
+                                 wr.WriteEndElement();
+                                 wr.WriteStartElement("NomeContenuto");
+                                 if (el.GetIdContenuto() == id_contenuto)
+                                 {
+                                     wr.WriteString(nomeBox.Text);
+                                 }
+                                 else
+                                 {
+                                     wr.WriteString(el.GetNomeContenuto());
+                                 }
+                                 wr.WriteEndElement();
+                                 wr.WriteStartElement("Utilizzato");
+                                 wr.WriteString(el.GetUtilizzato().ToString());
+                                 wr.WriteEndElement();
+                             }
+                             else
+                             {
+                                 wr.WriteStartElement("Utilizzato");
+                                 wr.WriteString(el.GetUtilizzato().ToString());
+                                 wr.WriteEndElement();
+                             }
+                             wr.WriteEndElement();
+                             //wr.WriteStartElement("Configurazione", textBox1.Text);
+                         }
+                     }
+                     wr.WriteEndElement();
+                     wr.WriteEndElement();
+                     wr.WriteEndElement();
+                     wr.WriteEndElement();
+                     wr.WriteEndDocument();
+                     wr.Flush();
+                     wr.Close();
+                 }
+             }
+             catch
+             {
+                 //esiste = false;
+             }
 
-        }*/
+         }
 
-        /*private void LeggiFileXml() {
-            try
-            {
-                string nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + id_poster.ToString() + ".xml";
-                bool esiste = System.IO.File.Exists(nome_file);
-                if (esiste == true)
-                {
-                    //nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + poster.ToString() + ".xml";
-                    XmlTextReader iscritto = new XmlTextReader(nome_file);
-                    bool fine = false;
-                    int i = 1;
-                    int j = 1;
-                    while ((iscritto.Read()) && (fine == false))
-                    {
-                        if (iscritto.NodeType == XmlNodeType.Element)
-                        {
-                            if (iscritto.LocalName.Equals(alfabeto[i - 1].ToString() + j.ToString()))
-                            {
-                                string id = (String)iscritto.GetAttribute("ID");
-                                bool trov = iscritto.ReadToDescendant("IDcontenuto");
-                                if (trov == false)
-                                {
-                                    if (id.CompareTo("Non Usato") != 0)
-                                    {
-                                       Authoring. ElementoGriglia n = new Authoring.ElementoGriglia(id_pannello.ToString(), nome_pannello, configurazione, nome_poster, id_poster, -1, null, alfabeto[i - 1].ToString(), j, id, false);
-                                        matrice[i, j] = n;
-                                        //ElencoTag[i, j].Style.BackColor = Color.Coral;
-                                    }
-                                    else
-                                    {
-                                        Authoring.ElementoGriglia n = new Authoring.ElementoGriglia(id_pannello.ToString(), nome_pannello, configurazione, nome_poster, id_poster, -1, null, alfabeto[i - 1].ToString(), j, id, false);
-                                        matrice[i, j] = n;
-                                    }
-                                }
-                                else if (trov == true)
-                                {
-                                    string id_cont = iscritto.ReadString();
-                                    int id1_cont = Int32.Parse(id_cont);
-                                    iscritto.ReadToFollowing("NomeContenuto");
-                                    string nome_cont = iscritto.ReadString();
-                                    Authoring.ElementoGriglia n = new Authoring.ElementoGriglia(id_pannello.ToString(), nome_pannello, configurazione, nome_poster, id_poster, id1_cont, nome_cont, alfabeto[i - 1].ToString(), j, id, true);
-                                    matrice[i, j] = n;
-                                    //ElencoTag[i, j].Style.BackColor = Color.Coral;
-                                    //ElencoTag[i, j].Value = nome_cont;
-                                }
-                                j++;
-                            }
-                        }
-                        if (i > tag_per_colonna)
-                        {
-                            fine = true;
+         private void LeggiFileXml() {
+             try
+             {
+                 string nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + id_poster.ToString() + ".xml";
+                 bool esiste = System.IO.File.Exists(nome_file);
+                 if (esiste == true)
+                 {
+                     //nome_file = directory_principale + "Griglia" + nome_pannello + id_pannello + configurazione + poster.ToString() + ".xml";
+                     XmlTextReader iscritto = new XmlTextReader(nome_file);
+                     bool fine = false;
+                     int i = 1;
+                     int j = 1;
+                     while ((iscritto.Read()) && (fine == false))
+                     {
+                         if (iscritto.NodeType == XmlNodeType.Element)
+                         {
+                             if (iscritto.LocalName.Equals(alfabeto[i - 1].ToString() + j.ToString()))
+                             {
+                                 string id = (String)iscritto.GetAttribute("ID");
+                                 bool trov = iscritto.ReadToDescendant("IDcontenuto");
+                                 if (trov == false)
+                                 {
+                                     if (id.CompareTo("Non Usato") != 0)
+                                     {
+                                        Authoring. ElementoGriglia n = new Authoring.ElementoGriglia(id_pannello.ToString(), nome_pannello, configurazione, nome_poster, id_poster, -1, null, alfabeto[i - 1].ToString(), j, id, false);
+                                         matrice[i, j] = n;
+                                         //ElencoTag[i, j].Style.BackColor = Color.Coral;
+                                     }
+                                     else
+                                     {
+                                         Authoring.ElementoGriglia n = new Authoring.ElementoGriglia(id_pannello.ToString(), nome_pannello, configurazione, nome_poster, id_poster, -1, null, alfabeto[i - 1].ToString(), j, id, false);
+                                         matrice[i, j] = n;
+                                     }
+                                 }
+                                 else if (trov == true)
+                                 {
+                                     string id_cont = iscritto.ReadString();
+                                     int id1_cont = Int32.Parse(id_cont);
+                                     iscritto.ReadToFollowing("NomeContenuto");
+                                     string nome_cont = iscritto.ReadString();
+                                     Authoring.ElementoGriglia n = new Authoring.ElementoGriglia(id_pannello.ToString(), nome_pannello, configurazione, nome_poster, id_poster, id1_cont, nome_cont, alfabeto[i - 1].ToString(), j, id, true);
+                                     matrice[i, j] = n;
+                                     //ElencoTag[i, j].Style.BackColor = Color.Coral;
+                                     //ElencoTag[i, j].Value = nome_cont;
+                                 }
+                                 j++;
+                             }
+                         }
+                         if (i > tag_per_colonna)
+                         {
+                             fine = true;
 
-                        }
-                        if (j > tag_per_riga)
-                        {
-                            //fine = true;
-                            i++;
-                            j = 1;
-                        }
-                    }
-                    iscritto.Close();
-                }
-            }
-            catch
-            {
-                //esiste = false;
-            }
-        }*/
+                         }
+                         if (j > tag_per_riga)
+                         {
+                             //fine = true;
+                             i++;
+                             j = 1;
+                         }
+                     }
+                     iscritto.Close();
+                 }
+             }
+             catch
+             {
+                 //esiste = false;
+             }
+         } */
 
-        
+        #endregion
+
+
         private void NuovoComponente_Load(object sender, EventArgs e)
         {
             this.PreviewAudio.Visible = false;
@@ -474,6 +501,37 @@ namespace TalkingPaper.Authoring
             this.EliminaImmagine.Visible = false;
             this.EliminaVideo.Visible = false;
             this.EliminaAudio.Visible = false;
+            if (contenuto != null)
+            {
+                MessageBox.Show(contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
+                nomeBox.Text = tempCont.getNomeContenuto();
+                if (tempCont.getAudioPath() != null)
+                {
+                    MessageBox.Show(contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
+                    suonoBox.Text = tempCont.getAudioPath();
+                    EliminaAudio.Visible = true;
+                    PreviewAudio.Visible = true;
+                }
+                if (tempCont.getVideoPath() != null)
+                {
+                    MessageBox.Show(contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
+                    videoBox.Text = tempCont.getVideoPath();
+                    EliminaVideo.Visible = true;
+                    PreviewVideo.Visible = true;
+                }
+                if (tempCont.getImagePath() != null)
+                {
+                    immagineBox.Text = tempCont.getImagePath();
+                    EliminaImmagine.Visible = true;
+                    PreviewImmagine.Visible = true;
+                }
+                if (tempCont.getTextPath() != null)
+                {
+                    testoBox.Text = tempCont.getTextPath();
+                    EliminaTesto.Visible = true;
+                    PreviewTesto.Visible = true;
+                }
+            }
         }
 
         private void home_Click(object sender, EventArgs e)
@@ -491,7 +549,14 @@ namespace TalkingPaper.Authoring
             else if (suonoBox.Text != "" && videoBox.Text != "") MessageBox.Show("Non puoi inserire insieme un suono e un video, cancellane uno dei due");
             else
             {
+
                 contenuto.setNomeContenuto(nomeBox.Text);
+                if (contenuto.getAudioPath() == null) { contenuto.setAudioPath(tempCont.getAudioPath()); }
+                if (contenuto.getVideoPath() == null) { contenuto.setVideoPath(tempCont.getVideoPath()); }
+                if (contenuto.getImagePath() == null) { contenuto.setImagePath(tempCont.getImagePath()); }
+                if (contenuto.getTextPath() == null) { contenuto.setTextPath(tempCont.getTextPath()); }
+                contenuto.setCoordinate(tempCont.getCoordinate());
+                MessageBox.Show(contenuto.getNomeContenuto() + contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
                 NavigationControl.goBack(this);
             }
         }

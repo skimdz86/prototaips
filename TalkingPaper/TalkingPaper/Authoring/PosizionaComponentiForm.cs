@@ -258,9 +258,23 @@ namespace TalkingPaper.Authoring
 
         private void PosizionaComponentiForm_VisibleChanged(object sender, EventArgs e)
         {
+            bool b = this.Visible;
+            String g = contenuto.getNomeContenuto();
             if (this.Visible == true && contenuto.getNomeContenuto() != null)
             {
-                listaContenuti.Add(new Contenuto(contenuto.getNomeContenuto(),contenuto.getAudioPath(),contenuto.getVideoPath(),contenuto.getImagePath(),contenuto.getTextPath()));
+                int c=0;
+                int indexC=-1;
+                for (int w = 0; w < listaContenuti.Count; w++)
+                {
+                    if (contenuto.getCoordinate() == listaContenuti[w].getCoordinate()) { c++; indexC = w; }
+                }
+                if (c == 0) listaContenuti.Add(new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath()));
+                else if (c > 0) 
+                { 
+                    listaContenuti[indexC] = new Contenuto(contenuto.getNomeContenuto(),contenuto.getAudioPath(),contenuto.getVideoPath(),contenuto.getImagePath(),contenuto.getTextPath());
+                    listaContenuti[indexC].setCoordinate(contenuto.getCoordinate());
+                    MessageBox.Show(listaContenuti[indexC].getNomeContenuto()+"\n"+listaContenuti[indexC].getCoordinate()[0].ToString()+listaContenuti[indexC].getCoordinate()[1].ToString()); 
+                }
             }
             contenuto.resetContenuto();
             ricaricaElencoRisorse();
@@ -430,6 +444,55 @@ namespace TalkingPaper.Authoring
                 e.Effect = DragDropEffects.Move;
             else
                 e.Effect = DragDropEffects.None;
+        }
+
+        private void modifica_Click(object sender, EventArgs e)
+        {
+            //conrollare che nn ci siano gia nella griglia pero
+            String tag = (String)lastLabelClicked.Tag;
+            int countSuGriglia=0;
+            if (tag != null)
+            {
+                //controllo se c'è nella matrice
+                for (int x = 1; x < schemaGriglia.RowCount; x++) 
+                {
+                    for (int y = 1; y < schemaGriglia.ColumnCount; y++) 
+                    {
+                        if (schemaGriglia[y, x].Value != null)
+                        {
+                            String t = schemaGriglia[y, x].Value.ToString();
+                            if (schemaGriglia[y, x].Value.ToString() == tag) countSuGriglia++;
+                        }
+                    }
+                }
+                if (countSuGriglia > 0) MessageBox.Show("Il contenuto è presente nella griglia, prima di modificarlo rimuoverlo dalla cella");
+                else
+                {
+                    for (int k = 0; k < listaContenuti.Count; k++)
+                    {
+                        if (listaContenuti[k].getNomeContenuto() == tag)
+                        {
+                            contenuto = listaContenuti[k];
+
+                        }
+                    }
+                    MessageBox.Show(contenuto.getCoordinate()[0].ToString() + "\n" + contenuto.getCoordinate()[1].ToString());
+                    AggiungiComponenteForm modificaComp = new AggiungiComponenteForm(contenuto);
+                    NavigationControl.goTo(this, modificaComp);
+                }
+            }
+            else { MessageBox.Show("Non hai selezionato un contenuto"); }
+            
+        }
+
+        private void elimina_Click(object sender, EventArgs e)
+        {
+            String tag = (String)lastLabelClicked.Tag;
+            if (tag != null)
+            {
+                ///rimuovi comp
+            }
+            else { MessageBox.Show("Non hai selezionato un contenuto"); }
         }
 
         
