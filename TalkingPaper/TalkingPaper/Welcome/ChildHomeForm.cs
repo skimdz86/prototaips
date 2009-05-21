@@ -39,6 +39,12 @@ namespace TalkingPaper.Welcome
             NavigationControl.goWelcome(this);
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Execution.ListaPosterForm listaPoster = new Execution.ListaPosterForm();
+            NavigationControl.goTo(this, listaPoster);
+        }
+
         
 
     }

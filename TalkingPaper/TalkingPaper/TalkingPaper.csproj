@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
+    <ProductVersion>9.0.21022</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{6EFF7BD8-6835-477A-8F47-DEDD37A7888A}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -93,9 +93,6 @@
     <Compile Include="Administration\ListaGriglieForm.Designer.cs">
       <DependentUpon>ListaGriglieForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Authoring\PannelliConfigurazione.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Common\HelpFormSchema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,9 +105,6 @@
     <Compile Include="ControlLogic\ExecutionControl.cs" />
     <Compile Include="ControlLogic\LoginControl.cs" />
     <Compile Include="DataAccess\XmlHandler\XmlDataHandler.cs" />
-    <Compile Include="Authoring\ElementoGriglia.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Authoring\ScegliGrigliaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +119,18 @@
     </Compile>
     <Compile Include="Common\Global.cs">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Execution\ListaContenutiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\ListaContenutiForm.Designer.cs">
+      <DependentUpon>ListaContenutiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Execution\ListaPosterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Execution\ListaPosterForm.Designer.cs">
+      <DependentUpon>ListaPosterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\Contenuto.cs" />
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
@@ -290,6 +296,10 @@
       <DependentUpon>HelpFormSchema.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Execution\ListaContenutiForm.resx">
+      <DependentUpon>ListaContenutiForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Execution\ElencoCartelloniForm.resx">
       <DependentUpon>ElencoCartelloniForm.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -316,6 +326,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administration\NuovaGrigliaForm.resx">
       <DependentUpon>NuovaGrigliaForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Execution\ListaPosterForm.resx">
+      <DependentUpon>ListaPosterForm.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome\IndexForm.resx">

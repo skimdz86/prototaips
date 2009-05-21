@@ -34,8 +34,8 @@ namespace TalkingPaper.Welcome
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.modificaCartellone = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.parla = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.parla = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -116,6 +116,20 @@ namespace TalkingPaper.Welcome
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Yellow;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(356, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(193, 95);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Stampa un cartellone";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // parla
             // 
             this.parla.BackColor = System.Drawing.Color.Yellow;
@@ -129,19 +143,6 @@ namespace TalkingPaper.Welcome
             this.parla.Text = "Fai parlare un cartellone";
             this.parla.UseVisualStyleBackColor = false;
             this.parla.Click += new System.EventHandler(this.parlaSchema_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Yellow;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(356, 46);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(193, 95);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Stampa un cartellone";
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // ChildHomeForm
             // 
