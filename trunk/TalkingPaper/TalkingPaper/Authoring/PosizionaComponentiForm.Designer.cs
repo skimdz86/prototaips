@@ -49,6 +49,8 @@ namespace TalkingPaper.Authoring
             this.trascina = new System.Windows.Forms.Label();
             this.schemaGriglia = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
+            this.modifica = new System.Windows.Forms.Button();
+            this.elimina = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).BeginInit();
@@ -218,12 +220,11 @@ namespace TalkingPaper.Authoring
             // 
             // trascina
             // 
-            this.trascina.AutoSize = true;
             this.trascina.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.trascina.ForeColor = System.Drawing.Color.White;
             this.trascina.Location = new System.Drawing.Point(12, 174);
             this.trascina.Name = "trascina";
-            this.trascina.Size = new System.Drawing.Size(776, 33);
+            this.trascina.Size = new System.Drawing.Size(465, 68);
             this.trascina.TabIndex = 65;
             this.trascina.Text = "Trascina il componente su una casella per aggiungerlo";
             this.trascina.Visible = false;
@@ -298,11 +299,41 @@ namespace TalkingPaper.Authoring
             this.label4.TabIndex = 68;
             this.label4.Text = "Componenti di controllo";
             // 
+            // modifica
+            // 
+            this.modifica.BackColor = System.Drawing.Color.Yellow;
+            this.modifica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.modifica.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.modifica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.modifica.Location = new System.Drawing.Point(571, 174);
+            this.modifica.Name = "modifica";
+            this.modifica.Size = new System.Drawing.Size(124, 62);
+            this.modifica.TabIndex = 69;
+            this.modifica.Text = "Modifica contenuto";
+            this.modifica.UseVisualStyleBackColor = false;
+            this.modifica.Click += new System.EventHandler(this.modifica_Click);
+            // 
+            // elimina
+            // 
+            this.elimina.BackColor = System.Drawing.Color.Yellow;
+            this.elimina.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.elimina.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.elimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.elimina.Location = new System.Drawing.Point(722, 174);
+            this.elimina.Name = "elimina";
+            this.elimina.Size = new System.Drawing.Size(124, 62);
+            this.elimina.TabIndex = 70;
+            this.elimina.Text = "Elimina contenuto";
+            this.elimina.UseVisualStyleBackColor = false;
+            this.elimina.Click += new System.EventHandler(this.elimina_Click);
+            // 
             // PosizionaComponentiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.elimina);
+            this.Controls.Add(this.modifica);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.stop);
             this.Controls.Add(this.play);
@@ -330,6 +361,8 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.play, 0);
             this.Controls.SetChildIndex(this.stop, 0);
             this.Controls.SetChildIndex(this.label4, 0);
+            this.Controls.SetChildIndex(this.modifica, 0);
+            this.Controls.SetChildIndex(this.elimina, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -353,5 +386,7 @@ namespace TalkingPaper.Authoring
         private Label pausa;
         private Label play;
         private Label label4;
+        private Button modifica;
+        private Button elimina;
     }
 }

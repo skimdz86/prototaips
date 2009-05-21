@@ -29,4 +29,10 @@
   </Griglia>
   <Griglia Nome="senzaniente" Righe="2" Colonne="2" />
   <Griglia Nome="yan" Righe="4" Colonne="4" />
+  <Griglia Nome="milan" Righe="4" Colonne="9">
+    <Cella Coordinate="11">E004010017FE82AD</Cella>
+    <Cella Coordinate="12">E004010017FE8296</Cella>
+    <Cella Coordinate="13">E004010017FE8286</Cella>
+    <Cella Coordinate="32">E004010017FE828E</Cella>
+  </Griglia>
 </GriglieTaggate>
