@@ -207,7 +207,22 @@ namespace TalkingPaper.ControlLogic
             PrintDocument document = ((PrintDocument)sender);
             if (immagine != null)
             {
-                e.Graphics.DrawImage(immagine, 0, 0, e.PageSettings.PaperSize.Width, e.PageSettings.PaperSize.Height);
+                float width = immagine.Width;
+                float height = immagine.Height;
+                if (width > e.PageSettings.PaperSize.Width)
+                {
+                    height *= (1 - ((width - e.PageSettings.PaperSize.Width) / width));
+                    width = e.PageSettings.PaperSize.Width;
+
+                }
+                if (immagine.Height > e.PageSettings.PaperSize.Height)
+                {
+                    width *= (1 - ((height - e.PageSettings.PaperSize.Height) / height));
+                    height = e.PageSettings.PaperSize.Height;
+                }
+                    
+
+                e.Graphics.DrawImage(immagine, 0, 0, width, height);
                 if ((documentContent != null) && !(documentContent.Equals("")))
                 {
                     e.HasMorePages = true;
