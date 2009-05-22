@@ -59,7 +59,7 @@ namespace TalkingPaper.Welcome
             // home
             // 
             this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
-            this.home.Text = "Esci";
+            this.home.Text = "Chiudi";
             this.home.Click += new System.EventHandler(this.esci_Click);
             // 
             // annulla

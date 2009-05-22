@@ -28,6 +28,7 @@ namespace TalkingPaper.Administration
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminHomeForm));
             this.nuovaGriglia = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBoxGriglia = new System.Windows.Forms.GroupBox();
@@ -51,7 +52,8 @@ namespace TalkingPaper.Administration
             // 
             // home
             // 
-            this.home.Text = "Logout";
+            this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
+            this.home.Text = "Esci";
             this.home.Click += new System.EventHandler(this.logout_Click);
             // 
             // annulla

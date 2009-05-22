@@ -108,7 +108,7 @@ namespace TalkingPaper.Execution
                         {
                             m_objMediaControl.Pause();
                             m_CurrentStatus = MediaStatus.Paused;
-                            stato.Text = "Interrotto";
+                            stato.Text = "In Pausa";
                             updateTimer.Stop();
                             if ((formVideo != null) && (formVideo.Visible == false))
                             {
@@ -124,7 +124,7 @@ namespace TalkingPaper.Execution
                             m_objMediaControl.Stop();
                             m_objMediaPosition.CurrentPosition = 0;
                             m_CurrentStatus = MediaStatus.Stopped;
-                            stato.Text = "Fermato";
+                            stato.Text = "Interrotto";
                             updateTimer.Stop();
                             if ((formVideo != null) && (formVideo.Visible == true))
                             {
@@ -275,13 +275,13 @@ namespace TalkingPaper.Execution
             {
                 case MediaStatus.None:
                     {
-                        stato.Text = "Fermato";
+                        stato.Text = "Interrotto";
                         messaggioStart.Visible = true;
                         break;
                     }
                 case MediaStatus.Paused:
                     {
-                        stato.Text = "Interrotto";
+                        stato.Text = "In Pausa";
                         messaggioStart.Visible = true;
                         break;
                     }
@@ -293,7 +293,7 @@ namespace TalkingPaper.Execution
                     }
                 case MediaStatus.Stopped:
                     {
-                        stato.Text = "Fermato";
+                        stato.Text = "Interrotto";
                         messaggioStart.Visible = true;
                         break;
                     }
@@ -437,7 +437,7 @@ namespace TalkingPaper.Execution
             if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
             {
                 
-                QuestionSchema dialog = new QuestionSchema("Un componente è in esecuzione.\nSei sicuro di voler uscire?", this,"1");
+                QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler uscire?", this,"1");
                 NavigationControl.showDialog(dialog);
 
                 
