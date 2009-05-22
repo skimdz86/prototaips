@@ -502,19 +502,16 @@ namespace TalkingPaper.Authoring
             this.EliminaVideo.Visible = false;
             this.EliminaAudio.Visible = false;
             if (contenuto != null)
-            {
-                MessageBox.Show(contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
+            {               
                 nomeBox.Text = tempCont.getNomeContenuto();
                 if (tempCont.getAudioPath() != null)
                 {
-                    MessageBox.Show(contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
                     suonoBox.Text = tempCont.getAudioPath();
                     EliminaAudio.Visible = true;
                     PreviewAudio.Visible = true;
                 }
                 if (tempCont.getVideoPath() != null)
                 {
-                    MessageBox.Show(contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
                     videoBox.Text = tempCont.getVideoPath();
                     EliminaVideo.Visible = true;
                     PreviewVideo.Visible = true;
@@ -556,13 +553,18 @@ namespace TalkingPaper.Authoring
                 if (contenuto.getImagePath() == null) { contenuto.setImagePath(tempCont.getImagePath()); }
                 if (contenuto.getTextPath() == null) { contenuto.setTextPath(tempCont.getTextPath()); }
                 contenuto.setCoordinate(tempCont.getCoordinate());
-                MessageBox.Show(contenuto.getNomeContenuto() + contenuto.getCoordinate()[0].ToString() + contenuto.getCoordinate()[1].ToString() + contenuto.getAudioPath());
                 NavigationControl.goBack(this);
             }
         }
 
         private void annulla_Click(object sender, EventArgs e)
         {
+            contenuto.setNomeContenuto(nomeBox.Text);
+            contenuto.setAudioPath(tempCont.getAudioPath());
+            contenuto.setVideoPath(tempCont.getVideoPath());
+            contenuto.setImagePath(tempCont.getImagePath());
+            contenuto.setTextPath(tempCont.getTextPath());
+            contenuto.setCoordinate(tempCont.getCoordinate());
             NavigationControl.goBack(this);
         }
 

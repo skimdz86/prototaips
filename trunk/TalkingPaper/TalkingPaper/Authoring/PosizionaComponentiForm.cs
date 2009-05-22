@@ -32,9 +32,9 @@ namespace TalkingPaper.Authoring
         private ArrayList cont_modificati = new ArrayList();
 
 
-        
 
-        
+
+        Poster p;
         private Contenuto contenuto;
         private List<Contenuto> listaContenuti = new List<Contenuto>();
 
@@ -42,7 +42,7 @@ namespace TalkingPaper.Authoring
         public PosizionaComponentiForm(string nomePoster, string descrizionePoster, string nomeClasse, string nomeGriglia)
         {
             InitializeComponent();
-
+            
             this.nomePoster = nomePoster;
             this.descrizionePoster = descrizionePoster;
             this.nomeClasse = nomeClasse;
@@ -75,7 +75,7 @@ namespace TalkingPaper.Authoring
            // bool b = Global.dataHandler.existPoster(nomePoster);
            // if (b) 
            // {
-           Poster p = Global.dataHandler.getPoster(nomePoster);
+           p=Global.dataHandler.getPoster(nomePoster);
            int countPlay=0,countPausa=0,countStop=0;
            if (p.getNome() != null)
            {
@@ -258,6 +258,8 @@ namespace TalkingPaper.Authoring
 
         private void PosizionaComponentiForm_VisibleChanged(object sender, EventArgs e)
         {
+            lastLabelClicked = null;
+
             bool b = this.Visible;
             String g = contenuto.getNomeContenuto();
             if (this.Visible == true && contenuto.getNomeContenuto() != null)
@@ -276,8 +278,11 @@ namespace TalkingPaper.Authoring
                     MessageBox.Show(listaContenuti[indexC].getNomeContenuto()+"\n"+listaContenuti[indexC].getCoordinate()[0].ToString()+listaContenuti[indexC].getCoordinate()[1].ToString()); 
                 }
             }
+            
             contenuto.resetContenuto();
             ricaricaElencoRisorse();
+            disegnaGriglia();
+            riempiGriglia(p);
         }
 
         private void schemaGriglia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -312,7 +317,11 @@ namespace TalkingPaper.Authoring
                             temp=listaContenuti[k].getCoordinate();
                             int x=temp[0];
                             int y = temp[1];
-                            if (x==row && y==col) { listaContenuti[k].setCoordinate(new int[2] { 0, 0 }); break; }
+                            if (x==row && y==col) 
+                            { 
+                                listaContenuti[k].setCoordinate(new int[2] { 0, 0 });
+                                break; 
+                            }//end if
                         }
 
                         index = control.getIndexFromNomeContenuto(listaContenuti, nome);
@@ -333,6 +342,18 @@ namespace TalkingPaper.Authoring
 
                         grid[col, row].Value = nome;
                         lastLabelClicked.BackColor = Color.Orange;
+                        if (nome == "Play")
+                        {
+                            play.BackColor = System.Drawing.Color.Empty;
+                        }
+                        if (nome == "Pausa")
+                        {
+                            pausa.BackColor = System.Drawing.Color.Empty;
+                        }
+                        if (nome == "Stop")
+                        {
+                            stop.BackColor = System.Drawing.Color.Empty;
+                        }
                         lastLabelClicked = null;
                     }
                     
@@ -347,6 +368,7 @@ namespace TalkingPaper.Authoring
                 listaContenuti[index].setCoordinate(coord);
                 grid[col, row].Value = null;
                 grid[col, row].Selected = false;
+                
             }
 
 
@@ -367,15 +389,23 @@ namespace TalkingPaper.Authoring
                     }
                     else
                     {
-                        if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                        if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) 
+                            lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                        else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
+                            lastLabelClicked.BackColor = System.Drawing.Color.Empty;
+
                         ((Label)sender).BackColor = Color.Red;
                         lastLabelClicked = ((Label)sender);
                     }
                 }
                 else
                 {
-                    if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) 
+                    if ((lastLabelClicked != null) && (lastLabelClicked.Image == null))
                         lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                    else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
+                        lastLabelClicked.BackColor = System.Drawing.Color.Empty;
+
+                    ((Label)sender).BackColor = System.Drawing.Color.Orange;
                     lastLabelClicked = ((Label)sender);
                 }
                 ((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
@@ -449,12 +479,13 @@ namespace TalkingPaper.Authoring
         private void modifica_Click(object sender, EventArgs e)
         {
             //conrollare che nn ci siano gia nella griglia pero
-            String tag = (String)lastLabelClicked.Tag;
-            int countSuGriglia=0;
-            if (tag != null)
+            
+            //int countSuGriglia=0;
+            if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
+                String tag = (String)lastLabelClicked.Tag;
                 //controllo se c'è nella matrice
-                for (int x = 1; x < schemaGriglia.RowCount; x++) 
+                /*for (int x = 1; x < schemaGriglia.RowCount; x++) 
                 {
                     for (int y = 1; y < schemaGriglia.ColumnCount; y++) 
                     {
@@ -464,10 +495,10 @@ namespace TalkingPaper.Authoring
                             if (schemaGriglia[y, x].Value.ToString() == tag) countSuGriglia++;
                         }
                     }
-                }
-                if (countSuGriglia > 0) MessageBox.Show("Il contenuto è presente nella griglia, prima di modificarlo rimuoverlo dalla cella");
-                else
-                {
+                }*/
+                //if (countSuGriglia > 0) MessageBox.Show("Il contenuto è presente nella griglia, prima di modificarlo rimuoverlo dalla cella");
+                //else
+                //{
                     for (int k = 0; k < listaContenuti.Count; k++)
                     {
                         if (listaContenuti[k].getNomeContenuto() == tag)
@@ -476,10 +507,10 @@ namespace TalkingPaper.Authoring
 
                         }
                     }
-                    MessageBox.Show(contenuto.getCoordinate()[0].ToString() + "\n" + contenuto.getCoordinate()[1].ToString());
+                    
                     AggiungiComponenteForm modificaComp = new AggiungiComponenteForm(contenuto);
                     NavigationControl.goTo(this, modificaComp);
-                }
+                //}
             }
             else { MessageBox.Show("Non hai selezionato un contenuto"); }
             
@@ -487,10 +518,11 @@ namespace TalkingPaper.Authoring
 
         private void elimina_Click(object sender, EventArgs e)
         {
-            String tag = (String)lastLabelClicked.Tag;
-            if (tag != null)
+            
+            if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
-                ///rimuovi comp
+                String tag = (String)lastLabelClicked.Tag;
+                ///rimuovi comp dalla listacont e chiama ricaricarisorse
             }
             else { MessageBox.Show("Non hai selezionato un contenuto"); }
         }

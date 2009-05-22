@@ -30,6 +30,7 @@ namespace TalkingPaper.Welcome
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ChildHomeForm));
             this.nuovoCartellone = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.modificaCartellone = new System.Windows.Forms.Button();
@@ -49,7 +50,8 @@ namespace TalkingPaper.Welcome
             // 
             // home
             // 
-            this.home.Text = "Logout";
+            this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
+            this.home.Text = "Esci";
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // annulla
@@ -149,7 +151,7 @@ namespace TalkingPaper.Welcome
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Name = "ChildHomeForm";

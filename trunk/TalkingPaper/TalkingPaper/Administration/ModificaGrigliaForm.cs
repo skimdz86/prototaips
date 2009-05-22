@@ -13,7 +13,7 @@ namespace TalkingPaper.Administration
     {
         private ControlLogic.AdministrationControl control;
         private Model.Griglia griglia;
-        
+        private List<String> backup;
         int riga = 1;
         int colonna = 1;
 
@@ -24,6 +24,7 @@ namespace TalkingPaper.Administration
             InitializeComponent();
             control = new ControlLogic.AdministrationControl();
             this.griglia = control.getGriglia(nomeGriglia);
+            backup = griglia.getListaTag();
             control = new ControlLogic.AdministrationControl();
             bool readerOk = control.inizializzaReader(this);
             if (!readerOk)
@@ -144,27 +145,31 @@ namespace TalkingPaper.Administration
                 for (int j = 0; j < ElencoTag.ColumnCount - 1; j++)
                 {
                     if (ElencoTag[j + 1, i + 1].Value != null)
+                    {
+
                         matrix[i, j] = ElencoTag[j + 1, i + 1].Value.ToString();
+                    }
                     else
-                        matrix[i, j] = "";
+                    {
+                        if (!(backup[i * (ElencoTag.ColumnCount - 1) + j].Equals("")))
+                        {
+                            MessageBox.Show("Non puoi eliminare dei tag dalla griglia");
+                            control.stopReader();
+                            NavigationControl.goBack(this);
+                            return;
+                        }
+                        else
+                        {
+                            matrix[i, j] = "";
+                        }
+                    }
                 }
             }
-            ////controllo che ci sia almeno un tag
-            int counter = 0;
-            for (int k = 0; k < ElencoTag.RowCount - 1; k++)
-            {
-                for (int w = 0; w < ElencoTag.ColumnCount - 1; w++)
-                {
-                    if (matrix[k, w] != "") counter++;
-                }
-            }
-            if (counter > 0)
-            {
-                control.salvaGriglia(griglia, matrix);
-                control.stopReader();
-                NavigationControl.goHome(this);
-            }
-            else MessageBox.Show("Inserisci almeno un tag nella griglia!");
+
+            control.salvaGriglia(griglia, matrix);
+            control.stopReader();
+            NavigationControl.goHome(this);
+
         }
 
 
