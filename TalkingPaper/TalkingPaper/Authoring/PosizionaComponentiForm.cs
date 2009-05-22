@@ -483,22 +483,10 @@ namespace TalkingPaper.Authoring
             //int countSuGriglia=0;
             if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
-                String tag = (String)lastLabelClicked.Tag;
-                //controllo se c'è nella matrice
-                /*for (int x = 1; x < schemaGriglia.RowCount; x++) 
+                if (lastLabelClicked.Tag != "Play" && lastLabelClicked.Tag != "Pausa" && lastLabelClicked.Tag != "Stop")
                 {
-                    for (int y = 1; y < schemaGriglia.ColumnCount; y++) 
-                    {
-                        if (schemaGriglia[y, x].Value != null)
-                        {
-                            String t = schemaGriglia[y, x].Value.ToString();
-                            if (schemaGriglia[y, x].Value.ToString() == tag) countSuGriglia++;
-                        }
-                    }
-                }*/
-                //if (countSuGriglia > 0) MessageBox.Show("Il contenuto è presente nella griglia, prima di modificarlo rimuoverlo dalla cella");
-                //else
-                //{
+                    String tag = (String)lastLabelClicked.Tag;
+
                     for (int k = 0; k < listaContenuti.Count; k++)
                     {
                         if (listaContenuti[k].getNomeContenuto() == tag)
@@ -507,10 +495,11 @@ namespace TalkingPaper.Authoring
 
                         }
                     }
-                    
+
                     AggiungiComponenteForm modificaComp = new AggiungiComponenteForm(contenuto);
                     NavigationControl.goTo(this, modificaComp);
-                //}
+                }
+                else MessageBox.Show("Non puoi modificare i componenti di controllo");
             }
             else { MessageBox.Show("Non hai selezionato un contenuto"); }
             
@@ -521,8 +510,20 @@ namespace TalkingPaper.Authoring
             
             if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
-                String tag = (String)lastLabelClicked.Tag;
-                ///rimuovi comp dalla listacont e chiama ricaricarisorse
+                if (lastLabelClicked.Tag != "Play" && lastLabelClicked.Tag != "Pausa" && lastLabelClicked.Tag != "Stop")
+                {
+                    String tag = (String)lastLabelClicked.Tag;
+
+                    ///rimuovi comp dalla listacont e chiama ricaricarisorse
+                    for (int w = 0; w < listaContenuti.Count; w++)
+                    {
+                        if (listaContenuti[w].getNomeContenuto() == tag) listaContenuti.RemoveAt(w);
+                    }
+                    ricaricaElencoRisorse();
+                    disegnaGriglia();
+                    riempiGriglia(p);
+                }
+                else MessageBox.Show("Non puoi eliminare i componenti di controllo");
             }
             else { MessageBox.Show("Non hai selezionato un contenuto"); }
         }
