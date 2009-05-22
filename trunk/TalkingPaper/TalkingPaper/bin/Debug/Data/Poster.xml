@@ -7,17 +7,16 @@
     <Contenuto Nome="d" AudioPath="c:\users\Public\Music\Sample Music\Symphony_No_3.wma" VideoPath="" ImagePath="" TextPath="c:\Users\yans\Desktop\talking paper\TalkingPaper\TalkingPaper\obj\Debug\TalkingPaper.csproj.FileListAbsolute.txt" Cella="33" />
     <Contenuto Nome="e" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="34" />
   </Poster>
-  <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
-    <Descrizione>vkjnjknjkcsn</Descrizione>
-    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
-    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
-    <Contenuto Nome="gggg" AudioPath="C:\Users\Marco\Music\Fall 2008\03-sam_sparro-21st_century_life.mp3" VideoPath="" ImagePath="" TextPath="" Cella="12" />
-  </Poster>
   <Poster idUtente="" Nome="test Esecuzione" idGriglia="testEsecuzione">
     <Descrizione>test</Descrizione>
     <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
     <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="22" />
     <Contenuto Nome="d" AudioPath="C:\Windows\System32\8point1.wav" VideoPath="" ImagePath="C:\Users\MaSSi\Desktop\schema.png" TextPath="" Cella="12" />
     <Contenuto Nome="e" AudioPath="C:\Windows\System32\8point1.wav" VideoPath="" ImagePath="C:\Users\Marco\Pictures\Desksfondi\URU1.BMP" TextPath="C:\Users\Marco\Desktop\cell garzotto.txt" Cella="11" />
+  </Poster>
+  <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
+    <Descrizione>vkjnjknjkcsn</Descrizione>
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
   </Poster>
 </ElencoPoster>
