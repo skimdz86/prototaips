@@ -289,11 +289,13 @@ namespace TalkingPaper.Authoring
                     
                 }
             }
-            
-            contenuto.resetContenuto();
-            ricaricaElencoRisorse();
-            disegnaGriglia();
-            riempiGriglia(p);
+            if (Visible)
+            {
+                contenuto.resetContenuto();
+                ricaricaElencoRisorse();
+                disegnaGriglia();
+                riempiGriglia(p);
+            }
         }
 
         private void schemaGriglia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -506,7 +508,7 @@ namespace TalkingPaper.Authoring
         {
             if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
-                if (lastLabelClicked.Tag != "Play" && lastLabelClicked.Tag != "Pausa" && lastLabelClicked.Tag != "Stop")
+                if ((string)lastLabelClicked.Tag != "Play" && (string)lastLabelClicked.Tag != "Pausa" && (string)lastLabelClicked.Tag != "Stop")
                 {
                     String tag = (String)lastLabelClicked.Tag;
 
