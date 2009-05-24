@@ -42,10 +42,13 @@ namespace TalkingPaper.Authoring
                 this.contenuto = contenuto;
                 control = new ControlLogic.AuthoringControl();
 
-                if (contenuto.getNomeContenuto() != null) flagModifica = true;
+                if (contenuto.getNomeContenuto() != null)
+                {
+                    flagModifica = true;
 
-                tempCont = new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
-                tempCont.setCoordinate(contenuto.getCoordinate());
+                    tempCont = new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
+                    tempCont.setCoordinate(contenuto.getCoordinate());
+                }
                 /*contenuto.setNomeContenuto(cont.getNomeContenuto());
                 contenuto.setAudioPath(cont.getAudioPath());
                 contenuto.setVideoPath(cont.getVideoPath());
@@ -508,31 +511,34 @@ namespace TalkingPaper.Authoring
             this.EliminaVideo.Visible = false;
             this.EliminaAudio.Visible = false;
             if (contenuto != null)
-            {               
-                nomeBox.Text = tempCont.getNomeContenuto();
-                if (tempCont.getAudioPath() != null)
+            {
+                if (flagModifica)
                 {
-                    suonoBox.Text = tempCont.getAudioPath();
-                    EliminaAudio.Visible = true;
-                    PreviewAudio.Visible = true;
-                }
-                if (tempCont.getVideoPath() != null)
-                {
-                    videoBox.Text = tempCont.getVideoPath();
-                    EliminaVideo.Visible = true;
-                    PreviewVideo.Visible = true;
-                }
-                if (tempCont.getImagePath() != null)
-                {
-                    immagineBox.Text = tempCont.getImagePath();
-                    EliminaImmagine.Visible = true;
-                    PreviewImmagine.Visible = true;
-                }
-                if (tempCont.getTextPath() != null)
-                {
-                    testoBox.Text = tempCont.getTextPath();
-                    EliminaTesto.Visible = true;
-                    PreviewTesto.Visible = true;
+                    nomeBox.Text = tempCont.getNomeContenuto();
+                    if (tempCont.getAudioPath() != null)
+                    {
+                        suonoBox.Text = tempCont.getAudioPath();
+                        EliminaAudio.Visible = true;
+                        PreviewAudio.Visible = true;
+                    }
+                    if (tempCont.getVideoPath() != null)
+                    {
+                        videoBox.Text = tempCont.getVideoPath();
+                        EliminaVideo.Visible = true;
+                        PreviewVideo.Visible = true;
+                    }
+                    if (tempCont.getImagePath() != null)
+                    {
+                        immagineBox.Text = tempCont.getImagePath();
+                        EliminaImmagine.Visible = true;
+                        PreviewImmagine.Visible = true;
+                    }
+                    if (tempCont.getTextPath() != null)
+                    {
+                        testoBox.Text = tempCont.getTextPath();
+                        EliminaTesto.Visible = true;
+                        PreviewTesto.Visible = true;
+                    }
                 }
             }
         }
@@ -554,11 +560,16 @@ namespace TalkingPaper.Authoring
             {
 
                 contenuto.setNomeContenuto(nomeBox.Text);
-                if (contenuto.getAudioPath() == null) { contenuto.setAudioPath(tempCont.getAudioPath()); }
-                if (contenuto.getVideoPath() == null) { contenuto.setVideoPath(tempCont.getVideoPath()); }
-                if (contenuto.getImagePath() == null) { contenuto.setImagePath(tempCont.getImagePath()); }
-                if (contenuto.getTextPath() == null) { contenuto.setTextPath(tempCont.getTextPath()); }
-                contenuto.setCoordinate(tempCont.getCoordinate());
+                /*if (contenuto.getAudioPath() == null) { contenuto.setAudioPath(suonoBox.Text); }
+                if (contenuto.getVideoPath() == null) { contenuto.setVideoPath(videoBox.Text); }
+                if (contenuto.getImagePath() == null) { contenuto.setImagePath(immagineBox.Text); }
+                if (contenuto.getTextPath() == null) { contenuto.setTextPath(testoBox.Text); }*/
+                contenuto.setAudioPath(suonoBox.Text);
+                contenuto.setVideoPath(videoBox.Text);
+                contenuto.setImagePath(immagineBox.Text);
+                contenuto.setTextPath(testoBox.Text);
+                if(flagModifica) contenuto.setCoordinate(tempCont.getCoordinate());
+                
                 NavigationControl.goBack(this);
             }
         }
