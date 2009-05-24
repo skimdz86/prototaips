@@ -44,30 +44,33 @@ namespace TalkingPaper.Execution
 
         public EsecuzioneCartelloneForm(string nomePoster)
         {
-            InitializeComponent();
-
-            control = new ControlLogic.ExecutionControl();
-
-            poster = nomePoster;
-            sottotitolo.Text += " "+poster;
-            
-            if ((poster == null) || (poster.Equals("")))
+            try
             {
-                throw new Exception("Errore!! Esecuzione di un poster inesistente");
+                InitializeComponent();
+
+                control = new ControlLogic.ExecutionControl();
+
+                poster = nomePoster;
+                sottotitolo.Text += " " + poster;
+
+                if ((poster == null) || (poster.Equals("")))
+                {
+                    throw new Exception("Errore!! Esecuzione di un poster inesistente");
+                }
+
+                control.inizializzaReader(this);
+
+                updateTimer = new Timer();
+                updateTimer.Tick += UpdateStatusBar;
+                updateTimer.Interval = 1000;
+
+                attivo = true;
+
+                CleanUp();
+                UpdateStatusBar(null, null);
+
             }
-
-            control.inizializzaReader(this);
-
-            updateTimer = new Timer();
-            updateTimer.Tick += UpdateStatusBar;
-            updateTimer.Interval = 1000;
-
-            attivo = true;
-
-            CleanUp();
-            UpdateStatusBar(null, null);
-
-
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
 
@@ -78,85 +81,134 @@ namespace TalkingPaper.Execution
         /// <param name="e"></param>
         public void rfid_StatusUpdateEvent(string id)
         {
-            if (control.verificaId(id))
+            try
             {
-                contenuto = control.getContenutoFromTag(poster, id);
-                if (contenuto == null)
+                if (control.verificaId(id))
                 {
-                    Console.WriteLine("Al tag " + id + " non corrisponde un contenuto");
-                }
-                else
-                {
-                    if (contenuto.getNomeContenuto().Equals("Play"))
+                    contenuto = control.getContenutoFromTag(poster, id);
+                    if (contenuto == null)
                     {
-                        if (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Stopped)
-                        {
-                            m_objMediaControl.Run();
-                            m_CurrentStatus = MediaStatus.Running;
-                            stato.Text = "In Esecuzione";
-                            updateTimer.Start();
-                            if ((formVideo != null) && (formVideo.Visible == false))
-                            {
-                                formVideo.Visible = true;
-
-                            }
-                        }
-                   }
-                    else if (contenuto.getNomeContenuto().Equals("Pausa"))
-                    {
-                        if (m_CurrentStatus == MediaStatus.Running)
-                        {
-                            m_objMediaControl.Pause();
-                            m_CurrentStatus = MediaStatus.Paused;
-                            stato.Text = "In Pausa";
-                            updateTimer.Stop();
-                            if ((formVideo != null) && (formVideo.Visible == false))
-                            {
-                                formVideo.Visible = true;
-
-                            }
-                        }
+                        Console.WriteLine("Al tag " + id + " non corrisponde un contenuto");
                     }
-                    else if (contenuto.getNomeContenuto().Equals("Stop"))
+                    else
                     {
-                        if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+                        if (contenuto.getNomeContenuto().Equals("Play"))
                         {
-                            m_objMediaControl.Stop();
-                            m_objMediaPosition.CurrentPosition = 0;
-                            m_CurrentStatus = MediaStatus.Stopped;
-                            stato.Text = "Interrotto";
-                            updateTimer.Stop();
-                            if ((formVideo != null) && (formVideo.Visible == true))
+                            if (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Stopped)
                             {
-                                formVideo.Visible = false;
-                                
+                                m_objMediaControl.Run();
+                                m_CurrentStatus = MediaStatus.Running;
+                                stato.Text = "In Esecuzione";
+                                updateTimer.Start();
+                                if ((formVideo != null) && (formVideo.Visible == false))
+                                {
+                                    formVideo.Visible = true;
+
+                                }
                             }
-
-                            
                         }
-                    }
-                    else if ((contenuto.getVideoPath() != null) && !(contenuto.getVideoPath().Equals("")))
-                    {
-                        if (File.Exists(contenuto.getVideoPath()))
+                        else if (contenuto.getNomeContenuto().Equals("Pausa"))
                         {
-
-                            CleanUp();
-                            m_objFilterGraph = new FilgraphManager();
-                            m_objFilterGraph.RenderFile(contenuto.getVideoPath());
-
-                            //m_objBasicAudio = m_objFilterGraph as IBasicAudio;
-
-                            try
+                            if (m_CurrentStatus == MediaStatus.Running)
                             {
-                                formVideo = new FormVideo();
-                                m_objVideoWindow = m_objFilterGraph as IVideoWindow;
-                                m_objVideoWindow.Owner = (int)formVideo.Handle;
-                                m_objVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
-                                //m_objVideoWindow.FullScreenMode = 1;
-                                m_objVideoWindow.SetWindowPosition(formVideo.ClientRectangle.Left,
-                                formVideo.ClientRectangle.Top,
-                                formVideo.ClientRectangle.Width,
-                                formVideo.ClientRectangle.Height);
+                                m_objMediaControl.Pause();
+                                m_CurrentStatus = MediaStatus.Paused;
+                                stato.Text = "In Pausa";
+                                updateTimer.Stop();
+                                if ((formVideo != null) && (formVideo.Visible == false))
+                                {
+                                    formVideo.Visible = true;
+
+                                }
+                            }
+                        }
+                        else if (contenuto.getNomeContenuto().Equals("Stop"))
+                        {
+                            if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+                            {
+                                m_objMediaControl.Stop();
+                                m_objMediaPosition.CurrentPosition = 0;
+                                m_CurrentStatus = MediaStatus.Stopped;
+                                stato.Text = "Interrotto";
+                                updateTimer.Stop();
+                                if ((formVideo != null) && (formVideo.Visible == true))
+                                {
+                                    formVideo.Visible = false;
+
+                                }
+
+
+                            }
+                        }
+                        else if ((contenuto.getVideoPath() != null) && !(contenuto.getVideoPath().Equals("")))
+                        {
+                            if (File.Exists(contenuto.getVideoPath()))
+                            {
+
+                                CleanUp();
+                                m_objFilterGraph = new FilgraphManager();
+                                m_objFilterGraph.RenderFile(contenuto.getVideoPath());
+
+                                //m_objBasicAudio = m_objFilterGraph as IBasicAudio;
+
+                                try
+                                {
+                                    formVideo = new FormVideo();
+                                    m_objVideoWindow = m_objFilterGraph as IVideoWindow;
+                                    m_objVideoWindow.Owner = (int)formVideo.Handle;
+                                    m_objVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
+                                    //m_objVideoWindow.FullScreenMode = 1;
+                                    m_objVideoWindow.SetWindowPosition(formVideo.ClientRectangle.Left,
+                                    formVideo.ClientRectangle.Top,
+                                    formVideo.ClientRectangle.Width,
+                                    formVideo.ClientRectangle.Height);
+
+
+                                    m_objMediaEvent = m_objFilterGraph as IMediaEvent;
+
+                                    m_objMediaEventEx = m_objFilterGraph as IMediaEventEx;
+                                    m_objMediaEventEx.SetNotifyWindow((int)this.Handle, WM_GRAPHNOTIFY, 0);
+
+                                    m_objMediaPosition = m_objFilterGraph as IMediaPosition;
+
+                                    m_objMediaControl = m_objFilterGraph as IMediaControl;
+
+                                    m_objMediaControl.Run();
+                                    m_CurrentStatus = MediaStatus.Running;
+
+
+                                    updateTimer.Start();
+
+                                    labelEsecuzioneDi.Visible = true;
+                                    nomeContenuto.Text = contenuto.getNomeContenuto();
+                                    nomeContenuto.Visible = true;
+                                    labelStato.Visible = true;
+                                    stato.Visible = true;
+                                    tempoTotale.Visible = true;
+                                    tempoTrascorso.Visible = true;
+                                    labelSu.Visible = true;
+
+                                    formVideo.Show();
+                                }
+                                catch (Exception)
+                                {
+                                    m_objVideoWindow = null;
+                                }
+
+                            }
+                            else MessageBox.Show("Non esiste più il contenuto" + contenuto.getNomeContenuto() + "!! Aggiornare il cartellone");
+                        }
+                        else if ((contenuto.getAudioPath() != null) && !(contenuto.getAudioPath().Equals("")))
+                        {
+                            if (File.Exists(contenuto.getAudioPath()))
+                            {
+
+                                CleanUp();
+                                m_objFilterGraph = new FilgraphManager();
+                                m_objFilterGraph.RenderFile(contenuto.getAudioPath());
+
+                                m_objBasicAudio = m_objFilterGraph as IBasicAudio;
+
 
 
                                 m_objMediaEvent = m_objFilterGraph as IMediaEvent;
@@ -170,9 +222,8 @@ namespace TalkingPaper.Execution
 
                                 m_objMediaControl.Run();
                                 m_CurrentStatus = MediaStatus.Running;
-
-
                                 updateTimer.Start();
+
 
                                 labelEsecuzioneDi.Visible = true;
                                 nomeContenuto.Text = contenuto.getNomeContenuto();
@@ -182,60 +233,16 @@ namespace TalkingPaper.Execution
                                 tempoTotale.Visible = true;
                                 tempoTrascorso.Visible = true;
                                 labelSu.Visible = true;
-
-                                formVideo.Show();
                             }
-                            catch (Exception)
-                            {
-                                m_objVideoWindow = null;
-                            }
-
+                            else MessageBox.Show("Non esiste più il contenuto" + contenuto.getNomeContenuto() + "!! Aggiornare il cartellone");
                         }
-                        else MessageBox.Show("Non esiste più il contenuto"+contenuto.getNomeContenuto()+"!! Aggiornare il cartellone");
+                        else throw new Exception("Il contenuto " + contenuto.getNomeContenuto() + " è malformato");
+
+                        UpdateStatusBar(null, null);
                     }
-                    else if ((contenuto.getAudioPath() != null) && !(contenuto.getAudioPath().Equals("")))
-                    {
-                        if(File.Exists(contenuto.getAudioPath())){
-
-                        CleanUp();
-                        m_objFilterGraph = new FilgraphManager();
-                        m_objFilterGraph.RenderFile(contenuto.getAudioPath());
-
-                        m_objBasicAudio = m_objFilterGraph as IBasicAudio;
-
-
-
-                        m_objMediaEvent = m_objFilterGraph as IMediaEvent;
-
-                        m_objMediaEventEx = m_objFilterGraph as IMediaEventEx;
-                        m_objMediaEventEx.SetNotifyWindow((int)this.Handle, WM_GRAPHNOTIFY, 0);
-
-                        m_objMediaPosition = m_objFilterGraph as IMediaPosition;
-
-                        m_objMediaControl = m_objFilterGraph as IMediaControl;
-
-                        m_objMediaControl.Run();
-                        m_CurrentStatus = MediaStatus.Running;
-                        updateTimer.Start();
-
-                        
-                        labelEsecuzioneDi.Visible = true;
-                        nomeContenuto.Text = contenuto.getNomeContenuto();
-                        nomeContenuto.Visible = true;
-                        labelStato.Visible = true;
-                        stato.Visible = true;
-                        tempoTotale.Visible = true;
-                        tempoTrascorso.Visible = true;
-                        labelSu.Visible = true;
-                    }
-                        else MessageBox.Show("Non esiste più il contenuto"+contenuto.getNomeContenuto()+"!! Aggiornare il cartellone");
-                    }
-                    else throw new Exception("Il contenuto " + contenuto.getNomeContenuto() + " è malformato");
-
-                    UpdateStatusBar(null,null);
                 }
             }
-            
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         
@@ -400,65 +407,54 @@ namespace TalkingPaper.Execution
 
         private void buttonDisattiva_Click(object sender, EventArgs e)
         {
-            if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+            try
             {
-                QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler disattivare?", this, "2");
-                NavigationControl.showDialog(dialog);
-                              
+                if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+                {
+                    QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler disattivare?", this, "2");
+                    NavigationControl.showDialog(dialog);
+
+                }
+                else // non c'è nulla in esecuzione
+                {
+                    attivo = false;
+
+                    CleanUp();
+                    UpdateStatusBar(null, null);
+                    control.stopReader();
+                    updateTimer.Stop();
+
+                    esecuzioneDisattivata.Visible = true;
+
+                    messaggioStart.Visible = false;
+                    labelEsecuzioneDi.Visible = false;
+                    nomeContenuto.Visible = false;
+                    labelStato.Visible = false;
+                    stato.Visible = false;
+                    tempoTotale.Visible = false;
+                    tempoTrascorso.Visible = false;
+                    labelSu.Visible = false;
+                    buttonDisattiva.Enabled = false;
+                    buttonAttiva.Enabled = true;
+
+                }
             }
-            else // non c'è nulla in esecuzione
-            {
-                attivo = false;
-
-                CleanUp();
-                UpdateStatusBar(null, null);
-                control.stopReader();
-                updateTimer.Stop();
-
-                esecuzioneDisattivata.Visible = true;
-
-                messaggioStart.Visible = false;
-                labelEsecuzioneDi.Visible = false;
-                nomeContenuto.Visible = false;
-                labelStato.Visible = false;
-                stato.Visible = false;
-                tempoTotale.Visible = false;
-                tempoTrascorso.Visible = false;
-                labelSu.Visible = false;
-                buttonDisattiva.Enabled = false;
-                buttonAttiva.Enabled = true;
-
-            }  
-                
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void home_Click(object sender, EventArgs e)
         {
-            if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+            try
             {
-                
-                QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler uscire?", this,"1");
-                NavigationControl.showDialog(dialog);
+                if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+                {
 
-                
-            }
-            else
-            {
-                CleanUp();
-                UpdateStatusBar(null, null);
-                control.stopReader();
-                esecuzioneDisattivata.Visible = true;
-                updateTimer.Stop();
-                NavigationControl.goHome(this);
-            }
-            
-        }
+                    QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler uscire?", this, "1");
+                    NavigationControl.showDialog(dialog);
 
-        public void questionAnswer(string param,string response)
-        {
-            if ((param != null) && (param.Equals("1")))
-            {
-                if ((response != null) && (response.Equals("yes")))
+
+                }
+                else
                 {
                     CleanUp();
                     UpdateStatusBar(null, null);
@@ -468,31 +464,52 @@ namespace TalkingPaper.Execution
                     NavigationControl.goHome(this);
                 }
             }
-            else if ((param != null) && (param.Equals("2")))
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        public void questionAnswer(string param,string response)
+        {
+            try
             {
-                if ((response != null) && (response.Equals("yes")))
+                if ((param != null) && (param.Equals("1")))
                 {
-                    attivo = false;
+                    if ((response != null) && (response.Equals("yes")))
+                    {
+                        CleanUp();
+                        UpdateStatusBar(null, null);
+                        control.stopReader();
+                        esecuzioneDisattivata.Visible = true;
+                        updateTimer.Stop();
+                        NavigationControl.goHome(this);
+                    }
+                }
+                else if ((param != null) && (param.Equals("2")))
+                {
+                    if ((response != null) && (response.Equals("yes")))
+                    {
+                        attivo = false;
 
-                    CleanUp();
-                    UpdateStatusBar(null, null);
-                    control.stopReader();
-                    esecuzioneDisattivata.Visible = true;
-                    updateTimer.Stop();
+                        CleanUp();
+                        UpdateStatusBar(null, null);
+                        control.stopReader();
+                        esecuzioneDisattivata.Visible = true;
+                        updateTimer.Stop();
 
-                    messaggioStart.Visible = false;
-                    labelEsecuzioneDi.Visible = false;
-                    nomeContenuto.Visible = false;
-                    labelStato.Visible = false;
-                    stato.Visible = false;
-                    tempoTotale.Visible = false;
-                    labelSu.Visible = false;
-                    tempoTrascorso.Visible = false;
+                        messaggioStart.Visible = false;
+                        labelEsecuzioneDi.Visible = false;
+                        nomeContenuto.Visible = false;
+                        labelStato.Visible = false;
+                        stato.Visible = false;
+                        tempoTotale.Visible = false;
+                        labelSu.Visible = false;
+                        tempoTrascorso.Visible = false;
 
-                    buttonDisattiva.Enabled = false;
-                    buttonAttiva.Enabled = true;
+                        buttonDisattiva.Enabled = false;
+                        buttonAttiva.Enabled = true;
+                    }
                 }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         

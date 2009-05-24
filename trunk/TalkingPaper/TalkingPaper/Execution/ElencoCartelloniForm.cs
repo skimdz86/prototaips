@@ -27,33 +27,36 @@ namespace TalkingPaper.Execution
 
         private void caricaLista()
         {
-            int i = 0;
-            noPoster.Visible = false;
-            listaPoster = control.getListaPoster();
-            if (listaPoster == null)
+            try
             {
-                noPoster.Visible = true;
-            }
-            else
-            {
-                foreach (Model.Poster poster in listaPoster)
+                int i = 0;
+                noPoster.Visible = false;
+                listaPoster = control.getListaPoster();
+                if (listaPoster == null)
                 {
-                    Label nome = new Label();
-                    nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )";
-                    nome.Tag = poster.getNome();
-                    nome.BackColor = Color.Orange;
-                    nome.ForeColor = Color.White;
-                    nome.Size = new System.Drawing.Size(500, 25);
-                    nome.AutoSize = false;
-                    nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    nome.Click += new System.EventHandler(poster_Click);
-                    nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
-                    nome.Visible = true;
+                    noPoster.Visible = true;
+                }
+                else
+                {
+                    foreach (Model.Poster poster in listaPoster)
+                    {
+                        Label nome = new Label();
+                        nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )";
+                        nome.Tag = poster.getNome();
+                        nome.BackColor = Color.Orange;
+                        nome.ForeColor = Color.White;
+                        nome.Size = new System.Drawing.Size(500, 25);
+                        nome.AutoSize = false;
+                        nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        nome.Click += new System.EventHandler(poster_Click);
+                        nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
+                        nome.Visible = true;
 
-                    pannello.Controls.Add(nome);
+                        pannello.Controls.Add(nome);
+                    }
                 }
             }
-
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void ok_Click(object sender, EventArgs e)
@@ -65,7 +68,8 @@ namespace TalkingPaper.Execution
             }
             else
             {
-                throw new Exception("Errore sul controllo del tasto ok");
+                //throw new Exception("Errore sul controllo del tasto ok");
+                MessageBox.Show("Errore sul controllo del tasto ok");
             }
         }
 

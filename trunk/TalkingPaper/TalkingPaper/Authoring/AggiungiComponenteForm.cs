@@ -33,35 +33,38 @@ namespace TalkingPaper.Authoring
 
         public AggiungiComponenteForm(Contenuto contenuto)
         {
-            InitializeComponent();
-
-            
-            this.contenuto = contenuto;
-            control = new ControlLogic.AuthoringControl();
-
-            tempCont = new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
-            tempCont.setCoordinate(contenuto.getCoordinate());
-            /*contenuto.setNomeContenuto(cont.getNomeContenuto());
-            contenuto.setAudioPath(cont.getAudioPath());
-            contenuto.setVideoPath(cont.getVideoPath());
-            contenuto.setImagePath(cont.getImagePath());
-            contenuto.setTextPath(cont.getTextPath());
-            contenuto.setCoordinate(cont.getCoordinate());*/
+            try
+            {
+                InitializeComponent();
 
 
-            SfogliaAudio.Cursor = Cursors.Hand;
-            SfogliaImmagine.Cursor = Cursors.Hand;
-            SfogliaTesto.Cursor = Cursors.Hand;
-            SfogliaVideo.Cursor = Cursors.Hand;
-            PreviewAudio.Cursor = Cursors.Hand;
-            PreviewImmagine.Cursor = Cursors.Hand;
-            PreviewTesto.Cursor = Cursors.Hand;
-            PreviewVideo.Cursor = Cursors.Hand;
-            EliminaAudio.Cursor = Cursors.Hand;
-            EliminaImmagine.Cursor = Cursors.Hand;
-            EliminaTesto.Cursor = Cursors.Hand;
-            EliminaVideo.Cursor = Cursors.Hand;
-                       
+                this.contenuto = contenuto;
+                control = new ControlLogic.AuthoringControl();
+
+                tempCont = new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
+                tempCont.setCoordinate(contenuto.getCoordinate());
+                /*contenuto.setNomeContenuto(cont.getNomeContenuto());
+                contenuto.setAudioPath(cont.getAudioPath());
+                contenuto.setVideoPath(cont.getVideoPath());
+                contenuto.setImagePath(cont.getImagePath());
+                contenuto.setTextPath(cont.getTextPath());
+                contenuto.setCoordinate(cont.getCoordinate());*/
+
+
+                SfogliaAudio.Cursor = Cursors.Hand;
+                SfogliaImmagine.Cursor = Cursors.Hand;
+                SfogliaTesto.Cursor = Cursors.Hand;
+                SfogliaVideo.Cursor = Cursors.Hand;
+                PreviewAudio.Cursor = Cursors.Hand;
+                PreviewImmagine.Cursor = Cursors.Hand;
+                PreviewTesto.Cursor = Cursors.Hand;
+                PreviewVideo.Cursor = Cursors.Hand;
+                EliminaAudio.Cursor = Cursors.Hand;
+                EliminaImmagine.Cursor = Cursors.Hand;
+                EliminaTesto.Cursor = Cursors.Hand;
+                EliminaVideo.Cursor = Cursors.Hand;
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }       
         }
 
         #region Gestione Eventi

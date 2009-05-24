@@ -52,34 +52,38 @@ namespace TalkingPaper.Authoring
 
         private void caricaElencoPoster()
         {
-            List<Poster> listaPoster = new List<Poster>();
-
-            listaPoster = Global.dataHandler.getListaPoster();
-
-            if (listaPoster == null || listaPoster.Count == 0)
+            try
             {
-                noPoster.Visible = true;
-            }
-            else
-            {
+                List<Poster> listaPoster = new List<Poster>();
 
-                int i = 0;
-                foreach (Poster p in listaPoster)
+                listaPoster = Global.dataHandler.getListaPoster();
+
+                if (listaPoster == null || listaPoster.Count == 0)
                 {
-                    Label nome = new Label();
-                    nome.Text = p.getNome();
-                    nome.BackColor = Color.Orange;
-                    nome.ForeColor = Color.White;
-                    nome.Size = new System.Drawing.Size(500, 25);
-                    nome.AutoSize = false;
-                    nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    nome.Click += new System.EventHandler(nomePoster_Click);
-                    nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
-                    nome.Visible = true;
+                    noPoster.Visible = true;
+                }
+                else
+                {
 
-                    elencoPoster.Controls.Add(nome);
+                    int i = 0;
+                    foreach (Poster p in listaPoster)
+                    {
+                        Label nome = new Label();
+                        nome.Text = p.getNome();
+                        nome.BackColor = Color.Orange;
+                        nome.ForeColor = Color.White;
+                        nome.Size = new System.Drawing.Size(500, 25);
+                        nome.AutoSize = false;
+                        nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        nome.Click += new System.EventHandler(nomePoster_Click);
+                        nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
+                        nome.Visible = true;
+
+                        elencoPoster.Controls.Add(nome);
+                    }
                 }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void nomePoster_Click(object sender, EventArgs e)
@@ -99,19 +103,22 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
-            if (lastLabelClicked != null)
+            try
             {
-                string nomePoster = lastLabelClicked.Text;
-                Poster p = Global.dataHandler.getPoster(nomePoster);
+                if (lastLabelClicked != null)
+                {
+                    string nomePoster = lastLabelClicked.Text;
+                    Poster p = Global.dataHandler.getPoster(nomePoster);
 
-                PosizionaComponentiForm posizionaComp = new PosizionaComponentiForm(p.getNome(), p.getDescrizione(), p.getUsername(), p.getNomeGriglia());
-                NavigationControl.goTo(this, posizionaComp);
+                    PosizionaComponentiForm posizionaComp = new PosizionaComponentiForm(p.getNome(), p.getDescrizione(), p.getUsername(), p.getNomeGriglia());
+                    NavigationControl.goTo(this, posizionaComp);
+                }
+                else
+                {
+                    MessageBox.Show("Devi selezionare un cartellone!");
+                }
             }
-            else
-            {
-                //TODO: msgbox: DEVI SELEZIONARE UN POSTER
-            }
-
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
 

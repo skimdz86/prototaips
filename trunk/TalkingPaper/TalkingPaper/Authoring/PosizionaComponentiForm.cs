@@ -41,77 +41,81 @@ namespace TalkingPaper.Authoring
 
         public PosizionaComponentiForm(string nomePoster, string descrizionePoster, string nomeClasse, string nomeGriglia)
         {
-            InitializeComponent();
-            
-            this.nomePoster = nomePoster;
-            this.descrizionePoster = descrizionePoster;
-            this.nomeClasse = nomeClasse;
-            this.nomeGriglia = nomeGriglia;
-
-            control = new ControlLogic.AuthoringControl();
-
-            if ((nomeGriglia == null) || (nomeGriglia.Equals("")))
+            try
             {
-                throw new Exception("Non è stata selezionata una griglia");
-            }
-            else griglia = control.getGriglia(nomeGriglia);
+                InitializeComponent();
 
-            
-         //   taggato = new Bitmap(Global.directoryPrincipale + "/Images/virgoletta.gif");
-          //  non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/non_taggato.gif");
-            
+                this.nomePoster = nomePoster;
+                this.descrizionePoster = descrizionePoster;
+                this.nomeClasse = nomeClasse;
+                this.nomeGriglia = nomeGriglia;
 
-            contenuto = new Contenuto();
+                control = new ControlLogic.AuthoringControl();
 
-            
+                if ((nomeGriglia == null) || (nomeGriglia.Equals("")))
+                {
+                    throw new Exception("Non è stata selezionata una griglia");
+                }
+                else griglia = control.getGriglia(nomeGriglia);
 
-            //TODO
-            //inizializzare listaContenuti (con i cont del poster)
-            //
 
-            disegnaGriglia();
+                //   taggato = new Bitmap(Global.directoryPrincipale + "/Images/virgoletta.gif");
+                //  non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/non_taggato.gif");
 
-            //controllo se il poster 'nomePoster' esiste già: non dovrebbe servire piu
-           // bool b = Global.dataHandler.existPoster(nomePoster);
-           // if (b) 
-           // {
-           p=Global.dataHandler.getPoster(nomePoster);
-           int countPlay=0,countPausa=0,countStop=0;
-           if (p.getNome() != null)
-           {
-               for(int j=0;j<p.getContenuti().Count;j++) 
-               {
-                   if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Play") countPlay++;
-                   if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Pausa") countPausa++;
-                   if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Stop") countStop++;
-               }
-               if(countPlay==0) listaContenuti.Add(new Contenuto("Play",null,null,null,null));
-               if(countPausa==0) listaContenuti.Add(new Contenuto("Pausa",null,null,null,null));
-               if(countStop==0) listaContenuti.Add(new Contenuto("Stop",null,null,null,null));
 
-               listaContenuti.AddRange(p.getContenuti());
-               riempiGriglia(p);
-           }
-           else if (p.getNome() == null) 
-           {
-               listaContenuti.Add(new Contenuto("Play",null,null,null,null));
-               listaContenuti.Add(new Contenuto("Pausa",null,null,null,null));
-               listaContenuti.Add(new Contenuto("Stop",null,null,null,null));
-           }
-           // }
+                contenuto = new Contenuto();
 
-           /* if (p != null)
-            {
+
+
+                //TODO
+                //inizializzare listaContenuti (con i cont del poster)
+                //
+
+                disegnaGriglia();
+
+                //controllo se il poster 'nomePoster' esiste già: non dovrebbe servire piu
+                // bool b = Global.dataHandler.existPoster(nomePoster);
+                // if (b) 
+                // {
+                p = Global.dataHandler.getPoster(nomePoster);
+                int countPlay = 0, countPausa = 0, countStop = 0;
                 if (p.getNome() != null)
                 {
-                    listaContenuti = p.getContenuti();
+                    for (int j = 0; j < p.getContenuti().Count; j++)
+                    {
+                        if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Play") countPlay++;
+                        if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Pausa") countPausa++;
+                        if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Stop") countStop++;
+                    }
+                    if (countPlay == 0) listaContenuti.Add(new Contenuto("Play", null, null, null, null));
+                    if (countPausa == 0) listaContenuti.Add(new Contenuto("Pausa", null, null, null, null));
+                    if (countStop == 0) listaContenuti.Add(new Contenuto("Stop", null, null, null, null));
+
+                    listaContenuti.AddRange(p.getContenuti());
                     riempiGriglia(p);
                 }
+                else if (p.getNome() == null)
+                {
+                    listaContenuti.Add(new Contenuto("Play", null, null, null, null));
+                    listaContenuti.Add(new Contenuto("Pausa", null, null, null, null));
+                    listaContenuti.Add(new Contenuto("Stop", null, null, null, null));
+                }
+                // }
+
+                /* if (p != null)
+                 {
+                     if (p.getNome() != null)
+                     {
+                         listaContenuti = p.getContenuti();
+                         riempiGriglia(p);
+                     }
+                 }
+                 p = null;*/
+                //Ma p=null a che serviva???
+
+
             }
-            p = null;*/  //Ma p=null a che serviva???
-
-            
-
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void riempiGriglia(Poster p)
@@ -161,64 +165,67 @@ namespace TalkingPaper.Authoring
 
         private void disegnaGriglia()
         {
-            schemaGriglia.Rows.Clear();
-            schemaGriglia.Columns.Clear();
-
-            schemaGriglia.ColumnCount = griglia.getNumColonne() + 1;
-            schemaGriglia.Rows.Add(griglia.getNumRighe() + 1);
-
-            schemaGriglia.Rows[0].Height = 35;
-            schemaGriglia.Columns[0].Width = 50;
-
-            schemaGriglia[0, 0].Style.BackColor = Color.ForestGreen;
-            schemaGriglia[0, 0].Style.SelectionBackColor = Color.ForestGreen;
-
-            Font font = new Font("Arial", 16);
-
-            //header righe
-            for (int i = 1; i <= griglia.getNumRighe(); i++)
+            try
             {
-                schemaGriglia[0, i].Value = i;
-                schemaGriglia[0, i].Style.Font = font;
-                schemaGriglia[0, i].Style.BackColor = Color.ForestGreen;
-                schemaGriglia[0, i].Style.SelectionBackColor = Color.ForestGreen;
-            }
+                schemaGriglia.Rows.Clear();
+                schemaGriglia.Columns.Clear();
 
-            //header colonne
-            for (int j = 1; j <= griglia.getNumColonne(); j++)
-            {
-                schemaGriglia.Columns[j].Width = 120;
-                schemaGriglia[j, 0].Value = (char)('A' + j - 1);
-                schemaGriglia[j, 0].Style.Font = font;
-                schemaGriglia[j, 0].Style.BackColor = Color.ForestGreen;
-                schemaGriglia[j, 0].Style.SelectionBackColor = Color.ForestGreen;
-            }
+                schemaGriglia.ColumnCount = griglia.getNumColonne() + 1;
+                schemaGriglia.Rows.Add(griglia.getNumRighe() + 1);
 
-            //singole celle
-            font = new Font("Arial", 12);
-            for (int i = 0; i < (griglia.getNumRighe() * griglia.getNumColonne()); i++)
-            {
-                int c = (i % griglia.getNumColonne()) + 1;
-                int r = (i / griglia.getNumColonne()) + 1;
+                schemaGriglia.Rows[0].Height = 35;
+                schemaGriglia.Columns[0].Width = 50;
 
-                //celle valide
-                if (!(griglia.getTagFromIndex(i).Equals("")))
+                schemaGriglia[0, 0].Style.BackColor = Color.ForestGreen;
+                schemaGriglia[0, 0].Style.SelectionBackColor = Color.ForestGreen;
+
+                Font font = new Font("Arial", 16);
+
+                //header righe
+                for (int i = 1; i <= griglia.getNumRighe(); i++)
                 {
-                    schemaGriglia[c, r].Style.Font = font;
-                    schemaGriglia[c, r].Style.BackColor = Color.White;
-                    schemaGriglia[c, r].Style.ForeColor = Color.Black;
-                    schemaGriglia[c, r].Style.SelectionBackColor = Color.PowderBlue;
-                    schemaGriglia[c, r].Style.SelectionForeColor = Color.Black;
+                    schemaGriglia[0, i].Value = i;
+                    schemaGriglia[0, i].Style.Font = font;
+                    schemaGriglia[0, i].Style.BackColor = Color.ForestGreen;
+                    schemaGriglia[0, i].Style.SelectionBackColor = Color.ForestGreen;
                 }
-                //celle non valide (no tag)
-                else
-                {
-                    schemaGriglia[c, r].Style.BackColor = Color.Gray;
-                    schemaGriglia[c, r].Style.SelectionBackColor = Color.Gray;
-                }
-            }
 
-            
+                //header colonne
+                for (int j = 1; j <= griglia.getNumColonne(); j++)
+                {
+                    schemaGriglia.Columns[j].Width = 120;
+                    schemaGriglia[j, 0].Value = (char)('A' + j - 1);
+                    schemaGriglia[j, 0].Style.Font = font;
+                    schemaGriglia[j, 0].Style.BackColor = Color.ForestGreen;
+                    schemaGriglia[j, 0].Style.SelectionBackColor = Color.ForestGreen;
+                }
+
+                //singole celle
+                font = new Font("Arial", 12);
+                for (int i = 0; i < (griglia.getNumRighe() * griglia.getNumColonne()); i++)
+                {
+                    int c = (i % griglia.getNumColonne()) + 1;
+                    int r = (i / griglia.getNumColonne()) + 1;
+
+                    //celle valide
+                    if (!(griglia.getTagFromIndex(i).Equals("")))
+                    {
+                        schemaGriglia[c, r].Style.Font = font;
+                        schemaGriglia[c, r].Style.BackColor = Color.White;
+                        schemaGriglia[c, r].Style.ForeColor = Color.Black;
+                        schemaGriglia[c, r].Style.SelectionBackColor = Color.PowderBlue;
+                        schemaGriglia[c, r].Style.SelectionForeColor = Color.Black;
+                    }
+                    //celle non valide (no tag)
+                    else
+                    {
+                        schemaGriglia[c, r].Style.BackColor = Color.Gray;
+                        schemaGriglia[c, r].Style.SelectionBackColor = Color.Gray;
+                    }
+                }
+
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
 
         }
 
@@ -234,19 +241,23 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
-            Poster poster = new Poster(nomePoster, descrizionePoster, nomeClasse, nomeGriglia);
-            List<Contenuto> listaUtile = control.getListWithUsefulContents(listaContenuti);
-            poster.setContenuti(listaUtile);
+            try
+            {
+                Poster poster = new Poster(nomePoster, descrizionePoster, nomeClasse, nomeGriglia);
+                List<Contenuto> listaUtile = control.getListWithUsefulContents(listaContenuti);
+                poster.setContenuti(listaUtile);
 
-            //TODO: SALVARE IL POSTER IN XML
-            //listaUtile contiene solo i contenuti che vanno salvati (perchè associati alla griglia)
-            //la dimensione di listaUtile dipende dai contenuti
+                //TODO: SALVARE IL POSTER IN XML
+                //listaUtile contiene solo i contenuti che vanno salvati (perchè associati alla griglia)
+                //la dimensione di listaUtile dipende dai contenuti
 
-            //Global.dataHandler.removePoster(nomePoster);
+                //Global.dataHandler.removePoster(nomePoster);
 
-            Global.dataHandler.setPoster(poster);
+                Global.dataHandler.setPoster(poster);
 
-            NavigationControl.goHome(this);
+                NavigationControl.goHome(this);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void aggiungi_Click(object sender, EventArgs e)
@@ -287,23 +298,25 @@ namespace TalkingPaper.Authoring
 
         private void schemaGriglia_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int row = e.RowIndex;
-            int col = e.ColumnIndex;
-            DataGridView grid = (DataGridView)sender;
-
-            //click su un header
-            if (row == 0 || col == 0) return;
-
-            //inserisco un contenuto in una cella
-            if (lastLabelClicked != null)
+            try
             {
-                string nome;
-                int[] coord;
-                int index;
-                string tag;
+                int row = e.RowIndex;
+                int col = e.ColumnIndex;
+                DataGridView grid = (DataGridView)sender;
 
-                   
-                    nome = (string)lastLabelClicked.Tag;     
+                //click su un header
+                if (row == 0 || col == 0) return;
+
+                //inserisco un contenuto in una cella
+                if (lastLabelClicked != null)
+                {
+                    string nome;
+                    int[] coord;
+                    int index;
+                    string tag;
+
+
+                    nome = (string)lastLabelClicked.Tag;
 
                     tag = griglia.getTagFromNumericCoord(row, col);
 
@@ -311,16 +324,16 @@ namespace TalkingPaper.Authoring
                     if (tag.Equals("") == false)
                     {
                         ///// elimino quel che c'è gia quando reinserisco sopra
-                        int[] temp=new int[2];
+                        int[] temp = new int[2];
                         for (int k = 0; k < listaContenuti.Count; k++)
                         {
-                            temp=listaContenuti[k].getCoordinate();
-                            int x=temp[0];
+                            temp = listaContenuti[k].getCoordinate();
+                            int x = temp[0];
                             int y = temp[1];
-                            if (x==row && y==col) 
-                            { 
+                            if (x == row && y == col)
+                            {
                                 listaContenuti[k].setCoordinate(new int[2] { 0, 0 });
-                                break; 
+                                break;
                             }//end if
                         }
 
@@ -331,13 +344,13 @@ namespace TalkingPaper.Authoring
                         coord = listaContenuti[index].getCoordinate();
                         if ((coord[0] != 0) && (coord[1] != 0))
                         {
-                            
+
                             int r = coord[0];
                             int c = coord[1];
                             schemaGriglia[c, r].Value = null;
                         }
                         coord = new int[2] { row, col };
-                        
+
                         listaContenuti[index].setCoordinate(coord);
 
                         grid[col, row].Value = nome;
@@ -356,23 +369,24 @@ namespace TalkingPaper.Authoring
                         }
                         lastLabelClicked = null;
                     }
-                    
-                
-            }
-            //elimino un contenuto da una cella
-            else if (grid[col, row].Value != null)
-            {
-                string nome = grid[col, row].Value.ToString();
-                int index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                int[] coord = new int[2] { 0, 0 };
-                listaContenuti[index].setCoordinate(coord);
-                grid[col, row].Value = null;
-                grid[col, row].Selected = false;
-                
-            }
 
 
-            
+                }
+                //elimino un contenuto da una cella
+                else if (grid[col, row].Value != null)
+                {
+                    string nome = grid[col, row].Value.ToString();
+                    int index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                    int[] coord = new int[2] { 0, 0 };
+                    listaContenuti[index].setCoordinate(coord);
+                    grid[col, row].Value = null;
+                    grid[col, row].Selected = false;
+
+                }
+
+
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
 
         }
 
@@ -414,58 +428,62 @@ namespace TalkingPaper.Authoring
 
         private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
         {
-            String nome = e.Data.GetData(DataFormats.Text).ToString();
-            Point point = schemaGriglia.PointToClient(new Point(e.X, e.Y));
-            DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X, point.Y);
-
-            int row = info.RowIndex;
-            int col = info.ColumnIndex;
-
-            //click su un header
-            if (row <= 0 || col <= 0) return;
-
-            int[] coord = new int[2];
-            int index;
-
-            string tag = griglia.getTagFromNumericCoord(row, col);
-
-            nome = (string)lastLabelClicked.Tag;
-
-            tag = griglia.getTagFromNumericCoord(row, col);
-
-            //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-            if (tag.Equals("") == false)
+            try
             {
-                ///// elimino quel che c'è gia quando reinserisco sopra
-                int[] temp = new int[2];
-                for (int k = 0; k < listaContenuti.Count; k++)
+                String nome = e.Data.GetData(DataFormats.Text).ToString();
+                Point point = schemaGriglia.PointToClient(new Point(e.X, e.Y));
+                DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X, point.Y);
+
+                int row = info.RowIndex;
+                int col = info.ColumnIndex;
+
+                //click su un header
+                if (row <= 0 || col <= 0) return;
+
+                int[] coord = new int[2];
+                int index;
+
+                string tag = griglia.getTagFromNumericCoord(row, col);
+
+                nome = (string)lastLabelClicked.Tag;
+
+                tag = griglia.getTagFromNumericCoord(row, col);
+
+                //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
+                if (tag.Equals("") == false)
                 {
-                    temp = listaContenuti[k].getCoordinate();
-                    int x = temp[0];
-                    int y = temp[1];
-                    if (x == row && y == col) { listaContenuti[k].setCoordinate(new int[2] { 0, 0 }); break; }
+                    ///// elimino quel che c'è gia quando reinserisco sopra
+                    int[] temp = new int[2];
+                    for (int k = 0; k < listaContenuti.Count; k++)
+                    {
+                        temp = listaContenuti[k].getCoordinate();
+                        int x = temp[0];
+                        int y = temp[1];
+                        if (x == row && y == col) { listaContenuti[k].setCoordinate(new int[2] { 0, 0 }); break; }
+                    }
+
+                    index = control.getIndexFromNomeContenuto(listaContenuti, nome);
+                    if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
+
+                    //il contenuto era già associato: cancello l'associazione precedente
+                    coord = listaContenuti[index].getCoordinate();
+                    if ((coord[0] != 0) && (coord[1] != 0))
+                    {
+
+                        int r = coord[0];
+                        int c = coord[1];
+                        schemaGriglia[c, r].Value = null;
+                    }
+                    coord = new int[2] { row, col };
+
+                    listaContenuti[index].setCoordinate(coord);
+
+                    schemaGriglia[col, row].Value = nome;
+                    lastLabelClicked.BackColor = Color.Orange;
+                    lastLabelClicked = null;
                 }
-
-                index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
-
-                //il contenuto era già associato: cancello l'associazione precedente
-                coord = listaContenuti[index].getCoordinate();
-                if ((coord[0] != 0) && (coord[1] != 0))
-                {
-
-                    int r = coord[0];
-                    int c = coord[1];
-                    schemaGriglia[c, r].Value = null;
-                }
-                coord = new int[2] { row, col };
-
-                listaContenuti[index].setCoordinate(coord);
-
-                schemaGriglia[col, row].Value = nome;
-                lastLabelClicked.BackColor = Color.Orange;
-                lastLabelClicked = null;
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void schemaGriglia_DragEnter(object sender, DragEventArgs e)
@@ -478,9 +496,6 @@ namespace TalkingPaper.Authoring
 
         private void modifica_Click(object sender, EventArgs e)
         {
-            //conrollare che nn ci siano gia nella griglia pero
-            
-            //int countSuGriglia=0;
             if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
                 if (lastLabelClicked.Tag != "Play" && lastLabelClicked.Tag != "Pausa" && lastLabelClicked.Tag != "Stop")
