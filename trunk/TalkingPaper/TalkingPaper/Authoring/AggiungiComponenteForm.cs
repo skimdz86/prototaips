@@ -28,6 +28,7 @@ namespace TalkingPaper.Authoring
     {
         private Contenuto contenuto;
         private Contenuto tempCont;
+        private bool flagModifica=false;
 
         private ControlLogic.AuthoringControl control;
 
@@ -40,6 +41,8 @@ namespace TalkingPaper.Authoring
 
                 this.contenuto = contenuto;
                 control = new ControlLogic.AuthoringControl();
+
+                if (contenuto.getNomeContenuto() != null) flagModifica = true;
 
                 tempCont = new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
                 tempCont.setCoordinate(contenuto.getCoordinate());
@@ -562,12 +565,15 @@ namespace TalkingPaper.Authoring
 
         private void annulla_Click(object sender, EventArgs e)
         {
-            contenuto.setNomeContenuto(nomeBox.Text);
-            contenuto.setAudioPath(tempCont.getAudioPath());
-            contenuto.setVideoPath(tempCont.getVideoPath());
-            contenuto.setImagePath(tempCont.getImagePath());
-            contenuto.setTextPath(tempCont.getTextPath());
-            contenuto.setCoordinate(tempCont.getCoordinate());
+            if (flagModifica)
+            {
+                contenuto.setNomeContenuto(nomeBox.Text);
+                contenuto.setAudioPath(tempCont.getAudioPath());
+                contenuto.setVideoPath(tempCont.getVideoPath());
+                contenuto.setImagePath(tempCont.getImagePath());
+                contenuto.setTextPath(tempCont.getTextPath());
+                contenuto.setCoordinate(tempCont.getCoordinate());
+            }
             NavigationControl.goBack(this);
         }
 

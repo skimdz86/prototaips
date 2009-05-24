@@ -403,7 +403,7 @@ namespace TalkingPaper.Authoring
                     }
                     else
                     {
-                        if ((lastLabelClicked != null) && (lastLabelClicked.Image == null)) 
+                        if ((lastLabelClicked != null) && (lastLabelClicked.Image == null))
                             lastLabelClicked.BackColor = System.Drawing.Color.Orange;
                         else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
                             lastLabelClicked.BackColor = System.Drawing.Color.Empty;
@@ -414,13 +414,21 @@ namespace TalkingPaper.Authoring
                 }
                 else
                 {
-                    if ((lastLabelClicked != null) && (lastLabelClicked.Image == null))
-                        lastLabelClicked.BackColor = System.Drawing.Color.Orange;
-                    else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
-                        lastLabelClicked.BackColor = System.Drawing.Color.Empty;
+                    if (((Label)sender).BackColor == Color.Orange)
+                    {
+                        ((Label)sender).BackColor = Color.Empty;
+                        lastLabelClicked = null;
+                    }
+                    else
+                    {
+                        if ((lastLabelClicked != null) && (lastLabelClicked.Image == null))
+                            lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                        else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
+                            lastLabelClicked.BackColor = System.Drawing.Color.Empty;
 
-                    ((Label)sender).BackColor = System.Drawing.Color.Orange;
-                    lastLabelClicked = ((Label)sender);
+                        ((Label)sender).BackColor = System.Drawing.Color.Orange;
+                        lastLabelClicked = ((Label)sender);
+                    }
                 }
                 ((Label)sender).DoDragDrop(((Label)sender).Tag, DragDropEffects.Move);
             }       
