@@ -10,30 +10,34 @@ namespace TalkingPaper.Administration
                
         public AdminHomeForm(string user,int isConfigured)
         {
-            InitializeComponent();
-            control = new ControlLogic.AdministrationControl();
-            NavigationControl.setHome(this);
-
-            //Auto centramento della label di benvenuto in base alla dimensione del nome amministratore
-            int dimensione = benvenuto.Size.Width;
-            benvenuto.Text = benvenuto.Text + " " + user;
-            benvenuto.Left -= (benvenuto.Size.Width - dimensione) / 2;
-
-            if (isConfigured > 1)
+            try
             {
-                configRfid.Visible = true;
-                groupBoxRfid.Visible = true;
-            //    nuovaGriglia.Enabled = false;
-            //    modificaGriglia.Enabled = false;
+                InitializeComponent();
+                control = new ControlLogic.AdministrationControl();
+                NavigationControl.setHome(this);
+
+                //Auto centramento della label di benvenuto in base alla dimensione del nome amministratore
+                int dimensione = benvenuto.Size.Width;
+                benvenuto.Text = benvenuto.Text + " " + user;
+                benvenuto.Left -= (benvenuto.Size.Width - dimensione) / 2;
+
+                if (isConfigured > 1)
+                {
+                    configRfid.Visible = true;
+                    groupBoxRfid.Visible = true;
+                    //    nuovaGriglia.Enabled = false;
+                    //    modificaGriglia.Enabled = false;
 
 
+                }
+                else
+                {
+                    configRfid.Visible = false;
+                    groupBoxRfid.Visible = false;
+
+                }//è codice di sicurezza per config rfid
             }
-            else
-            {
-                configRfid.Visible = false;
-                groupBoxRfid.Visible = false;
-                
-            }//è codice di sicurezza per config rfid
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
         
         private void logout_Click(object sender, EventArgs e)

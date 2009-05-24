@@ -275,7 +275,7 @@ namespace TalkingPaper.Authoring
                 { 
                     listaContenuti[indexC] = new Contenuto(contenuto.getNomeContenuto(),contenuto.getAudioPath(),contenuto.getVideoPath(),contenuto.getImagePath(),contenuto.getTextPath());
                     listaContenuti[indexC].setCoordinate(contenuto.getCoordinate());
-                    MessageBox.Show(listaContenuti[indexC].getNomeContenuto()+"\n"+listaContenuti[indexC].getCoordinate()[0].ToString()+listaContenuti[indexC].getCoordinate()[1].ToString()); 
+                    
                 }
             }
             
