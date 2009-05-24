@@ -351,15 +351,15 @@ namespace TalkingPaper.Authoring
             this.labelTesto2.ForeColor = System.Drawing.Color.White;
             this.labelTesto2.Location = new System.Drawing.Point(12, 370);
             this.labelTesto2.Name = "labelTesto2";
-            this.labelTesto2.Size = new System.Drawing.Size(911, 29);
+            this.labelTesto2.Size = new System.Drawing.Size(906, 29);
             this.labelTesto2.TabIndex = 57;
-            this.labelTesto2.Text = "Vuoi selezionare una immagine o un testo da stampare per il tuo componente";
+            this.labelTesto2.Text = "Se vuoi, seleziona un\'immagine e/o un testo da stampare per il tuo contenuto";
             // 
             // AggiungiComponenteForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.labelTesto2);
             this.Controls.Add(this.PreviewAudio);
             this.Controls.Add(this.PreviewVideo);

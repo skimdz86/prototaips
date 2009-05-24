@@ -16,45 +16,52 @@ namespace TalkingPaper.Administration
 
         public EliminaPosterForm()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            ok.Cursor = Cursors.Default;
-            ok.Enabled = false;
+                ok.Cursor = Cursors.Default;
+                ok.Enabled = false;
 
-            control = new ControlLogic.AdministrationControl();
-            
-            //caricaLista();
+                control = new ControlLogic.AdministrationControl();
+
+                //caricaLista();
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void caricaLista()
         {
-            int i = 0;
-            noPoster.Visible = false;
-            listaPoster = control.getListaPoster();
-            if ((listaPoster == null) || (listaPoster.Count == 0))
+            try
             {
-                noPoster.Visible = true;
-            }
-            else
-            {
-                foreach (Model.Poster poster in listaPoster)
+                int i = 0;
+                noPoster.Visible = false;
+                listaPoster = control.getListaPoster();
+                if ((listaPoster == null) || (listaPoster.Count == 0))
                 {
-                    Label nome = new Label();
-                    nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )";
-                    nome.Tag = poster.getNome();
-                    nome.BackColor = Color.Orange;
-                    nome.ForeColor = Color.White;
-                    nome.Size = new System.Drawing.Size(500, 25);
-                    nome.AutoSize = false;
-                    nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    nome.Click += new System.EventHandler(poster_Click);
-                    nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
-                    nome.Visible = true;
+                    noPoster.Visible = true;
+                }
+                else
+                {
+                    foreach (Model.Poster poster in listaPoster)
+                    {
+                        Label nome = new Label();
+                        nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )";
+                        nome.Tag = poster.getNome();
+                        nome.BackColor = Color.Orange;
+                        nome.ForeColor = Color.White;
+                        nome.Size = new System.Drawing.Size(500, 25);
+                        nome.AutoSize = false;
+                        nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        nome.Click += new System.EventHandler(poster_Click);
+                        nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
+                        nome.Visible = true;
 
-                    pannello.Controls.Add(nome);
+                        pannello.Controls.Add(nome);
+                    }
                 }
             }
-
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
         private void elimina_Click(object sender, EventArgs e)
@@ -68,20 +75,25 @@ namespace TalkingPaper.Administration
             }
             else
             {
-                throw new Exception("Errore sul controllo del tasto ok");
+                //throw new Exception("Errore sul controllo del tasto ok");
+                MessageBox.Show("Errore sul controllo del tasto ok");
             }
         }
         public void questionAnswer(string param,string response)
         {
-            if (response.Equals("yes"))
+            try
             {
-                bool result;
-                result = control.rimuoviPoster(posterSelezionato);
-                if (result == false)
+                if (response.Equals("yes"))
                 {
-                    throw new Exception("Impossibile eliminare il poster");
+                    bool result;
+                    result = control.rimuoviPoster(posterSelezionato);
+                    if (result == false)
+                    {
+                        throw new Exception("Impossibile eliminare il poster");
+                    }
                 }
             }
+            catch (Exception e) { MessageBox.Show(e.Message); }
         }
         private void annulla_Click(object sender, EventArgs e)
         {
@@ -107,13 +119,17 @@ namespace TalkingPaper.Administration
 
         private void EliminaPosterForm_Activated(object sender, EventArgs e)
         {
-            if (Visible)
+            try
             {
-                pannello.Controls.Clear();
-                ok.Enabled = false;
-                ok.Cursor = Cursors.Default;
-                caricaLista();
+                if (Visible)
+                {
+                    pannello.Controls.Clear();
+                    ok.Enabled = false;
+                    ok.Cursor = Cursors.Default;
+                    caricaLista();
+                }
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
     }
 }
