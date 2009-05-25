@@ -24,7 +24,8 @@ namespace RegistrazioneAdmin
                 MessageBox.Show("Errore nella lettura dei parametri di installazione");
                 return;
             }
-            filepath = installDirectory + @"/Data/Users.xml";
+            filepath = installDirectory + @"\Data\Users.xml";
+            MessageBox.Show(filepath);
 
         }
 
