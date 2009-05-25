@@ -32,6 +32,8 @@ namespace TalkingPaper.Execution
         {
             this.pannello = new System.Windows.Forms.Panel();
             this.noContenuti = new System.Windows.Forms.Label();
+            this.anteprima = new System.Windows.Forms.Button();
+            this.stampa = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.SuspendLayout();
@@ -58,9 +60,9 @@ namespace TalkingPaper.Execution
             // pannello
             // 
             this.pannello.AutoScroll = true;
-            this.pannello.Location = new System.Drawing.Point(78, 202);
+            this.pannello.Location = new System.Drawing.Point(49, 202);
             this.pannello.Name = "pannello";
-            this.pannello.Size = new System.Drawing.Size(797, 346);
+            this.pannello.Size = new System.Drawing.Size(646, 346);
             this.pannello.TabIndex = 54;
             // 
             // noContenuti
@@ -75,12 +77,42 @@ namespace TalkingPaper.Execution
             this.noContenuti.Text = "Non sono presenti contenuti che è possibile stampare";
             this.noContenuti.Visible = false;
             // 
+            // anteprima
+            // 
+            this.anteprima.BackColor = System.Drawing.Color.Yellow;
+            this.anteprima.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.anteprima.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.anteprima.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.anteprima.Location = new System.Drawing.Point(795, 202);
+            this.anteprima.Name = "anteprima";
+            this.anteprima.Size = new System.Drawing.Size(124, 62);
+            this.anteprima.TabIndex = 54;
+            this.anteprima.Text = "Anteprima";
+            this.anteprima.UseVisualStyleBackColor = false;
+            this.anteprima.Click += new System.EventHandler(this.anteprima_Click);
+            // 
+            // stampa
+            // 
+            this.stampa.BackColor = System.Drawing.Color.Yellow;
+            this.stampa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.stampa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stampa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stampa.Location = new System.Drawing.Point(795, 290);
+            this.stampa.Name = "stampa";
+            this.stampa.Size = new System.Drawing.Size(124, 62);
+            this.stampa.TabIndex = 55;
+            this.stampa.Text = "Stampa";
+            this.stampa.UseVisualStyleBackColor = false;
+            this.stampa.Click += new System.EventHandler(this.stampa_Click);
+            // 
             // ListaContenutiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.stampa);
+            this.Controls.Add(this.anteprima);
             this.Controls.Add(this.noContenuti);
             this.Controls.Add(this.pannello);
             this.Name = "ListaContenutiForm";
@@ -91,6 +123,8 @@ namespace TalkingPaper.Execution
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
             this.Controls.SetChildIndex(this.noContenuti, 0);
+            this.Controls.SetChildIndex(this.anteprima, 0);
+            this.Controls.SetChildIndex(this.stampa, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -104,5 +138,7 @@ namespace TalkingPaper.Execution
 
         private System.Windows.Forms.Panel pannello;
         private System.Windows.Forms.Label noContenuti;
+        private Button anteprima;
+        private Button stampa;
     }
 }

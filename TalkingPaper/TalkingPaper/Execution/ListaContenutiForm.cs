@@ -13,6 +13,7 @@ namespace TalkingPaper.Execution
         private List<Model.Contenuto> listaContenuti;
         private string nomePoster;
         private string contenutoSelezionato;
+        private Label lastLabelClicked;
         
 
         public ListaContenutiForm(string nomePoster)
@@ -32,6 +33,8 @@ namespace TalkingPaper.Execution
                 Model.Poster poster;
                 int i = 0;
                 noContenuti.Visible = true;
+                anteprima.Visible = false;
+                stampa.Visible = false;
 
                 poster = control.getPoster(nomePoster);
 
@@ -43,9 +46,11 @@ namespace TalkingPaper.Execution
                     {
                         //verifico che siano contenuti validi
                         if (!(contenuto.getNomeContenuto().Equals("Play")) && !(contenuto.getNomeContenuto().Equals("Pausa")) && !(contenuto.getNomeContenuto().Equals("Stop"))
-                            && !((contenuto.getTextPath() == null) && (contenuto.getImagePath() == null)))
+                            && Global.isNotEmpty(contenuto.getTextPath()) && Global.isNotEmpty(contenuto.getImagePath()))
                         {
                             noContenuti.Visible = false;
+                            anteprima.Visible = true;
+                            stampa.Visible = true;
                             Label nome = new Label();
                             nome.Text = contenuto.getNomeContenuto() + " (" + (contenuto.getAudioPath() != null ? 'A'.ToString() : "") + (contenuto.getVideoPath() != null ? 'V'.ToString() : "") + (contenuto.getImagePath() != null ? " I" : "") + (contenuto.getTextPath() != null ? " T" : "") + ")";
                             nome.Tag = contenuto.getNomeContenuto();
@@ -56,22 +61,12 @@ namespace TalkingPaper.Execution
                             nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                             nome.Location = new System.Drawing.Point(25, 5 + i * 45);
                             nome.TextAlign = ContentAlignment.MiddleLeft;
+                            nome.Click += new EventHandler(nome_Click);
                             nome.Visible = true;
-
-                            Button stampa = new Button();
-                            stampa.Text = "Anteprima e Stampa";
-                            stampa.Tag = nome.Tag;
-                            stampa.BackColor = System.Drawing.Color.Yellow;
-                            stampa.Cursor = System.Windows.Forms.Cursors.Hand;
-                            stampa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold);
-                            stampa.Location = new System.Drawing.Point(550, i * 45);
-                            stampa.Size = new System.Drawing.Size(240, 40);
-                            stampa.Click += new EventHandler(stampa_Click);
-                            stampa.Visible = true;
-
+                            
                             pannello.Controls.Add(nome);
 
-                            pannello.Controls.Add(stampa);
+                            
                             i++;
                         }
                     }
@@ -80,57 +75,130 @@ namespace TalkingPaper.Execution
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
+        void nome_Click(object sender, EventArgs e)
+        {
+            if (lastLabelClicked != null) lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+
+
+            if (lastLabelClicked == ((Label)sender))
+                lastLabelClicked = null;
+            else
+            {
+                ((Label)sender).BackColor = System.Drawing.Color.Red;
+                lastLabelClicked = ((Label)sender);
+            }
+        }
+
         void stampa_Click(object sender, EventArgs e)
         {
-            try
+            if (lastLabelClicked != null)
             {
-                contenutoSelezionato = (string)((Button)sender).Tag;
-                Model.Contenuto contenuto = control.getPoster(nomePoster).getContenutoFromName(contenutoSelezionato);
-                if (contenuto != null)
+                try
                 {
-                    if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
+                    contenutoSelezionato = (string)lastLabelClicked.Tag;
+                    Model.Contenuto contenuto = control.getPoster(nomePoster).getContenutoFromName(contenutoSelezionato);
+                    if (contenuto != null)
                     {
-                        try
+                        if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
                         {
-                            control.anteprimaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                            try
+                            {
+                                control.stampaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            }
                         }
-                        catch (UnauthorizedAccessException)
+                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getTextPath())))
                         {
-                            MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            try
+                            {
+                                control.stampaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            }
                         }
-                    }
-                    else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getTextPath())))
-                    {
-                        try
+                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getTextPath())))
                         {
-                            control.anteprimaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
-                        }
-                        catch (UnauthorizedAccessException)
-                        {
-                            MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                        }
-                    }
-                    else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getTextPath())))
-                    {
-                        try
-                        {
-                            control.anteprimaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
-                        }
-                        catch (UnauthorizedAccessException)
-                        {
-                            MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            try
+                            {
+                                control.stampaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            }
                         }
                     }
                 }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            else { MessageBox.Show("Non hai selezionato un contenuto"); }
+        }
+
+        void anteprima_Click(object sender, EventArgs e)
+        {
+            if (lastLabelClicked != null)
+            {
+                try
+                {
+                    contenutoSelezionato = (string)lastLabelClicked.Tag;
+                    Model.Contenuto contenuto = control.getPoster(nomePoster).getContenutoFromName(contenutoSelezionato);
+                    if (contenuto != null)
+                    {
+                        if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
+                        {
+                            try
+                            {
+                                control.anteprimaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            }
+                        }
+                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getTextPath())))
+                        {
+                            try
+                            {
+                                control.anteprimaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            }
+                        }
+                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getTextPath())))
+                        {
+                            try
+                            {
+                                control.anteprimaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
+                            }
+                            catch (UnauthorizedAccessException)
+                            {
+                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+            }
+            else
+            {
+                MessageBox.Show("Non hai selezionato un contenuto");
+            }
         }
 
         
 
         private void ok_Click(object sender, EventArgs e)
         {
-            
+            NavigationControl.goHome(this);
         }
        
         private void annulla_Click(object sender, EventArgs e)
@@ -143,6 +211,6 @@ namespace TalkingPaper.Execution
             NavigationControl.goHome(this);
         }
 
-        
+                
     }
 }

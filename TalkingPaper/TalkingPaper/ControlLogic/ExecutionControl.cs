@@ -88,6 +88,7 @@ namespace TalkingPaper.ControlLogic
             lastRead = "";
         }
 
+
         public void anteprimaTestoImmagine(string percorsoTesto, string percorsoImmagine, int[] coordinate)
         {
             string tipo = percorsoTesto.Substring(percorsoTesto.Length - 3, 3);
@@ -131,7 +132,7 @@ namespace TalkingPaper.ControlLogic
             //immagine
 
             immagine = Image.FromFile(percorsoImmagine);
-            
+
             if (immagine.Width > immagine.Height)
             {
                 printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
@@ -141,18 +142,72 @@ namespace TalkingPaper.ControlLogic
             printPreviewDialog.ShowDialog();
         }
 
-        public void anteprimaTesto(string percorso,int[] coordinate)
+        public void stampaTestoImmagine(string percorsoTesto, string percorsoImmagine, int[] coordinate)
+        {
+            string tipo = percorsoTesto.Substring(percorsoTesto.Length - 3, 3);
+            this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
+
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+
+            
+
+            printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
+            printDialog.Document = printDocument;
+            printDialog.AllowSomePages = true;
+            printDialog.UseEXDialog = true;
+
+            //testo
+            documentContent = "";
+            if (tipo.Equals("doc"))
+            {
+                Microsoft.Office.Interop.Word.ApplicationClass wordApp = new Microsoft.Office.Interop.Word.ApplicationClass();
+                object file = percorsoTesto;
+                object nullobj = System.Reflection.Missing.Value;
+                Microsoft.Office.Interop.Word.Document doc = wordApp.Documents.Open(ref file, ref nullobj, ref nullobj, ref nullobj,
+                    ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj,
+                    ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj, ref nullobj);
+                doc.ActiveWindow.Selection.WholeStory();
+                doc.ActiveWindow.Selection.Copy();
+                IDataObject data = Clipboard.GetDataObject();
+                documentContent = data.GetData(DataFormats.Text).ToString();
+                doc.Close(ref nullobj, ref nullobj, ref nullobj);
+            }
+            else
+            {
+                using (FileStream stream = new FileStream(percorsoTesto, FileMode.Open))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    documentContent = reader.ReadToEnd();
+                }
+
+
+            }
+
+            //immagine
+
+            immagine = Image.FromFile(percorsoImmagine);
+
+            if (immagine.Width > immagine.Height)
+            {
+                printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
+            }
+
+
+            DialogResult result = printDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+        }
+
+        public void setDocumentTesto(PrintDocument printDocument, string percorso, int[] coordinate)
         {
             string tipo = percorso.Substring(percorso.Length - 3, 3);
             this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
 
-            PrintDocument printDocument = new PrintDocument();
-            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
-
             printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
-            printPreviewDialog.Document = printDocument;
-            printPreviewDialog.Height = 700;
-            printPreviewDialog.Width = 1000;
 
             documentContent = "";
             if (tipo.Equals("doc"))
@@ -180,25 +235,86 @@ namespace TalkingPaper.ControlLogic
 
             }
 
+        }
+
+        public void setDocumentImmagine(PrintDocument printDocument, string percorso, int[] coordinate)
+        {
+            printDocument.PrintPage += printDocument_PrintPage;
+
+            this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
+            immagine = Image.FromFile(percorso);
+
+            if (immagine.Width > 827)
+            {
+                printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
+            }
+        }
+
+        public void stampaTesto(string percorso, int[] coordinate)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+
+            setDocumentTesto(printDocument, percorso, coordinate);
+            
+            printDialog.Document = printDocument;
+            printDialog.AllowSomePages = true;
+            printDialog.UseEXDialog = true;
+
+            DialogResult result = printDialog.ShowDialog();
+            
+            if (result == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+            
+        }
+
+        public void anteprimaTesto(string percorso,int[] coordinate)
+        {
+            PrintDocument printDocument = new PrintDocument();
+            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
+
+            setDocumentTesto(printDocument, percorso, coordinate);
+
+            printPreviewDialog.Document = printDocument;
+            printPreviewDialog.Height = 700;
+            printPreviewDialog.Width = 1000;
+
             printPreviewDialog.ShowDialog();
         }
 
+        public void stampaImmagine(string percorso, int[] coordinate)
+        {
+            PrintDialog printDialog = new PrintDialog();
+            PrintDocument printDocument = new PrintDocument();
+
+            setDocumentImmagine(printDocument, percorso, coordinate);
+
+            printDialog.Document = printDocument;
+            printDialog.AllowSomePages = true;
+            printDialog.UseEXDialog = true;
+
+            DialogResult result = printDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                printDocument.Print();
+            }
+
+        }
+        
         public void anteprimaImmagine(string percorso, int[] coordinate)
         {
             PrintDocument document = new PrintDocument();
             PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
-            this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
 
-            immagine = Image.FromFile(percorso);
-            document.PrintPage += printDocument_PrintPage;
+            setDocumentImmagine(document, percorso, coordinate);
+
             printPreviewDialog.Document = document;
             printPreviewDialog.Height = 700;
             printPreviewDialog.Width = 1000;
-            if (immagine.Width > immagine.Height)
-            {
-                document.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
-            }
-
+            
             printPreviewDialog.ShowDialog();
         }
 
@@ -250,6 +366,7 @@ namespace TalkingPaper.ControlLogic
                 e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
                 e.MarginBounds, StringFormat.GenericTypographic);
 
+                
                 // Remove the portion of the string that has been printed.
                 documentContent = documentContent.Substring(charactersOnPage);
 
