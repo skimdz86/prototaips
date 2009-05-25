@@ -128,7 +128,7 @@ namespace TalkingPaper.Welcome
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(193, 95);
             this.button1.TabIndex = 16;
-            this.button1.Text = "Stampa un cartellone";
+            this.button1.Text = "Stampa i contenuti di un cartellone";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
