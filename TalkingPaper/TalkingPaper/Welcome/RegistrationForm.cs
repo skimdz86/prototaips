@@ -28,28 +28,34 @@ namespace TalkingPaper.Welcome
 
         private void ok_Click(object sender, EventArgs e)
         {
-            
-            if (textBox2.Text == textBox3.Text)
+            if (!(user.Text.Equals("")) && !(password.Text.Equals("")) && !(verificaPassword.Text.Equals("")))
             {
-                
-                if (logc.registration(textBox1.Text, textBox2.Text))
+                if (password.Text == verificaPassword.Text)
                 {
-                    MessageBox.Show("Ti sei registrato con successo!");
-                    NavigationControl.goBack(this);
+
+                    if (logc.registration(user.Text, password.Text))
+                    {
+                        MessageBox.Show("Ti sei registrato con successo!");
+                        NavigationControl.goBack(this);
+                    }
+                    else
+                    {
+                        user.Clear();
+                        password.Clear();
+                        verificaPassword.Clear();
+                        MessageBox.Show("C'è stato un errore! E' necessario reinserire i dati");
+                    }
                 }
                 else
                 {
-                    textBox1.Clear();
-                    textBox2.Clear();
-                    textBox3.Clear();
-                    MessageBox.Show("C'è stato un errore! Prego reinserire i dati");
+                    password.Clear();
+                    verificaPassword.Clear();
+                    MessageBox.Show("Le password non coincidono! Reinserirle prego");
                 }
             }
-            else 
+            else
             {
-                textBox2.Clear();
-                textBox3.Clear();
-                MessageBox.Show("Le password non coincidono! Reinserirle prego");
+                MessageBox.Show("E' necessario riempire tutti i campi");
             }
         }
 

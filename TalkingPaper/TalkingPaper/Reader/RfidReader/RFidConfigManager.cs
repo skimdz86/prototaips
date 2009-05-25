@@ -25,7 +25,7 @@ namespace TalkingPaper.Reader
             {
                 if(!File.Exists(filepath)) createXMLConfig();
 
-            }catch(IOException e){ throw new Exception("Erroreeeeeeeeeeeeeeeeeee! Di I/O");}
+            }catch(IOException){ throw new Exception("Erroreeeeeeeeeeeeeeeeeee! Di I/O");}
         }
         
         //crea il file vuoto (o standard)
@@ -98,7 +98,7 @@ namespace TalkingPaper.Reader
                 stream.Close();
                 return prop;
             }
-            catch (XmlException e) { return null; }
+            catch (XmlException) { return null; }
         }
 
         
@@ -131,7 +131,7 @@ namespace TalkingPaper.Reader
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { return false; }
+            catch (XmlException) { return false; }
         }
 
         

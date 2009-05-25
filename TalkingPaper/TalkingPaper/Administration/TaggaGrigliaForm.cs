@@ -81,7 +81,7 @@ namespace TalkingPaper.Administration
                 {
                     if (control.verificaId(id))
                     {
-                        if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                        if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                         {
                             ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
                             ElencoTag[colonna, riga].Value = id;
@@ -103,7 +103,7 @@ namespace TalkingPaper.Administration
                                 {
                                     riga++;
                                     colonna = 1;
-                                    if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                                    if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                                     {
                                         ElencoTag[colonna, riga].Style.SelectionBackColor = Color.Yellow;
                                         ElencoTag[colonna, riga].Selected = true;
@@ -112,7 +112,7 @@ namespace TalkingPaper.Administration
                             }
                             else
                             {
-                                if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                                if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                                 {
                                     ElencoTag[colonna, riga].Style.SelectionBackColor = Color.Yellow;
                                     ElencoTag[colonna, riga].Selected = true;
@@ -180,7 +180,7 @@ namespace TalkingPaper.Administration
                 if ((riga != -1) && (colonna != -1))
                 {
                     ElencoTag[colonna, riga].Selected = false;
-                    if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                    if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                     {
                         ElencoTag[colonna, riga].Style.BackColor = Color.BlanchedAlmond;
                     }

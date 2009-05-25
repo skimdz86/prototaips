@@ -104,7 +104,7 @@ namespace TalkingPaper.Authoring
                 }
                 for (int i = 0; i < (grigliaSelezionata.getNumRighe() * grigliaSelezionata.getNumColonne()); i++)
                 {
-                    if (!(grigliaSelezionata.getTagFromIndex(i).Equals("")))
+                    if (Global.isNotEmpty(grigliaSelezionata.getTagFromIndex(i)))
                     {
                         SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.BackColor = Color.Coral;
                         SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.SelectionBackColor = Color.Coral;

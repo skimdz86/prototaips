@@ -20,7 +20,7 @@ namespace TalkingPaper.Execution
         private ControlLogic.ExecutionControl control;
         private string poster;
         private Model.Contenuto contenuto;
-        private bool attivo; // variabile che identifica lo status del sistema
+        
         Timer updateTimer;
         FormVideo formVideo;
 
@@ -53,7 +53,7 @@ namespace TalkingPaper.Execution
                 poster = nomePoster;
                 sottotitolo.Text += " " + poster;
 
-                if ((poster == null) || (poster.Equals("")))
+                if (Global.isEmpty(poster))
                 {
                     throw new Exception("Errore!! Esecuzione di un poster inesistente");
                 }
@@ -64,7 +64,7 @@ namespace TalkingPaper.Execution
                 updateTimer.Tick += UpdateStatusBar;
                 updateTimer.Interval = 1000;
 
-                attivo = true;
+                
 
                 CleanUp();
                 UpdateStatusBar(null, null);
@@ -140,7 +140,7 @@ namespace TalkingPaper.Execution
 
                             }
                         }
-                        else if ((contenuto.getVideoPath() != null) && !(contenuto.getVideoPath().Equals("")))
+                        else if (Global.isNotEmpty(contenuto.getVideoPath()))
                         {
                             if (File.Exists(contenuto.getVideoPath()))
                             {
@@ -198,7 +198,7 @@ namespace TalkingPaper.Execution
                             }
                             else MessageBox.Show("Non esiste più il contenuto" + contenuto.getNomeContenuto() + "!! Aggiornare il cartellone");
                         }
-                        else if ((contenuto.getAudioPath() != null) && !(contenuto.getAudioPath().Equals("")))
+                        else if (Global.isNotEmpty(contenuto.getAudioPath()))
                         {
                             if (File.Exists(contenuto.getAudioPath()))
                             {
@@ -387,7 +387,7 @@ namespace TalkingPaper.Execution
         private void buttonAttiva_Click(object sender, EventArgs e)
         {
             
-            attivo = true;
+            
             esecuzioneDisattivata.Visible = false;
 
             messaggioStart.Visible = true;
@@ -417,7 +417,7 @@ namespace TalkingPaper.Execution
                 }
                 else // non c'è nulla in esecuzione
                 {
-                    attivo = false;
+                    
 
                     CleanUp();
                     UpdateStatusBar(null, null);
@@ -487,7 +487,7 @@ namespace TalkingPaper.Execution
                 {
                     if ((response != null) && (response.Equals("yes")))
                     {
-                        attivo = false;
+                        
 
                         CleanUp();
                         UpdateStatusBar(null, null);

@@ -30,15 +30,15 @@ namespace TalkingPaper.Administration
         {
             try
             {
-                if ((textBox2.Text == null) || (textBox2.Text.Equals("")))
+                if (Global.isEmpty(textBox2.Text))
                 {
                     MessageBox.Show("Non hai inserito i tag presenti in una riga");
                 }
-                else if ((textBox3.Text == null) || (textBox3.Text.Equals("")))
+                else if (Global.isEmpty(textBox3.Text))
                 {
                     MessageBox.Show("Non hai inserito i tag presenti in una colonna");
                 }
-                else if ((textBox1.Text == null) || (textBox1.Text.Equals("")))
+                else if (Global.isEmpty(textBox1.Text))
                 {
                     MessageBox.Show("Non hai inserito il nome della nuova griglia");
                 }

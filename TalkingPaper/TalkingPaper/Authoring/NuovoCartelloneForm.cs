@@ -16,11 +16,11 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
-            if ((Nome.Text == null) || (Nome.Text.Equals("")))
+            if (Global.isEmpty(Nome.Text))
             {
                 MessageBox.Show("Devi inserire un nome per il cartellone");
             }
-            else if ((Descrizione.Text == null) || (Descrizione.Text.Equals("")))
+            else if (Global.isEmpty(Descrizione.Text))
             {
                 MessageBox.Show("Devi inserire una descrizione per il cartellone");
             }

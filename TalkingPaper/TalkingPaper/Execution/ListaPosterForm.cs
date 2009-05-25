@@ -62,7 +62,7 @@ namespace TalkingPaper.Execution
 
         private void ok_Click(object sender, EventArgs e)
         {
-            if ((posterSelezionato != null) && !(posterSelezionato.Equals("")))
+            if (Global.isNotEmpty(posterSelezionato))
             {
                 ListaContenutiForm listaComp = new ListaContenutiForm(posterSelezionato);
                 NavigationControl.goTo(this, listaComp);

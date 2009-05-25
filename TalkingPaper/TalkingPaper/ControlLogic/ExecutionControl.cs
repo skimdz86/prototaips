@@ -223,7 +223,7 @@ namespace TalkingPaper.ControlLogic
                     
 
                 e.Graphics.DrawImage(immagine, 0, 0, width, height);
-                if ((documentContent != null) && !(documentContent.Equals("")))
+                if (Global.isNotEmpty(documentContent))
                 {
                     e.HasMorePages = true;
                     document.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
@@ -233,7 +233,7 @@ namespace TalkingPaper.ControlLogic
                 immagine = null;
             }
 
-            else if ((documentContent != null) && !(documentContent.Equals("")))
+            else if (Global.isNotEmpty(documentContent))
             {
                 
                 int charactersOnPage = 0;
@@ -261,7 +261,7 @@ namespace TalkingPaper.ControlLogic
                     documentContent = backup;
             }
 
-            if ((coordinate != null) && !(coordinate.Equals("")))
+            if (Global.isNotEmpty(coordinate))
             {
                 e.Graphics.DrawString(coordinate, new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black, new PointF(10, 10));
             }

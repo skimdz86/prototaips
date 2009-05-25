@@ -13,7 +13,7 @@ namespace TalkingPaper.Execution
         private List<Model.Contenuto> listaContenuti;
         private string nomePoster;
         private string contenutoSelezionato;
-        private Label lastLabelClicked;
+        
 
         public ListaContenutiForm(string nomePoster)
         {
@@ -88,7 +88,7 @@ namespace TalkingPaper.Execution
                 Model.Contenuto contenuto = control.getPoster(nomePoster).getContenutoFromName(contenutoSelezionato);
                 if (contenuto != null)
                 {
-                    if (((contenuto.getTextPath() != null) && !(contenuto.getTextPath().Equals(""))) && ((contenuto.getImagePath() == null) || (contenuto.getImagePath().Equals(""))))
+                    if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
                     {
                         try
                         {
@@ -99,7 +99,7 @@ namespace TalkingPaper.Execution
                             MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
                         }
                     }
-                    else if (((contenuto.getImagePath() != null) && !(contenuto.getImagePath().Equals(""))) && ((contenuto.getTextPath() == null) || (contenuto.getTextPath().Equals(""))))
+                    else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getTextPath())))
                     {
                         try
                         {
@@ -110,7 +110,7 @@ namespace TalkingPaper.Execution
                             MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
                         }
                     }
-                    else if (((contenuto.getImagePath() != null) && !(contenuto.getImagePath().Equals(""))) && ((contenuto.getTextPath() != null) && !(contenuto.getTextPath().Equals(""))))
+                    else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getTextPath())))
                     {
                         try
                         {
