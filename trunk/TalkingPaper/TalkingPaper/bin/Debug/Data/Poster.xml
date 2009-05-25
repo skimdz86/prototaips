@@ -17,6 +17,7 @@
   <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
     <Descrizione>vkjnjknjkcsn</Descrizione>
     <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
-    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+    <Contenuto Nome="aaa" AudioPath="C:\Users\Marco\Music\Fall 2008\Black Sabbath - Paranoid.mp3" VideoPath="" ImagePath="" TextPath="" Cella="12" />
+    <Contenuto Nome="bbb" AudioPath="C:\Users\Marco\Music\Fall 2008\03-sam_sparro-21st_century_life.mp3" VideoPath="" ImagePath="" TextPath="" Cella="21" />
   </Poster>
 </ElencoPoster>
