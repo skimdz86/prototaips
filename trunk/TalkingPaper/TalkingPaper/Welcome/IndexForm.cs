@@ -30,7 +30,7 @@ namespace TalkingPaper.Welcome
             LoginControl logc = new LoginControl();
             
             /////////////////////autenticazione
-            if (!(user.Equals("")) && !(password.Equals("")))
+            if (Global.isNotEmpty(user) && Global.isNotEmpty(password))
             {
                 String res = logc.login(user, password);
                 if (res == "admin") 

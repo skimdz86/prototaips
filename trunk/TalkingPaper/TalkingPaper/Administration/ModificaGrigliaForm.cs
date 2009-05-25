@@ -75,7 +75,7 @@ namespace TalkingPaper.Administration
                 {
                     for (int j = 1; j < (griglia.getNumColonne() + 1); j++)
                     {
-                        if (!(tags[(i - 1) * griglia.getNumColonne() + (j - 1)].Equals("")))
+                        if (Global.isNotEmpty(tags[(i - 1) * griglia.getNumColonne() + (j - 1)]))
                         {
                             control.addId(tags[(i - 1) * griglia.getNumColonne() + (j - 1)]);
                             ElencoTag[j, i].Value = tags[(i - 1) * griglia.getNumColonne() + (j - 1)];
@@ -101,7 +101,7 @@ namespace TalkingPaper.Administration
                 {
                     if (control.verificaId(id))
                     {
-                        if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                        if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                         {
                             ElencoTag[colonna, riga].Style.BackColor = Color.Coral;
                             ElencoTag[colonna, riga].Value = id;
@@ -123,7 +123,7 @@ namespace TalkingPaper.Administration
                                 {
                                     riga++;
                                     colonna = 1;
-                                    if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                                    if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                                     {
                                         ElencoTag[colonna, riga].Style.SelectionBackColor = Color.Yellow;
                                         ElencoTag[colonna, riga].Selected = true;
@@ -132,7 +132,7 @@ namespace TalkingPaper.Administration
                             }
                             else
                             {
-                                if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                                if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                                 {
                                     ElencoTag[colonna, riga].Style.SelectionBackColor = Color.Yellow;
                                     ElencoTag[colonna, riga].Selected = true;
@@ -165,7 +165,7 @@ namespace TalkingPaper.Administration
                         }
                         else
                         {
-                            if (!(backup[i * (ElencoTag.ColumnCount - 1) + j].Equals("")))
+                            if (Global.isNotEmpty(backup[i * (ElencoTag.ColumnCount - 1) + j]))
                             {
                                 MessageBox.Show("Non puoi eliminare dei tag dalla griglia");
                                 control.stopReader();
@@ -203,7 +203,7 @@ namespace TalkingPaper.Administration
                 if ((riga != -1) && (colonna != -1))
                 {
                     ElencoTag[colonna, riga].Selected = false;
-                    if ((ElencoTag[colonna, riga].Value == null) || (ElencoTag[colonna, riga].Value.Equals("")))
+                    if (Global.isEmpty((string)ElencoTag[colonna, riga].Value))
                     {
                         ElencoTag[colonna, riga].Style.BackColor = Color.BlanchedAlmond;
                     }

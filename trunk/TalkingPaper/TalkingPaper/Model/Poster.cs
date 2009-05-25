@@ -13,9 +13,7 @@ namespace TalkingPaper.Model
         private String username;
         private String nomeGriglia;
 
-        private int numRighe;
-        private int numColonne;
-
+        
         private List<Contenuto> contenuti;
 
         public Poster(String nome, String desc, String username, String nomeGriglia)

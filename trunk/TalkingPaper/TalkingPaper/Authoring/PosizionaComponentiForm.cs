@@ -16,9 +16,7 @@ namespace TalkingPaper.Authoring
         private string nomeClasse;
         private string nomeGriglia;
         private Model.Griglia griglia;
-        private int clickOffsetX, clickOffsetY;
-        private int posizioneStartX, posizioneStartY;
-        private Label dragging;
+        
         private Label lastLabelClicked;
     
         //private FormScegliPosterAuthoring scelta_poster;
@@ -52,7 +50,7 @@ namespace TalkingPaper.Authoring
 
                 control = new ControlLogic.AuthoringControl();
 
-                if ((nomeGriglia == null) || (nomeGriglia.Equals("")))
+                if (Global.isEmpty(nomeGriglia))
                 {
                     throw new Exception("Non è stata selezionata una griglia");
                 }
@@ -208,7 +206,7 @@ namespace TalkingPaper.Authoring
                     int r = (i / griglia.getNumColonne()) + 1;
 
                     //celle valide
-                    if (!(griglia.getTagFromIndex(i).Equals("")))
+                    if (Global.isNotEmpty(griglia.getTagFromIndex(i)))
                     {
                         schemaGriglia[c, r].Style.Font = font;
                         schemaGriglia[c, r].Style.BackColor = Color.White;
@@ -323,7 +321,7 @@ namespace TalkingPaper.Authoring
                     tag = griglia.getTagFromNumericCoord(row, col);
 
                     //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                    if (tag.Equals("") == false)
+                    if (Global.isNotEmpty(tag))
                     {
                         ///// elimino quel che c'è gia quando reinserisco sopra
                         int[] temp = new int[2];
@@ -460,7 +458,7 @@ namespace TalkingPaper.Authoring
                 tag = griglia.getTagFromNumericCoord(row, col);
 
                 //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                if (tag.Equals("") == false)
+                if (Global.isNotEmpty(tag))
                 {
                     ///// elimino quel che c'è gia quando reinserisco sopra
                     int[] temp = new int[2];
@@ -535,7 +533,7 @@ namespace TalkingPaper.Authoring
             
             if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
             {
-                if (lastLabelClicked.Tag != "Play" && lastLabelClicked.Tag != "Pausa" && lastLabelClicked.Tag != "Stop")
+                if ((string)lastLabelClicked.Tag != "Play" && (string)lastLabelClicked.Tag != "Pausa" && (string)lastLabelClicked.Tag != "Stop")
                 {
                     String tag = (String)lastLabelClicked.Tag;
 
