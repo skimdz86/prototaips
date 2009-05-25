@@ -1,9 +1,0 @@
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\RegistrazioneAdmin.Properties.Resources.resources
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\RegistrazioneAdmin.RegistrationForm.resources
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\RegistrazioneAdmin.csproj.GenerateResource.Cache
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\RegistrazioneAdmin.FormSchema.resources
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\bin\Debug\RegistrazioneAdmin.exe
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\bin\Debug\RegistrazioneAdmin.pdb
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\RegistrazioneAdmin.exe
-C:\Users\MaSSi\Documents\Ingegneria Informatica LS\1' anno 2' sem\Progetto HCI\trunk\TalkingPaper\RegistrazioneAdmin\obj\Debug\RegistrazioneAdmin.pdb
