@@ -339,11 +339,36 @@ namespace TalkingPaper.ControlLogic
                     
 
                 e.Graphics.DrawImage(immagine, 0, 0, width, height);
+
                 if (Global.isNotEmpty(documentContent))
                 {
-                    e.HasMorePages = true;
-                    document.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
-                    e.PageSettings.PaperSize = new PaperSize("A4V", 595, 842);
+                    if (height < e.PageSettings.PaperSize.Height)
+                    {
+                        int charactersOnPage = 0;
+                        int linesPerPage = 0;
+                        e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                        new SizeF(e.PageSettings.PaperSize.Width, e.PageSettings.PaperSize.Height - (height + 50)), StringFormat.GenericTypographic,
+                        out charactersOnPage, out linesPerPage);
+                        if (charactersOnPage == documentContent.Length)
+                        {
+                            e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
+                    new PointF(e.MarginBounds.Left, height + 50), StringFormat.GenericTypographic);
+                            e.HasMorePages = false;
+                        }
+                        else
+                        {
+                            e.HasMorePages = true;
+                            document.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
+                            e.PageSettings.PaperSize = new PaperSize("A4V", 595, 842);
+                        }
+                        
+                    }
+                    else
+                    {
+                        e.HasMorePages = true;
+                        document.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
+                        e.PageSettings.PaperSize = new PaperSize("A4V", 595, 842);
+                    }
                 }
                 immagine.Dispose();
                 immagine = null;
@@ -358,12 +383,12 @@ namespace TalkingPaper.ControlLogic
 
                 // Sets the value of charactersOnPage to the number of characters 
                 // of stringToPrint that will fit within the bounds of the page.
-                e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
+                e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                     e.MarginBounds.Size, StringFormat.GenericTypographic,
                     out charactersOnPage, out linesPerPage);
 
                 // Draws the string within the bounds of the page.
-                e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
+                e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
                 e.MarginBounds, StringFormat.GenericTypographic);
 
                 
@@ -380,7 +405,7 @@ namespace TalkingPaper.ControlLogic
 
             if (Global.isNotEmpty(coordinate))
             {
-                e.Graphics.DrawString(coordinate, new System.Drawing.Font("Microsoft Sans Serif", 18.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black, new PointF(10, 10));
+                e.Graphics.DrawString(coordinate, new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black, new PointF(e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - 80));
             }
         }
 
