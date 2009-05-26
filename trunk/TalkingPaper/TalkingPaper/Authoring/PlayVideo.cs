@@ -28,41 +28,26 @@ namespace TalkingPaper.Authoring
         private System.Windows.Forms.MenuItem menuItem5;
         private string file;
         private string path;
-        //private ComponentiDelPoster elenco_poster;
-        private AggiungiComponenteForm nuovo_componente;
-        ///private BarCode.FormVisualizzaElementi elementi;
-        //private RfidCode.FormVisualizzaElementiRFID elementi_rfid;
-        private Authoring.PosizionaComponentiForm elementi_rfid;
-        //private EccoLaStoria storia;
-
         enum MediaStatus { None, Stopped, Paused, Running };
 
         private MediaStatus m_CurrentStatus = MediaStatus.None;
 
 
-        public PlayVideo(string path, AggiungiComponenteForm componente_nuovo, /*ComponentiDelPoster elenco_componenti, BarCode.FormVisualizzaElementi elementi, EccoLaStoria storia,*/ Authoring.PosizionaComponentiForm elementi_rfid)
+        public PlayVideo(string path)
         {
             InitializeComponent();
             
-            //this.nome_file = nome_file;
+            
             this.path = path;
-            //this.elenco_poster = elenco_componenti;
-            this.nuovo_componente = componente_nuovo;
-            ///this.elementi = elementi;
-            this.elementi_rfid = elementi_rfid;
-            //this.storia = storia;
+            
             UpdateStatusBar();
             UpdateToolBar();
             int indice = path.LastIndexOf("\\");
             int lenght = path.Length - (indice + 1);
             this.file = path.Substring(indice + 1, lenght);
             m_objFilterGraph = new FilgraphManager();
-            //string file = "D:\\Documents and Settings\\IO\\Documenti\\Musica\\Io Carlo - Lego.mp3";
-            //string destinazione = "D:\\Documents and Settings\\IO\\Documenti\\Visual Studio 2005\\ProvaMySql\\TalkingPaper\\TalkingPaper\\audio\\";
             m_objFilterGraph.RenderFile(path);
-            //MessageBox.Show(openFileDialog.FileName);
-
-            m_objBasicAudio = m_objFilterGraph as IBasicAudio;
+             m_objBasicAudio = m_objFilterGraph as IBasicAudio;
 
             try
             {
@@ -79,9 +64,7 @@ namespace TalkingPaper.Authoring
                 panel1.Dispose();
                 m_objVideoWindow = null;
             }
-            //System.IO.File.Copy(file, destinazione + "Audio4.mp3");
-            //MessageBox.Show("File copiato");
-
+            
             m_objMediaEvent = m_objFilterGraph as IMediaEvent;
 
             m_objMediaEventEx = m_objFilterGraph as IMediaEventEx;
@@ -212,26 +195,6 @@ namespace TalkingPaper.Authoring
                 case 3: m_objMediaControl.Stop();
                     m_objMediaPosition.CurrentPosition = 0;
                     m_CurrentStatus = MediaStatus.Stopped;
-                    /*if (elenco_poster != null)
-                    {
-                        elenco_poster.Enabled = true;
-                    }
-                    else*/ if (nuovo_componente != null)
-                    {
-                        nuovo_componente.Enabled = true;
-                    }
-                    /*else if (elementi != null)
-                    {
-                        elementi.Enabled = true;
-                    }*/
-                    /*else if (storia != null)
-                    {
-                        storia.Enabled = true;
-                    }*/
-                    else if (elementi_rfid != null)
-                    {
-                        elementi_rfid.Enabled = true;
-                    }
                     this.Close();
                     break;
             }
@@ -344,25 +307,6 @@ namespace TalkingPaper.Authoring
             }
         }
 
-        private void menuItem5_Click(object sender, System.EventArgs e)
-        {
-           // Form2 dlg = new Form2();
-           // dlg.ShowDialog();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusBar1_PanelClick(object sender, StatusBarPanelClickEventArgs e)
-        {
-
-        }
-
-        private void PlayVideo_Load(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }

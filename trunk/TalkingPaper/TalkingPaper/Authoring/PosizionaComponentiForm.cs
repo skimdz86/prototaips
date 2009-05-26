@@ -3,7 +3,6 @@ using TalkingPaper.Common;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Collections;
-using TalkingPaper.Model;
 using System.Collections.Generic;
 
 namespace TalkingPaper.Authoring
@@ -19,22 +18,11 @@ namespace TalkingPaper.Authoring
         
         private Label lastLabelClicked;
     
-        //private FormScegliPosterAuthoring scelta_poster;
-        //private BenvenutoAuthoring partenza;
-
         
         
-        
-            
-        
-        private ArrayList cont_modificati = new ArrayList();
+        private List<Model.Contenuto> listaContenuti;
 
-
-
-
-        Poster p;
-        private Contenuto contenuto;
-        private List<Contenuto> listaContenuti = new List<Contenuto>();
+        private Model.Contenuto[,] matrix;
 
 
         public PosizionaComponentiForm(string nomePoster, string descrizionePoster, string nomeClasse, string nomeGriglia)
@@ -56,95 +44,66 @@ namespace TalkingPaper.Authoring
                 }
                 else griglia = control.getGriglia(nomeGriglia);
 
-
-                //   taggato = new Bitmap(Global.directoryPrincipale + "/Images/virgoletta.gif");
-                //  non_taggato = new Bitmap(Global.directoryPrincipale + "/Images/non_taggato.gif");
-
-
-                contenuto = new Contenuto();
-
-
-
-                //TODO
-                //inizializzare listaContenuti (con i cont del poster)
-                //
-
                 disegnaGriglia();
 
-                //controllo se il poster 'nomePoster' esiste già: non dovrebbe servire piu
-                // bool b = Global.dataHandler.existPoster(nomePoster);
-                // if (b) 
-                // {
-                p = Global.dataHandler.getPoster(nomePoster);
-                int countPlay = 0, countPausa = 0, countStop = 0;
-                if (p.getNome() != null)
+                listaContenuti = new List<Model.Contenuto>();
+                matrix = new Model.Contenuto[griglia.getNumRighe()+1,griglia.getNumColonne()+1];
+
+                Model.Poster poster = Global.dataHandler.getPoster(nomePoster);
+
+                if ((poster != null) && (poster.getNome() != null))
                 {
-                    for (int j = 0; j < p.getContenuti().Count; j++)
+                    List<Model.Contenuto> contenuti = poster.getContenuti();
+                    if (contenuti != null)
                     {
-                        if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Play") countPlay++;
-                        if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Pausa") countPausa++;
-                        if (((Contenuto)p.getContenuti()[j]).getNomeContenuto() == "Stop") countStop++;
+                        foreach (Model.Contenuto contenuto in contenuti)
+                        {
+                            int[] coord = contenuto.getCoordinate();
+                            if (coord != null)
+                            {
+                                matrix[coord[0], coord[1]] = contenuto;
+                                if (!(contenuto.getNomeContenuto().Equals("Play")) && !(contenuto.getNomeContenuto().Equals("Pausa")) && !(contenuto.getNomeContenuto().Equals("Stop")))
+                                    listaContenuti.Add(contenuto);
+                            }
+                        }
+                        
                     }
-                    if (countPlay == 0) listaContenuti.Add(new Contenuto("Play", null, null, null, null));
-                    if (countPausa == 0) listaContenuti.Add(new Contenuto("Pausa", null, null, null, null));
-                    if (countStop == 0) listaContenuti.Add(new Contenuto("Stop", null, null, null, null));
-
-                    listaContenuti.AddRange(p.getContenuti());
-                    riempiGriglia(p);
+                    
                 }
-                else if (p.getNome() == null)
-                {
-                    listaContenuti.Add(new Contenuto("Play", null, null, null, null));
-                    listaContenuti.Add(new Contenuto("Pausa", null, null, null, null));
-                    listaContenuti.Add(new Contenuto("Stop", null, null, null, null));
-                }
-                // }
-
-                /* if (p != null)
-                 {
-                     if (p.getNome() != null)
-                     {
-                         listaContenuti = p.getContenuti();
-                         riempiGriglia(p);
-                     }
-                 }
-                 p = null;*/
-                //Ma p=null a che serviva???
-
-
+                
+                
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
-        private void riempiGriglia(Poster p)
+        private void riempiGriglia()
         {
-            foreach (Contenuto c in listaContenuti)
+            
+            for (int i = 1; i <= matrix.GetUpperBound(0); i++)
             {
-                int[] coord = c.getCoordinate();
-
-                if (coord != null && coord[0] != 0 && coord[1] != 0)
+                for (int j = 1; j <= matrix.GetUpperBound(1); j++)
                 {
-
-                    int row = coord[0];
-                    int col = coord[1];
-
-                    schemaGriglia[col, row].Value = c.getNomeContenuto();
+                    if ((matrix[i, j] != null) && (matrix[i, j].getNomeContenuto() != null))
+                        schemaGriglia[j, i].Value = matrix[i, j].getNomeContenuto();
+                    else
+                        schemaGriglia[j, i].Value = null;
                 }
-                else { }//throw new Exception("Contenuto non previsto");
             }
         }
 
         private void ricaricaElencoRisorse()
         {
             ElencoRisorse.Controls.Clear();
+            ElencoRisorse.Columns.Clear();
+            ElencoRisorse.Rows.Clear();
             int i = 0;
-            foreach (Contenuto c in listaContenuti)
+            foreach (Model.Contenuto contenuto in listaContenuti)
             {
-                if ((c.getNomeContenuto() != "Play") && (c.getNomeContenuto() != "Pausa") && (c.getNomeContenuto() != "Stop"))
+                if (contenuto != null)
                 {
                     Label nome = new Label();
-                    nome.Text = c.getNomeContenuto() + "(" + (c.getAudioPath() != null ? 'A'.ToString() : "") + (c.getVideoPath() != null ? 'V'.ToString() : "") + (c.getImagePath() != null ? " I" : "") + (c.getTextPath() != null ? " T" : "") + ")";
-                    nome.Tag = c.getNomeContenuto();
+                    nome.Text = contenuto.getNomeContenuto() + "(" + (contenuto.getAudioPath() != null ? 'A'.ToString() : "") + (contenuto.getVideoPath() != null ? 'V'.ToString() : "") + (contenuto.getImagePath() != null ? " I" : "") + (contenuto.getTextPath() != null ? " T" : "") + ")";
+                    nome.Tag = contenuto.getNomeContenuto();
                     nome.BackColor = Color.Orange;
                     nome.ForeColor = Color.White;
                     nome.Size = new System.Drawing.Size(175, 25);
@@ -155,9 +114,8 @@ namespace TalkingPaper.Authoring
                     nome.MouseDown += new MouseEventHandler(label_MouseDown);
                     ElencoRisorse.Controls.Add(nome);
                 }
+
             }
-            
-            
 
         }
 
@@ -241,16 +199,20 @@ namespace TalkingPaper.Authoring
         {
             try
             {
-                Poster poster = new Poster(nomePoster, descrizionePoster, nomeClasse, nomeGriglia);
-                List<Contenuto> listaUtile = control.getListWithUsefulContents(listaContenuti);
-                poster.setContenuti(listaUtile);
+                Model.Poster poster = new Model.Poster(nomePoster, descrizionePoster, nomeClasse, nomeGriglia);
+                List<Model.Contenuto> lista = new List<TalkingPaper.Model.Contenuto>();
 
-                //TODO: SALVARE IL POSTER IN XML
-                //listaUtile contiene solo i contenuti che vanno salvati (perchè associati alla griglia)
-                //la dimensione di listaUtile dipende dai contenuti
-
-                //Global.dataHandler.removePoster(nomePoster);
-
+                for (int i = 1; i <= matrix.GetUpperBound(0); i++)
+                {
+                    for (int j = 1; j <= matrix.GetUpperBound(1); j++)
+                    {
+                        if ((matrix[i, j] != null) && (matrix[i, j].getNomeContenuto() != null))
+                            lista.Add(matrix[i, j]);
+                    }
+                }
+                               
+                poster.setContenuti(lista);
+                
                 Global.dataHandler.setPoster(poster);
 
                 NavigationControl.goHome(this);
@@ -260,7 +222,8 @@ namespace TalkingPaper.Authoring
 
         private void aggiungi_Click(object sender, EventArgs e)
         {
-            AggiungiComponenteForm aggiungiComp = new AggiungiComponenteForm(contenuto);
+            Model.Contenuto contenutoVuoto = new Model.Contenuto();
+            AggiungiComponenteForm aggiungiComp = new AggiungiComponenteForm(contenutoVuoto, listaContenuti);
             NavigationControl.goTo(this, aggiungiComp);
         }
 
@@ -268,32 +231,29 @@ namespace TalkingPaper.Authoring
         private void PosizionaComponentiForm_VisibleChanged(object sender, EventArgs e)
         {
             lastLabelClicked = null;
-
-            bool b = this.Visible;
-            String g = contenuto.getNomeContenuto();
-            if (this.Visible == true && contenuto.getNomeContenuto() != null)
+                      
+            if (this.Visible == true)
             {
-                int c=0;
+                //if ((contenutoTrasferito != null) && Global.isNotEmpty(contenutoTrasferito.getNomeContenuto()) && (!(listaContenuti.Contains(contenutoTrasferito))))
+                //    listaContenuti.Add(contenutoTrasferito);
+                
+                /*int c=0;
                 int indexC=-1;
                 for (int w = 0; w < listaContenuti.Count; w++)
                 {
                     if (contenuto.getCoordinate() == listaContenuti[w].getCoordinate()) { c++; indexC = w; }
                 }
-                if (c == 0) listaContenuti.Add(new Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath()));
+                if (c == 0) listaContenuti.Add(new Model.Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath()));
                 else if (c > 0) 
-                { 
-                    listaContenuti[indexC] = new Contenuto(contenuto.getNomeContenuto(),contenuto.getAudioPath(),contenuto.getVideoPath(),contenuto.getImagePath(),contenuto.getTextPath());
+                {
+                    listaContenuti[indexC] = new Model.Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
                     listaContenuti[indexC].setCoordinate(contenuto.getCoordinate());
                     
-                }
-            }
-            if (Visible)
-            {
-                contenuto.resetContenuto();
+                }*/
                 ricaricaElencoRisorse();
-                disegnaGriglia();
-                riempiGriglia(p);
+                riempiGriglia();
             }
+            
         }
 
         private void schemaGriglia_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -302,7 +262,6 @@ namespace TalkingPaper.Authoring
             {
                 int row = e.RowIndex;
                 int col = e.ColumnIndex;
-                DataGridView grid = (DataGridView)sender;
 
                 //click su un header
                 if (row == 0 || col == 0) return;
@@ -310,84 +269,81 @@ namespace TalkingPaper.Authoring
                 //inserisco un contenuto in una cella
                 if (lastLabelClicked != null)
                 {
-                    string nome;
-                    int[] coord;
-                    int index;
-                    string tag;
+                    String nomeLabel = (string)lastLabelClicked.Tag;
 
+                    lastLabelClicked.BackColor = Color.Orange;
 
-                    nome = (string)lastLabelClicked.Tag;
-
-                    tag = griglia.getTagFromNumericCoord(row, col);
-
-                    //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                    if (Global.isNotEmpty(tag))
-                    {
-                        ///// elimino quel che c'è gia quando reinserisco sopra
-                        int[] temp = new int[2];
-                        for (int k = 0; k < listaContenuti.Count; k++)
-                        {
-                            temp = listaContenuti[k].getCoordinate();
-                            int x = temp[0];
-                            int y = temp[1];
-                            if (x == row && y == col)
-                            {
-                                listaContenuti[k].setCoordinate(new int[2] { 0, 0 });
-                                break;
-                            }//end if
-                        }
-
-                        index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                        if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
-
-                        //il contenuto era già associato: cancello l'associazione precedente
-                        coord = listaContenuti[index].getCoordinate();
-                        if ((coord[0] != 0) && (coord[1] != 0))
-                        {
-
-                            int r = coord[0];
-                            int c = coord[1];
-                            schemaGriglia[c, r].Value = null;
-                        }
-                        coord = new int[2] { row, col };
-
-                        listaContenuti[index].setCoordinate(coord);
-
-                        grid[col, row].Value = nome;
-                        lastLabelClicked.BackColor = Color.Orange;
-                        if (nome == "Play")
-                        {
-                            play.BackColor = System.Drawing.Color.Empty;
-                        }
-                        if (nome == "Pausa")
-                        {
-                            pausa.BackColor = System.Drawing.Color.Empty;
-                        }
-                        if (nome == "Stop")
-                        {
-                            stop.BackColor = System.Drawing.Color.Empty;
-                        }
-                        lastLabelClicked = null;
-                    }
-
-
+                    aggiuntaComponente(nomeLabel, row, col);
+                    riempiGriglia();
                 }
                 //elimino un contenuto da una cella
-                else if (grid[col, row].Value != null)
+                else if (schemaGriglia[col, row].Value != null)
                 {
-                    string nome = grid[col, row].Value.ToString();
-                    int index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                    int[] coord = new int[2] { 0, 0 };
-                    listaContenuti[index].setCoordinate(coord);
-                    grid[col, row].Value = null;
-                    grid[col, row].Selected = false;
-
+                    schemaGriglia[col, row].Selected = false;
+                    matrix[row, col] = null;
+                    riempiGriglia();
                 }
-
-
+                lastLabelClicked = null;
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
 
+        }
+
+
+        private void aggiuntaComponente(String nomeLabel, int row, int col)
+        {
+            int[] coord;
+            Model.Contenuto contenuto;
+
+            //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
+            if (!(schemaGriglia[col, row].Style.BackColor == Color.Gray))
+            {
+
+                for (int i = 1; i <= matrix.GetUpperBound(0); i++)
+                {
+                    for (int j = 1; j <= matrix.GetUpperBound(1); j++)
+                    {
+                        if ((matrix[i, j] != null) && (matrix[i, j].getNomeContenuto() != null))
+                        {
+                            if (matrix[i, j].getNomeContenuto().Equals(nomeLabel))
+                            {
+                                matrix[i, j] = null;
+                            }
+                        }
+                    }
+                }
+
+                coord = new int[2] { row, col };
+
+                if (nomeLabel == "Play")
+                {
+                    matrix[row, col] = new Model.Contenuto("Play", null, null, null, null);
+                    matrix[row, col].setCoordinate(coord);
+                    play.BackColor = System.Drawing.Color.Empty;
+                }
+                else if (nomeLabel == "Pausa")
+                {
+                    matrix[row, col] = new Model.Contenuto("Pausa", null, null, null, null);
+                    matrix[row, col].setCoordinate(coord);
+                    pausa.BackColor = System.Drawing.Color.Empty;
+                }
+                else if (nomeLabel == "Stop")
+                {
+                    matrix[row, col] = new Model.Contenuto("Stop", null, null, null, null);
+                    matrix[row, col].setCoordinate(coord);
+                    stop.BackColor = System.Drawing.Color.Empty;
+                }
+                else
+                {
+                    contenuto = control.getContenutoFromNome(listaContenuti, nomeLabel);
+                    if (contenuto != null)
+                    {
+                        matrix[row, col] = contenuto;
+                        matrix[row, col].setCoordinate(coord);
+                    }
+                }
+
+            }
         }
 
         private void label_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
@@ -396,7 +352,7 @@ namespace TalkingPaper.Authoring
             {
                 if (((Label)sender).Image == null)
                 {
-                    if (((Label)sender).BackColor == Color.Red)
+                    if (lastLabelClicked == (Label)sender)
                     {
                         ((Label)sender).BackColor = Color.Orange;
                         lastLabelClicked = null;
@@ -404,17 +360,23 @@ namespace TalkingPaper.Authoring
                     else
                     {
                         if ((lastLabelClicked != null) && (lastLabelClicked.Image == null))
-                            lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                        {
+                            lastLabelClicked.BackColor = Color.Orange;
+                        }
                         else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
-                            lastLabelClicked.BackColor = System.Drawing.Color.Empty;
+                        {
+                            lastLabelClicked.BackColor = Color.Empty;
+                        }
 
                         ((Label)sender).BackColor = Color.Red;
                         lastLabelClicked = ((Label)sender);
+
                     }
+
                 }
                 else
                 {
-                    if (((Label)sender).BackColor == Color.Orange)
+                    if (lastLabelClicked == (Label)sender)
                     {
                         ((Label)sender).BackColor = Color.Empty;
                         lastLabelClicked = null;
@@ -422,11 +384,15 @@ namespace TalkingPaper.Authoring
                     else
                     {
                         if ((lastLabelClicked != null) && (lastLabelClicked.Image == null))
-                            lastLabelClicked.BackColor = System.Drawing.Color.Orange;
+                        {
+                            lastLabelClicked.BackColor = Color.Orange;
+                        }
                         else if ((lastLabelClicked != null) && (lastLabelClicked.Image != null))
-                            lastLabelClicked.BackColor = System.Drawing.Color.Empty;
+                        {
+                            lastLabelClicked.BackColor = Color.Empty;
+                        }
 
-                        ((Label)sender).BackColor = System.Drawing.Color.Orange;
+                        ((Label)sender).BackColor = Color.Orange;
                         lastLabelClicked = ((Label)sender);
                     }
                 }
@@ -438,7 +404,7 @@ namespace TalkingPaper.Authoring
         {
             try
             {
-                String nome = e.Data.GetData(DataFormats.Text).ToString();
+                String nomeLabel = e.Data.GetData(DataFormats.Text).ToString();
                 Point point = schemaGriglia.PointToClient(new Point(e.X, e.Y));
                 DataGridView.HitTestInfo info = schemaGriglia.HitTest(point.X, point.Y);
 
@@ -448,48 +414,8 @@ namespace TalkingPaper.Authoring
                 //click su un header
                 if (row <= 0 || col <= 0) return;
 
-                int[] coord = new int[2];
-                int index;
-
-                string tag = griglia.getTagFromNumericCoord(row, col);
-
-                nome = (string)lastLabelClicked.Tag;
-
-                tag = griglia.getTagFromNumericCoord(row, col);
-
-                //faccio qualcosa solo se posso associare il contenuto alla cella (c'è il tag!)
-                if (Global.isNotEmpty(tag))
-                {
-                    ///// elimino quel che c'è gia quando reinserisco sopra
-                    int[] temp = new int[2];
-                    for (int k = 0; k < listaContenuti.Count; k++)
-                    {
-                        temp = listaContenuti[k].getCoordinate();
-                        int x = temp[0];
-                        int y = temp[1];
-                        if (x == row && y == col) { listaContenuti[k].setCoordinate(new int[2] { 0, 0 }); break; }
-                    }
-
-                    index = control.getIndexFromNomeContenuto(listaContenuti, nome);
-                    if (index == -1) throw new Exception("Contenuto non trovato in listaContenuti");
-
-                    //il contenuto era già associato: cancello l'associazione precedente
-                    coord = listaContenuti[index].getCoordinate();
-                    if ((coord[0] != 0) && (coord[1] != 0))
-                    {
-
-                        int r = coord[0];
-                        int c = coord[1];
-                        schemaGriglia[c, r].Value = null;
-                    }
-                    coord = new int[2] { row, col };
-
-                    listaContenuti[index].setCoordinate(coord);
-
-                    schemaGriglia[col, row].Value = nome;
-                    lastLabelClicked.BackColor = Color.Orange;
-                    lastLabelClicked = null;
-                }
+                aggiuntaComponente(nomeLabel, row, col);
+                riempiGriglia();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
@@ -504,22 +430,14 @@ namespace TalkingPaper.Authoring
 
         private void modifica_Click(object sender, EventArgs e)
         {
-            if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
+            if ((lastLabelClicked != null) && (lastLabelClicked.Tag != null))
             {
-                if ((string)lastLabelClicked.Tag != "Play" && (string)lastLabelClicked.Tag != "Pausa" && (string)lastLabelClicked.Tag != "Stop")
+                if (!(lastLabelClicked.Tag.Equals("Play")) && !(lastLabelClicked.Tag.Equals("Pausa")) && !(lastLabelClicked.Tag.Equals("Stop")))
                 {
-                    String tag = (String)lastLabelClicked.Tag;
+                    String nomeContenuto = (String)lastLabelClicked.Tag;
+                    Model.Contenuto contenutoTrasferito = control.getContenutoFromNome(listaContenuti, nomeContenuto);
 
-                    for (int k = 0; k < listaContenuti.Count; k++)
-                    {
-                        if (listaContenuti[k].getNomeContenuto() == tag)
-                        {
-                            contenuto = listaContenuti[k];
-
-                        }
-                    }
-
-                    AggiungiComponenteForm modificaComp = new AggiungiComponenteForm(contenuto);
+                    AggiungiComponenteForm modificaComp = new AggiungiComponenteForm(contenutoTrasferito,listaContenuti);
                     NavigationControl.goTo(this, modificaComp);
                 }
                 else MessageBox.Show("Non puoi modificare i componenti di controllo");
@@ -530,21 +448,42 @@ namespace TalkingPaper.Authoring
 
         private void elimina_Click(object sender, EventArgs e)
         {
-            
-            if (lastLabelClicked!=null && lastLabelClicked.Tag != null)
+            if ((lastLabelClicked != null) && (lastLabelClicked.Tag != null))
             {
-                if ((string)lastLabelClicked.Tag != "Play" && (string)lastLabelClicked.Tag != "Pausa" && (string)lastLabelClicked.Tag != "Stop")
+                if (!(lastLabelClicked.Tag.Equals("Play")) && !(lastLabelClicked.Tag.Equals("Pausa")) && !(lastLabelClicked.Tag.Equals("Stop")))
                 {
-                    String tag = (String)lastLabelClicked.Tag;
-
-                    ///rimuovi comp dalla listacont e chiama ricaricarisorse
-                    for (int w = 0; w < listaContenuti.Count; w++)
+                    String nomeContenuto = (String)lastLabelClicked.Tag;
+                    Model.Contenuto contenuto = control.getContenutoFromNome(listaContenuti, nomeContenuto);
+                    if (contenuto != null)
                     {
-                        if (listaContenuti[w].getNomeContenuto() == tag) listaContenuti.RemoveAt(w);
+                        listaContenuti.Remove(contenuto);
+
+                        for (int i = 1; i <= matrix.GetUpperBound(0); i++)
+                        {
+                            for (int j = 1; j <= matrix.GetUpperBound(1); j++)
+                            {
+                                if ((matrix[i, j] != null) && (matrix[i, j].getNomeContenuto() != null))
+                                {
+                                    if (matrix[i, j] == contenuto)
+                                        matrix[i, j] = null;
+                                }
+
+                            }
+                        }
+
+                        riempiGriglia();
+
+                        ElencoRisorse.Controls.Remove(lastLabelClicked);
+                        lastLabelClicked = null;
+                        ricaricaElencoRisorse();
+                        
                     }
-                    ricaricaElencoRisorse();
-                    disegnaGriglia();
-                    riempiGriglia(p);
+                    else
+                    {
+                        ElencoRisorse.Controls.Remove(lastLabelClicked);
+                        lastLabelClicked = null;
+                        ricaricaElencoRisorse();
+                    }
                 }
                 else MessageBox.Show("Non puoi eliminare i componenti di controllo");
             }

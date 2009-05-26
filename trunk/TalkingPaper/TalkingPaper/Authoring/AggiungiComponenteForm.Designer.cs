@@ -89,6 +89,7 @@ namespace TalkingPaper.Authoring
             this.PreviewAudio.TabIndex = 44;
             this.PreviewAudio.Text = "Che suono ho scelto?";
             this.PreviewAudio.UseVisualStyleBackColor = false;
+            this.PreviewAudio.Visible = false;
             this.PreviewAudio.Click += new System.EventHandler(this.PreviewAudio_Click);
             // 
             // PreviewVideo
@@ -103,6 +104,7 @@ namespace TalkingPaper.Authoring
             this.PreviewVideo.TabIndex = 45;
             this.PreviewVideo.Text = "Che video ho scelto?";
             this.PreviewVideo.UseVisualStyleBackColor = false;
+            this.PreviewVideo.Visible = false;
             this.PreviewVideo.Click += new System.EventHandler(this.PreviewVideo_Click);
             // 
             // PreviewImmagine
@@ -117,6 +119,7 @@ namespace TalkingPaper.Authoring
             this.PreviewImmagine.TabIndex = 46;
             this.PreviewImmagine.Text = "Che immagine ho scelto?";
             this.PreviewImmagine.UseVisualStyleBackColor = false;
+            this.PreviewImmagine.Visible = false;
             this.PreviewImmagine.Click += new System.EventHandler(this.PreviewImmagine_Click);
             // 
             // PreviewTesto
@@ -131,6 +134,7 @@ namespace TalkingPaper.Authoring
             this.PreviewTesto.TabIndex = 47;
             this.PreviewTesto.Text = "Che testo ho scelto?";
             this.PreviewTesto.UseVisualStyleBackColor = false;
+            this.PreviewTesto.Visible = false;
             this.PreviewTesto.Click += new System.EventHandler(this.PreviewTesto_Click);
             // 
             // EliminaTesto
@@ -145,6 +149,7 @@ namespace TalkingPaper.Authoring
             this.EliminaTesto.TabIndex = 48;
             this.EliminaTesto.Text = "Elimina il testo";
             this.EliminaTesto.UseVisualStyleBackColor = false;
+            this.EliminaTesto.Visible = false;
             this.EliminaTesto.Click += new System.EventHandler(this.EliminaTesto_Click);
             // 
             // EliminaImmagine
@@ -159,6 +164,7 @@ namespace TalkingPaper.Authoring
             this.EliminaImmagine.TabIndex = 49;
             this.EliminaImmagine.Text = "Elimina l\'immagine";
             this.EliminaImmagine.UseVisualStyleBackColor = false;
+            this.EliminaImmagine.Visible = false;
             this.EliminaImmagine.Click += new System.EventHandler(this.EliminaImmagine_Click);
             // 
             // EliminaVideo
@@ -173,6 +179,7 @@ namespace TalkingPaper.Authoring
             this.EliminaVideo.TabIndex = 50;
             this.EliminaVideo.Text = "Elimina il video";
             this.EliminaVideo.UseVisualStyleBackColor = false;
+            this.EliminaVideo.Visible = false;
             this.EliminaVideo.Click += new System.EventHandler(this.EliminaVideo_Click);
             // 
             // EliminaAudio
@@ -187,6 +194,7 @@ namespace TalkingPaper.Authoring
             this.EliminaAudio.TabIndex = 51;
             this.EliminaAudio.Text = "Elimina il suono";
             this.EliminaAudio.UseVisualStyleBackColor = false;
+            this.EliminaAudio.Visible = false;
             this.EliminaAudio.Click += new System.EventHandler(this.EliminaAudio_Click);
             // 
             // SfogliaTesto
@@ -385,7 +393,6 @@ namespace TalkingPaper.Authoring
             this.Controls.Add(this.nomeLabel);
             this.Name = "AggiungiComponenteForm";
             this.Text = "NuovoComponente";
-            this.Load += new System.EventHandler(this.NuovoComponente_Load);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.nomeLabel, 0);
