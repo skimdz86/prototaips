@@ -93,9 +93,19 @@ namespace TalkingPaper.Authoring
 
         private void ricaricaElencoRisorse()
         {
-            ElencoRisorse.Controls.Clear();
-            ElencoRisorse.Columns.Clear();
-            ElencoRisorse.Rows.Clear();
+            while (ElencoRisorse.Controls.Count > 2)
+            {
+                ElencoRisorse.Controls.Clear();
+            }
+            
+            foreach (Control control in ElencoRisorse.Controls)
+            {
+                Console.WriteLine(control.GetType() + " " + control.Name);
+                if (control is Label)
+                {
+                    Console.WriteLine(((Label)control).Text);
+                }
+            }
             int i = 0;
             foreach (Model.Contenuto contenuto in listaContenuti)
             {
@@ -113,10 +123,11 @@ namespace TalkingPaper.Authoring
                     nome.Visible = true;
                     nome.MouseDown += new MouseEventHandler(label_MouseDown);
                     ElencoRisorse.Controls.Add(nome);
+
                 }
 
             }
-
+            
         }
 
         private void disegnaGriglia()
