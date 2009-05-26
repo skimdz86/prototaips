@@ -10,6 +10,7 @@ namespace TalkingPaper.DataAccess
 {
     class UserHandler 
     {
+        String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Users.xml";
 
         //crea il file
@@ -23,13 +24,14 @@ namespace TalkingPaper.DataAccess
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
                 writer.Close();
-                bool b = createAdmin();
-                if (b) return true;
-                else return false;
+                //bool b = createAdmin();
+                //if (b) 
+                return true;
+                //else return false;
             }
             catch (XmlException e) { throw new Exception("Errore nella creazione del file utenti", e); }
         }
-        public bool createAdmin(){
+        /*public bool createAdmin(){
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -52,12 +54,16 @@ namespace TalkingPaper.DataAccess
                 return true;
             }
             catch (XmlException e) { throw new Exception("Errore xml", e); }
-        }
+        }*/
         //ereditata
         public bool registraUtente(String login, String password)
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) CreateListaUtenti();
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
@@ -100,6 +106,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) CreateListaUtenti();
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
@@ -129,6 +139,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
@@ -164,6 +178,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
@@ -197,6 +215,10 @@ namespace TalkingPaper.DataAccess
             
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }

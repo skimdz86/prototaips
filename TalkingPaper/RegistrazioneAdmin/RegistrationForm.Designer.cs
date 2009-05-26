@@ -47,6 +47,7 @@ namespace RegistrazioneAdmin
             // ok
             // 
             this.ok.Location = new System.Drawing.Point(35, 19);
+            this.ok.TabIndex = 9;
             this.ok.Text = "Conferma";
             this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
@@ -89,7 +90,7 @@ namespace RegistrazioneAdmin
             this.password.Location = new System.Drawing.Point(311, 266);
             this.password.Name = "password";
             this.password.Size = new System.Drawing.Size(296, 26);
-            this.password.TabIndex = 8;
+            this.password.TabIndex = 7;
             this.password.UseSystemPasswordChar = true;
             // 
             // label4
@@ -109,7 +110,7 @@ namespace RegistrazioneAdmin
             this.verificaPass.Location = new System.Drawing.Point(311, 320);
             this.verificaPass.Name = "verificaPass";
             this.verificaPass.Size = new System.Drawing.Size(296, 26);
-            this.verificaPass.TabIndex = 10;
+            this.verificaPass.TabIndex = 8;
             this.verificaPass.UseSystemPasswordChar = true;
             // 
             // label5
@@ -125,6 +126,7 @@ namespace RegistrazioneAdmin
             // 
             // RegistrationForm
             // 
+            this.AcceptButton = this.ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;

@@ -9,6 +9,7 @@ namespace TalkingPaper.DataAccess
 {
     class PosterHandler 
     {
+        String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Poster.xml";
 
         public void CreateElencoPoster()
@@ -28,6 +29,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) CreateElencoPoster();
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
@@ -82,6 +87,10 @@ namespace TalkingPaper.DataAccess
 
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) 
                 {
                     CreateElencoPoster();
@@ -139,6 +148,10 @@ namespace TalkingPaper.DataAccess
 
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) 
                 {
                     CreateElencoPoster();
@@ -175,6 +188,10 @@ namespace TalkingPaper.DataAccess
 
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) 
                 {
                     CreateElencoPoster();
@@ -211,6 +228,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) 
                 {
                     CreateElencoPoster();

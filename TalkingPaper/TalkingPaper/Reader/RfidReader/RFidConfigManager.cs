@@ -12,7 +12,7 @@ namespace TalkingPaper.Reader
     /// </summary>
     class RFidConfigManager
     {
-        
+        private String dirpath = Global.directoryPrincipale + "\\Config\\";
         private String filepath = Global.directoryPrincipale+"\\Config\\rfid_config.xml";
 
         /// <summary>
@@ -23,6 +23,9 @@ namespace TalkingPaper.Reader
         {
             try
             {
+                if (!(Directory.Exists(dirpath))) {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if(!File.Exists(filepath)) createXMLConfig();
 
             }catch(IOException){ throw new Exception("Erroreeeeeeeeeeeeeeeeeee! Di I/O");}
