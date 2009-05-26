@@ -244,7 +244,7 @@ namespace TalkingPaper.ControlLogic
             this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
             immagine = Image.FromFile(percorso);
 
-            if (immagine.Width > 827)
+            if ((immagine.Width > 842) && (immagine.Width > immagine.Height))
             {
                 printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
             }

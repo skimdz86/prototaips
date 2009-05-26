@@ -27,12 +27,7 @@ namespace TalkingPaper.Authoring
         private IMediaControl m_objMediaControl = null;
         private System.Windows.Forms.MenuItem menuItem5;
         private string file;
-        //private ComponentiDelPoster elenco_componenti;
-        private AggiungiComponenteForm componente_nuovo;
-        //private EccoLaStoria la_storia;
-        ///private TalkingPaper.BarCode.FormVisualizzaElementi visualizza_elementi;
-        //private TalkingPaper.RfidCode.FormVisualizzaElementiRFID visualizza_elementi_rfid;
-        private TalkingPaper.Authoring.PosizionaComponentiForm visualizza_elementi_rfid;
+                
         private string path;
 
         enum MediaStatus { None, Stopped, Paused, Running };
@@ -40,30 +35,20 @@ namespace TalkingPaper.Authoring
         private MediaStatus m_CurrentStatus = MediaStatus.None;
 
 
-        public PlayAudio(string path, AggiungiComponenteForm componente_nuovo, /*ComponentiDelPoster elenco_componenti,BarCode.FormVisualizzaElementi visualizza_elementi, EccoLaStoria la_storia,*/Authoring.PosizionaComponentiForm visualizza_elementi_rfid)
+        public PlayAudio(string path)
         {
             InitializeComponent();
             
-            //this.nome_file = nome_file;
+            
             this.path = path;
-            this.componente_nuovo = componente_nuovo;
-            //this.elenco_componenti = elenco_componenti;
-            ///this.visualizza_elementi = visualizza_elementi;
-            this.visualizza_elementi_rfid = visualizza_elementi_rfid;
-            //this.la_storia = la_storia;
+            
             UpdateStatusBar();
             UpdateToolBar();
             int indice = path.LastIndexOf("\\");
             int lenght = path.Length - (indice + 1);
             this.file = path.Substring(indice + 1, lenght);
             m_objFilterGraph = new FilgraphManager();
-            //string file = "D:\\Documents and Settings\\IO\\Documenti\\Musica\\Io Carlo - Lego.mp3";
-            //string destinazione= "D:\\Documents and Settings\\IO\\Documenti\\Visual Studio 2005\\ProvaMySql\\TalkingPaper\\TalkingPaper\\audio\\";
             m_objFilterGraph.RenderFile(path);
-            //MessageBox.Show(openFileDialog.FileName);
-            //System.IO.File.Copy(file,destinazione+"Audio4.mp3");
-            //MessageBox.Show("File copiato");
-
             m_objMediaEvent = m_objFilterGraph as IMediaEvent;
 
             m_objMediaEventEx = m_objFilterGraph as IMediaEventEx;
@@ -115,7 +100,7 @@ namespace TalkingPaper.Authoring
 
         private void toolBar1_ButtonClick(object sender, System.Windows.Forms.ToolBarButtonClickEventArgs e)
         {
-            this.Cursor = Cursors.WaitCursor;
+            
             switch (toolBar1.Buttons.IndexOf(e.Button))
             {
                 case 0: m_objMediaControl.Run();
@@ -134,33 +119,14 @@ namespace TalkingPaper.Authoring
                 case 3: m_objMediaControl.Stop();
                     m_objMediaPosition.CurrentPosition = 0;
                     m_CurrentStatus = MediaStatus.Stopped;
-                    /*if (elenco_componenti != null)
-                    {
-                        elenco_componenti.Enabled = true;
-                    }
-                    else*/ if (componente_nuovo != null)
-                    {
-                        componente_nuovo.Enabled = true;
-                    }
-                    /*else if (visualizza_elementi != null)
-                    {
-                        visualizza_elementi.Enabled = true;
-                    }*/
-                    /*else if (la_storia != null)
-                    {
-                        la_storia.Enabled = true;
-                    }*/
-                    else if (visualizza_elementi_rfid != null)
-                    {
-                        visualizza_elementi_rfid.Enabled = true;
-                    }
+                    
                     this.Close();
                     break;
             }
             this.Cursor = Cursors.Default;
             UpdateStatusBar();
             UpdateToolBar();
-            //this.Cursor = Cursors.WaitCursor;
+            
         }
 
         protected override void WndProc(ref Message m)
@@ -267,25 +233,7 @@ namespace TalkingPaper.Authoring
             }
         }
 
-        private void menuItem5_Click(object sender, System.EventArgs e)
-        {
-          //  Form2 dlg = new Form2();
-          //  dlg.ShowDialog();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusBar1_PanelClick(object sender, StatusBarPanelClickEventArgs e)
-        {
-
-        }
-
-        private void PlayAudio_Load(object sender, EventArgs e)
-        {
-
-        }
+        
+       
     }
 }

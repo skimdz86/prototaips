@@ -177,7 +177,6 @@ namespace TalkingPaper.Authoring
             this.Name = "PlayAudio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayAudio";
-            this.Load += new System.EventHandler(this.PlayAudio_Load);
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel3)).EndInit();
