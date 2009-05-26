@@ -25,7 +25,6 @@ namespace RegistrazioneAdmin
                 return;
             }
             filepath = installDirectory + @"\Data\Users.xml";
-            MessageBox.Show(filepath);
 
         }
 

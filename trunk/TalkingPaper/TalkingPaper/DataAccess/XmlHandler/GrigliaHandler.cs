@@ -10,6 +10,7 @@ namespace TalkingPaper.DataAccess
 {
     class GrigliaHandler
     {
+        String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Griglie.xml";
 
         //crea il file
@@ -30,6 +31,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) CreateGriglieTaggate();
             }
             catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
@@ -101,6 +106,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) 
                 { 
                     CreateGriglieTaggate();
@@ -136,6 +145,10 @@ namespace TalkingPaper.DataAccess
         {
             try
             {
+                if (!(Directory.Exists(dirpath)))
+                {
+                    Directory.CreateDirectory(dirpath);
+                }
                 if (!File.Exists(filepath)) 
                 {
                     CreateGriglieTaggate();
