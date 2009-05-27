@@ -841,6 +841,9 @@
 </value>
   </data>
   <data name="scegliOggetto.Text" xml:space="preserve">
-    <value>1. Scegli un nuovo oggetto da inserire premendo il bottone Aggiungi 2. Trascina l'oggetto dalla lista sottostante alla casella della griglia in cui vuoi inserirlo. 3. Per modificare o eliminare un contenuto, selezionalo dalla lista e premi i bottoni "Modifica contenuto" o "Elimina contenuto" 4. Per eliminare un contenuto da una casella, selezionala e premi "Svuota Casella"</value>
+    <value>1.Scegli un nuovo oggetto da inserire premendo il bottone 'Aggiungi'
+2. Trascina l'oggetto dalla lista sottostante alla casella della griglia in cui vuoi inserirlo.
+3. Per modificare o eliminare un contenuto, selezionalo dalla lista e premi i bottoni 'Modifica contenuto' o 'Elimina contenuto'
+4. Per eliminare un contenuto da una casella, selezionala e premi 'Svuota Casella'</value>
   </data>
 </root>
