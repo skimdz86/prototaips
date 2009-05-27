@@ -182,7 +182,7 @@ namespace TalkingPaper.Authoring
 
         private void PreviewTesto_Click(object sender, EventArgs e)
         {
-            if (File.Exists(immagineBox.Text))
+            if (File.Exists(testoBox.Text))
             {
                 control.anteprimaTesto(testoBox.Text);
             }

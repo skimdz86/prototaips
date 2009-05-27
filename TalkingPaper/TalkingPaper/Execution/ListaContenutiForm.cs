@@ -46,7 +46,7 @@ namespace TalkingPaper.Execution
                     {
                         //verifico che siano contenuti validi
                         if (!(contenuto.getNomeContenuto().Equals("Play")) && !(contenuto.getNomeContenuto().Equals("Pausa")) && !(contenuto.getNomeContenuto().Equals("Stop"))
-                            && Global.isNotEmpty(contenuto.getTextPath()) && Global.isNotEmpty(contenuto.getImagePath()))
+                            && (Global.isNotEmpty(contenuto.getTextPath()) || Global.isNotEmpty(contenuto.getImagePath())))
                         {
                             noContenuti.Visible = false;
                             anteprima.Visible = true;

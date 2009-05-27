@@ -50,6 +50,7 @@ namespace TalkingPaper.Authoring
             this.label4 = new System.Windows.Forms.Label();
             this.modifica = new System.Windows.Forms.Button();
             this.elimina = new System.Windows.Forms.Button();
+            this.svuotaCella = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ElencoRisorse)).BeginInit();
@@ -58,8 +59,8 @@ namespace TalkingPaper.Authoring
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(338, 33);
-            this.sottotitolo.Text = "Posiziona i componenti";
+            this.sottotitolo.Size = new System.Drawing.Size(304, 33);
+            this.sottotitolo.Text = "Posiziona i contenuti";
             // 
             // home
             // 
@@ -153,7 +154,7 @@ namespace TalkingPaper.Authoring
             this.play.ForeColor = System.Drawing.Color.White;
             this.play.Image = ((System.Drawing.Image)(resources.GetObject("play.Image")));
             this.play.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.play.Location = new System.Drawing.Point(45, 604);
+            this.play.Location = new System.Drawing.Point(45, 616);
             this.play.Name = "play";
             this.play.Size = new System.Drawing.Size(100, 110);
             this.play.TabIndex = 52;
@@ -168,7 +169,7 @@ namespace TalkingPaper.Authoring
             this.stop.ForeColor = System.Drawing.Color.White;
             this.stop.Image = ((System.Drawing.Image)(resources.GetObject("stop.Image")));
             this.stop.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.stop.Location = new System.Drawing.Point(362, 604);
+            this.stop.Location = new System.Drawing.Point(362, 616);
             this.stop.Name = "stop";
             this.stop.Size = new System.Drawing.Size(100, 110);
             this.stop.TabIndex = 54;
@@ -183,7 +184,7 @@ namespace TalkingPaper.Authoring
             this.pausa.ForeColor = System.Drawing.Color.White;
             this.pausa.Image = ((System.Drawing.Image)(resources.GetObject("pausa.Image")));
             this.pausa.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.pausa.Location = new System.Drawing.Point(205, 604);
+            this.pausa.Location = new System.Drawing.Point(205, 616);
             this.pausa.Name = "pausa";
             this.pausa.Size = new System.Drawing.Size(100, 110);
             this.pausa.TabIndex = 53;
@@ -198,7 +199,7 @@ namespace TalkingPaper.Authoring
             this.aggiungi.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.aggiungi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.aggiungi.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aggiungi.Location = new System.Drawing.Point(604, 138);
+            this.aggiungi.Location = new System.Drawing.Point(604, 68);
             this.aggiungi.Name = "aggiungi";
             this.aggiungi.Size = new System.Drawing.Size(124, 62);
             this.aggiungi.TabIndex = 53;
@@ -280,7 +281,7 @@ namespace TalkingPaper.Authoring
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(33, 559);
+            this.label4.Location = new System.Drawing.Point(33, 571);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(345, 33);
             this.label4.TabIndex = 68;
@@ -292,7 +293,7 @@ namespace TalkingPaper.Authoring
             this.modifica.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.modifica.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modifica.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.modifica.Location = new System.Drawing.Point(742, 138);
+            this.modifica.Location = new System.Drawing.Point(605, 142);
             this.modifica.Name = "modifica";
             this.modifica.Size = new System.Drawing.Size(124, 62);
             this.modifica.TabIndex = 69;
@@ -306,7 +307,7 @@ namespace TalkingPaper.Authoring
             this.elimina.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.elimina.Cursor = System.Windows.Forms.Cursors.Hand;
             this.elimina.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.elimina.Location = new System.Drawing.Point(881, 138);
+            this.elimina.Location = new System.Drawing.Point(743, 142);
             this.elimina.Name = "elimina";
             this.elimina.Size = new System.Drawing.Size(124, 62);
             this.elimina.TabIndex = 70;
@@ -314,11 +315,26 @@ namespace TalkingPaper.Authoring
             this.elimina.UseVisualStyleBackColor = false;
             this.elimina.Click += new System.EventHandler(this.elimina_Click);
             // 
+            // svuotaCella
+            // 
+            this.svuotaCella.BackColor = System.Drawing.Color.Yellow;
+            this.svuotaCella.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.svuotaCella.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.svuotaCella.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.svuotaCella.Location = new System.Drawing.Point(880, 142);
+            this.svuotaCella.Name = "svuotaCella";
+            this.svuotaCella.Size = new System.Drawing.Size(124, 62);
+            this.svuotaCella.TabIndex = 71;
+            this.svuotaCella.Text = "Svuota casella";
+            this.svuotaCella.UseVisualStyleBackColor = false;
+            this.svuotaCella.Click += new System.EventHandler(this.svuotaCella_Click);
+            // 
             // PosizionaComponentiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.svuotaCella);
             this.Controls.Add(this.schemaGriglia);
             this.Controls.Add(this.scegliOggetto);
             this.Controls.Add(this.elimina);
@@ -348,6 +364,7 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.elimina, 0);
             this.Controls.SetChildIndex(this.scegliOggetto, 0);
             this.Controls.SetChildIndex(this.schemaGriglia, 0);
+            this.Controls.SetChildIndex(this.svuotaCella, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -372,5 +389,6 @@ namespace TalkingPaper.Authoring
         private Label label4;
         private Button modifica;
         private Button elimina;
+        private Button svuotaCella;
     }
 }

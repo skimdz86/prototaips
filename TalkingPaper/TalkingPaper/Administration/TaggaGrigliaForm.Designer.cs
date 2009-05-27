@@ -47,6 +47,10 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(305, 33);
             this.sottotitolo.Text = "Tagging della Griglia";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);

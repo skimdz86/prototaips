@@ -108,7 +108,7 @@ namespace TalkingPaper.Common
             this.help.Text = "Aiuto";
             this.help.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.help.UseVisualStyleBackColor = false;
-            this.help.Click += new System.EventHandler(this.help_Click);
+            //this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // boxSotto
             // 

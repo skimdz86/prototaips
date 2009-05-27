@@ -55,7 +55,7 @@ namespace TalkingPaper.Execution
 
                 if (Global.isEmpty(poster))
                 {
-                    throw new Exception("Errore!! Esecuzione di un poster inesistente");
+                    throw new Exception("Errore!! Il poster non esiste!!");
                 }
 
                 control.inizializzaReader(this);
@@ -384,63 +384,9 @@ namespace TalkingPaper.Execution
         
         
 
-        private void buttonAttiva_Click(object sender, EventArgs e)
-        {
-            
-            
-            esecuzioneDisattivata.Visible = false;
+        
 
-            messaggioStart.Visible = true;
-            labelEsecuzioneDi.Visible = false;
-            nomeContenuto.Visible = false;
-            labelStato.Visible = false;
-            stato.Visible = false;
-            tempoTotale.Visible = false;
-            tempoTrascorso.Visible = false;
-            labelSu.Visible = false;
-            buttonAttiva.Enabled = false;
-            buttonDisattiva.Enabled = true;
-            control.inizializzaReader(this);
-            
-            
-        }
-
-        private void buttonDisattiva_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
-                {
-                    QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler disattivare?", this, "2");
-                    NavigationControl.showDialog(dialog);
-
-                }
-                else // non c'è nulla in esecuzione
-                {
-                    
-
-                    CleanUp();
-                    UpdateStatusBar(null, null);
-                    control.stopReader();
-                    updateTimer.Stop();
-
-                    esecuzioneDisattivata.Visible = true;
-
-                    messaggioStart.Visible = false;
-                    labelEsecuzioneDi.Visible = false;
-                    nomeContenuto.Visible = false;
-                    labelStato.Visible = false;
-                    stato.Visible = false;
-                    tempoTotale.Visible = false;
-                    tempoTrascorso.Visible = false;
-                    labelSu.Visible = false;
-                    buttonDisattiva.Enabled = false;
-                    buttonAttiva.Enabled = true;
-
-                }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
+        
 
         private void home_Click(object sender, EventArgs e)
         {
@@ -504,8 +450,7 @@ namespace TalkingPaper.Execution
                         labelSu.Visible = false;
                         tempoTrascorso.Visible = false;
 
-                        buttonDisattiva.Enabled = false;
-                        buttonAttiva.Enabled = true;
+                        
                     }
                 }
             }
