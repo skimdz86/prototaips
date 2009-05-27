@@ -12,6 +12,7 @@ namespace TalkingPaper.DataAccess
     {
         String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Users.xml";
+        String backupPath = Global.directoryPrincipale + @"/Data/backup.dat";
 
         //crea il file
         public bool CreateListaUtenti()
@@ -24,27 +25,39 @@ namespace TalkingPaper.DataAccess
                 writer.WriteEndElement();
                 writer.WriteEndDocument();
                 writer.Close();
-                //bool b = createAdmin();
-                //if (b) 
+                bool b = createAdmin();
+                if (b) 
                 return true;
-                //else return false;
+                else return false;
             }
             catch (XmlException e) { throw new Exception("Errore nella creazione del file utenti", e); }
         }
-        /*public bool createAdmin(){
+        public bool createAdmin(){
             try
             {
+                String user="";
+                String res="";
+                //apro backup e estraggo dati
+                if (File.Exists(backupPath))
+                {
+                    XmlDocument docB = new XmlDocument();
+                    FileStream streamB = new FileStream(backupPath, FileMode.Open);
+                    docB.Load(streamB);
+                    XmlNodeList l = docB.GetElementsByTagName("Admin");
+                    user = ((XmlElement)l[0]).GetAttribute("Login");
+                    res = ((XmlElement)l[0]).GetAttribute("Password");
+                    streamB.Close();
+                }
+                else { user = "admin"; res = "admin"; } 
+
+                //scrivo i dati dell'admin nell'xml degli utenti
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                //aggiunta crittografia
-                MD5 md5 = new MD5CryptoServiceProvider();
-                Byte[] original = ASCIIEncoding.Default.GetBytes("admin");
-                Byte[] encoded = md5.ComputeHash(original);
-                String res = BitConverter.ToString(encoded);
+                
 
                 XmlElement el = doc.CreateElement("Utente");
-                el.SetAttribute("Login", "admin");
+                el.SetAttribute("Login", user);
                 el.SetAttribute("Password", res);
                 //el.SetAttribute("Classe", IDClasse);
                 el.SetAttribute("FlagAmministratore", "Si");//tipo account è si/no
@@ -53,8 +66,8 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
-        }*/
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
+        }
         //ereditata
         public bool registraUtente(String login, String password)
         {
@@ -66,7 +79,7 @@ namespace TalkingPaper.DataAccess
                 }
                 if (!File.Exists(filepath)) CreateListaUtenti();
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
             
             try
             {
@@ -86,7 +99,7 @@ namespace TalkingPaper.DataAccess
                     if (x.GetAttribute("Login") == login)
                     {
                         stream.Close();
-                        return false;
+                        throw new Exception("Esiste già un utente con questo nome");
                     }
                 }
                 XmlElement el = doc.CreateElement("Utente");
@@ -99,7 +112,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         ////da vedere se serve
         public bool RemoveUtente(String login, String filepath)
@@ -112,7 +125,7 @@ namespace TalkingPaper.DataAccess
                 }
                 if (!File.Exists(filepath)) CreateListaUtenti();
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
             
             try
             {
@@ -132,7 +145,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         ////autentica
         public bool autenticaUtente(String login, String password)
@@ -145,7 +158,7 @@ namespace TalkingPaper.DataAccess
                 }
                 if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -171,7 +184,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return flag;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         //listautenti
         public List<Model.User> getListaUtenti()
@@ -184,7 +197,7 @@ namespace TalkingPaper.DataAccess
                 }
                 if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -208,7 +221,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return temp;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         //verifica admin
         public bool isAdmin(String username) {
@@ -221,7 +234,7 @@ namespace TalkingPaper.DataAccess
                 }
                 if (!File.Exists(filepath)) { CreateListaUtenti(); }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -249,7 +262,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return false;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
     }
 }

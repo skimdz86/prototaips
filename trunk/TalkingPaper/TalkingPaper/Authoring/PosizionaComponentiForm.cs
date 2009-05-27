@@ -17,6 +17,8 @@ namespace TalkingPaper.Authoring
         private Model.Griglia griglia;
         
         private Label lastLabelClicked;
+
+        private int deleteRow, deleteCol;
     
         
         
@@ -287,12 +289,11 @@ namespace TalkingPaper.Authoring
                     aggiuntaComponente(nomeLabel, row, col);
                     riempiGriglia();
                 }
-                //elimino un contenuto da una cella
+                //se esiste un contenuto in una cella
                 else if (schemaGriglia[col, row].Value != null)
                 {
-                    schemaGriglia[col, row].Selected = false;
-                    matrix[row, col] = null;
-                    riempiGriglia();
+                    deleteRow = row;
+                    deleteCol = col;
                 }
                 lastLabelClicked = null;
             }
@@ -499,6 +500,13 @@ namespace TalkingPaper.Authoring
                 else MessageBox.Show("Non puoi eliminare i componenti di controllo");
             }
             else { MessageBox.Show("Non hai selezionato un contenuto"); }
+        }
+
+        private void svuotaCella_Click(object sender, EventArgs e)
+        {
+            schemaGriglia[deleteCol, deleteRow].Selected = false;
+            matrix[deleteRow, deleteCol] = null;
+            riempiGriglia();
         }
 
         

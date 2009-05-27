@@ -23,7 +23,7 @@ namespace TalkingPaper.DataAccess
                 writer.WriteEndDocument();
                 writer.Close();
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         public bool setPoster(Model.Poster poster)
         {
@@ -35,7 +35,7 @@ namespace TalkingPaper.DataAccess
                 }
                 if (!File.Exists(filepath)) CreateElencoPoster();
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -81,7 +81,7 @@ namespace TalkingPaper.DataAccess
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         public Model.Poster getPoster(String nomePoster) {
 
@@ -97,7 +97,7 @@ namespace TalkingPaper.DataAccess
                     //throw new Exception("Il file non esiste!");
                 }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -142,7 +142,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return tempPoster;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         public List<Model.Poster> getListaPoster() {
 
@@ -158,7 +158,7 @@ namespace TalkingPaper.DataAccess
                     //throw new Exception("Il file non esiste!"); 
                 }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -182,7 +182,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return tempPos;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         public bool removePoster(String nomePoster) {
 
@@ -198,7 +198,7 @@ namespace TalkingPaper.DataAccess
                     //throw new Exception("Il file non esiste!"); 
                 }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -216,12 +216,12 @@ namespace TalkingPaper.DataAccess
                         counter++;//se alla fine=1 ho rimosso qualcosa
                     }
                 }
-                if (counter == 0) { Console.Write("Non esisteva questo poster!"); stream.Close(); return false; }
+                if (counter == 0) { Console.Write("Non esiste questo poster!"); stream.Close(); return false; }
                 stream.Close();
                 doc.Save(filepath);
                 return true;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
 
         public bool existPoster(String nomePoster)
@@ -238,7 +238,7 @@ namespace TalkingPaper.DataAccess
                     //throw new Exception("Il file non esiste!"); 
                 }
             }
-            catch (IOException e) { throw new Exception("Errore di I/O su file", e); }
+            catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
 
             try
             {
@@ -259,7 +259,7 @@ namespace TalkingPaper.DataAccess
                 stream.Close();
                 return false;
             }
-            catch (XmlException e) { throw new Exception("Errore xml", e); }
+            catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
         
     }

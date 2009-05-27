@@ -59,11 +59,12 @@ namespace RegistrazioneAdmin
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(33, 128);
+            this.label2.Location = new System.Drawing.Point(33, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(681, 38);
+            this.label2.Size = new System.Drawing.Size(681, 71);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Inserisci un nome utente ed una password nelle caselle";
+            this.label2.Text = "Inserisci un nome utente ed una password nelle caselle per registrare il nuovo am" +
+                "ministratore del programma";
             // 
             // user
             // 
@@ -137,16 +138,16 @@ namespace RegistrazioneAdmin
             this.Controls.Add(this.verificaPass);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.password);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label2);
             this.MaximumSize = new System.Drawing.Size(764, 628);
             this.MinimumSize = new System.Drawing.Size(764, 628);
             this.Name = "RegistrationForm";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Registrazione";
-            this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.password, 0);
             this.Controls.SetChildIndex(this.label4, 0);

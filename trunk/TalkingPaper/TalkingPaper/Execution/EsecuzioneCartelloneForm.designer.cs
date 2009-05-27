@@ -30,21 +30,17 @@ namespace TalkingPaper.Execution
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonAttiva = new System.Windows.Forms.Button();
-            this.buttonDisattiva = new System.Windows.Forms.Button();
             this.labelEsecuzioneDi = new System.Windows.Forms.Label();
             this.nomeContenuto = new System.Windows.Forms.Label();
             this.labelStato = new System.Windows.Forms.Label();
             this.stato = new System.Windows.Forms.Label();
             this.tempoTotale = new System.Windows.Forms.Label();
             this.tempoTrascorso = new System.Windows.Forms.Label();
-            this.attivaBox = new System.Windows.Forms.GroupBox();
             this.messaggioStart = new System.Windows.Forms.Label();
             this.esecuzioneDisattivata = new System.Windows.Forms.Label();
             this.labelSu = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
-            this.attivaBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // sottotitolo
@@ -68,33 +64,6 @@ namespace TalkingPaper.Execution
             // boxSotto
             // 
             this.boxSotto.Visible = false;
-            // 
-            // buttonAttiva
-            // 
-            this.buttonAttiva.BackColor = System.Drawing.Color.Yellow;
-            this.buttonAttiva.Enabled = false;
-            this.buttonAttiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAttiva.ForeColor = System.Drawing.Color.Black;
-            this.buttonAttiva.Location = new System.Drawing.Point(34, 34);
-            this.buttonAttiva.Name = "buttonAttiva";
-            this.buttonAttiva.Size = new System.Drawing.Size(119, 80);
-            this.buttonAttiva.TabIndex = 3;
-            this.buttonAttiva.Text = "Attiva";
-            this.buttonAttiva.UseVisualStyleBackColor = false;
-            this.buttonAttiva.Click += new System.EventHandler(this.buttonAttiva_Click);
-            // 
-            // buttonDisattiva
-            // 
-            this.buttonDisattiva.BackColor = System.Drawing.Color.Yellow;
-            this.buttonDisattiva.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDisattiva.ForeColor = System.Drawing.Color.Black;
-            this.buttonDisattiva.Location = new System.Drawing.Point(196, 34);
-            this.buttonDisattiva.Name = "buttonDisattiva";
-            this.buttonDisattiva.Size = new System.Drawing.Size(119, 80);
-            this.buttonDisattiva.TabIndex = 4;
-            this.buttonDisattiva.Text = "Disattiva";
-            this.buttonDisattiva.UseVisualStyleBackColor = false;
-            this.buttonDisattiva.Click += new System.EventHandler(this.buttonDisattiva_Click);
             // 
             // labelEsecuzioneDi
             // 
@@ -168,18 +137,6 @@ namespace TalkingPaper.Execution
             this.tempoTrascorso.Text = "hh:mm:ss";
             this.tempoTrascorso.Visible = false;
             // 
-            // attivaBox
-            // 
-            this.attivaBox.BackColor = System.Drawing.Color.Orange;
-            this.attivaBox.Controls.Add(this.buttonAttiva);
-            this.attivaBox.Controls.Add(this.buttonDisattiva);
-            this.attivaBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.attivaBox.Location = new System.Drawing.Point(666, 568);
-            this.attivaBox.Name = "attivaBox";
-            this.attivaBox.Size = new System.Drawing.Size(350, 142);
-            this.attivaBox.TabIndex = 56;
-            this.attivaBox.TabStop = false;
-            // 
             // messaggioStart
             // 
             this.messaggioStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -218,13 +175,12 @@ namespace TalkingPaper.Execution
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.labelSu);
             this.Controls.Add(this.esecuzioneDisattivata);
             this.Controls.Add(this.messaggioStart);
             this.Controls.Add(this.tempoTrascorso);
             this.Controls.Add(this.tempoTotale);
-            this.Controls.Add(this.attivaBox);
             this.Controls.Add(this.stato);
             this.Controls.Add(this.labelStato);
             this.Controls.Add(this.nomeContenuto);
@@ -240,7 +196,6 @@ namespace TalkingPaper.Execution
             this.Controls.SetChildIndex(this.labelStato, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.stato, 0);
-            this.Controls.SetChildIndex(this.attivaBox, 0);
             this.Controls.SetChildIndex(this.tempoTotale, 0);
             this.Controls.SetChildIndex(this.tempoTrascorso, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
@@ -252,7 +207,6 @@ namespace TalkingPaper.Execution
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
-            this.attivaBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,15 +214,12 @@ namespace TalkingPaper.Execution
 
         #endregion
 
-        private System.Windows.Forms.Button buttonAttiva;
-        private System.Windows.Forms.Button buttonDisattiva;
         private System.Windows.Forms.Label labelEsecuzioneDi;
         private System.Windows.Forms.Label nomeContenuto;
         private System.Windows.Forms.Label labelStato;
         private System.Windows.Forms.Label stato;
         private System.Windows.Forms.Label tempoTotale;
         private System.Windows.Forms.Label tempoTrascorso;
-        private System.Windows.Forms.GroupBox attivaBox;
         private Label messaggioStart;
         private Label esecuzioneDisattivata;
         private Label labelSu;

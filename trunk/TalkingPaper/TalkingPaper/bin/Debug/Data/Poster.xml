@@ -7,16 +7,23 @@
     <Contenuto Nome="d" AudioPath="c:\users\Public\Music\Sample Music\Symphony_No_3.wma" VideoPath="" ImagePath="" TextPath="c:\Users\yans\Desktop\talking paper\TalkingPaper\TalkingPaper\obj\Debug\TalkingPaper.csproj.FileListAbsolute.txt" Cella="33" />
     <Contenuto Nome="e" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="34" />
   </Poster>
-  <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
-    <Descrizione>vkjnjknjkcsn</Descrizione>
-    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
-    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
-  </Poster>
   <Poster idUtente="" Nome="test Esecuzione" idGriglia="testEsecuzione">
     <Descrizione>test</Descrizione>
     <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
     <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="22" />
     <Contenuto Nome="d" AudioPath="C:\Windows\System32\8point1.wav" VideoPath="" ImagePath="C:\Users\MaSSi\Desktop\schema.png" TextPath="" Cella="12" />
     <Contenuto Nome="e" AudioPath="C:\Windows\System32\8point1.wav" VideoPath="" ImagePath="C:\Users\MaSSi\Desktop\Max\28062008102.jpg" TextPath="C:\Users\MaSSi\Desktop\text.txt" Cella="11" />
+  </Poster>
+  <Poster idUtente="2w" Nome="bohboh" idGriglia="massi">
+    <Descrizione>vkjnjknjkcsn</Descrizione>
+    <Contenuto Nome="aasas" AudioPath="C:\Users\Marco\Music\Fall 2008\Andrea True Connection - More, More, More (How Do You Like It).mp3" VideoPath="" ImagePath="C:\Users\Marco\Pictures\3D33.jpg" TextPath="C:\Users\Marco\Desktop\cell garzotto.txt" Cella="11" />
+    <Contenuto Nome="asasasasasa" AudioPath="C:\Users\Marco\Music\Febbraio 07\04_-_Gnarls_Barkley_-_Gone_Daddy_Gone.mp3" VideoPath="" ImagePath="" TextPath="C:\Users\Marco\Documents\Poli\Tesi III anno\Progettazione Blog Second Life.doc" Cella="12" />
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+  </Poster>
+  <Poster idUtente="vvv" Nome="franca" idGriglia="aa">
+    <Descrizione>franca</Descrizione>
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+    <Contenuto Nome="prova" AudioPath="C:\Users\Marco\Music\First 2007\13-nelly_furtado-all_good_things_(come_to_an_end).mp3" VideoPath="" ImagePath="C:\Users\Marco\Pictures\3_jpg.jpg" TextPath="C:\Users\Marco\Desktop\prova TP.txt" Cella="12" />
+    <Contenuto Nome="suono franca" AudioPath="C:\Users\Marco\Music\First 2007\07-manu_gz_-_vorrei_sentirti_(italo_style_mix).mp3" VideoPath="" ImagePath="" TextPath="" Cella="21" />
   </Poster>
 </ElencoPoster>
