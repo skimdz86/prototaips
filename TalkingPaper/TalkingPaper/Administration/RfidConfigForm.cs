@@ -64,7 +64,13 @@ namespace TalkingPaper.Administration
 
         private void salva_Click(object sender, EventArgs e)
         {
-            NavigationControl.goWelcome(this);
+            NavigationControl.goHome(this);
+        }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("Per controllare che il lettore RFID sia configurato a dovere, è sufficiente controllare che la luce rossa posta su di esso lampeggi. \nSuggerimento: spesso il lettore RFID è associato alla porta con numero più alto, quindi è consigliabile selezionare prima quello per provare la connessione");
+            NavigationControl.showDialog(helpForm);
         }
 
     }

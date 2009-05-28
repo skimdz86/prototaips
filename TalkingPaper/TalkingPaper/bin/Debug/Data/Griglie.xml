@@ -40,4 +40,7 @@
     <Cella Coordinate="13">E004010017FE8286</Cella>
     <Cella Coordinate="32">E004010017FE828E</Cella>
   </Griglia>
+  <Griglia Nome="123456789123456789123456789" Righe="2" Colonne="3">
+    <Cella Coordinate="11">E004010017FE82AD</Cella>
+  </Griglia>
 </GriglieTaggate>

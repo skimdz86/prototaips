@@ -15,9 +15,9 @@ namespace TalkingPaper.Common
         public FormSchema()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.TopMost = true;
+            //this.WindowState = FormWindowState.Maximized;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.TopMost = true;
         }
 
         /*private void help_Click(object sender, EventArgs e)

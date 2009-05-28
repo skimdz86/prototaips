@@ -42,6 +42,10 @@ namespace TalkingPaper.Administration
                 {
                     MessageBox.Show("Non hai inserito il nome della nuova griglia");
                 }
+                else if (textBox1.Text.Length > 15) 
+                {
+                    MessageBox.Show("Il nome può essere al massimo di 15 lettere o numeri");
+                }
                 else
                 {
                     int numeroRighe = 0;///////////////perche vuole che le assegno qui per forza??????
@@ -93,6 +97,12 @@ namespace TalkingPaper.Administration
         private void home_Click(object sender, EventArgs e)
         {
             NavigationControl.goHome(this);
+        }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("");
+            NavigationControl.showDialog(helpForm);
         }
     }
 }

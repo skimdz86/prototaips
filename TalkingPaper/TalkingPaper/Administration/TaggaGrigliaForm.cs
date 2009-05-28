@@ -230,7 +230,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Per essere sicuri che il lettore RFID funzioni a dovere, basta controllare che la luce verde sia accesa e la luce rossa lampeggi.");
+            HelpFormSchema helpForm = new HelpFormSchema("Per essere sicuri che il lettore RFID funzioni a dovere, basta controllare che la luce verde sia accesa e la luce rossa lampeggi.\nL'espressione \"assegnare un tag\" significa avvicinare il lettore a uno dei tag in modo che possa leggerlo. Quando il tag sarà stato letto, apparira un codice nella casella selezionata in precedenza.");
             NavigationControl.showDialog(helpForm);
         }
 

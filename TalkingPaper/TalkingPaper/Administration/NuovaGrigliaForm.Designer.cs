@@ -46,6 +46,10 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(513, 33);
             this.sottotitolo.Text = "Crea nuovo supporto per i cartelloni";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -63,11 +67,12 @@ namespace TalkingPaper.Administration
             this.label1.AutoEllipsis = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(165, 139);
+            this.label1.Location = new System.Drawing.Point(165, 141);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(543, 64);
+            this.label1.Size = new System.Drawing.Size(610, 64);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Inserisci negli spazi sottostanti il nome e  le dimensioni della nuova griglia";
+            this.label1.Text = "Inserisci negli spazi sottostanti il nome e le dimensioni della nuova griglia da " +
+                "creare";
             // 
             // textBox3
             // 
@@ -131,7 +136,7 @@ namespace TalkingPaper.Administration
             this.AcceptButton = this.ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox3);

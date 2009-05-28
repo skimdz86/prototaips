@@ -36,7 +36,8 @@ namespace TalkingPaper.Welcome
                     if (logc.registration(user.Text, password.Text))
                     {
                         MessageBox.Show("Ti sei registrato con successo!");
-                        NavigationControl.goBack(this);
+                        ChildHomeForm child=new ChildHomeForm();
+                        NavigationControl.goTo(this, child);
                     }
                     else
                     {
@@ -62,6 +63,12 @@ namespace TalkingPaper.Welcome
         private void home_Click(object sender, EventArgs e)
         {
             NavigationControl.goWelcome(this);
+        }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("E' necessario inserire due volte la stessa parola chiave per essere sicuri di non aver commesso errori.");
+            NavigationControl.showDialog(helpForm);
         }
     }
 }

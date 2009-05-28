@@ -29,6 +29,7 @@ namespace RegistrazioneAdmin
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.label2 = new System.Windows.Forms.Label();
             this.user = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -36,6 +37,7 @@ namespace RegistrazioneAdmin
             this.label4 = new System.Windows.Forms.Label();
             this.verificaPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.help = new System.Windows.Forms.Button();
             this.boxSotto.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -125,6 +127,23 @@ namespace RegistrazioneAdmin
             this.label5.Text = "Ripeti la Password";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // help
+            // 
+            this.help.AutoSize = true;
+            this.help.BackColor = System.Drawing.Color.Yellow;
+            this.help.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("help.BackgroundImage")));
+            this.help.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.help.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.help.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.help.Location = new System.Drawing.Point(609, 18);
+            this.help.Name = "help";
+            this.help.Size = new System.Drawing.Size(95, 83);
+            this.help.TabIndex = 43;
+            this.help.Text = "Aiuto";
+            this.help.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.help.UseVisualStyleBackColor = false;
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // RegistrationForm
             // 
             this.AcceptButton = this.ok;
@@ -133,6 +152,7 @@ namespace RegistrazioneAdmin
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(748, 592);
             this.ControlBox = true;
+            this.Controls.Add(this.help);
             this.Controls.Add(this.user);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.verificaPass);
@@ -156,6 +176,7 @@ namespace RegistrazioneAdmin
             this.Controls.SetChildIndex(this.user, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
+            this.Controls.SetChildIndex(this.help, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.ResumeLayout(false);
@@ -172,5 +193,6 @@ namespace RegistrazioneAdmin
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox verificaPass;
         private System.Windows.Forms.Label label5;
+        protected System.Windows.Forms.Button help;
     }
 }

@@ -50,6 +50,10 @@ namespace TalkingPaper.Administration
             this.sottotitolo.Size = new System.Drawing.Size(248, 33);
             this.sottotitolo.Text = "Amministrazione";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
@@ -126,7 +130,7 @@ namespace TalkingPaper.Administration
             this.EliminaPoster.Name = "EliminaPoster";
             this.EliminaPoster.Size = new System.Drawing.Size(202, 109);
             this.EliminaPoster.TabIndex = 7;
-            this.EliminaPoster.Text = "Elimina Poster";
+            this.EliminaPoster.Text = "Elimina Cartellone";
             this.EliminaPoster.UseVisualStyleBackColor = false;
             this.EliminaPoster.Click += new System.EventHandler(this.EliminaPoster_Click);
             // 

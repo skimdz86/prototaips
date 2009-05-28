@@ -12,7 +12,7 @@ namespace TalkingPaper.DataAccess
     {
         String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Users.xml";
-        String backupPath = Global.directoryPrincipale + @"/Data/backup.dat";
+        String backupPath = Global.directoryPrincipale + @"/backup.dat";
 
         //crea il file
         public bool CreateListaUtenti()
