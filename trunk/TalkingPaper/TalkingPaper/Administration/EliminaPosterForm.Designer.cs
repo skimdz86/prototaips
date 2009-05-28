@@ -39,8 +39,13 @@ namespace TalkingPaper.Administration
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(486, 33);
-            this.sottotitolo.Text = "Scegli il poster che vuoi eliminare";
+            this.sottotitolo.AutoSize = false;
+            this.sottotitolo.Size = new System.Drawing.Size(641, 75);
+            this.sottotitolo.Text = "Scegli il cartellone che vuoi eliminare, quindi premi OK";
+            // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // home
             // 
@@ -83,9 +88,9 @@ namespace TalkingPaper.Administration
             this.noPoster.ForeColor = System.Drawing.Color.White;
             this.noPoster.Location = new System.Drawing.Point(72, 158);
             this.noPoster.Name = "noPoster";
-            this.noPoster.Size = new System.Drawing.Size(355, 32);
+            this.noPoster.Size = new System.Drawing.Size(396, 32);
             this.noPoster.TabIndex = 27;
-            this.noPoster.Text = "Non sono presenti poster";
+            this.noPoster.Text = "Non sono presenti cartelloni";
             this.noPoster.Visible = false;
             // 
             // EliminaPosterForm

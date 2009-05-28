@@ -37,8 +37,8 @@ namespace TalkingPaper.Administration
             this.labelNO = new System.Windows.Forms.Label();
             this.labelNO2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboPort = new System.Windows.Forms.ComboBox();
             this.salva = new System.Windows.Forms.Button();
+            this.comboPort = new System.Windows.Forms.ComboBox();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -48,6 +48,10 @@ namespace TalkingPaper.Administration
             // 
             this.sottotitolo.Size = new System.Drawing.Size(398, 33);
             this.sottotitolo.Text = "Configura il dispositivo Rfid";
+            // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // home
             // 
@@ -105,11 +109,11 @@ namespace TalkingPaper.Administration
             this.labelOK.AutoSize = true;
             this.labelOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOK.ForeColor = System.Drawing.Color.Blue;
-            this.labelOK.Location = new System.Drawing.Point(48, 240);
+            this.labelOK.Location = new System.Drawing.Point(19, 240);
             this.labelOK.Name = "labelOK";
-            this.labelOK.Size = new System.Drawing.Size(462, 20);
+            this.labelOK.Size = new System.Drawing.Size(526, 20);
             this.labelOK.TabIndex = 43;
-            this.labelOK.Text = "Connessione riuscita!! La configurazione è stata salvata.";
+            this.labelOK.Text = "Connessione riuscita solo se lampeggia la luce rossa sul lettore. ";
             this.labelOK.Visible = false;
             // 
             // labelNO
@@ -154,16 +158,6 @@ namespace TalkingPaper.Administration
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             // 
-            // comboPort
-            // 
-            this.comboPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboPort.FormattingEnabled = true;
-            this.comboPort.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.comboPort.Location = new System.Drawing.Point(309, 50);
-            this.comboPort.Name = "comboPort";
-            this.comboPort.Size = new System.Drawing.Size(92, 24);
-            this.comboPort.TabIndex = 43;
-            // 
             // salva
             // 
             this.salva.BackColor = System.Drawing.Color.Yellow;
@@ -175,6 +169,16 @@ namespace TalkingPaper.Administration
             this.salva.Text = "Salva ed esci";
             this.salva.UseVisualStyleBackColor = false;
             this.salva.Click += new System.EventHandler(this.salva_Click);
+            // 
+            // comboPort
+            // 
+            this.comboPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboPort.FormattingEnabled = true;
+            this.comboPort.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.comboPort.Location = new System.Drawing.Point(309, 50);
+            this.comboPort.Name = "comboPort";
+            this.comboPort.Size = new System.Drawing.Size(92, 24);
+            this.comboPort.TabIndex = 43;
             // 
             // RfidConfigForm
             // 

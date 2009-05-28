@@ -56,6 +56,10 @@ namespace TalkingPaper.Welcome
             // 
             this.sottotitolo.Visible = false;
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
@@ -78,9 +82,9 @@ namespace TalkingPaper.Welcome
             // 
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(21, 96);
+            this.label2.Location = new System.Drawing.Point(15, 110);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(711, 84);
+            this.label2.Size = new System.Drawing.Size(711, 66);
             this.label2.TabIndex = 1;
             this.label2.Text = "Se sei già registrato inserisci il nome della classe e la parola chiave e premi i" +
                 "l bottone \"Entra\"";
@@ -238,8 +242,8 @@ namespace TalkingPaper.Welcome
             this.Controls.Add(this.label2);
             this.Name = "IndexForm";
             this.VisibleChanged += new System.EventHandler(this.IndexForm_VisibleChanged);
-            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.label3, 0);
             this.Controls.SetChildIndex(this.label4, 0);

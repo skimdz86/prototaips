@@ -3,4 +3,5 @@
   <Utente Login="admin" Password="21-23-2F-29-7A-57-A5-A7-43-89-4A-0E-4A-80-1F-C3" FlagAmministratore="Si" />
   <Utente Login="marco" Password="F5-88-8D-0B-B5-8D-61-11-07-E1-1F-7C-BC-41-C9-7A" FlagAmministratore="No" />
   <Utente Login="qa" Password="82-64-EE-52-F5-89-F4-C0-19-1A-A9-4F-87-AA-1A-EB" FlagAmministratore="No" />
+  <Utente Login="ciao" Password="6E-6B-C4-E4-9D-D4-77-EB-C9-8E-F4-04-6C-06-7B-5F" FlagAmministratore="No" />
 </ListaUtenti>

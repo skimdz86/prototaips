@@ -5,7 +5,10 @@ TODO List:
 -mettere immagini a fianco delle label componenti
 -fare con l'installer il link al manuale d'uso in start
 -fare la copia dei file
--fare gli help
+-fare gli help di authoring e execution
 -trovare una nuova icona (e forse nuove img per i componenti?)
 -sistemare installer per xp e scriverci qualcosa in piu di istruzioni
+-aaaaaaaaaaaaaaaaaa problema enorme: gli help non si vedono se esegui in fullscreen
+-alla adminhomeform viene passato uno user, ma a che serve?
+-il confronto di matrici per controllare che nn siano stati eliminati tag dalla griglia c'è?
 

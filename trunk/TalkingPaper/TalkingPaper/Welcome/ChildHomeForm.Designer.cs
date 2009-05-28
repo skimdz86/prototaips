@@ -48,6 +48,10 @@ namespace TalkingPaper.Welcome
             this.sottotitolo.Size = new System.Drawing.Size(322, 33);
             this.sottotitolo.Text = "Menu: cosa vuoi fare?";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));

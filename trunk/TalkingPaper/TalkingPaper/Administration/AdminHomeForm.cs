@@ -69,6 +69,12 @@ namespace TalkingPaper.Administration
             NavigationControl.goTo(this, rfidConf);
         }
 
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("");
+            NavigationControl.showDialog(helpForm);
+        }
+
         
 
     }

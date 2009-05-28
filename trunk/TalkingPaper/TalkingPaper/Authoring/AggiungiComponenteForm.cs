@@ -197,6 +197,7 @@ namespace TalkingPaper.Authoring
         private void ok_Click(object sender, EventArgs e)
         {
             if (nomeBox.Text == "") MessageBox.Show("Devi inserire un nome per il contenuto!");
+            else if (nomeBox.Text.Length > 15) MessageBox.Show("Il nome può essere al massimo di 15 lettere o numeri");
             else if (nomeBox.Text == "Play") MessageBox.Show("Il nome non puo essere Play");
             else if (nomeBox.Text == "Pausa") MessageBox.Show("Il nome non puo essere Pausa");
             else if (nomeBox.Text == "Stop") MessageBox.Show("Il nome non puo essere Stop");

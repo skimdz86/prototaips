@@ -26,7 +26,7 @@ namespace RegistrazioneAdmin
                 return;
             }
             filepath = installDirectory + @"\Data\Users.xml";
-            backup = installDirectory + @"\Data\backup.dat";
+            backup = installDirectory + @"\backup.dat";
 
         }
 
@@ -124,6 +124,12 @@ namespace RegistrazioneAdmin
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore!", e); }
 
+        }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("E' possibile chiudere la finestra senza registrare un nuovo amministratore. In questo caso, ne verrà creato uno di default, con nome utente \"admin\" e password \"admin\". In seguito non sarà più possibile registrare un nuovo amministratore se non reinstallando il programma, quindi è consigliata la registrazione immediata.");
+            NavigationControl.showDialog(helpForm);
         }
 
         

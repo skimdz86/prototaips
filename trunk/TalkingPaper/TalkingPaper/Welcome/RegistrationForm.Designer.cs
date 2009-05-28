@@ -46,6 +46,10 @@ namespace TalkingPaper.Welcome
             this.sottotitolo.Text = "Registrazione Classe";
             this.sottotitolo.Visible = false;
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -65,9 +69,9 @@ namespace TalkingPaper.Welcome
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.label2.Location = new System.Drawing.Point(33, 160);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(747, 34);
+            this.label2.Size = new System.Drawing.Size(747, 67);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Inserisci il nome della classe e la parola chiave nelle caselle";
+            this.label2.Text = "Inserisci il nome della classe e la parola chiave nelle caselle seguenti";
             // 
             // user
             // 
@@ -85,7 +89,7 @@ namespace TalkingPaper.Welcome
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(210, 20);
             this.label3.TabIndex = 5;
-            this.label3.Text = "Nome della Classe";
+            this.label3.Text = "Nome Classe";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // password
