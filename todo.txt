@@ -1,0 +1,14 @@
+TODO List:
+
+-Sistemare ridimensionamento testi nella stampa
+-aggiungere test sul lampeggiamento nella config del lettore rfid
+-limitare il nome contenuto a n caratteri
+-fare con l'installer il link al manuale d'uso in start
+-fare la copia dei file
+-fare gli help
+-fare help in registrazione admin
+-trovare una nuova icona (e forse nuove img per i componenti?)
+-sistemare installer per xp e scriverci qualcosa in piu di istruzioni
+-mettere barra di scorrimento alle liste
+-da registrazione bisogna passare a child home direttamente
+
