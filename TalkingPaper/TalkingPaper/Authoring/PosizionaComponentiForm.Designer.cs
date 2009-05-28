@@ -94,7 +94,7 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.ElencoRisorse.Location = new System.Drawing.Point(8, 257);
             this.ElencoRisorse.Name = "ElencoRisorse";
-            this.ElencoRisorse.Size = new System.Drawing.Size(336, 330);
+            this.ElencoRisorse.Size = new System.Drawing.Size(336, 325);
             this.ElencoRisorse.TabIndex = 42;
             // 
             // play
@@ -220,7 +220,7 @@ namespace TalkingPaper.Authoring
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(31, 583);
+            this.label4.Location = new System.Drawing.Point(31, 584);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(345, 33);
             this.label4.TabIndex = 68;
