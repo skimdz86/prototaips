@@ -8,5 +8,4 @@ TODO List:
 -fare gli help
 -trovare una nuova icona (e forse nuove img per i componenti?)
 -sistemare installer per xp e scriverci qualcosa in piu di istruzioni
--da registrazione bisogna passare a child home direttamente
 
