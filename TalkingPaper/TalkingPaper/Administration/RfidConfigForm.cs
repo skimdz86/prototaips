@@ -41,6 +41,7 @@ namespace TalkingPaper.Administration
 
                 int portNum = Convert.ToInt32(((string)comboPort.SelectedItem).Substring(3, 1));
                 configuration[0] = portNum.ToString();
+                Global.reader.close();
                 Global.reader.saveConfiguration(configuration);
                 handlerRfid = Global.reader.connect();
                 if (handlerRfid <= 0)
@@ -51,19 +52,28 @@ namespace TalkingPaper.Administration
                 }
                 else
                 {
+                    Global.reader.readerStatusUpdate += new TalkingPaper.Reader.ReaderDelegate(prova_lettura);
+                    Global.reader.startRead();
                     this.labelOK.Visible = true;
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        void prova_lettura(string value)
+        {
+            
+        }
+
         private void home_Click(object sender, EventArgs e)
         {
+            Global.reader.close();
             NavigationControl.goHome(this);
         }
 
         private void salva_Click(object sender, EventArgs e)
         {
+            Global.reader.close();
             NavigationControl.goHome(this);
         }
 

@@ -9,7 +9,7 @@ namespace TalkingPaper.Reader
     public class RfidReader : IReader
     {
         private RFIDConfigurator rfid_configurator;
-        private RFidConfigManager config_manager;
+        private RfidConfigManager config_manager;
         private int id_reader = 0;
         private bool isConfigured = false;
         Timer timerRead;
@@ -26,7 +26,7 @@ namespace TalkingPaper.Reader
             {
                 Console.WriteLine("Errore driver con RFID");
             }
-            config_manager = new Reader.RFidConfigManager();
+            config_manager = new Reader.RfidConfigManager();
             
         }
 
@@ -94,26 +94,22 @@ namespace TalkingPaper.Reader
 
         string IReader.readValue()
         {
+            //non implementato
             return null;
         }
 
         public int connect()
         {
             RfidProperties properties;
-            if (!isConfigured)
-            {
-                //il lettore non è stato configurato!
-                //lancia eccezione
-            }
-
             
             //leggo la configurazione da file XML \Config\rfid_config.xml
             properties = config_manager.read_config_rfid_xml();
             if (rfid_configurator != null) id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
             else return -1;
+
             if (id_reader <= 0)
             {
-                //lancia eccezione, non sono riuscito a connettermi e devo riconfigurare
+                
                 return 0;
             }
             else

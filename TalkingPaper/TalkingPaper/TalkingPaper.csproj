@@ -142,9 +142,6 @@
     <Compile Include="DataAccess\DataHandlerInterface.cs" />
     <Compile Include="Model\Griglia.cs" />
     <Compile Include="DataAccess\XmlHandler\GrigliaHandler.cs" />
-    <Compile Include="Reader\DumbReader.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Welcome\IndexForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,7 +153,7 @@
     <Compile Include="Reader\IReader.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Reader\RfidReader\RFidConfigManager.cs">
+    <Compile Include="Reader\RfidReader\RfidConfigManager.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Administration\RfidConfigForm.cs">

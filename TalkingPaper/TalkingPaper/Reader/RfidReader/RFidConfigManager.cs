@@ -10,7 +10,7 @@ namespace TalkingPaper.Reader
     /// <summary>
     /// Classe per la gestione del file di configurazione
     /// </summary>
-    class RFidConfigManager
+    class RfidConfigManager
     {
         private String dirpath = Global.directoryPrincipale + "\\Config\\";
         private String filepath = Global.directoryPrincipale+"\\Config\\rfid_config.xml";
@@ -19,7 +19,7 @@ namespace TalkingPaper.Reader
         /// Costruttore
         /// </summary>
         //nuovo costruttore: autogenera il file se nn c'è
-        public RFidConfigManager()
+        public RfidConfigManager()
         {
             try
             {
@@ -28,7 +28,7 @@ namespace TalkingPaper.Reader
                 }
                 if(!File.Exists(filepath)) createXMLConfig();
 
-            }catch(IOException){ throw new Exception("Erroreeeeeeeeeeeeeeeeeee! Di I/O");}
+            }catch(IOException){ throw new Exception("Errore Di I/O");}
         }
         
         //crea il file vuoto (o standard)
