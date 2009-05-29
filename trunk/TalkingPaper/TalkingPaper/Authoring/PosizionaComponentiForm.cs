@@ -99,35 +99,76 @@ namespace TalkingPaper.Authoring
             {
                 ElencoRisorse.Controls.Clear();
             }
-            
-            foreach (Control control in ElencoRisorse.Controls)
+
+            noComponenti.Visible = false;
+
+            if (listaContenuti.Count == 0)
             {
-                Console.WriteLine(control.GetType() + " " + control.Name);
-                if (control is Label)
-                {
-                    Console.WriteLine(((Label)control).Text);
-                }
+                noComponenti.Visible = true;
             }
-            int i = 0;
-            foreach (Model.Contenuto contenuto in listaContenuti)
+            else
             {
-                if (contenuto != null)
+                System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosizionaComponentiForm));
+                int i = 0;
+                foreach (Model.Contenuto contenuto in listaContenuti)
                 {
-                    Label nome = new Label();
-                    nome.Text = contenuto.getNomeContenuto() + "(" + (contenuto.getAudioPath() != null ? 'A'.ToString() : "") + (contenuto.getVideoPath() != null ? 'V'.ToString() : "") + (contenuto.getImagePath() != null ? " I" : "") + (contenuto.getTextPath() != null ? " T" : "") + ")";
-                    nome.Tag = contenuto.getNomeContenuto();
-                    nome.BackColor = Color.Orange;
-                    nome.ForeColor = Color.White;
-                    nome.Size = new System.Drawing.Size(175, 25);
-                    nome.AutoSize = false;
-                    nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    nome.Location = new System.Drawing.Point(25, 5 + i++ * 35);
-                    nome.Visible = true;
-                    nome.MouseDown += new MouseEventHandler(label_MouseDown);
-                    ElencoRisorse.Controls.Add(nome);
+                    if (contenuto != null)
+                    {
+                        Label nome = new Label();
+                        nome.Text = contenuto.getNomeContenuto();
+                        nome.Tag = contenuto.getNomeContenuto();
+                        nome.BackColor = Color.Orange;
+                        nome.ForeColor = Color.White;
+                        nome.Size = new System.Drawing.Size(175, 25);
+                        nome.AutoSize = false;
+                        nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        nome.Location = new System.Drawing.Point(25, 5 + i * 35);
+                        nome.Visible = true;
+                        nome.MouseDown += new MouseEventHandler(label_MouseDown);
+
+                        if (Global.isNotEmpty(contenuto.getAudioPath()))
+                        {
+                            Label immagine = new Label();
+                            immagine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                            immagine.Image = new Bitmap(((System.Drawing.Image)(resources.GetObject("immagine_audio.Image"))), 25, 25);
+                            immagine.Size = new Size(25, 25);
+                            immagine.Location = new System.Drawing.Point(25 + 175 + 20, 5 + i * 35);
+                            ElencoRisorse.Controls.Add(immagine);
+                        }
+                        else if (Global.isNotEmpty(contenuto.getVideoPath()))
+                        {
+                            Label immagine = new Label();
+                            immagine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                            immagine.Image = new Bitmap(((System.Drawing.Image)(resources.GetObject("immagine_video.Image"))), 25, 25);
+                            immagine.Size = new Size(25, 25);
+                            immagine.Location = new System.Drawing.Point(25 + 175 + 20, 5 + i * 35);
+                            ElencoRisorse.Controls.Add(immagine);
+                        }
+
+                        if (Global.isNotEmpty(contenuto.getImagePath()))
+                        {
+                            Label immagine = new Label();
+                            immagine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                            immagine.Image = new Bitmap(((System.Drawing.Image)(resources.GetObject("immagine_img.Image"))), 25, 25);
+                            immagine.Size = new Size(25, 25);
+                            immagine.Location = new System.Drawing.Point(25 + 175 + 20 + 45, 5 + i * 35);
+                            ElencoRisorse.Controls.Add(immagine);
+                        }
+                        if (Global.isNotEmpty(contenuto.getTextPath()))
+                        {
+                            Label immagine = new Label();
+                            immagine.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                            immagine.Image = new Bitmap(((System.Drawing.Image)(resources.GetObject("immagine_testo.Image"))), 25, 25);
+                            immagine.Size = new Size(25, 25);
+                            immagine.Location = new System.Drawing.Point(25 + 175 + 20 + 45 + 45, 5 + i * 35);
+                            ElencoRisorse.Controls.Add(immagine);
+                        }
+
+                        ElencoRisorse.Controls.Add(nome);
+                        i++;
+                    }
 
                 }
-
             }
             
         }
