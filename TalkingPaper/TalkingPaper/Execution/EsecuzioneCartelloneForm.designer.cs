@@ -37,7 +37,6 @@ namespace TalkingPaper.Execution
             this.tempoTotale = new System.Windows.Forms.Label();
             this.tempoTrascorso = new System.Windows.Forms.Label();
             this.messaggioStart = new System.Windows.Forms.Label();
-            this.esecuzioneDisattivata = new System.Windows.Forms.Label();
             this.labelSu = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
@@ -47,6 +46,10 @@ namespace TalkingPaper.Execution
             // 
             this.sottotitolo.Size = new System.Drawing.Size(373, 33);
             this.sottotitolo.Text = "Esecuzione del cartellone";
+            // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // home
             // 
@@ -147,17 +150,6 @@ namespace TalkingPaper.Execution
             this.messaggioStart.TabIndex = 57;
             this.messaggioStart.Text = "Avvicina il lettore al cartellone per farlo parlare!";
             // 
-            // esecuzioneDisattivata
-            // 
-            this.esecuzioneDisattivata.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.esecuzioneDisattivata.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.esecuzioneDisattivata.Location = new System.Drawing.Point(286, 332);
-            this.esecuzioneDisattivata.Name = "esecuzioneDisattivata";
-            this.esecuzioneDisattivata.Size = new System.Drawing.Size(457, 55);
-            this.esecuzioneDisattivata.TabIndex = 58;
-            this.esecuzioneDisattivata.Text = "Esecuzione disattivata!";
-            this.esecuzioneDisattivata.Visible = false;
-            // 
             // labelSu
             // 
             this.labelSu.AutoSize = true;
@@ -177,7 +169,6 @@ namespace TalkingPaper.Execution
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.labelSu);
-            this.Controls.Add(this.esecuzioneDisattivata);
             this.Controls.Add(this.messaggioStart);
             this.Controls.Add(this.tempoTrascorso);
             this.Controls.Add(this.tempoTotale);
@@ -201,7 +192,6 @@ namespace TalkingPaper.Execution
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.messaggioStart, 0);
-            this.Controls.SetChildIndex(this.esecuzioneDisattivata, 0);
             this.Controls.SetChildIndex(this.labelSu, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
@@ -221,7 +211,6 @@ namespace TalkingPaper.Execution
         private System.Windows.Forms.Label tempoTotale;
         private System.Windows.Forms.Label tempoTrascorso;
         private Label messaggioStart;
-        private Label esecuzioneDisattivata;
         private Label labelSu;
     }
 }

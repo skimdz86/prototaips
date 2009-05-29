@@ -43,8 +43,8 @@ namespace TalkingPaper.Administration
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(513, 33);
-            this.sottotitolo.Text = "Crea nuovo supporto per i cartelloni";
+            this.sottotitolo.Size = new System.Drawing.Size(330, 33);
+            this.sottotitolo.Text = "Crea una nuova griglia";
             // 
             // help
             // 

@@ -44,6 +44,10 @@ namespace TalkingPaper.Execution
             this.sottotitolo.Size = new System.Drawing.Size(529, 31);
             this.sottotitolo.Text = "Scegli il componente che vuoi stampare";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);

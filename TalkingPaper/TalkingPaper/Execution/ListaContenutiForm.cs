@@ -211,6 +211,12 @@ namespace TalkingPaper.Execution
             NavigationControl.goHome(this);
         }
 
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("Grazie al pulsante \"Anteprima\", puoi controllare se testi e immagini scelti verranno stampati come desideri. \nPremendo il pulsante \"Stampa\", invece, si aprirà una nuova finestra che permetterà di eseguire la stampa vera e propria.");
+            NavigationControl.showDialog(helpForm);
+        }
+
                 
     }
 }

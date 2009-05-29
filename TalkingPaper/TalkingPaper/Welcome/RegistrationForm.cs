@@ -67,7 +67,7 @@ namespace TalkingPaper.Welcome
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("E' necessario inserire due volte la stessa parola chiave per essere sicuri di non aver commesso errori.");
+            HelpFormSchema helpForm = new HelpFormSchema("Devi inserire due volte la stessa parola chiave per essere sicuro di non aver commesso errori.");
             NavigationControl.showDialog(helpForm);
         }
     }

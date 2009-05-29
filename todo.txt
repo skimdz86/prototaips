@@ -12,4 +12,6 @@ TODO List:
 -alla adminhomeform viene passato uno user, ma a che serve?
 -il confronto di matrici per controllare che nn siano stati eliminati tag dalla griglia c'è?
 -ma le descrizioni dei poster vengonoo usate da qualche parte?
+-fare in modo che al cambiamento di schermata le label delle liste si deselezionino
+-sistemare i  limiti di caratteri dei nomi dove ancora non è fatto
 

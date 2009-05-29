@@ -46,6 +46,10 @@ namespace TalkingPaper.Authoring
             this.sottotitolo.Size = new System.Drawing.Size(256, 33);
             this.sottotitolo.Text = "Nuovo Cartellone";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);

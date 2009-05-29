@@ -65,6 +65,10 @@ namespace TalkingPaper.Authoring
             this.sottotitolo.Size = new System.Drawing.Size(728, 44);
             this.sottotitolo.Text = "Cerca il suono o il video da inserire e dagli un nome";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -360,8 +364,8 @@ namespace TalkingPaper.Authoring
             this.labelTesto2.Name = "labelTesto2";
             this.labelTesto2.Size = new System.Drawing.Size(906, 65);
             this.labelTesto2.TabIndex = 57;
-            this.labelTesto2.Text = "Se vuoi, seleziona un\'immagine e/o un testo da STAMPARE per incollarlo sul tuo po" +
-                "ster";
+            this.labelTesto2.Text = "Se vuoi, seleziona un\'immagine e/o un testo da STAMPARE per incollarlo sul tuo ca" +
+                "rtellone";
             // 
             // AggiungiComponenteForm
             // 

@@ -40,8 +40,12 @@ namespace TalkingPaper.Execution
             // sottotitolo
             // 
             this.sottotitolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sottotitolo.Size = new System.Drawing.Size(730, 31);
-            this.sottotitolo.Text = "Scegli il poster del quale vuoi stampare un componente";
+            this.sottotitolo.Size = new System.Drawing.Size(700, 31);
+            this.sottotitolo.Text = "Scegli il poster del quale vuoi stampare un contenuto";
+            // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
             // 
             // home
             // 

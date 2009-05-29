@@ -47,7 +47,7 @@ namespace TalkingPaper.Welcome
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("\"Fai parlare un cartellone\" serve a riprodurre suoni e video associati ad esso. \"Stampa i contenuti di un carteellone\" invece permette di stampare testi e immagini associate in precedenza");
+            HelpFormSchema helpForm = new HelpFormSchema("\"Fai parlare un cartellone\" serve a riprodurre suoni e video associati ad esso. \"Stampa i contenuti di un cartellone\" invece permette di stampare testi e immagini associate in precedenza");
             NavigationControl.showDialog(helpForm);
         }
 

@@ -58,6 +58,10 @@ namespace TalkingPaper.Authoring
             this.sottotitolo.Size = new System.Drawing.Size(304, 33);
             this.sottotitolo.Text = "Posiziona i contenuti";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -84,7 +88,7 @@ namespace TalkingPaper.Authoring
             this.noComponenti.Name = "noComponenti";
             this.noComponenti.Size = new System.Drawing.Size(268, 99);
             this.noComponenti.TabIndex = 45;
-            this.noComponenti.Text = "Non sono presenti\r\ncomponenti ....\r\nAggiungili!";
+            this.noComponenti.Text = "Non sono presenti\r\ncontenuti ....\r\nAggiungili!";
             this.noComponenti.Visible = false;
             // 
             // ElencoRisorse
