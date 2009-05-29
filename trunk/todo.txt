@@ -11,4 +11,5 @@ TODO List:
 -aaaaaaaaaaaaaaaaaa problema enorme: gli help non si vedono se esegui in fullscreen
 -alla adminhomeform viene passato uno user, ma a che serve?
 -il confronto di matrici per controllare che nn siano stati eliminati tag dalla griglia c'è?
+-ma le descrizioni dei poster vengonoo usate da qualche parte?
 
