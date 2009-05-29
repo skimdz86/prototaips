@@ -93,7 +93,7 @@ namespace TalkingPaper.DataAccess
                 if (!File.Exists(filepath)) 
                 { 
                     CreateGriglieTaggate();
-                    throw new Exception("Il file non esiste!"); 
+                    //throw new Exception("Il file non esiste!"); 
                 }
             }
             catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
@@ -132,7 +132,7 @@ namespace TalkingPaper.DataAccess
                 if (!File.Exists(filepath)) 
                 {
                     CreateGriglieTaggate();
-                    throw new Exception("Il file non esiste!"); 
+                    //throw new Exception("Il file non esiste!"); 
                 }
             }
             catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
