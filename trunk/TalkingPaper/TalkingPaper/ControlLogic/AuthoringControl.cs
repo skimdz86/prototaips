@@ -97,10 +97,6 @@ namespace TalkingPaper.ControlLogic
             
             immagine = Image.FromFile(percorso);
 
-            if ((immagine.Width > 842) && (immagine.Width > immagine.Height))
-            {
-                printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
-            }
             
         }
 
@@ -136,6 +132,7 @@ namespace TalkingPaper.ControlLogic
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             PrintDocument document = ((PrintDocument)sender);
+            
             if (immagine != null)
             {
                 float width = immagine.Width;
@@ -146,14 +143,14 @@ namespace TalkingPaper.ControlLogic
                     width = e.PageSettings.PaperSize.Width;
 
                 }
-                if (immagine.Height > e.PageSettings.PaperSize.Height)
+                if (immagine.Height > (e.PageSettings.PaperSize.Height / 2))
                 {
-                    width *= (1 - ((height - e.PageSettings.PaperSize.Height) / height));
-                    height = e.PageSettings.PaperSize.Height;
+                    width *= (1 - ((height - (e.PageSettings.PaperSize.Height / 2)) / height));
+                    height = e.PageSettings.PaperSize.Height / 2;
                 }
 
 
-                e.Graphics.DrawImage(immagine, 0, 0, width, height);
+                e.Graphics.DrawImage(immagine, 40, 40, width, height);
 
                 immagine.Dispose();
                 immagine = null;
@@ -169,12 +166,12 @@ namespace TalkingPaper.ControlLogic
                 // Sets the value of charactersOnPage to the number of characters 
                 // of stringToPrint that will fit within the bounds of the page.
                 e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                    e.MarginBounds.Size, StringFormat.GenericTypographic,
+                    new SizeF(e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - 80), StringFormat.GenericTypographic,
                     out charactersOnPage, out linesPerPage);
 
                 // Draws the string within the bounds of the page.
                 e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
-                e.MarginBounds, StringFormat.GenericTypographic);
+                new Rectangle(40, 40, e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - 80), StringFormat.GenericTypographic);
 
 
                 // Remove the portion of the string that has been printed.

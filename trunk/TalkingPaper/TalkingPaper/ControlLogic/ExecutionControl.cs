@@ -243,11 +243,7 @@ namespace TalkingPaper.ControlLogic
 
             this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
             immagine = Image.FromFile(percorso);
-
-            if ((immagine.Width > 842) && (immagine.Width > immagine.Height))
-            {
-                printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4O", 842, 595);
-            }
+                       
         }
 
         public void stampaTesto(string percorso, int[] coordinate)
@@ -331,14 +327,14 @@ namespace TalkingPaper.ControlLogic
                     width = e.PageSettings.PaperSize.Width;
 
                 }
-                if (immagine.Height > e.PageSettings.PaperSize.Height)
+                if (immagine.Height > ( e.PageSettings.PaperSize.Height / 2)) 
                 {
-                    width *= (1 - ((height - e.PageSettings.PaperSize.Height) / height));
-                    height = e.PageSettings.PaperSize.Height;
+                    width *= (1 - ((height - (e.PageSettings.PaperSize.Height / 2)) / height));
+                    height = e.PageSettings.PaperSize.Height / 2;
                 }
                     
 
-                e.Graphics.DrawImage(immagine, 0, 0, width, height);
+                e.Graphics.DrawImage(immagine, 40, 40, width, height);
 
                 if (Global.isNotEmpty(documentContent))
                 {
@@ -347,12 +343,12 @@ namespace TalkingPaper.ControlLogic
                         int charactersOnPage = 0;
                         int linesPerPage = 0;
                         e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                        new SizeF(e.PageSettings.PaperSize.Width, e.PageSettings.PaperSize.Height - (height + 50)), StringFormat.GenericTypographic,
+                        new SizeF(e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - (height + 40 + 50) - 80), StringFormat.GenericTypographic,
                         out charactersOnPage, out linesPerPage);
                         if (charactersOnPage == documentContent.Length)
                         {
                             e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
-                    new PointF(e.MarginBounds.Left, height + 50), StringFormat.GenericTypographic);
+                    new PointF(40, height + 40 + 50), StringFormat.GenericTypographic);
                             e.HasMorePages = false;
                         }
                         else
@@ -384,12 +380,12 @@ namespace TalkingPaper.ControlLogic
                 // Sets the value of charactersOnPage to the number of characters 
                 // of stringToPrint that will fit within the bounds of the page.
                 e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
-                    e.MarginBounds.Size, StringFormat.GenericTypographic,
+                    new SizeF(e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - 80), StringFormat.GenericTypographic,
                     out charactersOnPage, out linesPerPage);
 
                 // Draws the string within the bounds of the page.
                 e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
-                e.MarginBounds, StringFormat.GenericTypographic);
+                new Rectangle(40, 40, e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - 80), StringFormat.GenericTypographic);
 
                 
                 // Remove the portion of the string that has been printed.
