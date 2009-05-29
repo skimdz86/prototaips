@@ -42,7 +42,7 @@ namespace TalkingPaper.Authoring
                 {
                     noGriglie.Visible = true;
                 }
-                caricaPannello();
+                else caricaPannello();
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
