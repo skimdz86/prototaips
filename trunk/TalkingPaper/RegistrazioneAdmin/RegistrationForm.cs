@@ -75,10 +75,7 @@ namespace RegistrazioneAdmin
                     File.Delete(filepath);
 
                 }
-                if(File.Exists(backup))
-                {
-                    File.Delete(backup);
-                }
+                
                 XmlTextWriter writer = new XmlTextWriter(filepath, Encoding.UTF8);
                 writer.WriteStartDocument();
                 writer.WriteStartElement("ListaUtenti");
@@ -103,19 +100,25 @@ namespace RegistrazioneAdmin
                 doc.DocumentElement.AppendChild(el);
                 stream.Close();
                 doc.Save(filepath);
+
                 //scrivo un file di backup con nome admin e password
+                if (File.Exists(backup))
+                {
+                    File.Delete(backup);
+                }
                 XmlTextWriter backWriter = new XmlTextWriter(backup, Encoding.UTF8);
-                writer.WriteStartDocument();
-                writer.WriteStartElement("Backup");
-                writer.WriteEndElement();
-                writer.WriteEndDocument();
-                writer.Close();
+                backWriter.WriteStartDocument();
+                backWriter.WriteStartElement("Backup");
+                backWriter.WriteEndElement();
+                backWriter.WriteEndDocument();
+                backWriter.Close();
+
                 XmlDocument doc2 = new XmlDocument();
                 FileStream stream2 = new FileStream(backup, FileMode.Open);
                 doc2.Load(stream2);
-                XmlElement el2 = doc.CreateElement("Admin");
-                el.SetAttribute("Login", user);
-                el.SetAttribute("Password", res);
+                XmlElement el2 = doc2.CreateElement("Admin");
+                el2.SetAttribute("Login", user);
+                el2.SetAttribute("Password", res);
                 doc2.DocumentElement.AppendChild(el2);
                 stream2.Close();
                 doc2.Save(backup);
