@@ -93,7 +93,7 @@ namespace TalkingPaper.Authoring
             this.elencoPoster.EnableHeadersVisualStyles = false;
             this.elencoPoster.GridColor = System.Drawing.Color.Cyan;
             this.elencoPoster.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.elencoPoster.Location = new System.Drawing.Point(154, 159);
+            this.elencoPoster.Location = new System.Drawing.Point(43, 159);
             this.elencoPoster.MultiSelect = false;
             this.elencoPoster.Name = "elencoPoster";
             this.elencoPoster.ReadOnly = true;
@@ -114,7 +114,7 @@ namespace TalkingPaper.Authoring
             this.elencoPoster.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.elencoPoster.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.elencoPoster.ShowEditingIcon = false;
-            this.elencoPoster.Size = new System.Drawing.Size(638, 394);
+            this.elencoPoster.Size = new System.Drawing.Size(916, 394);
             this.elencoPoster.TabIndex = 43;
             // 
             // noPoster

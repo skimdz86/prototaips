@@ -71,12 +71,13 @@ namespace TalkingPaper.Authoring
                         Label nome = new Label();
                         if (p.getUsername() != "")
                         {
-                            nome.Text = p.getNome() + " ( " + p.getDescrizione() + " )" + "   Classe: " + p.getUsername() + "";
+                            nome.Text = p.getNome() + " ( " + p.getDescrizione() + " )" + "  Classe: " + p.getUsername() + "";
                         }
                         else { nome.Text = p.getNome() + " ( " + p.getDescrizione() + " )"; }
+                        nome.Tag = p.getNome();
                         nome.BackColor = Color.Orange;
                         nome.ForeColor = Color.White;
-                        nome.Size = new System.Drawing.Size(500, 25);
+                        nome.Size = new System.Drawing.Size(907, 25);
                         nome.AutoSize = false;
                         nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                         nome.Click += new System.EventHandler(nomePoster_Click);
@@ -111,9 +112,8 @@ namespace TalkingPaper.Authoring
             {
                 if (lastLabelClicked != null)
                 {
-                    string nomePoster = lastLabelClicked.Text;
+                    string nomePoster = (String)lastLabelClicked.Tag;
                     Poster p = Global.dataHandler.getPoster(nomePoster);
-
                     PosizionaComponentiForm posizionaComp = new PosizionaComponentiForm(p.getNome(), p.getDescrizione(), p.getUsername(), p.getNomeGriglia());
                     NavigationControl.goTo(this, posizionaComp);
                 }

@@ -44,7 +44,7 @@ namespace TalkingPaper.Execution
                         Label nome = new Label();
                         if (poster.getUsername() != "")
                         {
-                            nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )" + "   Classe: " + poster.getUsername() + "";
+                            nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )" + "  Classe: " + poster.getUsername() + "";
                         }
                         else { nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )"; } 
                         nome.Tag = poster.getNome();
