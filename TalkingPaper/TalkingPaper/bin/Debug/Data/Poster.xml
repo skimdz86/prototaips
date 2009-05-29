@@ -38,4 +38,16 @@
     <Descrizione>123456789012345</Descrizione>
     <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
   </Poster>
+  <Poster idUtente="44acs" Nome="123456789123440" idGriglia="griglia1">
+    <Descrizione>1234567890123456789012345678901234567890</Descrizione>
+    <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="21" />
+  </Poster>
+  <Poster idUtente="55sdf" Nome="123456789099999" idGriglia="giogiog">
+    <Descrizione>12345678901234567890123456789012345678901234567890</Descrizione>
+    <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
+  <Poster idUtente="55dgf" Nome="aaaaaaaaaa" idGriglia="griglia1">
+    <Descrizione>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Descrizione>
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
 </ElencoPoster>

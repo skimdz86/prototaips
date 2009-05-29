@@ -28,6 +28,14 @@ namespace TalkingPaper.Authoring
             {
                 MessageBox.Show("Devi inserire una descrizione per il cartellone");
             }
+            else if (Descrizione.Text.Length > 50) 
+            {
+                MessageBox.Show("La descrizione può essere al massimo di 50 lettere o numeri");
+            }
+            else if (!Global.isEmpty(Classe.Text) && Classe.Text.Length > 5) 
+            {
+                MessageBox.Show("Il nome della classe può essere al massimo di 5 lettere o numeri");
+            }
             else if (Global.dataHandler.existPoster(Nome.Text))
             {
                 MessageBox.Show("Questo poster esiste già");
