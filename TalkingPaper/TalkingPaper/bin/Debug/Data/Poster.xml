@@ -26,4 +26,16 @@
     <Contenuto Nome="prova" AudioPath="C:\Users\Marco\Music\First 2007\13-nelly_furtado-all_good_things_(come_to_an_end).mp3" VideoPath="" ImagePath="C:\Users\Marco\Pictures\3_jpg.jpg" TextPath="C:\Users\Marco\Desktop\prova TP.txt" Cella="12" />
     <Contenuto Nome="suono franca" AudioPath="C:\Users\Marco\Music\First 2007\07-manu_gz_-_vorrei_sentirti_(italo_style_mix).mp3" VideoPath="" ImagePath="" TextPath="" Cella="21" />
   </Poster>
+  <Poster idUtente="provacheva" Nome="aaaaaaa" idGriglia="yan">
+    <Descrizione>eeeeeeeeee</Descrizione>
+    <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
+  <Poster idUtente="10ACS" Nome="123456789123456" idGriglia="giogiog">
+    <Descrizione>123456789123456789</Descrizione>
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
+  <Poster idUtente="6ACD" Nome="123456789123450" idGriglia="massi">
+    <Descrizione>123456789012345</Descrizione>
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
 </ElencoPoster>
