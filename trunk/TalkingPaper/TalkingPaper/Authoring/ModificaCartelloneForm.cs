@@ -69,7 +69,11 @@ namespace TalkingPaper.Authoring
                     foreach (Poster p in listaPoster)
                     {
                         Label nome = new Label();
-                        nome.Text = p.getNome();
+                        if (p.getUsername() != "")
+                        {
+                            nome.Text = p.getNome() + " ( " + p.getDescrizione() + " )" + "   Classe: " + p.getUsername() + "";
+                        }
+                        else { nome.Text = p.getNome() + " ( " + p.getDescrizione() + " )"; }
                         nome.BackColor = Color.Orange;
                         nome.ForeColor = Color.White;
                         nome.Size = new System.Drawing.Size(500, 25);

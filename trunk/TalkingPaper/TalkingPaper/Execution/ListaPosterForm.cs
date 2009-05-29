@@ -42,7 +42,11 @@ namespace TalkingPaper.Execution
                     foreach (Model.Poster poster in listaPoster)
                     {
                         Label nome = new Label();
-                        nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )";
+                        if (poster.getUsername() != "")
+                        {
+                            nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )" + "   Classe: " + poster.getUsername() + "";
+                        }
+                        else { nome.Text = poster.getNome() + " ( " + poster.getDescrizione() + " )"; } 
                         nome.Tag = poster.getNome();
                         nome.BackColor = Color.Orange;
                         nome.ForeColor = Color.White;
