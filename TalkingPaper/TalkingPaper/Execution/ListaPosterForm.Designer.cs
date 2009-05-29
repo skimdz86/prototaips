@@ -76,9 +76,9 @@ namespace TalkingPaper.Execution
             // pannello
             // 
             this.pannello.AutoScroll = true;
-            this.pannello.Location = new System.Drawing.Point(78, 202);
+            this.pannello.Location = new System.Drawing.Point(43, 202);
             this.pannello.Name = "pannello";
-            this.pannello.Size = new System.Drawing.Size(797, 346);
+            this.pannello.Size = new System.Drawing.Size(916, 346);
             this.pannello.TabIndex = 54;
             // 
             // noPoster

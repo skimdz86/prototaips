@@ -82,7 +82,7 @@ namespace TalkingPaper.Common
             this.helpBox.Multiline = true;
             this.helpBox.Name = "helpBox";
             this.helpBox.ReadOnly = true;
-            this.helpBox.Size = new System.Drawing.Size(277, 416);
+            this.helpBox.Size = new System.Drawing.Size(277, 481);
             this.helpBox.TabIndex = 47;
             // 
             // HelpFormSchema
