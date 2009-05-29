@@ -50,4 +50,12 @@
     <Descrizione>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</Descrizione>
     <Contenuto Nome="Play" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
   </Poster>
+  <Poster idUtente="" Nome="jghjg" idGriglia="yan">
+    <Descrizione>tttt</Descrizione>
+    <Contenuto Nome="Pausa" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="11" />
+  </Poster>
+  <Poster idUtente="" Nome="asdfg" idGriglia="aa">
+    <Descrizione>tytyr</Descrizione>
+    <Contenuto Nome="Stop" AudioPath="" VideoPath="" ImagePath="" TextPath="" Cella="22" />
+  </Poster>
 </ElencoPoster>

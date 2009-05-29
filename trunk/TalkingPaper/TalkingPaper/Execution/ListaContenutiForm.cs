@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Threading;
+using System.IO;
 
 namespace TalkingPaper.Execution
 {
@@ -101,36 +102,49 @@ namespace TalkingPaper.Execution
                     {
                         if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
                         {
-                            try
+                            if (File.Exists(contenuto.getTextPath()))
                             {
-                                control.stampaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                                try
+                                {
+                                    control.stampaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                                }
                             }
-                            catch (UnauthorizedAccessException)
-                            {
-                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                            }
+                            else MessageBox.Show("Il file " + contenuto.getTextPath() + " non esiste più");
                         }
-                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getTextPath())))
+                        else if ((Global.isNotEmpty(contenuto.getImagePath())) && (Global.isEmpty(contenuto.getTextPath())))
                         {
-                            try
+                            if (File.Exists(contenuto.getImagePath()))
                             {
-                                control.stampaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
+                                try
+                                {
+                                    control.stampaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                                }
                             }
-                            catch (UnauthorizedAccessException)
-                            {
-                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                            }
+                            else MessageBox.Show("Il file " + contenuto.getImagePath() + " non esiste più");
                         }
-                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getTextPath())))
+                        else if ((Global.isNotEmpty(contenuto.getImagePath())) && (Global.isNotEmpty(contenuto.getTextPath())))
                         {
-                            try
+                            if (File.Exists(contenuto.getTextPath()) && File.Exists(contenuto.getImagePath()))
                             {
-                                control.stampaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
+                                try
+                                {
+                                    control.stampaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                                }
                             }
-                            catch (UnauthorizedAccessException)
-                            {
-                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                            }
+                            else if (!File.Exists(contenuto.getTextPath())) MessageBox.Show("Il file " + contenuto.getTextPath() + " non esiste più");
+                            else MessageBox.Show("Il file " + contenuto.getImagePath() + " non esiste più");
                         }
                     }
                 }
@@ -152,36 +166,49 @@ namespace TalkingPaper.Execution
                     {
                         if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
                         {
-                            try
+                            if (File.Exists(contenuto.getTextPath()))
                             {
-                                control.anteprimaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                                try
+                                {
+                                    control.anteprimaTesto(contenuto.getTextPath(), contenuto.getCoordinate());
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                                }
                             }
-                            catch (UnauthorizedAccessException)
-                            {
-                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                            }
+                            else MessageBox.Show("Il file " + contenuto.getTextPath() + " non esiste più");
                         }
-                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getTextPath())))
+                        else if ((Global.isNotEmpty(contenuto.getImagePath())) && (Global.isEmpty(contenuto.getTextPath())))
                         {
-                            try
+                            if (File.Exists(contenuto.getImagePath()))
                             {
-                                control.anteprimaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
+                                try
+                                {
+                                    control.anteprimaImmagine(contenuto.getImagePath(), contenuto.getCoordinate());
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                                }
                             }
-                            catch (UnauthorizedAccessException)
-                            {
-                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                            }
+                            else MessageBox.Show("Il file " + contenuto.getImagePath() + " non esiste più");
                         }
-                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getTextPath())))
+                        else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getImagePath())))
                         {
-                            try
+                            if (File.Exists(contenuto.getTextPath()) && File.Exists(contenuto.getImagePath()))
                             {
-                                control.anteprimaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
+                                try
+                                {
+                                    control.anteprimaTestoImmagine(contenuto.getTextPath(), contenuto.getImagePath(), contenuto.getCoordinate());
+                                }
+                                catch (UnauthorizedAccessException)
+                                {
+                                    MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
+                                }
                             }
-                            catch (UnauthorizedAccessException)
-                            {
-                                MessageBox.Show("Accesso non autorizzato alla risorsa " + contenuto.getTextPath());
-                            }
+                            else if (!File.Exists(contenuto.getTextPath())) MessageBox.Show("Il file " + contenuto.getTextPath() + " non esiste più");
+                            else MessageBox.Show("Il file " + contenuto.getImagePath() + " non esiste più");
                         }
                     }
                 }
