@@ -1,0 +1,2 @@
+E' necessario eseguire le installazioni di diversi componenti.
+Nelle finestre che si apriranno, è sufficiente proseguire le installazioni fino al loro completamento.
