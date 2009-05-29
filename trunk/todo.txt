@@ -5,10 +5,9 @@ TODO List:
 [OK] mettere immagini a fianco delle label componenti
 [OK] fare con l'installer il link al manuale d'uso in start
 -fare la copia dei file
--fare gli help di authoring e execution
+-sistemare gli help
 -trovare una nuova icona (e forse nuove img per i componenti?)
 -sistemare installer per xp e scriverci qualcosa in piu di istruzioni
 -aaaaaaaaaaaaaaaaaa problema enorme: gli help non si vedono se esegui in fullscreen
--ma le descrizioni dei poster vengonoo usate da qualche parte?
--sistemare i  limiti di caratteri dei nomi dove ancora non è fatto
-
+[OK]sistemare i  limiti di caratteri dei nomi dove ancora non è fatto
+-in scegliggriagliaform (authoring) quando non ce n'è non si vede il messaggio che dice che non ce n'è
