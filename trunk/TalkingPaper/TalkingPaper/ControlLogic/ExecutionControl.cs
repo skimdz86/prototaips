@@ -234,6 +234,7 @@ namespace TalkingPaper.ControlLogic
 
 
             }
+            printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
 
         }
 
@@ -243,6 +244,7 @@ namespace TalkingPaper.ControlLogic
 
             this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
             immagine = Image.FromFile(percorso);
+            printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
                        
         }
 
@@ -348,22 +350,18 @@ namespace TalkingPaper.ControlLogic
                         if (charactersOnPage == documentContent.Length)
                         {
                             e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
-                    new PointF(40, height + 40 + 50), StringFormat.GenericTypographic);
+                    new Rectangle(40, (int)height + 40 + 50, e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - ((int)height + 40 + 50) - 80) , StringFormat.GenericTypographic);
                             e.HasMorePages = false;
                         }
                         else
                         {
                             e.HasMorePages = true;
-                            document.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
-                            e.PageSettings.PaperSize = new PaperSize("A4V", 595, 842);
                         }
                         
                     }
                     else
                     {
                         e.HasMorePages = true;
-                        document.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
-                        e.PageSettings.PaperSize = new PaperSize("A4V", 595, 842);
                     }
                 }
                 immagine.Dispose();
