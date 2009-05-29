@@ -47,8 +47,13 @@ namespace TalkingPaper.Authoring
             this.elimina = new System.Windows.Forms.Button();
             this.svuotaCella = new System.Windows.Forms.Button();
             this.scegliOggetto = new System.Windows.Forms.Label();
+            this.immagine_audio = new System.Windows.Forms.Label();
+            this.immagine_video = new System.Windows.Forms.Label();
+            this.immagine_testo = new System.Windows.Forms.Label();
+            this.immagine_img = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
+            this.ElencoRisorse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +89,7 @@ namespace TalkingPaper.Authoring
             this.noComponenti.BackColor = System.Drawing.Color.DarkOrange;
             this.noComponenti.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noComponenti.ForeColor = System.Drawing.Color.White;
-            this.noComponenti.Location = new System.Drawing.Point(33, 270);
+            this.noComponenti.Location = new System.Drawing.Point(23, 77);
             this.noComponenti.Name = "noComponenti";
             this.noComponenti.Size = new System.Drawing.Size(268, 99);
             this.noComponenti.TabIndex = 45;
@@ -95,6 +100,7 @@ namespace TalkingPaper.Authoring
             // 
             this.ElencoRisorse.AllowDrop = true;
             this.ElencoRisorse.AutoScroll = true;
+            this.ElencoRisorse.Controls.Add(this.noComponenti);
             this.ElencoRisorse.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.ElencoRisorse.Location = new System.Drawing.Point(8, 257);
             this.ElencoRisorse.Name = "ElencoRisorse";
@@ -282,11 +288,52 @@ namespace TalkingPaper.Authoring
             this.scegliOggetto.TabIndex = 64;
             this.scegliOggetto.Text = resources.GetString("scegliOggetto.Text");
             // 
+            // immagine_audio
+            // 
+            this.immagine_audio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.immagine_audio.Image = ((System.Drawing.Image)(resources.GetObject("immagine_audio.Image")));
+            this.immagine_audio.Location = new System.Drawing.Point(521, 21);
+            this.immagine_audio.Name = "immagine_audio";
+            this.immagine_audio.Size = new System.Drawing.Size(25, 25);
+            this.immagine_audio.TabIndex = 72;
+            this.immagine_audio.Visible = false;
+            // 
+            // immagine_video
+            // 
+            this.immagine_video.Image = ((System.Drawing.Image)(resources.GetObject("immagine_video.Image")));
+            this.immagine_video.Location = new System.Drawing.Point(565, 21);
+            this.immagine_video.Name = "immagine_video";
+            this.immagine_video.Size = new System.Drawing.Size(36, 25);
+            this.immagine_video.TabIndex = 73;
+            this.immagine_video.Visible = false;
+            // 
+            // immagine_testo
+            // 
+            this.immagine_testo.Image = ((System.Drawing.Image)(resources.GetObject("immagine_testo.Image")));
+            this.immagine_testo.Location = new System.Drawing.Point(607, 21);
+            this.immagine_testo.Name = "immagine_testo";
+            this.immagine_testo.Size = new System.Drawing.Size(25, 25);
+            this.immagine_testo.TabIndex = 74;
+            this.immagine_testo.Visible = false;
+            // 
+            // immagine_img
+            // 
+            this.immagine_img.Image = ((System.Drawing.Image)(resources.GetObject("immagine_img.Image")));
+            this.immagine_img.Location = new System.Drawing.Point(657, 21);
+            this.immagine_img.Name = "immagine_img";
+            this.immagine_img.Size = new System.Drawing.Size(25, 25);
+            this.immagine_img.TabIndex = 75;
+            this.immagine_img.Visible = false;
+            // 
             // PosizionaComponentiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.immagine_img);
+            this.Controls.Add(this.immagine_testo);
+            this.Controls.Add(this.immagine_video);
+            this.Controls.Add(this.immagine_audio);
             this.Controls.Add(this.svuotaCella);
             this.Controls.Add(this.schemaGriglia);
             this.Controls.Add(this.scegliOggetto);
@@ -297,13 +344,11 @@ namespace TalkingPaper.Authoring
             this.Controls.Add(this.play);
             this.Controls.Add(this.pausa);
             this.Controls.Add(this.aggiungi);
-            this.Controls.Add(this.noComponenti);
             this.Controls.Add(this.ElencoRisorse);
             this.Name = "PosizionaComponentiForm";
             this.Text = "FormVisualizzaElementiAuthoring";
             this.VisibleChanged += new System.EventHandler(this.PosizionaComponentiForm_VisibleChanged);
             this.Controls.SetChildIndex(this.ElencoRisorse, 0);
-            this.Controls.SetChildIndex(this.noComponenti, 0);
             this.Controls.SetChildIndex(this.aggiungi, 0);
             this.Controls.SetChildIndex(this.pausa, 0);
             this.Controls.SetChildIndex(this.play, 0);
@@ -314,14 +359,20 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.scegliOggetto, 0);
             this.Controls.SetChildIndex(this.schemaGriglia, 0);
             this.Controls.SetChildIndex(this.svuotaCella, 0);
+            this.Controls.SetChildIndex(this.immagine_audio, 0);
             this.Controls.SetChildIndex(this.boxSotto, 0);
             this.Controls.SetChildIndex(this.boxSopra, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.sottotitolo, 0);
+            this.Controls.SetChildIndex(this.immagine_video, 0);
+            this.Controls.SetChildIndex(this.immagine_testo, 0);
+            this.Controls.SetChildIndex(this.immagine_img, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
+            this.ElencoRisorse.ResumeLayout(false);
+            this.ElencoRisorse.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.schemaGriglia)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -342,5 +393,9 @@ namespace TalkingPaper.Authoring
         private Button elimina;
         private Button svuotaCella;
         private Label scegliOggetto;
+        private Label immagine_audio;
+        private Label immagine_video;
+        private Label immagine_testo;
+        private Label immagine_img;
     }
 }

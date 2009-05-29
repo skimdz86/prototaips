@@ -2,8 +2,8 @@ TODO List:
 
 [OK] Sistemare ridimensionamento testi nella stampa
 [OK] aggiungere test sul lampeggiamento nella config del lettore rfid
--mettere immagini a fianco delle label componenti
--fare con l'installer il link al manuale d'uso in start
+[OK] mettere immagini a fianco delle label componenti
+[OK] fare con l'installer il link al manuale d'uso in start
 -fare la copia dei file
 -fare gli help di authoring e execution
 -trovare una nuova icona (e forse nuove img per i componenti?)
