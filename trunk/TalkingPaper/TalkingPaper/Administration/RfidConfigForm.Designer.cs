@@ -46,8 +46,8 @@ namespace TalkingPaper.Administration
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(398, 33);
-            this.sottotitolo.Text = "Configura il dispositivo Rfid";
+            this.sottotitolo.Size = new System.Drawing.Size(337, 33);
+            this.sottotitolo.Text = "Configura il lettore Rfid";
             // 
             // help
             // 

@@ -49,7 +49,7 @@ namespace TalkingPaper.Administration
             // 
             this.sottotitolo.AutoSize = false;
             this.sottotitolo.Size = new System.Drawing.Size(704, 69);
-            this.sottotitolo.Text = "Seleziona la griglia che desideri modificare dalla lista e premi OK";
+            this.sottotitolo.Text = "Seleziona dalla lista la griglia che desideri modificare e premi OK";
             // 
             // help
             // 

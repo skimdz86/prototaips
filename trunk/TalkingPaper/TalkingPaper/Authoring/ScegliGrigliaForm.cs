@@ -156,5 +156,11 @@ namespace TalkingPaper.Authoring
             NavigationControl.goHome(this);
         }
 
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("Selezionando il nome di una griglia, questa apparirà a lato. Le caselle colorate di rosso sono quelle a cui è associato un tag, mentre quelle bianche sono vuote. ");
+            NavigationControl.showDialog(helpForm);
+        }
+
     }
 }

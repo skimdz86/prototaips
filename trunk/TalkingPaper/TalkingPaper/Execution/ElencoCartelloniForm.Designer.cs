@@ -43,6 +43,10 @@ namespace TalkingPaper.Execution
             this.sottotitolo.Size = new System.Drawing.Size(673, 74);
             this.sottotitolo.Text = "Seleziona il cartellone che desideri far parlare dalla lista";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -71,9 +75,9 @@ namespace TalkingPaper.Execution
             this.noPoster.ForeColor = System.Drawing.Color.White;
             this.noPoster.Location = new System.Drawing.Point(29, 199);
             this.noPoster.Name = "noPoster";
-            this.noPoster.Size = new System.Drawing.Size(355, 32);
+            this.noPoster.Size = new System.Drawing.Size(396, 32);
             this.noPoster.TabIndex = 27;
-            this.noPoster.Text = "Non sono presenti poster";
+            this.noPoster.Text = "Non sono presenti cartelloni";
             this.noPoster.Visible = false;
             // 
             // ElencoCartelloniForm
@@ -81,7 +85,7 @@ namespace TalkingPaper.Execution
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(1028, 739);
+            this.ClientSize = new System.Drawing.Size(1028, 732);
             this.Controls.Add(this.pannello);
             this.Name = "ElencoCartelloniForm";
             this.Text = "ElencoPosterEsecuzioneSingoloModello";

@@ -149,7 +149,7 @@ namespace TalkingPaper.Welcome
             this.RegistrazioneButton.Name = "RegistrazioneButton";
             this.RegistrazioneButton.Size = new System.Drawing.Size(180, 88);
             this.RegistrazioneButton.TabIndex = 7;
-            this.RegistrazioneButton.Text = "Registrazione";
+            this.RegistrazioneButton.Text = "Registrati";
             this.RegistrazioneButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.RegistrazioneButton.UseVisualStyleBackColor = false;
             this.RegistrazioneButton.Click += new System.EventHandler(this.RegistrazioneButton_Click);

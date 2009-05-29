@@ -53,6 +53,10 @@ namespace TalkingPaper.Authoring
             this.sottotitolo.Size = new System.Drawing.Size(726, 84);
             this.sottotitolo.Text = "Seleziona la griglia che vuoi usare per il tuo cartellone";
             // 
+            // help
+            // 
+            this.help.Click += new System.EventHandler(this.help_Click);
+            // 
             // home
             // 
             this.home.Click += new System.EventHandler(this.home_Click);
@@ -83,9 +87,9 @@ namespace TalkingPaper.Authoring
             this.noGriglie.ForeColor = System.Drawing.Color.White;
             this.noGriglie.Location = new System.Drawing.Point(-50, 154);
             this.noGriglie.Name = "noGriglie";
-            this.noGriglie.Size = new System.Drawing.Size(462, 32);
+            this.noGriglie.Size = new System.Drawing.Size(529, 32);
             this.noGriglie.TabIndex = 26;
-            this.noGriglie.Text = "Non sono presenti configurazioni";
+            this.noGriglie.Text = "Non sono presenti griglie da utilizzare";
             this.noGriglie.Visible = false;
             // 
             // SchemaGriglia

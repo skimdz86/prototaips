@@ -105,5 +105,11 @@ namespace TalkingPaper.Execution
             ok.Enabled = true;
             ok.Cursor = Cursors.Hand;
         }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("");
+            NavigationControl.showDialog(helpForm);
+        }
     }
 }

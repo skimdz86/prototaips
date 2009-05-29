@@ -121,6 +121,12 @@ namespace TalkingPaper.Authoring
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("");
+            NavigationControl.showDialog(helpForm);
+        }
+
 
     }
 }

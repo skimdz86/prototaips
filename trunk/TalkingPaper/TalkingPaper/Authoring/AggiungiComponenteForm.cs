@@ -256,5 +256,11 @@ namespace TalkingPaper.Authoring
             NavigationControl.goBack(this);
         }
 
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("E' obbligatorio inserire un suono o un video (non entrambi però), mentre i contenuti da stampare (immagini e testo) sono facoltativi.\nGrazie ai bottoni laterali puoi inoltre eliminare o vedere/sentire un'anteprima del contenuto scelto.");
+            NavigationControl.showDialog(helpForm);
+        }
+
     }
 }

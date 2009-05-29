@@ -405,7 +405,6 @@ namespace TalkingPaper.Execution
                     CleanUp();
                     UpdateStatusBar(null, null);
                     control.stopReader();
-                    esecuzioneDisattivata.Visible = true;
                     updateTimer.Stop();
                     NavigationControl.goHome(this);
                 }
@@ -424,7 +423,6 @@ namespace TalkingPaper.Execution
                         CleanUp();
                         UpdateStatusBar(null, null);
                         control.stopReader();
-                        esecuzioneDisattivata.Visible = true;
                         updateTimer.Stop();
                         NavigationControl.goHome(this);
                     }
@@ -438,7 +436,6 @@ namespace TalkingPaper.Execution
                         CleanUp();
                         UpdateStatusBar(null, null);
                         control.stopReader();
-                        esecuzioneDisattivata.Visible = true;
                         updateTimer.Stop();
 
                         messaggioStart.Visible = false;
@@ -455,6 +452,12 @@ namespace TalkingPaper.Execution
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void help_Click(object sender, EventArgs e)
+        {
+            HelpFormSchema helpForm = new HelpFormSchema("Suggerimento: per essere sicuro che il lettore funzioni, controlla che lampeggi la luce rossa. \n");
+            NavigationControl.showDialog(helpForm);
         }
 
         
