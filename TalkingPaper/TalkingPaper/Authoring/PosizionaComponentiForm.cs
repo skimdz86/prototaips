@@ -266,7 +266,7 @@ namespace TalkingPaper.Authoring
                             lista.Add(matrix[i, j]);
                     }
                 }
-                ////aggiungo copia file
+                /*aggiungo copia file*/
                 if (!System.IO.Directory.Exists(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/")) System.IO.Directory.CreateDirectory(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/");
                 List<String> tempCopy = new List<String>();
                 List<String> tempCopyNames = new List<String>();
@@ -332,7 +332,7 @@ namespace TalkingPaper.Authoring
                     String s = tempCopy[ind2].Substring(i + 1, leng);
                     tempCopyNames.Add(s);
                 }
-                //conffronto i nomi
+                //confronto i nomi
                 List<String> deleteList = new List<string>();
                 for (int i1 = 0; i1 < oldFiles.Length; i1++) 
                 {
@@ -343,7 +343,7 @@ namespace TalkingPaper.Authoring
                     }
                     if (count == 0) deleteList.Add(oldFiles[i1]);
                 }
-                //aggiungo tutti quelli nuovi aggiungendo il path
+                //aggiungo tutti quelli nuovi nella cartella aggiungendo il path
                 for (int i3 = 0; i3 < tempCopy.Count; i3++) 
                 {
                     if(!System.IO.File.Exists(dir + tempCopyNames[i3]))
@@ -356,7 +356,7 @@ namespace TalkingPaper.Authoring
                 {
                     System.IO.File.Delete(dir + deleteList[i4]);
                 }
-                //fine copia file
+                /*fine copia file*/
 
                 poster.setContenuti(lista);
                 
