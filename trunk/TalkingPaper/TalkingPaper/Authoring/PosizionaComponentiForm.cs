@@ -251,6 +251,8 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
+            bool modifica=false;
+            if(System.IO.Directory.Exists(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/")) modifica=true;
             try
             {
                 Model.Poster poster = new Model.Poster(nomePoster, descrizionePoster, nomeClasse, nomeGriglia);
@@ -265,7 +267,7 @@ namespace TalkingPaper.Authoring
                     }
                 }
                 ////aggiungo copia file
-                if (!System.IO.Directory.Exists(nomePoster)) System.IO.Directory.CreateDirectory(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/");
+                if (!System.IO.Directory.Exists(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/")) System.IO.Directory.CreateDirectory(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/");
                 List<String> tempCopy = new List<String>();
                 List<String> tempCopyNames = new List<String>();
                 String[] oldFiles;
@@ -280,7 +282,6 @@ namespace TalkingPaper.Authoring
                     String s = oldFiles[sc].Substring(i + 1, leng);
                     oldFiles[sc] = s;//solo nomi files
                 }
-                //MessageBox.Show(oldFiles[0]);
                 //faccio una lista coi nuovi
                 for (int ind1 = 0; ind1 < lista.Count; ind1++)
                 {
@@ -342,8 +343,6 @@ namespace TalkingPaper.Authoring
                     }
                     if (count == 0) deleteList.Add(oldFiles[i1]);
                 }
-                ////prove
-                //for (int h = 0; h < deleteList.Count; h++) { MessageBox.Show(deleteList[h]); }
                 //aggiungo tutti quelli nuovi aggiungendo il path
                 for (int i3 = 0; i3 < tempCopy.Count; i3++) 
                 {
@@ -365,7 +364,11 @@ namespace TalkingPaper.Authoring
 
                 NavigationControl.goHome(this);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); /*System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\"); solo se è nuovoposter pero*/}
+            catch (Exception ex) 
+            { 
+                MessageBox.Show(ex.Message); 
+                if(!modifica) System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\"); 
+            }
         }
 
         private void aggiungi_Click(object sender, EventArgs e)
