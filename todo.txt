@@ -4,7 +4,7 @@ TODO List:
 [OK] aggiungere test sul lampeggiamento nella config del lettore rfid
 [OK] mettere immagini a fianco delle label componenti
 [OK] fare con l'installer il link al manuale d'uso in start
--fare la copia dei file
+[OK]fare la copia dei file
 -sistemare gli help
 -trovare una nuova icona (e forse nuove img per i componenti?)
 -sistemare installer per xp e scriverci qualcosa in piu di istruzioni
