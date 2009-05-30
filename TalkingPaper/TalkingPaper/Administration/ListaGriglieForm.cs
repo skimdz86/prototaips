@@ -34,7 +34,9 @@ namespace TalkingPaper.Administration
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
-        
+        /// <summary>
+        /// Crea il pannello e aggiunge le griglie trovate ad esso
+        /// </summary>
         private void caricaPannello() {
             try
             {
@@ -58,7 +60,9 @@ namespace TalkingPaper.Administration
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
-       
+        /// <summary>
+        /// Disegna graficamente la griglia scelta
+        /// </summary>
         private void disegnaGrigliaSelezionata()
         {
             try
@@ -111,7 +115,6 @@ namespace TalkingPaper.Administration
             }
             else
             {
-                //throw new Exception("Errore sul controllo del tasto ok");
                 MessageBox.Show("Errore sul controllo del tasto ok");
             }
         }
@@ -125,6 +128,7 @@ namespace TalkingPaper.Administration
         {
             try
             {
+                /*Ricava tutti i dati della griglia selezionata*/
                 grigliaSelezionata = Global.dataHandler.getGriglia((string)((Label)sender).Tag);
 
 

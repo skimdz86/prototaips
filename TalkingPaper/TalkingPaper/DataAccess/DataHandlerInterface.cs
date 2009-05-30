@@ -60,10 +60,11 @@ namespace TalkingPaper.DataAccess
         bool existPoster(String nomePoster);
 
         /*------------SEZIONE MISTA--------------*/
+        //ricava un contenuto di un poster partendo dal nome del poster e dal tag della griglia associata
         Model.Contenuto getContenutoFromTag(String nomePoster, String tag);
 
         /*
-         * Non c'è la sezione COMPONENTE, perchè i componenti
+         * Non c'è la sezione CONTENUTO, perchè i componenti
          * vengono gestiti solamente 'in locale'. I componenti
          * vengono infatti memorizzati all'interno dell'oggetto Poster.
          */

@@ -13,7 +13,9 @@ namespace TalkingPaper.DataAccess
         String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Griglie.xml";
 
-        //crea il file
+        /// <summary>
+        /// Crea il file XML contentente le griglie
+        /// </summary>
         public void CreateGriglieTaggate()
         {
             try
@@ -27,10 +29,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
+        /// <summary>
+        /// Salva la griglia nel file XML
+        /// </summary>
+        /// <param name="griglia">E' un oggetto che contiene tutte le informazioni sulla griglia</param>
+        /// <returns>True se non ci sono stati errori</returns>
         public bool setGriglia(Model.Griglia gr)
         {
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -41,7 +49,7 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                //String ID = "Generare un id per la griglia, magari casuale";//////////////////
+                //L'id della griglia è il suo nome
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
@@ -60,6 +68,7 @@ namespace TalkingPaper.DataAccess
                 el.SetAttribute("Righe", gr.getNumRighe().ToString());
                 el.SetAttribute("Colonne", gr.getNumColonne().ToString());
                 List<String> tempTags = gr.getListaTag();
+                //creo nell'xml una lista di delle contenente ognuna le coordinate e il tag rfid associato
                 for (int i = 0; i < tempTags.Count; i++)
                 {
                     if (tempTags[i] != "")
@@ -78,22 +87,25 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-        
 
-        
 
+
+        /// <summary>
+        /// Ottiene la lista delle griglie presenti
+        /// </summary>
+        /// <returns>Lista di oggetti di tipo Griglia</returns>
         public List<Model.Griglia> getListaGriglie()
         {
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
                 }
                 if (!File.Exists(filepath)) 
                 { 
-                    CreateGriglieTaggate();
-                    //throw new Exception("Il file non esiste!"); 
+                    CreateGriglieTaggate(); 
                 }
             }
             catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
@@ -121,10 +133,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
+        /// <summary>
+        /// Ottiene l'oggetto griglia
+        /// </summary>
+        /// <param name="nomeGriglia"></param>
+        /// <returns></returns>
         public Model.Griglia getGriglia(String nome)
         {
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -161,12 +179,12 @@ namespace TalkingPaper.DataAccess
 
                             for (int j = 0; j < celleList.Count; j++)
                             {
-                                //////cercare le coord e metterci li il valore
+                                //////cerco le coordinate e le inserisco negli elementi della lista
                                 XmlElement y = (XmlElement)x.GetElementsByTagName("Cella")[j];
                                 String tempString = y.GetAttribute("Coordinate");
                                 int[] coord = new int[2] { Convert.ToInt32(tempString.Substring(0, 1)), Convert.ToInt32(tempString.Substring(1, 1)) };
                                 int index = tempGr.getIndexFromCoord(coord);
-                                tags[index] = y.InnerText;//ma le coordinate nn le ripassso piu???
+                                tags[index] = y.InnerText;
                             }
                         tempGr.setListaTag(tags);
                     }

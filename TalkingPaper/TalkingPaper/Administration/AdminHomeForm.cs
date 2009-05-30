@@ -21,6 +21,7 @@ namespace TalkingPaper.Administration
                 benvenuto.Text = benvenuto.Text + " " + user;
                 benvenuto.Left -= (benvenuto.Size.Width - dimensione) / 2;
 
+                /*se il lettore non è configurato appare il bottone per la configurazione manuale*/
                 if (isConfigured > 1)
                 {
                     configRfid.Visible = true;
@@ -35,7 +36,7 @@ namespace TalkingPaper.Administration
                     configRfid.Visible = false;
                     groupBoxRfid.Visible = false;
 
-                }//è codice di sicurezza per config rfid
+                }
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }

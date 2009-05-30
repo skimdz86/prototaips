@@ -16,6 +16,7 @@ namespace TalkingPaper.Model
         
         private List<Contenuto> contenuti;
 
+        /*Costruttore*/
         public Poster(String nome, String desc, String username, String nomeGriglia)
         {
             this.nomePoster = nome;
@@ -25,6 +26,7 @@ namespace TalkingPaper.Model
             contenuti = null;
         }
 
+        /*Getters e setters*/
         public String getNome() { return nomePoster; }
         public String getDescrizione() { return descrizione; }
         public String getUsername() { return username; }
@@ -37,22 +39,42 @@ namespace TalkingPaper.Model
         public void setNomeGriglia(String nomeGriglia) { this.nomeGriglia = nomeGriglia; }
         public void setContenuti(List<Contenuto> contenuti) { this.contenuti = contenuti; }
 
-        //se è più comodo, si può fare getContenuto(x,y)
+        /*Varie funzioni utili*/
+        
+        /// <summary>
+        /// Ricava il contenuto dando l'indice
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
         public Contenuto getContenutoFromIndex(int index)
         {
             return contenuti[index];
         }
 
+        /// <summary>
+        /// Imposta il valore di un contenuto nella lista di contenuti associata a un poster
+        /// </summary>
+        /// <param name="contenuto"></param>
+        /// <param name="index"></param>
         public void setTag(Contenuto contenuto, int index)
         {
             contenuti[index] = contenuto;
         }
 
+        /// <summary>
+        /// Cancella un contenuto dalla lista
+        /// </summary>
+        /// <param name="index"></param>
         public void delTag(int index)
         {
             contenuti[index] = null;
         }
 
+        /// <summary>
+        /// Ricava un contenuto partendo dal nome
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public Contenuto getContenutoFromName(string name)
         {
             foreach (Contenuto contenuto in contenuti)

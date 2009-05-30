@@ -16,7 +16,7 @@ namespace TalkingPaper.Model
 
         private int[] coordinate;
 
-        //Forse serve solo questo costruttore (e non quello più sotto)
+        /*Costruttore vuoto*/
         public Contenuto()
         {
             this.nomeContenuto = null;
@@ -27,7 +27,7 @@ namespace TalkingPaper.Model
             this.coordinate = new int[2]{0,0};
         }
         
-        
+        /*Costruttore*/
         //Il valore 'null' indica che la risorsa corrispondente non è disponibile
         public Contenuto(String nomeContenuto, String audioPath, String videoPath, String imagePath, String textPath)
         {
@@ -39,6 +39,7 @@ namespace TalkingPaper.Model
             this.coordinate = new int[2] { 0, 0 };
         }
 
+        /*Reimposta il contenuto con valori nulli*/
         public void resetContenuto()
         {
             this.nomeContenuto = null;
@@ -48,6 +49,8 @@ namespace TalkingPaper.Model
             this.textPath = null;
             this.coordinate = new int[2] { 0, 0 };
         }
+
+        /*Getters e setters*/
 
         public String getNomeContenuto() { return this.nomeContenuto; }
         public String getAudioPath() { return this.audioPath; }

@@ -41,7 +41,9 @@ namespace TalkingPaper.Administration
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
-
+        /// <summary>
+        /// Questa funzione crea graficamente la griglia da taggare visibile su schermo
+        /// </summary>
         public void inizializzaDataGrid()
         {
             try
@@ -91,7 +93,10 @@ namespace TalkingPaper.Administration
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
-
+        /// <summary>
+        /// Evento che permette al lettore RFID di leggere il tag e associarlo alla griglia
+        /// </summary>
+        /// <param name="id">E' l'id del tag letto</param>
         public void rfid_StatusUpdateEvent(string id)
         {
             try
@@ -153,6 +158,7 @@ namespace TalkingPaper.Administration
         {
             try
             {
+                /*creo una matrice che contiene tutti gli id dei tag che ho associato alla griglia*/
                 string[,] matrix = new string[ElencoTag.RowCount - 1, ElencoTag.ColumnCount - 1];
                 for (int i = 0; i < ElencoTag.RowCount - 1; i++)
                 {
@@ -165,6 +171,7 @@ namespace TalkingPaper.Administration
                         }
                         else
                         {
+                            /*Controllo che nessuna cella che prima era associata a un tag ora sia vuota*/
                             if (Global.isNotEmpty(backup[i * (ElencoTag.ColumnCount - 1) + j]))
                             {
                                 MessageBox.Show("Non puoi eliminare dei tag dalla griglia");

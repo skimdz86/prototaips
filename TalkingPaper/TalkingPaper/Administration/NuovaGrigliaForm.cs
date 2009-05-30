@@ -30,6 +30,7 @@ namespace TalkingPaper.Administration
         {
             try
             {
+                /*eseguo i controlli sui vari campi di input*/
                 if (Global.isEmpty(textBox2.Text))
                 {
                     MessageBox.Show("Non hai inserito i tag presenti in una riga");
@@ -48,7 +49,7 @@ namespace TalkingPaper.Administration
                 }
                 else
                 {
-                    int numeroRighe = 0;///////////////perche vuole che le assegno qui per forza??????
+                    int numeroRighe = 0;
                     int numeroColonne = 0;
 
                     try
@@ -76,6 +77,7 @@ namespace TalkingPaper.Administration
                     }
                     else
                     {
+                        /*Se i controlli hanno avuto successo creo la griglia*/
                         Model.Griglia griglia;
                         griglia = control.inizializzaGriglia(textBox1.Text, textBox2.Text, textBox3.Text);
                         if (griglia != null)
@@ -85,7 +87,6 @@ namespace TalkingPaper.Administration
                         }
                         else
                         {
-                            //throw new Exception("Impossibile inizializzare la griglia");
                             MessageBox.Show("Impossibile inizializzare la griglia");
                         }
                     }

@@ -30,7 +30,9 @@ namespace TalkingPaper.Administration
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
-
+        /// <summary>
+        /// Crea la lista dei poster trovati
+        /// </summary>
         private void caricaLista()
         {
             try
@@ -80,20 +82,24 @@ namespace TalkingPaper.Administration
             }
             else
             {
-                //throw new Exception("Errore sul controllo del tasto ok");
                 MessageBox.Show("Errore sul controllo del tasto ok");
             }
         }
+        /// <summary>
+        /// Cancella il poster selezionato se la risposta nel dialog è stata positiva
+        /// </summary>
+        /// <param name="param"></param>
+        /// <param name="response"></param>
         public void questionAnswer(string param,string response)
         {
-            Model.Poster pTemp = autControl.getPoster(posterSelezionato);
+            Model.Poster pTemp = autControl.getPoster(posterSelezionato);//serve come backup del poster in caso di errori
             try
             {
                 if (response.Equals("yes"))
                 {
                     bool result;
                     result = control.rimuoviPoster(posterSelezionato);
-                    System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\",true);
+                    System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\",true);//cancella la cartella con i contenuti associati
                     if (result == false)
                     {
                         throw new Exception("Impossibile eliminare il poster");
