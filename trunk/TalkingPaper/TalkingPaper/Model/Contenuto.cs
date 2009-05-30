@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TalkingPaper.Common;
 
 namespace TalkingPaper.Model
 {
@@ -48,23 +49,59 @@ namespace TalkingPaper.Model
             this.coordinate = new int[2] { 0, 0 };
         }
 
-        public String getNomeContenuto() { return nomeContenuto; }
-        public String getAudioPath() { return audioPath; }
-        public String getVideoPath() { return videoPath; }
-        public String getImagePath() { return imagePath; }
-        public String getTextPath() { return textPath; }
-        public int[] getCoordinate() { return coordinate; }
+        public String getNomeContenuto() { return this.nomeContenuto; }
+        public String getAudioPath() { return this.audioPath; }
+        public String getVideoPath() { return this.videoPath; }
+        public String getImagePath() { return this.imagePath; }
+        public String getTextPath() { return this.textPath; }
+        public int[] getCoordinate() { return this.coordinate; }
 
-        public void setNomeContenuto(String nomeContenuto) { this.nomeContenuto = nomeContenuto; }
-        public void setAudioPath(String audioPath) { if (audioPath != "") this.audioPath = audioPath; else this.audioPath = null; }
-        public void setVideoPath(String videoPath) { if (videoPath != "") this.videoPath = videoPath; else videoPath = null; }
-        public void setImagePath(String imagePath) { if (imagePath != "")  this.imagePath = imagePath; else imagePath = null; }
-        public void setTextPath(String textPath) { if (textPath != "")  this.textPath = textPath; else textPath = null; }
+        public void setNomeContenuto(String nomeContenuto) 
+        {
+            if (Global.isNotEmpty(nomeContenuto))
+                this.nomeContenuto = nomeContenuto;
+            else
+                this.nomeContenuto = "";
+        }
+
+        public void setAudioPath(String audioPath) 
+        { 
+            if (Global.isNotEmpty(audioPath)) 
+                this.audioPath = audioPath; 
+            else 
+                this.audioPath = null; 
+        }
+        
+        public void setVideoPath(String videoPath) 
+        {
+            if (Global.isNotEmpty(videoPath))
+                this.videoPath = videoPath; 
+            else 
+                this.videoPath = null; 
+        }
+        
+        public void setImagePath(String imagePath) 
+        {
+            if (Global.isNotEmpty(imagePath))
+                this.imagePath = imagePath; 
+            else 
+                this.imagePath = null; 
+        }
+        
+        public void setTextPath(String textPath)
+        {
+            if (Global.isNotEmpty(textPath)) 
+                this.textPath = textPath;
+            else 
+                this.textPath = null;
+        }
+
         public void setCoordinate(int[] coordinate)
         {
             if ((coordinate != null) && (coordinate.Length == 2))
                 this.coordinate = coordinate;
-            else coordinate = new int[2] { 0, 0 };
+            else 
+                this.coordinate = new int[2] { 0, 0 };
         }
 
     }
