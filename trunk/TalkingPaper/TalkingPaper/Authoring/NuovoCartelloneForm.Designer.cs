@@ -60,6 +60,7 @@ namespace TalkingPaper.Authoring
             // 
             // ok
             // 
+            this.ok.TabIndex = 29;
             this.ok.Click += new System.EventHandler(this.ok_Click);
             // 
             // Classe
@@ -137,6 +138,7 @@ namespace TalkingPaper.Authoring
             // 
             // NuovoCartelloneForm
             // 
+            this.AcceptButton = this.ok;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);

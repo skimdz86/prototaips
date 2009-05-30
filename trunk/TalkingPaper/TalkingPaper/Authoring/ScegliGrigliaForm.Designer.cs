@@ -85,7 +85,7 @@ namespace TalkingPaper.Authoring
             this.noGriglie.AutoSize = true;
             this.noGriglie.Font = new System.Drawing.Font("Microsoft Sans Serif", 21F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.noGriglie.ForeColor = System.Drawing.Color.White;
-            this.noGriglie.Location = new System.Drawing.Point(-50, 154);
+            this.noGriglie.Location = new System.Drawing.Point(250, 296);
             this.noGriglie.Name = "noGriglie";
             this.noGriglie.Size = new System.Drawing.Size(529, 32);
             this.noGriglie.TabIndex = 26;
@@ -154,7 +154,6 @@ namespace TalkingPaper.Authoring
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.Red;
-            this.groupBox2.Controls.Add(this.noGriglie);
             this.groupBox2.Controls.Add(this.SchemaGriglia);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(334, 154);
@@ -195,6 +194,7 @@ namespace TalkingPaper.Authoring
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.noGriglie);
             this.Controls.Add(this.pannello);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
@@ -209,13 +209,13 @@ namespace TalkingPaper.Authoring
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.label4, 0);
             this.Controls.SetChildIndex(this.pannello, 0);
+            this.Controls.SetChildIndex(this.noGriglie, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SchemaGriglia)).EndInit();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
