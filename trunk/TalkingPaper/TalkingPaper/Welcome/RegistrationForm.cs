@@ -33,7 +33,7 @@ namespace TalkingPaper.Welcome
                 if (password.Text == verificaPassword.Text)
                 {
 
-                    if (logc.registration(user.Text, password.Text))
+                    if (logc.registration(user.Text, password.Text))//effettua la registrazione
                     {
                         MessageBox.Show("Ti sei registrato con successo!");
                         ChildHomeForm child=new ChildHomeForm();

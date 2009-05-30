@@ -28,6 +28,7 @@ namespace TalkingPaper.Administration
 
                 control = new TalkingPaper.ControlLogic.AdministrationControl();
                 bool readerOk = control.inizializzaReader(this);
+                
                 if (!readerOk)
                 {
                     MessageBox.Show("Impossibile avviare il lettore");
@@ -42,7 +43,9 @@ namespace TalkingPaper.Administration
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
-                
+        /// <summary>
+        /// Questa funzione crea graficamente la griglia da taggare visibile su schermo
+        /// </summary>
         public void inizializzaDataGrid()
         {
             Font font = new Font("Arial", 16);
@@ -71,7 +74,10 @@ namespace TalkingPaper.Administration
             ElencoTag[1, 1].Style.SelectionBackColor = Color.Yellow;
             ElencoTag[colonna, riga].Selected = true;
         }
-
+        /// <summary>
+        /// Evento che permette al lettore RFID di leggere il tag e associarlo alla griglia
+        /// </summary>
+        /// <param name="id">E' l'id del tag letto</param>
         public void rfid_StatusUpdateEvent(string id)
         {
             try
@@ -133,6 +139,7 @@ namespace TalkingPaper.Administration
         {
             try
             {
+                /*creo una matrice che contiene tutti gli id dei tag che ho associato alla griglia*/
                 string[,] matrix = new string[ElencoTag.RowCount - 1, ElencoTag.ColumnCount - 1];
                 for (int i = 0; i < ElencoTag.RowCount - 1; i++)
                 {
@@ -144,7 +151,7 @@ namespace TalkingPaper.Administration
                             matrix[i, j] = "";
                     }
                 }
-                ////controllo che ci sia almeno un tag
+                /*controllo che ci sia almeno un tag*/
                 int counter = 0;
                 for (int k = 0; k < ElencoTag.RowCount - 1; k++)
                 {
@@ -174,7 +181,7 @@ namespace TalkingPaper.Administration
                 int row = e.RowIndex;
                 int col = e.ColumnIndex;
 
-                //click su un header
+                //click su una delle intestazioni della griglia
                 if (row == 0 || col == 0) return;
 
                 if ((riga != -1) && (colonna != -1))

@@ -11,7 +11,9 @@ namespace TalkingPaper.DataAccess
     {
         String dirpath = Global.directoryPrincipale + @"/Data/";
         String filepath = Global.directoryPrincipale + @"/Data/Poster.xml";
-
+        /// <summary>
+        /// crea il file XML per memorizzare i poster
+        /// </summary>
         public void CreateElencoPoster()
         {
             try
@@ -25,10 +27,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
+        /// <summary>
+        /// Salva il poster nel file XML
+        /// </summary>
+        /// <param name="poster">Oggetto di tipo Poster</param>
+        /// <returns>True se non ci sono stati errori</returns>
         public bool setPoster(Model.Poster poster)
         {
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -39,11 +47,11 @@ namespace TalkingPaper.DataAccess
 
             try
             {
-                //usiamo il nome come ID
+                //usiamo il nome come ID del poster
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                ////controllo nome gia esistente
+                /*controllo nome gia esistente*/
                 XmlNodeList l = doc.GetElementsByTagName("Poster");
                 for (int k = 0; k < l.Count;k++ ) {
                     XmlElement xel = (XmlElement)l[k];
@@ -64,6 +72,7 @@ namespace TalkingPaper.DataAccess
                 for (int i = 0; i < tempList.Count; i++)
                 {
                     Model.Contenuto c = (Model.Contenuto)tempList[i];
+                    //se le coordinate sono "00" non salva il contenuto nel file XML perchè significa che non è inserito nella griglia
                     if (!((c.getCoordinate()[0].ToString() + c.getCoordinate()[1].ToString()).Equals("00")))
                     {
                         XmlElement x = doc.CreateElement("Contenuto");
@@ -83,10 +92,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
+        /// <summary>
+        /// Ricava un oggetto di tipoPoster dal nome
+        /// </summary>
+        /// <param name="nomePoster"></param>
+        /// <returns>Oggetto di tipo Poster</returns>
         public Model.Poster getPoster(String nomePoster) {
 
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -94,7 +109,6 @@ namespace TalkingPaper.DataAccess
                 if (!File.Exists(filepath)) 
                 {
                     CreateElencoPoster();
-                    //throw new Exception("Il file non esiste!");
                 }
             }
             catch (IOException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
@@ -144,10 +158,15 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
+        /// <summary>
+        /// Ricava la lista dei poster
+        /// </summary>
+        /// <returns>Lista di oggetti Poster</returns>
         public List<Model.Poster> getListaPoster() {
 
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -184,10 +203,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
+        /// <summary>
+        /// Rimuove un poster dal file XML
+        /// </summary>
+        /// <param name="nomePoster"></param>
+        /// <returns>True se non ci sono stati errori</returns>
         public bool removePoster(String nomePoster) {
 
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -213,7 +238,7 @@ namespace TalkingPaper.DataAccess
                     if (rm.GetAttribute("Nome") == nomePoster)
                     {
                         doc.DocumentElement.RemoveChild(rm);
-                        counter++;//se alla fine=1 ho rimosso qualcosa
+                        counter++;//se alla fine counter=1 ho rimosso qualcosa
                     }
                 }
                 if (counter == 0) { Console.Write("Non esiste questo poster!"); stream.Close(); return false; }
@@ -223,11 +248,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-
+        /// <summary>
+        /// Verifica l'esistenza del poster dato il nome
+        /// </summary>
+        /// <param name="nomePoster"></param>
+        /// <returns>True se esiste</returns>
         public bool existPoster(String nomePoster)
         {
             try
             {
+                /*Crea il file XML e la directory se non esistono*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);

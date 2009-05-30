@@ -21,6 +21,7 @@ namespace TalkingPaper.Administration
                 InitializeComponent();
                 foreach (string comPort in SerialPort.GetPortNames())
                 {
+                    /*Escludo dal controllo le porte COM1 e COM2 che non sono utilizzabili dal lettore*/
                     if (!(comPort.Equals("COM1")) && !(comPort.Equals("COM2")))
                     {
                         comboPort.Items.Add(comPort);
@@ -53,13 +54,16 @@ namespace TalkingPaper.Administration
                 else
                 {
                     Global.reader.readerStatusUpdate += new TalkingPaper.Reader.ReaderDelegate(prova_lettura);
-                    Global.reader.startRead();
+                    Global.reader.startRead();//serve a far lampeggiare il lettore per capire se è configurato
                     this.labelOK.Visible = true;
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-
+        /// <summary>
+        /// Eì il delegate che permette di avviare il test sul lettore
+        /// </summary>
+        /// <param name="value"></param>
         void prova_lettura(string value)
         {
             

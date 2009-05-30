@@ -29,7 +29,7 @@ namespace TalkingPaper.Welcome
             String password = textBox2.Text;
             LoginControl logc = new LoginControl();
             
-            /////////////////////autenticazione
+            /*Autenticazione dell'utente o dell'amministratore*/
             if (Global.isNotEmpty(user) && Global.isNotEmpty(password))
             {
                 String res = logc.login(user, password);
@@ -84,6 +84,7 @@ namespace TalkingPaper.Welcome
         {
             if (Visible)
             {
+                /*Prova l'autoconfigurazione del lettore RFID*/
                 isConfigured = Global.reader.configure();
                 if (isConfigured <= 0)
                 {
@@ -111,6 +112,7 @@ namespace TalkingPaper.Welcome
 
         private void config_Click(object sender, EventArgs e)
         {
+            /*Autoconfigurazione del lettore*/
             isConfigured = Global.reader.configure();
             if (isConfigured <= 0)
             {

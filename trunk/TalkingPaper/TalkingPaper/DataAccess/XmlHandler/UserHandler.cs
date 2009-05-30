@@ -14,7 +14,10 @@ namespace TalkingPaper.DataAccess
         String filepath = Global.directoryPrincipale + @"/Data/Users.xml";
         String backupPath = Global.directoryPrincipale + @"/backup.dat";
 
-        //crea il file
+        /// <summary>
+        /// crea il file XML che contiene gli utenti
+        /// </summary>
+        /// <returns>True se non ci sono stati errori</returns>
         public bool CreateListaUtenti()
         {
             try
@@ -32,12 +35,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Errore nella creazione del file utenti", e); }
         }
+        /// <summary>
+        /// Crea un amministratore nel file XML nel caso non sia presente prendendo i dati da un file di backup o assegnando un account di default
+        /// </summary>
+        /// <returns></returns>
         public bool createAdmin(){
             try
             {
                 String user="";
                 String res="";
-                //apro backup e estraggo dati
+                /*apro file di backup e estraggo i dati*/
                 if (File.Exists(backupPath))
                 {
                     XmlDocument docB = new XmlDocument();
@@ -48,19 +55,16 @@ namespace TalkingPaper.DataAccess
                     res = ((XmlElement)l[0]).GetAttribute("Password");
                     streamB.Close();
                 }
-                else { user = "admin"; res = "admin"; } 
+                else { user = "admin"; res = "admin"; } //se non esiste il backup
 
-                //scrivo i dati dell'admin nell'xml degli utenti
+                /*scrivo i dati dell'admin nell'xml degli utenti*/
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                
-
                 XmlElement el = doc.CreateElement("Utente");
                 el.SetAttribute("Login", user);
                 el.SetAttribute("Password", res);
-                //el.SetAttribute("Classe", IDClasse);
-                el.SetAttribute("FlagAmministratore", "Si");//tipo account è si/no
+                el.SetAttribute("FlagAmministratore", "Si");
                 doc.DocumentElement.AppendChild(el);
                 stream.Close();
                 doc.Save(filepath);
@@ -68,11 +72,17 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-        //ereditata
+        /// <summary>
+        /// Registra l'utente
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>True se non ci sono stati errori</returns>
         public bool registraUtente(String login, String password)
         {
             try
             {
+                /*Verifica se esistono file e directory*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -86,12 +96,12 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                ////critto md5
+                ////crittografo la password con MD5
                 MD5 md5 = new MD5CryptoServiceProvider();
                 Byte[] original = ASCIIEncoding.Default.GetBytes(password);
                 Byte[] encoded = md5.ComputeHash(original);
                 String res = BitConverter.ToString(encoded);
-                ////controllo nome gia esistente
+                ////controllo se nome gia esistente
                 XmlNodeList l = doc.GetElementsByTagName("Utente");
                 for (int i = 0; i < l.Count; i++)
                 {
@@ -105,8 +115,7 @@ namespace TalkingPaper.DataAccess
                 XmlElement el = doc.CreateElement("Utente");
                 el.SetAttribute("Login", login);
                 el.SetAttribute("Password", res);
-                //el.SetAttribute("Classe", IDClasse);
-                el.SetAttribute("FlagAmministratore", "No");//tipo account è si/no
+                el.SetAttribute("FlagAmministratore", "No");
                 doc.DocumentElement.AppendChild(el);
                 stream.Close();
                 doc.Save(filepath);
@@ -114,8 +123,12 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-        ////da vedere se serve
-        public bool RemoveUtente(String login, String filepath)
+        /// <summary>
+        /// Rimuove un utente dall'XML dato lo username
+        /// </summary>
+        /// <param name="login">Username</param>
+        /// <returns>True se non ci sono stati errori</returns>
+        public bool RemoveUtente(String login)
         {
             try
             {
@@ -147,11 +160,17 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-        ////autentica
+        /// <summary>
+        /// Verifica l'autenticazione dell'utente
+        /// </summary>
+        /// <param name="username">Username</param>
+        /// <param name="password">Password</param>
+        /// <returns>True se autenticato</returns>
         public bool autenticaUtente(String login, String password)
         {
             try
             {
+                /*Se non esistono creo file e directory*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -166,7 +185,7 @@ namespace TalkingPaper.DataAccess
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                //critto md5
+                //crittografo la password in MD5 per confrontarla con quella nel file XML
                 MD5 md5 = new MD5CryptoServiceProvider();
                 Byte[] original = ASCIIEncoding.Default.GetBytes(password);
                 Byte[] encoded = md5.ComputeHash(original);
@@ -176,7 +195,7 @@ namespace TalkingPaper.DataAccess
                 for (int i = 0; i < loginList.Count; i++)
                 {
                     XmlElement temp = (XmlElement)doc.GetElementsByTagName("Utente")[i];
-                    if (temp.GetAttribute("Login") == login && temp.GetAttribute("Password") == res)
+                    if (temp.GetAttribute("Login") == login && temp.GetAttribute("Password") == res)//confronto login e la password criptata
                     {
                         flag = true;
                     }
@@ -186,11 +205,15 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-        //listautenti
+        /// <summary>
+        /// Ricava la lista di utenti registrati
+        /// </summary>
+        /// <returns>Lista di utenti</returns>
         public List<Model.User> getListaUtenti()
         {
             try
             {
+                /*Se non esistono creo file e directory*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
@@ -212,10 +235,8 @@ namespace TalkingPaper.DataAccess
                     XmlElement x = (XmlElement)doc.GetElementsByTagName("Utente")[i];
                     Model.User ut = new Model.User("", "", false);
                     ut.setUsername(x.GetAttribute("Login"));
-                    // ut.setQualcosa(x.GetAttribute("Classe"));
                     if (x.GetAttribute("FlagAmministratore") == "Si") tempFlag = true;
                     ut.setFlagAdmin(tempFlag);
-                    //penso che la password pero non debba vederla
                     temp.Add(ut);
                 }
                 stream.Close();
@@ -223,11 +244,16 @@ namespace TalkingPaper.DataAccess
             }
             catch (XmlException e) { throw new Exception("Si è verificato un errore. Prego riprovare", e); }
         }
-        //verifica admin
+        /// <summary>
+        /// Verifica se l'utente è amministratore dopo aver verificato l'autenticazione
+        /// </summary>
+        /// <param name="username">Username</param>
+        /// <returns>True se amministratore</returns>
         public bool isAdmin(String username) {
             
             try
             {
+                /*Se non esistono creo file e directory*/
                 if (!(Directory.Exists(dirpath)))
                 {
                     Directory.CreateDirectory(dirpath);
