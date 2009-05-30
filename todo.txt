@@ -9,5 +9,5 @@ TODO List:
 -trovare una nuova icona (e forse nuove img per i componenti?)
 -sistemare installer per xp e scriverci qualcosa in piu di istruzioni
 -aaaaaaaaaaaaaaaaaa problema enorme: gli help non si vedono se esegui in fullscreen
-[OK]sistemare i  limiti di caratteri dei nomi dove ancora non è fatto
--in scegliggriagliaform (authoring) quando non ce n'è non si vede il messaggio che dice che non ce n'è
+[OK] sistemare i  limiti di caratteri dei nomi dove ancora non è fatto
+[OK] in scegliggriagliaform (authoring) quando non ce n'è non si vede il messaggio che dice che non ce n'è

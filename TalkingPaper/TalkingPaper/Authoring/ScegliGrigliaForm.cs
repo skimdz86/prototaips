@@ -38,6 +38,7 @@ namespace TalkingPaper.Authoring
 
                 control = new ControlLogic.AuthoringControl();
                 griglie = control.leggiGriglie();
+
                 if ((griglie == null) || (griglie.Count == 0))
                 {
                     noGriglie.Visible = true;
