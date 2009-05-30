@@ -91,7 +91,7 @@ namespace TalkingPaper.Administration
                 {
                     bool result;
                     result = control.rimuoviPoster(posterSelezionato);
-                    System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\");
+                    System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\",true);
                     if (result == false)
                     {
                         throw new Exception("Impossibile eliminare il poster");

@@ -367,7 +367,7 @@ namespace TalkingPaper.Authoring
             catch (Exception ex) 
             { 
                 MessageBox.Show(ex.Message); 
-                if(!modifica) System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\"); 
+                if(!modifica) System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\",true); 
             }
         }
 
