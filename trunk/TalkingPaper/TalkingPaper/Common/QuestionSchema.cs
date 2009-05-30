@@ -21,6 +21,7 @@ namespace TalkingPaper.Common
 
         private void ok_Click(object sender, EventArgs e)
         {
+            /*Seleziona le azioni da compiere in base alla finestra aperta*/
             if (form is Administration.EliminaPosterForm) {
                 ((Administration.EliminaPosterForm)form).questionAnswer(param,"yes");
             }

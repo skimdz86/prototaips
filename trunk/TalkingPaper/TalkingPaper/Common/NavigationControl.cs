@@ -7,6 +7,10 @@ namespace TalkingPaper.Common
 {
     class NavigationControl
     {
+        /// <summary>
+        /// Funzione per dirigersi alla homepage
+        /// </summary>
+        /// <param name="currentForm">La finestra corrente</param>
         public static void goHome(Form currentForm)
         {
             if (Global.home != null)
@@ -29,6 +33,10 @@ namespace TalkingPaper.Common
 
         }
 
+        /// <summary>
+        /// Funzione per dirigersi alla finestra di benvenuto
+        /// </summary>
+        /// <param name="currentForm">La finestra corrente</param>
         public static void goWelcome(Form currentForm)
         {
             if (Global.welcome != null)
@@ -50,6 +58,10 @@ namespace TalkingPaper.Common
             }
         }
 
+        /// <summary>
+        /// Funzione per tornare indietro di una finestra
+        /// </summary>
+        /// <param name="currentForm">La finestra corrente</param>
         public static void goBack(Form currentForm)
         {
 
@@ -73,6 +85,11 @@ namespace TalkingPaper.Common
             }
         }
 
+        /// <summary>
+        /// Funzione per raggiungere una determinata finestra
+        /// </summary>
+        /// <param name="from">La finestra corrente</param>
+        /// <param name="to">La finestra da raggiungere</param>
         public static void goTo(Form from,Form to)
         {
             if ((from != null) && (to != null))
@@ -90,6 +107,10 @@ namespace TalkingPaper.Common
             }
         }
 
+        /// <summary>
+        /// Funzione per impostare una finestra come homepage
+        /// </summary>
+        /// <param name="home"></param>
         public static void setHome(Form home)
         {
             if (home != null)
@@ -102,6 +123,10 @@ namespace TalkingPaper.Common
             }
         }
 
+        /// <summary>
+        /// Funzione per impostare una finestra come pagina di benvenuto
+        /// </summary>
+        /// <param name="home"></param>
         public static void setWelcome(Form welcome)
         {
             if (welcome != null)
@@ -114,6 +139,10 @@ namespace TalkingPaper.Common
             }
         }
 
+        /// <summary>
+        /// Funzione per mostrare una finestra di dialogo
+        /// </summary>
+        /// <param name="dialog"></param>
         public static void showDialog(Form dialog)
         {
             if ((dialog != null) && (!(dialog.IsDisposed)))
@@ -127,6 +156,10 @@ namespace TalkingPaper.Common
 
         }
 
+        /// <summary>
+        /// Funzione per chiudere una finestra di dialogo
+        /// </summary>
+        /// <param name="dialog"></param>
         public static void closeDialog(Form dialog)
         {
             if ((dialog != null) && (!(dialog.IsDisposed)))
