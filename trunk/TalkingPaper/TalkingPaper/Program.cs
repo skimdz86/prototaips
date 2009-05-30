@@ -23,8 +23,6 @@ namespace TalkingPaper
             Global.dataHandler = new DataAccess.XmlDataHandler();
             Global.reader = new Reader.RfidReader();
             Global.back = new Stack<Form>();
-            //creazione dei file XML---da commentare
-            //TestXML xx = new TestXML();
 
             //Avvio della finestra di accesso
             Application.Run(new Welcome.IndexForm());

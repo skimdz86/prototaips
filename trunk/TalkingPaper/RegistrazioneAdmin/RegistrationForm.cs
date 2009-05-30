@@ -65,6 +65,13 @@ namespace RegistrazioneAdmin
             }
         }
 
+        /// <summary>
+        /// Funzione che salva i dati amministratore sull'xml degli utenti e salva anche un file di backup
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <param name="filepath"></param>
+        /// <returns></returns>
         public bool registration(String user, String password, String filepath)
         {
 
@@ -76,6 +83,7 @@ namespace RegistrazioneAdmin
 
                 }
                 
+                /*Salvataggio nel file XML*/
                 XmlTextWriter writer = new XmlTextWriter(filepath, Encoding.UTF8);
                 writer.WriteStartDocument();
                 writer.WriteStartElement("ListaUtenti");
@@ -86,7 +94,7 @@ namespace RegistrazioneAdmin
                 XmlDocument doc = new XmlDocument();
                 FileStream stream = new FileStream(filepath, FileMode.Open);
                 doc.Load(stream);
-                //aggiunta crittografia
+                /*crittografia della password*/
                 MD5 md5 = new MD5CryptoServiceProvider();
                 Byte[] original = ASCIIEncoding.Default.GetBytes(password);
                 Byte[] encoded = md5.ComputeHash(original);
@@ -95,13 +103,12 @@ namespace RegistrazioneAdmin
                 XmlElement el = doc.CreateElement("Utente");
                 el.SetAttribute("Login", user);
                 el.SetAttribute("Password", res);
-                //el.SetAttribute("Classe", IDClasse);
-                el.SetAttribute("FlagAmministratore", "Si");//tipo account è si/no
+                el.SetAttribute("FlagAmministratore", "Si");
                 doc.DocumentElement.AppendChild(el);
                 stream.Close();
                 doc.Save(filepath);
 
-                //scrivo un file di backup con nome admin e password
+                /*scrivo un file di backup con nome admin e password*/
                 if (File.Exists(backup))
                 {
                     File.Delete(backup);
