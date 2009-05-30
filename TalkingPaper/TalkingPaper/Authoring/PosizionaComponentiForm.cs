@@ -264,14 +264,108 @@ namespace TalkingPaper.Authoring
                             lista.Add(matrix[i, j]);
                     }
                 }
-                               
+                ////aggiungo copia file
+                if (!System.IO.Directory.Exists(nomePoster)) System.IO.Directory.CreateDirectory(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/");
+                List<String> tempCopy = new List<String>();
+                List<String> tempCopyNames = new List<String>();
+                String[] oldFiles;
+                //trovo i vecchi files
+                String dir=Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\";
+                oldFiles = System.IO.Directory.GetFiles(dir);
+                for (int sc = 0; sc < oldFiles.Length; sc++) 
+                {
+                    int i = oldFiles[sc].LastIndexOf("\\");
+                    int l = oldFiles[sc].Length;
+                    int leng = l - (i + 1);
+                    String s = oldFiles[sc].Substring(i + 1, leng);
+                    oldFiles[sc] = s;//solo nomi files
+                }
+                //MessageBox.Show(oldFiles[0]);
+                //faccio una lista coi nuovi
+                for (int ind1 = 0; ind1 < lista.Count; ind1++)
+                {
+                    Model.Contenuto tc = lista[ind1];
+                    if (tc.getAudioPath() != null && tc.getAudioPath() != "")
+                    {
+                        int i = tc.getAudioPath().LastIndexOf("\\");
+                        int l = tc.getAudioPath().Length;
+                        int leng = l - (i + 1);
+                        String s = tc.getAudioPath().Substring(i + 1, leng);
+                        tempCopy.Add(tc.getAudioPath());
+                        lista[ind1].setAudioPath(dir + s);
+                    }
+                    if (tc.getVideoPath() != null && tc.getVideoPath() != "")
+                    {
+                        int i = tc.getVideoPath().LastIndexOf("\\");
+                        int l = tc.getVideoPath().Length;
+                        int leng = l - (i + 1);
+                        String s = tc.getVideoPath().Substring(i + 1, leng);
+                        tempCopy.Add(tc.getVideoPath());
+                        lista[ind1].setVideoPath(dir + s);
+                    }
+                    if (tc.getImagePath() != null && tc.getImagePath() != "")
+                    {
+                        int i = tc.getImagePath().LastIndexOf("\\");
+                        int l = tc.getImagePath().Length;
+                        int leng = l - (i + 1);
+                        String s = tc.getImagePath().Substring(i + 1, leng);
+                        tempCopy.Add(tc.getImagePath());
+                        lista[ind1].setImagePath(dir + s);
+                    }
+                    if (tc.getTextPath() != null && tc.getTextPath() != "")
+                    {
+                        int i = tc.getTextPath().LastIndexOf("\\");
+                        int l = tc.getTextPath().Length;
+                        int leng = l - (i + 1);
+                        String s = tc.getTextPath().Substring(i + 1, leng);
+                        tempCopy.Add(tc.getTextPath());
+                        lista[ind1].setTextPath(dir + s);
+                    }
+                }
+                //trovo solo i nomi dei file nuovi
+                for (int ind2 = 0; ind2 < tempCopy.Count; ind2++) 
+                {
+                    int i = tempCopy[ind2].LastIndexOf("\\");
+                    int l = tempCopy[ind2].Length;
+                    int leng = l - (i + 1);
+                    String s = tempCopy[ind2].Substring(i + 1, leng);
+                    tempCopyNames.Add(s);
+                }
+                //conffronto i nomi
+                List<String> deleteList = new List<string>();
+                for (int i1 = 0; i1 < oldFiles.Length; i1++) 
+                {
+                    int count = 0;
+                    for (int i2 = 0; i2 < tempCopyNames.Count; i2++) 
+                    {
+                        if (oldFiles[i1] == tempCopyNames[i2]) count++;
+                    }
+                    if (count == 0) deleteList.Add(oldFiles[i1]);
+                }
+                ////prove
+                //for (int h = 0; h < deleteList.Count; h++) { MessageBox.Show(deleteList[h]); }
+                //aggiungo tutti quelli nuovi aggiungendo il path
+                for (int i3 = 0; i3 < tempCopy.Count; i3++) 
+                {
+                    if(!System.IO.File.Exists(dir + tempCopyNames[i3]))
+                    {
+                        System.IO.File.Copy(tempCopy[i3], dir + tempCopyNames[i3], false);
+                    }
+                }
+                //e cancello i vecchi
+                for (int i4 = 0; i4 < deleteList.Count; i4++) 
+                {
+                    System.IO.File.Delete(dir + deleteList[i4]);
+                }
+                //fine copia file
+
                 poster.setContenuti(lista);
                 
                 Global.dataHandler.setPoster(poster);
 
                 NavigationControl.goHome(this);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { MessageBox.Show(ex.Message); /*System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\"); solo se è nuovoposter pero*/}
         }
 
         private void aggiungi_Click(object sender, EventArgs e)
