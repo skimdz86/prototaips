@@ -7,7 +7,11 @@ namespace RegistrazioneAdmin
 {
     class NavigationControl
     {
-        
+
+        /// <summary>
+        /// Funzione per mostrare la finestra di dialogo
+        /// </summary>
+        /// <param name="dialog"></param>
         public static void showDialog(Form dialog)
         {
             if ((dialog != null) && (!(dialog.IsDisposed)))
@@ -21,6 +25,10 @@ namespace RegistrazioneAdmin
 
         }
 
+        /// <summary>
+        /// Funzione per chiudere la finestra di dialogo
+        /// </summary>
+        /// <param name="dialog"></param>
         public static void closeDialog(Form dialog)
         {
             if ((dialog != null) && (!(dialog.IsDisposed)))

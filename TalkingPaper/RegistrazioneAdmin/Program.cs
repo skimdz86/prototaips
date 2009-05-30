@@ -20,7 +20,7 @@ namespace RegistrazioneAdmin
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             if (args.Length == 0) return;
-            String filedir = args[0] + @"/Data";
+            String filedir = args[0] + @"/Data";//imposta la directory in cui salvare i file con i dati amministratore
             if (!(Directory.Exists(filedir)))
                 Directory.CreateDirectory(filedir);
             

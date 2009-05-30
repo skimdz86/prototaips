@@ -14,9 +14,6 @@ namespace RegistrazioneAdmin
         public FormSchema()
         {
             InitializeComponent();
-            //this.WindowState = FormWindowState.Maximized;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.TopMost = true;
         }
 
         
