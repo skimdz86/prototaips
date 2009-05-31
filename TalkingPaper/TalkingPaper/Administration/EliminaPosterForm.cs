@@ -25,6 +25,7 @@ namespace TalkingPaper.Administration
                 ok.Enabled = false;
 
                 control = new ControlLogic.AdministrationControl();
+                autControl = new TalkingPaper.ControlLogic.AuthoringControl();
 
                 //caricaLista();
             }
