@@ -30,10 +30,13 @@ namespace TalkingPaper.Execution
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaContenutiForm));
             this.pannello = new System.Windows.Forms.Panel();
             this.noContenuti = new System.Windows.Forms.Label();
             this.anteprima = new System.Windows.Forms.Button();
             this.stampa = new System.Windows.Forms.Button();
+            this.immagine_img = new System.Windows.Forms.Label();
+            this.immagine_testo = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.SuspendLayout();
@@ -66,7 +69,7 @@ namespace TalkingPaper.Execution
             this.pannello.AutoScroll = true;
             this.pannello.Location = new System.Drawing.Point(49, 202);
             this.pannello.Name = "pannello";
-            this.pannello.Size = new System.Drawing.Size(646, 346);
+            this.pannello.Size = new System.Drawing.Size(713, 346);
             this.pannello.TabIndex = 54;
             // 
             // noContenuti
@@ -109,12 +112,32 @@ namespace TalkingPaper.Execution
             this.stampa.UseVisualStyleBackColor = false;
             this.stampa.Click += new System.EventHandler(this.stampa_Click);
             // 
+            // immagine_img
+            // 
+            this.immagine_img.Image = ((System.Drawing.Image)(resources.GetObject("immagine_img.Image")));
+            this.immagine_img.Location = new System.Drawing.Point(670, 117);
+            this.immagine_img.Name = "immagine_img";
+            this.immagine_img.Size = new System.Drawing.Size(25, 25);
+            this.immagine_img.TabIndex = 77;
+            this.immagine_img.Visible = false;
+            // 
+            // immagine_testo
+            // 
+            this.immagine_testo.Image = ((System.Drawing.Image)(resources.GetObject("immagine_testo.Image")));
+            this.immagine_testo.Location = new System.Drawing.Point(620, 117);
+            this.immagine_testo.Name = "immagine_testo";
+            this.immagine_testo.Size = new System.Drawing.Size(25, 25);
+            this.immagine_testo.TabIndex = 76;
+            this.immagine_testo.Visible = false;
+            // 
             // ListaContenutiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.immagine_img);
+            this.Controls.Add(this.immagine_testo);
             this.Controls.Add(this.stampa);
             this.Controls.Add(this.anteprima);
             this.Controls.Add(this.noContenuti);
@@ -129,6 +152,8 @@ namespace TalkingPaper.Execution
             this.Controls.SetChildIndex(this.noContenuti, 0);
             this.Controls.SetChildIndex(this.anteprima, 0);
             this.Controls.SetChildIndex(this.stampa, 0);
+            this.Controls.SetChildIndex(this.immagine_testo, 0);
+            this.Controls.SetChildIndex(this.immagine_img, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -144,5 +169,7 @@ namespace TalkingPaper.Execution
         private System.Windows.Forms.Label noContenuti;
         private Button anteprima;
         private Button stampa;
+        private Label immagine_img;
+        private Label immagine_testo;
     }
 }
