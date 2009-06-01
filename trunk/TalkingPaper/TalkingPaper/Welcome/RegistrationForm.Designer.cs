@@ -29,6 +29,7 @@ namespace TalkingPaper.Welcome
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrationForm));
             this.label2 = new System.Windows.Forms.Label();
             this.user = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,6 +53,8 @@ namespace TalkingPaper.Welcome
             // 
             // home
             // 
+            this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
+            this.home.Text = "Esci";
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // annulla
