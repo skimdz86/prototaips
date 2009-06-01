@@ -30,7 +30,6 @@ namespace TalkingPaper.Authoring
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayAudio));
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.statusBar1 = new System.Windows.Forms.StatusBar();
             this.statusBarPanel1 = new System.Windows.Forms.StatusBarPanel();
             this.statusBarPanel2 = new System.Windows.Forms.StatusBarPanel();
@@ -46,21 +45,11 @@ namespace TalkingPaper.Authoring
             this.toolBarButton2 = new System.Windows.Forms.ToolBarButton();
             this.menuItem5 = new System.Windows.Forms.MenuItem();
             this.toolBar1 = new System.Windows.Forms.ToolBar();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarPanel3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // imageList1
-            // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Red;
-            this.imageList1.Images.SetKeyName(0, "Play.bmp");
-            this.imageList1.Images.SetKeyName(1, "Pause.bmp");
-            this.imageList1.Images.SetKeyName(2, "Stop.bmp");
-            this.imageList1.Images.SetKeyName(3, "");
-            this.imageList1.Images.SetKeyName(4, "");
-            this.imageList1.Images.SetKeyName(5, "");
             // 
             // statusBar1
             // 
@@ -112,6 +101,8 @@ namespace TalkingPaper.Authoring
             // timer1
             // 
             this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // menuItem3
             // 
@@ -165,6 +156,17 @@ namespace TalkingPaper.Authoring
             this.toolBar1.TextAlign = System.Windows.Forms.ToolBarTextAlign.Right;
             this.toolBar1.ButtonClick += new System.Windows.Forms.ToolBarButtonClickEventHandler(this.toolBar1_ButtonClick);
             // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Red;
+            this.imageList1.Images.SetKeyName(0, "Play.bmp");
+            this.imageList1.Images.SetKeyName(1, "Pause.bmp");
+            this.imageList1.Images.SetKeyName(2, "Stop.bmp");
+            this.imageList1.Images.SetKeyName(3, "");
+            this.imageList1.Images.SetKeyName(4, "");
+            this.imageList1.Images.SetKeyName(5, "");
+            // 
             // PlayAudio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,7 +189,6 @@ namespace TalkingPaper.Authoring
 
         #endregion
 
-        private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.StatusBar statusBar1;
         private System.Windows.Forms.StatusBarPanel statusBarPanel1;
         private System.Windows.Forms.StatusBarPanel statusBarPanel2;
@@ -203,5 +204,6 @@ namespace TalkingPaper.Authoring
         private System.Windows.Forms.ToolBarButton toolBarButton2;
         //private System.Windows.Forms.MenuItem menuItem5;
         private System.Windows.Forms.ToolBar toolBar1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

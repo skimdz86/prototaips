@@ -3,7 +3,6 @@ using System;
 using System.IO.Ports;
 using System.Windows.Forms;
 
-
 namespace TalkingPaper.Reader
 {
     public class RfidReader : IReader
@@ -11,7 +10,6 @@ namespace TalkingPaper.Reader
         private RFIDConfigurator rfid_configurator;
         private RfidConfigManager config_manager;
         private int id_reader = 0;
-        private bool isConfigured = false;
         Timer timerRead;
 
         public event ReaderDelegate readerStatusUpdate;
@@ -26,6 +24,7 @@ namespace TalkingPaper.Reader
             {
                 Console.WriteLine("Errore driver con RFID");
             }
+
             config_manager = new Reader.RfidConfigManager();
             
         }
@@ -45,6 +44,7 @@ namespace TalkingPaper.Reader
             //leggo la configurazione da file XML \Config\rfid_config.xml
             properties = config_manager.read_config_rfid_xml();
             
+            // Tento la connessione solo se esiste la porta COM letta nella configurazione
             foreach (string portName in SerialPort.GetPortNames())
             {
                 if (!(portName.Equals("COM1")))
@@ -61,7 +61,6 @@ namespace TalkingPaper.Reader
 
             if (id_reader > 0)
             {
-                isConfigured = true;
                 return portCounter;
             }
             else
@@ -79,7 +78,6 @@ namespace TalkingPaper.Reader
                             //sono riuscito a configurare
                             properties.port = port;
                             config_manager.configParameter(properties);
-                            isConfigured = true;
                             return portCounter;
                         }
                     }
@@ -101,11 +99,18 @@ namespace TalkingPaper.Reader
         public int connect()
         {
             RfidProperties properties;
-            
+            id_reader = -1;
             //leggo la configurazione da file XML \Config\rfid_config.xml
             properties = config_manager.read_config_rfid_xml();
-            if (rfid_configurator != null) id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
-            else return -1;
+            // Tento la connessione solo se esiste la porta COM letta nella configurazione
+            foreach (string portName in SerialPort.GetPortNames())
+            {
+                if (!(portName.Equals("COM1")))
+                {
+                    if (portName.Equals("COM" + properties.port)) id_reader = rfid_configurator.connect(properties.port, properties.communicationFrame, properties.baudRate, properties.timeout);
+                }
+            }
+            
 
             if (id_reader <= 0)
             {

@@ -1,42 +1,19 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Collections;
-using System.IO;
-using System.Diagnostics;
-using System.Runtime.InteropServices;
-using System.Media;
-using System.Xml;
 using TalkingPaper.Common;
 using TalkingPaper.Model;
+using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Drawing;
 
 namespace TalkingPaper.Authoring
 {
     public partial class ModificaCartelloneForm : FormSchema
     {
-        //private int id_mostra;
-        //private string nome_mostra;
-        //private string directory_principale;
-        //private Bitmap immagine_modifica_poster;
-        //private Bitmap elimina;
-        //private List<Model.Poster> poster_authoring;
-        //private TalkingPaper.Authoring.PosizionaComponentiForm visualizza_aut;
-        //private string id_pannello;
-        //private string nome_pannello;
-        //private string configurazione;
-
         private Label lastLabelClicked;
 
         public ModificaCartelloneForm()
         {
             InitializeComponent();
-            
-            
-            
             caricaElencoPoster();
         }
 
@@ -50,6 +27,10 @@ namespace TalkingPaper.Authoring
             NavigationControl.goBack(this);
         }
 
+        /// <summary>
+        /// Carica in un pannello la lista dei poster già creati, tra i quali scegliere quello
+        /// da modificare
+        /// </summary>
         private void caricaElencoPoster()
         {
             try
@@ -58,13 +39,15 @@ namespace TalkingPaper.Authoring
 
                 listaPoster = Global.dataHandler.getListaPoster();
 
+                
                 if (listaPoster == null || listaPoster.Count == 0)
                 {
+                    //se la lista di poster è vuota
                     noPoster.Visible = true;
                 }
                 else
                 {
-
+                    //inserisco tutti i poster presenti in lista all'interno del pannello
                     int i = 0;
                     foreach (Poster p in listaPoster)
                     {

@@ -17,48 +17,31 @@ namespace TalkingPaper.Reader
         private string BaudRate;
         private Int16 Timeout;
 
-        
+        //Metodi getters e setters
 
-        public RfidProperties()
-        { }
-
-        /// <summary>
-        /// Set and get the value of the port of reader
-        /// </summary>
         public Int32 port
         {
             get { return Port; }
             set { Port = value; }
         }
 
-        /// <summary>
-        /// Set and get the value of the Communication Frame
-        /// </summary>
         public string communicationFrame
         {
             get { return CommunicationFrame; }
             set { CommunicationFrame = value; }
         }
 
-        /// <summary>
-        /// Set and get the value of the Baud Rate
-        /// </summary>
         public string baudRate
         {
             get { return BaudRate; }
             set { BaudRate = value; }
         }
 
-        /// <summary>
-        /// Set and get the value of the Time Out
-        /// </summary>
         public Int16 timeout
         {
             get { return Timeout; }
             set { Timeout = value; }
         }
-
-       
 
     }
 }

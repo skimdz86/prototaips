@@ -10,7 +10,6 @@ namespace TalkingPaper.Administration
     public partial class EliminaPosterForm : FormSchema
     {
         private ControlLogic.AdministrationControl control;
-        private ControlLogic.AuthoringControl autControl;
         private List<Model.Poster> listaPoster;
         private string posterSelezionato;
         private Label lastLabelClicked;
@@ -25,8 +24,7 @@ namespace TalkingPaper.Administration
                 ok.Enabled = false;
 
                 control = new ControlLogic.AdministrationControl();
-                autControl = new TalkingPaper.ControlLogic.AuthoringControl();
-
+                
                 //caricaLista();
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
@@ -93,7 +91,7 @@ namespace TalkingPaper.Administration
         /// <param name="response"></param>
         public void questionAnswer(string param,string response)
         {
-            Model.Poster pTemp = autControl.getPoster(posterSelezionato);//serve come backup del poster in caso di errori
+            Model.Poster pTemp = control.getPoster(posterSelezionato);//serve come backup del poster in caso di errori
             try
             {
                 if (response.Equals("yes"))
@@ -108,7 +106,7 @@ namespace TalkingPaper.Administration
                     
                 }
             }
-            catch (Exception e) { MessageBox.Show(e.Message); autControl.salvaPoster(pTemp); /*è il restore del poster se c'è errore nella delete directory*/}
+            catch (Exception e) { MessageBox.Show(e.Message); control.salvaPoster(pTemp); /*è il restore del poster se c'è errore nella delete directory*/}
         }
         private void annulla_Click(object sender, EventArgs e)
         {

@@ -8,14 +8,17 @@ namespace TalkingPaper.Common
     {
         /*VARIABILI GLOBALI DEL PROGRAMMA*/
 
+        //La form che punta alla homepage
         public static Form home;
+        //La form che punta alla welcome page
         public static Form welcome;
+        //Uno stack di form per tornare correttamente indietro nella navigazione
         public static Stack<Form> back;
-        
+        //Il gestore della base di dati
         public static DataAccess.DataHandlerInterface dataHandler;
-
+        //La directory di esecuzione del programma
         public static string directoryPrincipale;
-
+        //L'interfaccia al lettore
         public static Reader.IReader reader;
 
 

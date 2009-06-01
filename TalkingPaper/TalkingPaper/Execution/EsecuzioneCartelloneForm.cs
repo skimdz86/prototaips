@@ -1,15 +1,8 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
+using QuartzTypeLib;
+using TalkingPaper.Common;
 using System.Windows.Forms;
 using System.IO;
-using QuartzTypeLib;
-using System.Xml;
-using TalkingPaper.Common;
 
 
 namespace TalkingPaper.Execution
@@ -75,7 +68,7 @@ namespace TalkingPaper.Execution
 
 
         /// <summary>
-        /// metodo per la gestione della lettura del tag
+        /// Metodo per la gestione della lettura del tag
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -83,6 +76,7 @@ namespace TalkingPaper.Execution
         {
             try
             {
+                //verifico di non aver letto lo stesso tag in breve tempo
                 if (control.verificaId(id))
                 {
                     contenuto = control.getContenutoFromTag(poster, id);
@@ -92,6 +86,7 @@ namespace TalkingPaper.Execution
                     }
                     else
                     {
+                        //stabilisco il tipo di contenuto associato al tag ed eseguo l'azione corrispondente
                         if (contenuto.getNomeContenuto().Equals("Play"))
                         {
                             if (m_CurrentStatus == MediaStatus.Paused || m_CurrentStatus == MediaStatus.Stopped)
@@ -148,16 +143,12 @@ namespace TalkingPaper.Execution
                                 CleanUp();
                                 m_objFilterGraph = new FilgraphManager();
                                 m_objFilterGraph.RenderFile(contenuto.getVideoPath());
-
-                                //m_objBasicAudio = m_objFilterGraph as IBasicAudio;
-
                                 try
                                 {
                                     formVideo = new FormVideo();
                                     m_objVideoWindow = m_objFilterGraph as IVideoWindow;
                                     m_objVideoWindow.Owner = (int)formVideo.Handle;
                                     m_objVideoWindow.WindowStyle = WS_CHILD | WS_CLIPCHILDREN;
-                                    //m_objVideoWindow.FullScreenMode = 1;
                                     m_objVideoWindow.SetWindowPosition(formVideo.ClientRectangle.Left,
                                     formVideo.ClientRectangle.Top,
                                     formVideo.ClientRectangle.Width,
@@ -245,10 +236,9 @@ namespace TalkingPaper.Execution
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
-        
-
-        
-
+        /// <summary>
+        /// Metodo per resettare gli indicatori di avanzamento dell'esecuzione
+        /// </summary>
         private void CleanUp()
         {
             if (m_objMediaControl != null)
@@ -274,8 +264,9 @@ namespace TalkingPaper.Execution
             if (m_objFilterGraph != null) m_objFilterGraph = null;
         }
 
-        
-
+        /// <summary>
+        /// Metodo per aggiornare gli indicatori di avanzamento dell'esecuzione
+        /// </summary>
         private void UpdateStatusBar(object sender, EventArgs e)
         {
             switch (m_CurrentStatus)
@@ -378,27 +369,15 @@ namespace TalkingPaper.Execution
             base.WndProc(ref m);
         }
 
-        
-
-        
-        
-        
-
-        
-
-        
-
         private void home_Click(object sender, EventArgs e)
         {
             try
             {
+                //controllo se sto eseguendo un contenuto
                 if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
                 {
-
                     QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler uscire?", this, "1");
                     NavigationControl.showDialog(dialog);
-
-
                 }
                 else
                 {
@@ -412,6 +391,12 @@ namespace TalkingPaper.Execution
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
+        /// <summary>
+        /// Metodo eseguito in seguito alla risposta ad una dialog che chiede se si vuole
+        /// interrompere l'esecuzione di un contenuto ed uscire dall'esecuzione del cartellone
+        /// </summary>
+        /// <param name="param"></param>
+        /// <param name="response"></param>
         public void questionAnswer(string param,string response)
         {
             try

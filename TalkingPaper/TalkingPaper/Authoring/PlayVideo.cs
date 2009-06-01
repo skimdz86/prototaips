@@ -1,11 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Collections;
 using QuartzTypeLib;
 
 namespace TalkingPaper.Authoring
@@ -26,8 +20,6 @@ namespace TalkingPaper.Authoring
         private IMediaPosition m_objMediaPosition = null;
         private IMediaControl m_objMediaControl = null;
         private System.Windows.Forms.MenuItem menuItem5;
-        private string file;
-        private string path;
         enum MediaStatus { None, Stopped, Paused, Running };
 
         private MediaStatus m_CurrentStatus = MediaStatus.None;
@@ -37,17 +29,14 @@ namespace TalkingPaper.Authoring
         {
             InitializeComponent();
             
-            
-            this.path = path;
-            
             UpdateStatusBar();
             UpdateToolBar();
             int indice = path.LastIndexOf("\\");
-            int lenght = path.Length - (indice + 1);
-            this.file = path.Substring(indice + 1, lenght);
+            String file = path.Substring(indice + 1);
+            
             m_objFilterGraph = new FilgraphManager();
             m_objFilterGraph.RenderFile(path);
-             m_objBasicAudio = m_objFilterGraph as IBasicAudio;
+            m_objBasicAudio = m_objFilterGraph as IBasicAudio;
 
             try
             {
@@ -133,6 +122,9 @@ namespace TalkingPaper.Authoring
             }
         }
 
+        /// <summary>
+        /// Metodo per il reset degli indicatori grafici di avanzamento dell'esecuzione
+        /// </summary>
         private void CleanUp()
         {
             if (m_objMediaControl != null)
@@ -240,6 +232,11 @@ namespace TalkingPaper.Authoring
             base.WndProc(ref m);
         }
 
+        /// <summary>
+        /// Timer per l'aggiornamento degli indicatori grafici di avanzamento dell'esecuzione
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void timer1_Tick(object sender, System.EventArgs e)
         {
             if (m_CurrentStatus == MediaStatus.Running)
@@ -248,6 +245,9 @@ namespace TalkingPaper.Authoring
             }
         }
 
+        /// <summary>
+        /// Aggiornamento degli indicatori grafici di avanzamento dell'esecuzione
+        /// </summary>
         private void UpdateStatusBar()
         {
             switch (m_CurrentStatus)
@@ -265,14 +265,14 @@ namespace TalkingPaper.Authoring
                 int m = (s - (h * 3600)) / 60;
                 s = s - (h * 3600 + m * 60);
 
-                statusBarPanel2.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", h, m, s);
+                statusBarPanel3.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", h, m, s);
 
                 s = (int)m_objMediaPosition.CurrentPosition;
                 h = s / 3600;
                 m = (s - (h * 3600)) / 60;
                 s = s - (h * 3600 + m * 60);
 
-                statusBarPanel3.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", h, m, s);
+                statusBarPanel2.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", h, m, s);
             }
             else
             {
@@ -281,6 +281,9 @@ namespace TalkingPaper.Authoring
             }
         }
 
+        /// <summary>
+        /// Aggiornamento della barra in base allo stato di esecuzione
+        /// </summary>
         private void UpdateToolBar()
         {
             switch (m_CurrentStatus)

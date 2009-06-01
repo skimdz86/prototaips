@@ -25,6 +25,9 @@ namespace TalkingPaper.Execution
             caricaLista();
         }
 
+        /// <summary>
+        /// Metodo per caricare all'interno di un pannello la lista dei cartelloni creati
+        /// </summary>
         private void caricaLista()
         {
             try
@@ -89,6 +92,7 @@ namespace TalkingPaper.Execution
 
         private void ElencoCartelloniForm_VisibleChanged(object sender, EventArgs e)
         {
+            //aggiornamento della grafica quando la finestra diventa visibile
             if (Visible)
             {
                 pannello.Controls.Clear();

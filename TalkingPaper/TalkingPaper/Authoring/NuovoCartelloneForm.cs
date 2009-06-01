@@ -10,12 +10,11 @@ namespace TalkingPaper.Authoring
         public NuovoCartelloneForm()
         {
             InitializeComponent();
-           
-            
         }
 
         private void ok_Click(object sender, EventArgs e)
         {
+            //verifico che tutti i dati necessari siano stati inseriti correttamente
             if (Global.isEmpty(Nome.Text))
             {
                 MessageBox.Show("Devi inserire un nome per il cartellone");

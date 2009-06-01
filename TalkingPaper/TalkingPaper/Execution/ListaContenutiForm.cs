@@ -3,7 +3,6 @@ using TalkingPaper.Common;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Threading;
 using System.IO;
 
 namespace TalkingPaper.Execution
@@ -27,6 +26,9 @@ namespace TalkingPaper.Execution
             caricaLista();
         }
 
+        /// <summary>
+        /// Carica una lista di contenuti che è possibile stampare
+        /// </summary>
         private void caricaLista()
         {
             try
@@ -100,6 +102,7 @@ namespace TalkingPaper.Execution
                     Model.Contenuto contenuto = control.getPoster(nomePoster).getContenutoFromName(contenutoSelezionato);
                     if (contenuto != null)
                     {
+                        //se il contenuto contiene solo testo
                         if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
                         {
                             if (File.Exists(contenuto.getTextPath()))
@@ -115,6 +118,7 @@ namespace TalkingPaper.Execution
                             }
                             else MessageBox.Show("Il file " + contenuto.getTextPath() + " non esiste più");
                         }
+                        //se il contenuto contiene solo una immagine
                         else if ((Global.isNotEmpty(contenuto.getImagePath())) && (Global.isEmpty(contenuto.getTextPath())))
                         {
                             if (File.Exists(contenuto.getImagePath()))
@@ -130,6 +134,7 @@ namespace TalkingPaper.Execution
                             }
                             else MessageBox.Show("Il file " + contenuto.getImagePath() + " non esiste più");
                         }
+                        //se il contenuto contiene sia testo che immagine
                         else if ((Global.isNotEmpty(contenuto.getImagePath())) && (Global.isNotEmpty(contenuto.getTextPath())))
                         {
                             if (File.Exists(contenuto.getTextPath()) && File.Exists(contenuto.getImagePath()))
@@ -164,6 +169,7 @@ namespace TalkingPaper.Execution
                     Model.Contenuto contenuto = control.getPoster(nomePoster).getContenutoFromName(contenutoSelezionato);
                     if (contenuto != null)
                     {
+                        //se il contenuto contiene solo testo
                         if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isEmpty(contenuto.getImagePath())))
                         {
                             if (File.Exists(contenuto.getTextPath()))
@@ -179,6 +185,7 @@ namespace TalkingPaper.Execution
                             }
                             else MessageBox.Show("Il file " + contenuto.getTextPath() + " non esiste più");
                         }
+                        //se il contenuto contiene solo una immagine
                         else if ((Global.isNotEmpty(contenuto.getImagePath())) && (Global.isEmpty(contenuto.getTextPath())))
                         {
                             if (File.Exists(contenuto.getImagePath()))
@@ -194,6 +201,7 @@ namespace TalkingPaper.Execution
                             }
                             else MessageBox.Show("Il file " + contenuto.getImagePath() + " non esiste più");
                         }
+                        //se il contenuto contiene sia testo che immagine
                         else if ((Global.isNotEmpty(contenuto.getTextPath())) && (Global.isNotEmpty(contenuto.getImagePath())))
                         {
                             if (File.Exists(contenuto.getTextPath()) && File.Exists(contenuto.getImagePath()))

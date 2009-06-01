@@ -1,14 +1,8 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
-using System.Collections;
-using System.IO;
-using System.Xml;
 using TalkingPaper.Common;
+using System.Collections.Generic;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace TalkingPaper.Authoring
 {
@@ -48,6 +42,9 @@ namespace TalkingPaper.Authoring
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
         
+        /// <summary>
+        /// Metodo per inserire all'interno del pannello la lista di griglie create
+        /// </summary>
         private void caricaPannello() {
             try
             {
@@ -72,6 +69,9 @@ namespace TalkingPaper.Authoring
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
        
+        /// <summary>
+        /// Metodo per la rappresentazione di uno schema della griglia selezionata
+        /// </summary>
         private void disegnaGrigliaSelezionata()
         {
             try
@@ -107,6 +107,7 @@ namespace TalkingPaper.Authoring
                 {
                     if (Global.isNotEmpty(grigliaSelezionata.getTagFromIndex(i)))
                     {
+                        //se la casella della griglia è taggata la coloro di rosso
                         SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.BackColor = Color.Coral;
                         SchemaGriglia[(i % grigliaSelezionata.getNumColonne()) + 1, (i / grigliaSelezionata.getNumColonne()) + 1].Style.SelectionBackColor = Color.Coral;
                     }
@@ -124,7 +125,6 @@ namespace TalkingPaper.Authoring
             }
             else
             {
-                //throw new Exception("Errore sul controllo del tasto ok");
                 MessageBox.Show("Errore sul controllo del tasto ok");
             }
         }
