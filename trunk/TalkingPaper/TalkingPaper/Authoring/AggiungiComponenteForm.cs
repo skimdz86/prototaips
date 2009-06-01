@@ -4,9 +4,6 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
 
-
-
-
 namespace TalkingPaper.Authoring
 {
     public partial class AggiungiComponenteForm : FormSchema
@@ -28,8 +25,10 @@ namespace TalkingPaper.Authoring
 
                 control = new ControlLogic.AuthoringControl();
 
+                //verifico se sto aggiungendo un nuovo contenuto o ne sto modificando uno già inserito
                 if ((contenuto != null) && (contenuto.getNomeContenuto() != null))
                 {
+                    //contenuto già inserito da modificare
                     nomeBox.Text = contenuto.getNomeContenuto();
                     if (contenuto.getAudioPath() != null)
                     {
@@ -64,19 +63,15 @@ namespace TalkingPaper.Authoring
 
         private void SfogliaAudio_Click(object sender, EventArgs e)
         {
-            
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Filter = "Audio Files|*.wma;*.wav;*.mp2;*.mp3";
             
             if (DialogResult.OK == openFileDialog.ShowDialog())
             {
                 suonoBox.Text = openFileDialog.FileName;
-                
                 EliminaAudio.Visible = true;
                 PreviewAudio.Visible = true;
-                
             }
-            
         }
 
 
@@ -196,6 +191,7 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
+            //verifico che tutti i dati necessari siano stati inseriti correttamente
             if (nomeBox.Text == "") MessageBox.Show("Devi inserire un nome per il contenuto!");
             else if (nomeBox.Text.Length > 15) MessageBox.Show("Il nome può essere al massimo di 15 lettere o numeri");
             else if (nomeBox.Text == "Play") MessageBox.Show("Il nome non puo essere Play");
@@ -208,6 +204,7 @@ namespace TalkingPaper.Authoring
                 //caso 1: contenuto nuovo
                 if (Global.isEmpty(contenuto.getNomeContenuto()))
                 {
+                    //verifico che il nome non sia già stato utilizzato per un altro contenuto
                     if (control.getIndexFromNomeContenuto(listaContenuti, nomeBox.Text) >= 0)
                     {
                         MessageBox.Show("Esiste già un componente con questo nome!");
@@ -222,12 +219,14 @@ namespace TalkingPaper.Authoring
                 //caso 2: contenuto in modifica
                 else if (listaContenuti.Contains(contenuto))
                 {
+                    //se il nome non è stato modificato aggiorno direttamente
                     if (nomeBox.Text.Equals(contenuto.getNomeContenuto()))
                     {
                         aggiornaContenuto();
                     }
                     else
                     {
+                        //verifico che il nome non sia già stato utilizzato per un altro contenuto
                         if (control.getIndexFromNomeContenuto(listaContenuti, nomeBox.Text) >= 0)
                         {
                             MessageBox.Show("Esiste già un componente con questo nome!");
@@ -243,6 +242,9 @@ namespace TalkingPaper.Authoring
             }
         }
 
+        /// <summary>
+        /// Metodo per l'aggiornamento del contenuto in base ai file che sono stati scelti nella dialog
+        /// </summary>
         private void aggiornaContenuto()
         {
             contenuto.setNomeContenuto(nomeBox.Text);
@@ -251,6 +253,7 @@ namespace TalkingPaper.Authoring
             contenuto.setImagePath(immagineBox.Text);
             contenuto.setTextPath(testoBox.Text);
         }
+
         private void annulla_Click(object sender, EventArgs e)
         {
             NavigationControl.goBack(this);

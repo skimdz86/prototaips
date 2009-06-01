@@ -248,7 +248,7 @@ namespace TalkingPaper.Authoring
             this.testoLabel.AutoSize = true;
             this.testoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.testoLabel.ForeColor = System.Drawing.Color.White;
-            this.testoLabel.Location = new System.Drawing.Point(36, 493);
+            this.testoLabel.Location = new System.Drawing.Point(30, 493);
             this.testoLabel.Name = "testoLabel";
             this.testoLabel.Size = new System.Drawing.Size(62, 24);
             this.testoLabel.TabIndex = 42;
@@ -259,7 +259,7 @@ namespace TalkingPaper.Authoring
             this.immagineLabel.AutoSize = true;
             this.immagineLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.immagineLabel.ForeColor = System.Drawing.Color.White;
-            this.immagineLabel.Location = new System.Drawing.Point(36, 431);
+            this.immagineLabel.Location = new System.Drawing.Point(30, 431);
             this.immagineLabel.Name = "immagineLabel";
             this.immagineLabel.Size = new System.Drawing.Size(101, 24);
             this.immagineLabel.TabIndex = 41;
@@ -270,7 +270,7 @@ namespace TalkingPaper.Authoring
             this.videoLabel.AutoSize = true;
             this.videoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.videoLabel.ForeColor = System.Drawing.Color.White;
-            this.videoLabel.Location = new System.Drawing.Point(31, 284);
+            this.videoLabel.Location = new System.Drawing.Point(30, 282);
             this.videoLabel.Name = "videoLabel";
             this.videoLabel.Size = new System.Drawing.Size(65, 24);
             this.videoLabel.TabIndex = 40;
@@ -339,7 +339,7 @@ namespace TalkingPaper.Authoring
             this.suonoLabel.AutoSize = true;
             this.suonoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.suonoLabel.ForeColor = System.Drawing.Color.White;
-            this.suonoLabel.Location = new System.Drawing.Point(31, 213);
+            this.suonoLabel.Location = new System.Drawing.Point(30, 213);
             this.suonoLabel.Name = "suonoLabel";
             this.suonoLabel.Size = new System.Drawing.Size(71, 24);
             this.suonoLabel.TabIndex = 30;
@@ -350,7 +350,7 @@ namespace TalkingPaper.Authoring
             this.nomeLabel.AutoSize = true;
             this.nomeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nomeLabel.ForeColor = System.Drawing.Color.White;
-            this.nomeLabel.Location = new System.Drawing.Point(36, 148);
+            this.nomeLabel.Location = new System.Drawing.Point(30, 148);
             this.nomeLabel.Name = "nomeLabel";
             this.nomeLabel.Size = new System.Drawing.Size(66, 24);
             this.nomeLabel.TabIndex = 29;

@@ -20,13 +20,17 @@ namespace TalkingPaper.Authoring
 
         private int deleteRow, deleteCol;
     
-        
-        
         private List<Model.Contenuto> listaContenuti;
 
         private Model.Contenuto[,] matrix;
 
-
+        /// <summary>
+        /// Il metodo costruttore richiede come parametri tutti i dati per l'inizializzazione di un cartellone
+        /// </summary>
+        /// <param name="nomePoster">Il nome del cartellone</param>
+        /// <param name="descrizionePoster">Una descrizione</param>
+        /// <param name="nomeClasse">Facoltativo: Il nome della classe che crea il cartellone</param>
+        /// <param name="nomeGriglia">Il nome della griglia sulla quale il cartellone verrà eseguito</param>
         public PosizionaComponentiForm(string nomePoster, string descrizionePoster, string nomeClasse, string nomeGriglia)
         {
             try
@@ -78,6 +82,9 @@ namespace TalkingPaper.Authoring
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
+        /// <summary>
+        /// Metodo per riempire la griglia con tutti i contenuti finora inseriti
+        /// </summary>
         private void riempiGriglia()
         {
             
@@ -93,6 +100,9 @@ namespace TalkingPaper.Authoring
             }
         }
 
+        /// <summary>
+        /// Metodo per ricaricare l'elenco di tutti i contenuti inseriti
+        /// </summary>
         private void ricaricaElencoRisorse()
         {
             while (ElencoRisorse.Controls.Count > 2)
@@ -173,6 +183,9 @@ namespace TalkingPaper.Authoring
             
         }
 
+        /// <summary>
+        /// Metodo per la rappresentazione della griglia vuota
+        /// </summary>
         private void disegnaGriglia()
         {
             try
@@ -251,10 +264,15 @@ namespace TalkingPaper.Authoring
 
         private void ok_Click(object sender, EventArgs e)
         {
+            //verrà salvata la struttura del poster e tutti i contenuti inseriti verranno copiati
+            //in una directory specifica per il cartellone
             bool modifica=false;
-            if(System.IO.Directory.Exists(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/")) modifica=true;
+            if(System.IO.Directory.Exists(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/")) 
+                modifica=true;
             try
             {
+                //creo una lista con tutti i nomi dei contenuti inseriti nella griglia
+                //un contenuto non inserito in griglia non viene salvato
                 Model.Poster poster = new Model.Poster(nomePoster, descrizionePoster, nomeClasse, nomeGriglia);
                 List<Model.Contenuto> lista = new List<TalkingPaper.Model.Contenuto>();
 
@@ -266,7 +284,8 @@ namespace TalkingPaper.Authoring
                             lista.Add(matrix[i, j]);
                     }
                 }
-                /*aggiungo copia file*/
+
+                //copia dei file inseriti in ogni contenuto nella directory del cartellone
                 if (!System.IO.Directory.Exists(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/")) System.IO.Directory.CreateDirectory(Global.directoryPrincipale + @"/Poster/"+nomePoster+"/");
                 List<String> tempCopy = new List<String>();
                 List<String> tempCopyNames = new List<String>();
@@ -356,10 +375,11 @@ namespace TalkingPaper.Authoring
                 {
                     System.IO.File.Delete(dir + deleteList[i4]);
                 }
-                /*fine copia file*/
+                // fine della copia dei file
 
-                poster.setContenuti(lista);
                 
+                poster.setContenuti(lista);
+                // salvataggio del poster
                 Global.dataHandler.setPoster(poster);
 
                 NavigationControl.goHome(this);
@@ -367,6 +387,7 @@ namespace TalkingPaper.Authoring
             catch (Exception ex) 
             { 
                 MessageBox.Show(ex.Message); 
+                // se il cartellone era nuovo, in caso di errore la directory del cartellone viene eliminata
                 if(!modifica) System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + nomePoster + "\\",true); 
             }
         }
@@ -385,22 +406,6 @@ namespace TalkingPaper.Authoring
                       
             if (this.Visible == true)
             {
-                //if ((contenutoTrasferito != null) && Global.isNotEmpty(contenutoTrasferito.getNomeContenuto()) && (!(listaContenuti.Contains(contenutoTrasferito))))
-                //    listaContenuti.Add(contenutoTrasferito);
-                
-                /*int c=0;
-                int indexC=-1;
-                for (int w = 0; w < listaContenuti.Count; w++)
-                {
-                    if (contenuto.getCoordinate() == listaContenuti[w].getCoordinate()) { c++; indexC = w; }
-                }
-                if (c == 0) listaContenuti.Add(new Model.Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath()));
-                else if (c > 0) 
-                {
-                    listaContenuti[indexC] = new Model.Contenuto(contenuto.getNomeContenuto(), contenuto.getAudioPath(), contenuto.getVideoPath(), contenuto.getImagePath(), contenuto.getTextPath());
-                    listaContenuti[indexC].setCoordinate(contenuto.getCoordinate());
-                    
-                }*/
                 ricaricaElencoRisorse();
                 riempiGriglia();
             }
@@ -439,7 +444,12 @@ namespace TalkingPaper.Authoring
 
         }
 
-
+        /// <summary>
+        /// Inserisce un contenuto in una cella
+        /// </summary>
+        /// <param name="nomeLabel">Il nome del contenuto</param>
+        /// <param name="row">La riga in cui inserire il contenuto</param>
+        /// <param name="col">La colonna in cui inserire il contenuto</param>
         private void aggiuntaComponente(String nomeLabel, int row, int col)
         {
             int[] coord;
@@ -498,6 +508,7 @@ namespace TalkingPaper.Authoring
 
         private void label_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
         {
+            //evento associato al click con tasto sinistro
             if (e.Button == MouseButtons.Left)
             {
                 if (((Label)sender).Image == null)
@@ -552,6 +563,7 @@ namespace TalkingPaper.Authoring
 
         private void schemaGriglia_DragDrop(object sender, DragEventArgs e)
         {
+            //metodo per la gestione del drag & drop
             try
             {
                 String nomeLabel = e.Data.GetData(DataFormats.Text).ToString();
@@ -606,8 +618,9 @@ namespace TalkingPaper.Authoring
                     Model.Contenuto contenuto = control.getContenutoFromNome(listaContenuti, nomeContenuto);
                     if (contenuto != null)
                     {
+                        //rimuovo il contenuto dall'elenco risorse
                         listaContenuti.Remove(contenuto);
-
+                        //cerco se era stato aggiunto alla griglia e lo rimuovo
                         for (int i = 1; i <= matrix.GetUpperBound(0); i++)
                         {
                             for (int j = 1; j <= matrix.GetUpperBound(1); j++)

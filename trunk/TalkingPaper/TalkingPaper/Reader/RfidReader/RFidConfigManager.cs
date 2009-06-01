@@ -1,37 +1,35 @@
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml;
 using System.IO;
 using TalkingPaper.Common;
+using System.Xml;
+using System.Text;
 
 namespace TalkingPaper.Reader
 {    
-    /// <summary>
-    /// Classe per la gestione del file di configurazione
-    /// </summary>
     class RfidConfigManager
     {
         private String dirpath = Global.directoryPrincipale + "\\Config\\";
         private String filepath = Global.directoryPrincipale+"\\Config\\rfid_config.xml";
 
-        /// <summary>
-        /// Costruttore
-        /// </summary>
-        //nuovo costruttore: autogenera il file se nn c'è
+        
         public RfidConfigManager()
         {
             try
             {
                 if (!(Directory.Exists(dirpath))) {
+                    //creazione della cartella che contiene la configurazione, se non esiste
                     Directory.CreateDirectory(dirpath);
                 }
-                if(!File.Exists(filepath)) createXMLConfig();
+                if(!File.Exists(filepath)) 
+                    //autogenerazione del file se non esiste
+                    createXMLConfig();
 
             }catch(IOException){ throw new Exception("Errore Di I/O");}
         }
         
-        //crea il file vuoto (o standard)
+        /// <summary>
+        /// Metodo per la creazione di un file di configurazione standard
+        /// </summary>
         public void createXMLConfig(){
             
             XmlTextWriter writer = new XmlTextWriter(filepath, Encoding.UTF8);
@@ -72,7 +70,7 @@ namespace TalkingPaper.Reader
         }
         
         /// <summary>
-        /// Nuova funzione per lettura xml
+        /// Metodo per lettura dei dati di configurazione
         /// </summary>
         /// <returns></returns>
         public RfidProperties read_config_rfid_xml() {
@@ -106,12 +104,11 @@ namespace TalkingPaper.Reader
 
         
         /// <summary>
-        /// nuova funzione scrittura xml
+        /// Metodo per il salvataggio dei dati di configurazione
         /// </summary>
         /// <param name="prop"></param>
         /// <returns></returns>
         public bool configParameter(RfidProperties prop) {
-            //spero che vada, ma ho il dubbio che la nodelist nn prenda tutti i nodi esistenti nell'xml se nn gli do il sopraelementeo
             try
             {
                 XmlDocument doc = new XmlDocument();
@@ -138,7 +135,10 @@ namespace TalkingPaper.Reader
         }
 
         
-        ////nuova exist
+        /// <summary>
+        /// Metodo per verificare l'esistenza del file di configurazione
+        /// </summary>
+        /// <returns></returns>
         public bool exist()
         {
             Console.WriteLine("Verifico se il file rfid_config.xml esiste nel percorso: " + filepath);

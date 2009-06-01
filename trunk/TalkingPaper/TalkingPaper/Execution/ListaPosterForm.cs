@@ -3,7 +3,6 @@ using TalkingPaper.Common;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using System.Threading;
 
 namespace TalkingPaper.Execution
 {
@@ -26,6 +25,10 @@ namespace TalkingPaper.Execution
             caricaLista();
         }
 
+        /// <summary>
+        /// Carica una lista di poster tra i quali scegliere quello che contiene i contenuti
+        /// che si vuole stampare
+        /// </summary>
         private void caricaLista()
         {
             try

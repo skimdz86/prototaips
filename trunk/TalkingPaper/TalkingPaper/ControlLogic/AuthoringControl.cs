@@ -14,28 +14,60 @@ namespace TalkingPaper.ControlLogic
         String documentContent;
         Image immagine;
 
+        /// <summary>
+        /// Legge dalla base di dati la lista delle griglie salvate
+        /// </summary>
+        /// <returns></returns>
         public List<Model.Griglia> leggiGriglie()
         {
             return Global.dataHandler.getListaGriglie();
         }
 
+        /// <summary>
+        /// Metodo per ottenere una griglia specificandone il nome
+        /// </summary>
+        /// <param name="nomeGriglia"></param>
+        /// <returns></returns>
         public Model.Griglia getGriglia(String nomeGriglia)
         {
             return Global.dataHandler.getGriglia(nomeGriglia);
         }
+
+        /// <summary>
+        /// Legge dalla base di dati la lista dei cartelloni salvati
+        /// </summary>
+        /// <returns></returns>
         public List<Model.Poster> getListaPoster()
         {
             return Global.dataHandler.getListaPoster();
         }
+
+        /// <summary>
+        /// Metodo per ottenere un cartellone specificandone il nome
+        /// </summary>
+        /// <param name="nomePoster"></param>
+        /// <returns></returns>
         public Model.Poster getPoster(String nomePoster) 
         {
             return Global.dataHandler.getPoster(nomePoster);
         }
+
+        /// <summary>
+        /// Metodo per salvare un cartellone nella base di dati
+        /// </summary>
+        /// <param name="poster"></param>
+        /// <returns></returns>
         public bool salvaPoster(Model.Poster poster) 
         {
             return Global.dataHandler.setPoster(poster);
         }
 
+        /// <summary>
+        /// Restituisce l'indice del contenuto con nome specificato all'interno della lista
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public int getIndexFromNomeContenuto(List<Model.Contenuto> lista, string nome)
         {
             int index;
@@ -46,6 +78,13 @@ namespace TalkingPaper.ControlLogic
             return -1;
         }
 
+        /// <summary>
+        /// Restituisce un contenuto tra quelli all'interno di una lista, di cui si specifica
+        /// il nome
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public Model.Contenuto getContenutoFromNome(List<Model.Contenuto> lista, string nome)
         {
             foreach (Model.Contenuto contenuto in lista)
@@ -55,6 +94,12 @@ namespace TalkingPaper.ControlLogic
             return null;
         }
 
+        /// <summary>
+        /// Imposta un documento da stampare che deve contenere un testo del quale è specificato
+        /// l'indirizzo
+        /// </summary>
+        /// <param name="printDocument"></param>
+        /// <param name="percorso"></param>
         public void setDocumentTesto(PrintDocument printDocument, string percorso)
         {
             string tipo = percorso.Substring(percorso.Length - 3, 3);
@@ -90,6 +135,12 @@ namespace TalkingPaper.ControlLogic
 
         }
 
+        /// <summary>
+        /// Imposta un documento da stampare che deve contenere una immagine della quale è fornito
+        /// il percorso
+        /// </summary>
+        /// <param name="printDocument"></param>
+        /// <param name="percorso"></param>
         public void setDocumentImmagine(PrintDocument printDocument, string percorso)
         {
             printDocument.PrintPage += printDocument_PrintPage;
@@ -100,6 +151,10 @@ namespace TalkingPaper.ControlLogic
             
         }
 
+        /// <summary>
+        /// Mostra l'anteprima di stampa di un documento di testo
+        /// </summary>
+        /// <param name="percorso"></param>
         public void anteprimaTesto(string percorso)
         {
             PrintDocument printDocument = new PrintDocument();
@@ -114,6 +169,10 @@ namespace TalkingPaper.ControlLogic
             printPreviewDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Mostra l'anteprima di stampa di una immagine
+        /// </summary>
+        /// <param name="percorso"></param>
         public void anteprimaImmagine(string percorso)
         {
             PrintDocument document = new PrintDocument();
@@ -128,15 +187,21 @@ namespace TalkingPaper.ControlLogic
             printPreviewDialog.ShowDialog();
         }
 
-
+        /// <summary>
+        /// Evento di rappresentazione della pagina da stampare
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             PrintDocument document = ((PrintDocument)sender);
-            
+            //stampo prima l'immagine
             if (immagine != null)
             {
                 float width = immagine.Width;
                 float height = immagine.Height;
+
+                //Resize dell'immagine per entrare all'interno di mezzo foglio A4
                 if (width > e.PageSettings.PaperSize.Width)
                 {
                     height *= (1 - ((width - e.PageSettings.PaperSize.Width) / width));
@@ -155,7 +220,7 @@ namespace TalkingPaper.ControlLogic
                 immagine.Dispose();
                 immagine = null;
             }
-
+            //stampo il testo
             else if (Global.isNotEmpty(documentContent))
             {
 

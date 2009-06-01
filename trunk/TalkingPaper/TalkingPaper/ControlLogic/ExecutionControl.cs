@@ -20,23 +20,51 @@ namespace TalkingPaper.ControlLogic
         private string coordinate;
         private char[] alfabeto = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'Z' };
 
-        private ArrayList idInseriti = new ArrayList();
-
+        /// <summary>
+        /// Legge dalla base di dati la lista dei cartelloni salvati
+        /// </summary>
+        /// <returns></returns>
         public List<Model.Poster> getListaPoster()
         {
             return Global.dataHandler.getListaPoster();
         }
 
+        /// <summary>
+        /// Metodo per ottenere un cartellone specificandone il nome
+        /// </summary>
+        /// <param name="nomePoster"></param>
+        /// <returns></returns>
         public Model.Poster getPoster(String nomePoster)
         {
             return Global.dataHandler.getPoster(nomePoster);
         }
 
+        /// <summary>
+        /// Metodo per salvare un cartellone nella base di dati
+        /// </summary>
+        /// <param name="poster"></param>
+        /// <returns></returns>
+        public bool salvaPoster(Model.Poster poster)
+        {
+            return Global.dataHandler.setPoster(poster);
+        }
+
+        /// <summary>
+        /// Metodo per ottenere una griglia specificandone il nome
+        /// </summary>
+        /// <param name="nomeGriglia"></param>
+        /// <returns></returns>
         public Model.Griglia getGriglia(String nomeGriglia)
         {
             return Global.dataHandler.getGriglia(nomeGriglia);
         }
 
+        /// <summary>
+        /// Metodo per l'inizializzazione del reader. E' necessario fornire la form chiamante
+        /// per poter attivare correttamente il delegato.
+        /// </summary>
+        /// <param name="caller"></param>
+        /// <returns></returns>
         public bool inizializzaReader(Form caller)
         {
             Global.reader.readerStatusUpdate += statusUpdate;
@@ -54,6 +82,10 @@ namespace TalkingPaper.ControlLogic
             return true;
         }
 
+        /// <summary>
+        /// Delegato che invoca il metodo per la gestione di un dato letto dal reader
+        /// </summary>
+        /// <param name="id"></param>
         public void statusUpdate(string id)
         {
             if (caller != null)
@@ -64,17 +96,32 @@ namespace TalkingPaper.ControlLogic
             }
         }
 
+        /// <summary>
+        /// Termina la lettura dal reader
+        /// </summary>
         public void stopReader()
         {
             resetLastRead.Stop();
             Global.reader.close();
         }
 
+        /// <summary>
+        /// Restituisce il contenuto associato ad un tag specificando il nome del cartellone
+        /// </summary>
+        /// <param name="lista"></param>
+        /// <param name="nome"></param>
+        /// <returns></returns>
         public Model.Contenuto getContenutoFromTag(String nomePoster, String tag)
         {
             return Global.dataHandler.getContenutoFromTag(nomePoster, tag);
         }
 
+        /// <summary>
+        /// Metodo che controlla se un dato letto dal reader è nuovo o è una ripetizione
+        /// di un dato già letto
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public bool verificaId(string id)
         {
             if (id.Equals(lastRead)) return false;
@@ -83,12 +130,20 @@ namespace TalkingPaper.ControlLogic
             return true;
         }
 
+        /// <summary>
+        /// Cancella l'indicazione sull'ultimo dato letto dal reader
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void reset(object sender, EventArgs e)
         {
             lastRead = "";
         }
 
-
+        /// <summary>
+        /// Mostra l'anteprima di stampa di una immagine e di un documento di testo
+        /// </summary>
+        /// <param name="percorso"></param>
         public void anteprimaTestoImmagine(string percorsoTesto, string percorsoImmagine, int[] coordinate)
         {
             string tipo = percorsoTesto.Substring(percorsoTesto.Length - 3, 3);
@@ -142,6 +197,11 @@ namespace TalkingPaper.ControlLogic
             printPreviewDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Mostra la scelta della opzioni di stampa per la stampa di una immagine e di un
+        /// documento di testo
+        /// </summary>
+        /// <param name="percorso"></param>
         public void stampaTestoImmagine(string percorsoTesto, string percorsoImmagine, int[] coordinate)
         {
             string tipo = percorsoTesto.Substring(percorsoTesto.Length - 3, 3);
@@ -202,10 +262,18 @@ namespace TalkingPaper.ControlLogic
             }
         }
 
+        /// <summary>
+        /// Imposta un documento da stampare che deve contenere un testo del quale è specificato
+        /// l'indirizzo e le coordinate nella griglia
+        /// </summary>
+        /// <param name="printDocument"></param>
+        /// <param name="percorso"></param>
+        /// <param name="coordinate"></param>
         public void setDocumentTesto(PrintDocument printDocument, string percorso, int[] coordinate)
         {
             string tipo = percorso.Substring(percorso.Length - 3, 3);
-            this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
+            if (coordinate != null) 
+                this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
 
             printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
 
@@ -238,16 +306,29 @@ namespace TalkingPaper.ControlLogic
 
         }
 
+        /// <summary>
+        /// Imposta un documento da stampare che deve contenere una immagine della quale è fornito
+        /// il percorso e le coordinate nella griglia
+        /// </summary>
+        /// <param name="printDocument"></param>
+        /// <param name="percorso"></param>
+        /// <param name="coordinate"></param>
         public void setDocumentImmagine(PrintDocument printDocument, string percorso, int[] coordinate)
         {
             printDocument.PrintPage += printDocument_PrintPage;
+            if (coordinate != null)
+                this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
 
-            this.coordinate = alfabeto[coordinate[1] - 1].ToString() + coordinate[0];
             immagine = Image.FromFile(percorso);
             printDocument.DefaultPageSettings.PaperSize = new PaperSize("A4V", 595, 842);
                        
         }
 
+        /// <summary>
+        /// Mostra la scelta della opzioni di stampa per la stampa di un documento di testo
+        /// </summary>
+        /// <param name="percorso"></param>
+        /// <param name="coordinate"></param>
         public void stampaTesto(string percorso, int[] coordinate)
         {
             PrintDialog printDialog = new PrintDialog();
@@ -268,6 +349,11 @@ namespace TalkingPaper.ControlLogic
             
         }
 
+        /// <summary>
+        /// Mostra l'anteprima di stampa di un documento di testo
+        /// </summary>
+        /// <param name="percorso"></param>
+        /// <param name="coordinate"></param>
         public void anteprimaTesto(string percorso,int[] coordinate)
         {
             PrintDocument printDocument = new PrintDocument();
@@ -282,6 +368,11 @@ namespace TalkingPaper.ControlLogic
             printPreviewDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Mostra la scelta della opzioni di stampa per la stampa di una immagine
+        /// </summary>
+        /// <param name="percorso"></param>
+        /// <param name="coordinate"></param>
         public void stampaImmagine(string percorso, int[] coordinate)
         {
             PrintDialog printDialog = new PrintDialog();
@@ -302,6 +393,11 @@ namespace TalkingPaper.ControlLogic
 
         }
         
+        /// <summary>
+        /// Mostra l'anteprima di stampa di una immagine
+        /// </summary>
+        /// <param name="percorso"></param>
+        /// <param name="coordinate"></param>
         public void anteprimaImmagine(string percorso, int[] coordinate)
         {
             PrintDocument document = new PrintDocument();
@@ -316,13 +412,20 @@ namespace TalkingPaper.ControlLogic
             printPreviewDialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Evento di rappresentazione della pagina da stampare
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
             PrintDocument document = ((PrintDocument)sender);
+            //viene stampata prima l'immagine
             if (immagine != null)
             {
                 float width = immagine.Width;
                 float height = immagine.Height;
+                //Resize dell'immagine per entrare all'interno di mezzo foglio A4
                 if (width > e.PageSettings.PaperSize.Width)
                 {
                     height *= (1 - ((width - e.PageSettings.PaperSize.Width) / width));
@@ -338,8 +441,10 @@ namespace TalkingPaper.ControlLogic
 
                 e.Graphics.DrawImage(immagine, 40, 40, width, height);
 
+                
                 if (Global.isNotEmpty(documentContent))
                 {
+                    //se dopo la stampa resta spazio nella pagina stampo anche il testo nella stessa pagina
                     if (height < e.PageSettings.PaperSize.Height)
                     {
                         int charactersOnPage = 0;
@@ -347,6 +452,7 @@ namespace TalkingPaper.ControlLogic
                         e.Graphics.MeasureString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))),
                         new SizeF(e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - (height + 40 + 50) - 80), StringFormat.GenericTypographic,
                         out charactersOnPage, out linesPerPage);
+                        //se riesco a stampare tutto
                         if (charactersOnPage == documentContent.Length)
                         {
                             e.Graphics.DrawString(documentContent, new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black,
@@ -355,6 +461,7 @@ namespace TalkingPaper.ControlLogic
                         }
                         else
                         {
+                            //se il testo è troppo lungo comincio in una nuova pagina
                             e.HasMorePages = true;
                         }
                         
@@ -396,7 +503,7 @@ namespace TalkingPaper.ControlLogic
                 if (!e.HasMorePages)
                     documentContent = backup;
             }
-
+            //stampo le coordinate alla fine
             if (Global.isNotEmpty(coordinate))
             {
                 e.Graphics.DrawString(coordinate, new System.Drawing.Font("Microsoft Sans Serif", 25.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0))), Brushes.Black, new PointF(e.PageSettings.PaperSize.Width - 80, e.PageSettings.PaperSize.Height - 80));

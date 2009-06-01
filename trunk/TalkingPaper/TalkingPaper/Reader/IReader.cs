@@ -1,9 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TalkingPaper.Reader
 {
+    /// <summary>
+    /// Delegato che genera il tipo dell'evento readerStatusUpdate
+    /// </summary>
+    /// <param name="value"></param>
     public delegate void ReaderDelegate(string value);
 
     interface IReader
@@ -50,11 +52,15 @@ namespace TalkingPaper.Reader
         String[] getConfiguration();
 
         /// <summary>
-        /// Avvia la lettura.
+        /// Avvia la lettura asincrona con la possibilità di utilizzo di un metodo delegato.
         /// </summary>
         /// <returns></returns>
         bool startRead();
 
+        /// <summary>
+        /// Evento di tipo ReaderDelegate(string value) che viene eseguito quando è disponibile
+        /// il valore di una nuova lettura
+        /// </summary>
         event ReaderDelegate readerStatusUpdate;
     }
 }
