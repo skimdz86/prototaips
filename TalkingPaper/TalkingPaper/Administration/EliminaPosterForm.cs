@@ -100,11 +100,12 @@ namespace TalkingPaper.Administration
                 {
                     bool result;
                     result = control.rimuoviPoster(posterSelezionato);
-                    System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\",true);//cancella la cartella con i contenuti associati
                     if (result == false)
                     {
                         throw new Exception("Impossibile eliminare il poster");
                     }
+                    if (System.IO.Directory.Exists(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\")) System.IO.Directory.Delete(Global.directoryPrincipale + "\\Poster\\" + posterSelezionato + "\\", true);//cancella la cartella con i contenuti associati
+                    
                 }
             }
             catch (Exception e) { MessageBox.Show(e.Message); autControl.salvaPoster(pTemp); /*è il restore del poster se c'è errore nella delete directory*/}

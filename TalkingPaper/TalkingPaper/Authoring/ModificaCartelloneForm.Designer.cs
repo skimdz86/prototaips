@@ -61,9 +61,9 @@ namespace TalkingPaper.Authoring
             // 
             this.elencoPoster.AutoScroll = true;
             this.elencoPoster.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.elencoPoster.Location = new System.Drawing.Point(43, 159);
+            this.elencoPoster.Location = new System.Drawing.Point(40, 159);
             this.elencoPoster.Name = "elencoPoster";
-            this.elencoPoster.Size = new System.Drawing.Size(916, 394);
+            this.elencoPoster.Size = new System.Drawing.Size(940, 394);
             this.elencoPoster.TabIndex = 43;
             // 
             // noPoster
