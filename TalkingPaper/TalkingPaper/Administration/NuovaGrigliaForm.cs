@@ -102,7 +102,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("");
+            HelpFormSchema helpForm = new HelpFormSchema("Non è disponibile un aiuto per questa schermata");
             NavigationControl.showDialog(helpForm);
         }
     }
