@@ -170,7 +170,8 @@ namespace TalkingPaper.Reader
             if (timerRead != null) timerRead.Stop();
             if (readerStatusUpdate != null)
             {
-                rfid_configurator.StatusUpdateEvent -= new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
+                if (rfid_configurator != null)
+                    rfid_configurator.StatusUpdateEvent -= new RFIDlibrary.RFIDConfigurator.StatusUpdateDelegate(readerStatusUpdate);
                 readerStatusUpdate = null;
             }
             return true;
