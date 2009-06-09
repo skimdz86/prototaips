@@ -19,17 +19,17 @@ namespace TalkingPaper.Authoring
             {
                 MessageBox.Show("Devi inserire un nome per il cartellone");
             }
-            else if (Nome.Text.Length > 15) 
+            else if (Nome.Text.Length > 20) 
             {
-                MessageBox.Show("Il nome può essere al massimo di 15 lettere o numeri");
+                MessageBox.Show("Il nome può essere al massimo di 20 lettere o numeri");
             }
             else if (Global.isEmpty(Descrizione.Text))
             {
                 MessageBox.Show("Devi inserire una descrizione per il cartellone");
             }
-            else if (Descrizione.Text.Length > 50) 
+            else if (Descrizione.Text.Length > 45) 
             {
-                MessageBox.Show("La descrizione può essere al massimo di 50 lettere o numeri");
+                MessageBox.Show("La descrizione può essere al massimo di 45 lettere o numeri");
             }
             else if (!Global.isEmpty(Classe.Text) && Classe.Text.Length > 5) 
             {

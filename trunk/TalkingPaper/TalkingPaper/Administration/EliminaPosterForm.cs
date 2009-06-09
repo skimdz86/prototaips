@@ -147,7 +147,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Nota bene: l'eliminazione del cartellone è definitiva, e verranno cancellati anche tutti i contenuti associati ad esso.");
+            HelpFormSchema helpForm = new HelpFormSchema("Attenzione: l'eliminazione del cartellone è definitiva, e verranno cancellati anche tutti i contenuti associati ad esso.");
             NavigationControl.showDialog(helpForm);
         }
     }

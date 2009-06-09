@@ -116,7 +116,7 @@ namespace TalkingPaper.Execution
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Non è disponibile un aiuto per questa schermata");
+            HelpFormSchema helpForm = new HelpFormSchema("Seleziona il cartellone che desideri far parlare dalla lista. \nAttenzione: controlla di aver collegato il lettore RFID");
             NavigationControl.showDialog(helpForm);
         }
     }

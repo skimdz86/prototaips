@@ -662,7 +662,7 @@ namespace TalkingPaper.Authoring
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Suggerimento: per aggiungere un contenuto selezionato alla griglia, non solo è possibile trascinarlo, ma è anche sufficiente selezionarlo e cliccare sulla casella dove inserirlo. \nI componenti di controllo (Play, Pausa, Stop) non vanno inseriti obbligatoriamente nella griglia; però risultano comodi per fermare o far ripartire suoni e video durante l'esecuzione. \nLe celle colorate di grigio non possono essere riempite perchè non disponibili sulla griglia.");
+            HelpFormSchema helpForm = new HelpFormSchema("Suggerimento: per aggiungere un contenuto selezionato alla griglia è anche possibile selezionarlo e cliccare sulla casella dove inserirlo anzichè trascinarlo. \nGli elementi di controllo (Play, Pausa, Stop) non vanno inseriti obbligatoriamente nella griglia; però sono utili per fermare o far ripartire suoni e video durante l'esecuzione. \nLe celle colorate di grigio non possono essere riempite perchè non disponibili sulla griglia.");
             NavigationControl.showDialog(helpForm);
         }
 

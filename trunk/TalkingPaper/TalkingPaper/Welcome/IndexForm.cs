@@ -133,7 +133,7 @@ namespace TalkingPaper.Welcome
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Per entrare come amministratore, inserire il nome da amministratore nel campo \"Nome Classe\" e la password di amministratore nel campo \"Parola Chiave\".");
+            HelpFormSchema helpForm = new HelpFormSchema("Per entrare nella sezione di creazione e utilizzo dei cartelloni, inserisci il nome della classe e la parola chiave. Per entrare nella sezione di creazione delle griglie, premere il pulsante \"Entra come amministratore\".");
             NavigationControl.showDialog(helpForm);
         }
 

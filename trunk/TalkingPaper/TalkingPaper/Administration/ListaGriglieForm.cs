@@ -151,7 +151,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Selezionando il nome di una griglia, questa apparirà a lato. Le caselle colorate di rosso sono quelle a cui è associato un tag, mentre quelle bianche sono vuote. ");
+            HelpFormSchema helpForm = new HelpFormSchema("Selezionando il nome di una griglia, questa apparirà a lato. Le caselle colorate di rosso sono quelle a cui è associato un tag, mentre quelle bianche sono vuote. Attenzione: controllare che il lettore RFID sia collegato prima di proseguire!");
             NavigationControl.showDialog(helpForm);
         }
 

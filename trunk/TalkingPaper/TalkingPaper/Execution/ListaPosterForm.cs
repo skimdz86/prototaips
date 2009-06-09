@@ -100,7 +100,7 @@ namespace TalkingPaper.Execution
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Non è disponibile un aiuto per questa schermata");
+            HelpFormSchema helpForm = new HelpFormSchema("Scegli il cartellone del quale vuoi stampare un contenuto.");
             NavigationControl.showDialog(helpForm);
         }
 

@@ -841,10 +841,11 @@
 </value>
   </data>
   <data name="scegliOggetto.Text" xml:space="preserve">
-    <value>1.Scegli un nuovo oggetto da inserire premendo il bottone 'Aggiungi'
-2. Trascina l'oggetto dalla lista sottostante alla casella della griglia in cui vuoi inserirlo (questo vale anche per Play, Pausa e Stop).
-3. Per modificare o eliminare un contenuto, selezionalo dalla lista e premi i bottoni 'Modifica contenuto' o 'Elimina contenuto'
-4. Per eliminare un contenuto da una casella, selezionala e premi 'Svuota Casella'</value>
+    <value>1.Scegli un nuovo elemento da inserire premendo 'Aggiungi'
+2.Per inserire un elemento nella griglia, selezionalo dalla lista e trascinalo nella casella (vale anche per gli elementi di controllo).
+3.Per svuotare una casella selezionala e premi 'Svuota casella'
+4.Per modificare un elemento della LISTA,  selezionalo e premi 'Modifica Elemento'
+5.Per eliminare un elemento dalla LISTA e dalla GRIGLIA, seleziona l’elemento e premi 'Elimina elemento'</value>
   </data>
   <data name="immagine_audio.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

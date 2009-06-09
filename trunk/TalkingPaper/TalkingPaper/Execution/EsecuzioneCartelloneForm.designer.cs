@@ -30,6 +30,7 @@ namespace TalkingPaper.Execution
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EsecuzioneCartelloneForm));
             this.labelEsecuzioneDi = new System.Windows.Forms.Label();
             this.nomeContenuto = new System.Windows.Forms.Label();
             this.labelStato = new System.Windows.Forms.Label();
@@ -38,8 +39,12 @@ namespace TalkingPaper.Execution
             this.tempoTrascorso = new System.Windows.Forms.Label();
             this.messaggioStart = new System.Windows.Forms.Label();
             this.labelSu = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.annulla1 = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // sottotitolo
@@ -53,7 +58,6 @@ namespace TalkingPaper.Execution
             // 
             // home
             // 
-            this.home.Text = "Esci";
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // annulla
@@ -162,12 +166,53 @@ namespace TalkingPaper.Execution
             this.labelSu.Text = "su";
             this.labelSu.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label1.Location = new System.Drawing.Point(55, 266);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(928, 70);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Attenzione: verificare che il lettore sia collegato e lampeggi la luce rossa!";
+            // 
+            // annulla1
+            // 
+            this.annulla1.AutoSize = true;
+            this.annulla1.BackColor = System.Drawing.Color.Yellow;
+            this.annulla1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("annulla1.BackgroundImage")));
+            this.annulla1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.annulla1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.annulla1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
+            this.annulla1.Location = new System.Drawing.Point(29, 18);
+            this.annulla1.Name = "annulla1";
+            this.annulla1.Size = new System.Drawing.Size(148, 105);
+            this.annulla1.TabIndex = 61;
+            this.annulla1.Text = "Annulla";
+            this.annulla1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.annulla1.UseVisualStyleBackColor = false;
+            this.annulla1.Click += new System.EventHandler(this.annulla1_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Orange;
+            this.groupBox1.Controls.Add(this.annulla1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 1.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
+            this.groupBox1.Location = new System.Drawing.Point(799, 568);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(205, 142);
+            this.groupBox1.TabIndex = 62;
+            this.groupBox1.TabStop = false;
+            // 
             // EsecuzioneCartelloneForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.labelSu);
             this.Controls.Add(this.messaggioStart);
             this.Controls.Add(this.tempoTrascorso);
@@ -193,10 +238,14 @@ namespace TalkingPaper.Execution
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.messaggioStart, 0);
             this.Controls.SetChildIndex(this.labelSu, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.groupBox1, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
             this.boxSopra.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +261,8 @@ namespace TalkingPaper.Execution
         private System.Windows.Forms.Label tempoTrascorso;
         private Label messaggioStart;
         private Label labelSu;
+        private Label label1;
+        protected Button annulla1;
+        protected GroupBox groupBox1;
     }
 }

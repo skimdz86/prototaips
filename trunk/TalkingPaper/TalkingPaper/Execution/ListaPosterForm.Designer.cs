@@ -40,8 +40,8 @@ namespace TalkingPaper.Execution
             // sottotitolo
             // 
             this.sottotitolo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sottotitolo.Size = new System.Drawing.Size(700, 31);
-            this.sottotitolo.Text = "Scegli il poster del quale vuoi stampare un contenuto";
+            this.sottotitolo.Size = new System.Drawing.Size(746, 31);
+            this.sottotitolo.Text = "Scegli il cartellone del quale vuoi stampare un contenuto";
             // 
             // help
             // 
@@ -88,9 +88,9 @@ namespace TalkingPaper.Execution
             this.noPoster.ForeColor = System.Drawing.Color.White;
             this.noPoster.Location = new System.Drawing.Point(72, 158);
             this.noPoster.Name = "noPoster";
-            this.noPoster.Size = new System.Drawing.Size(355, 32);
+            this.noPoster.Size = new System.Drawing.Size(396, 32);
             this.noPoster.TabIndex = 27;
-            this.noPoster.Text = "Non sono presenti poster";
+            this.noPoster.Text = "Non sono presenti cartelloni";
             this.noPoster.Visible = false;
             // 
             // ListaPosterForm
