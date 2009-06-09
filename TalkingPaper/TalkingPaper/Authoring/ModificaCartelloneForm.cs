@@ -110,7 +110,7 @@ namespace TalkingPaper.Authoring
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Non è disponibile un aiuto per questa schermata");
+            HelpFormSchema helpForm = new HelpFormSchema("Seleziona il cartellone che desideri modificare e premi OK.");
             NavigationControl.showDialog(helpForm);
         }
 

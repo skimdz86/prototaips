@@ -45,8 +45,8 @@ namespace TalkingPaper.Welcome
             // 
             // sottotitolo
             // 
-            this.sottotitolo.Size = new System.Drawing.Size(322, 33);
-            this.sottotitolo.Text = "Menu: cosa vuoi fare?";
+            this.sottotitolo.Size = new System.Drawing.Size(234, 33);
+            this.sottotitolo.Text = "Cosa vuoi fare?";
             // 
             // help
             // 
@@ -80,7 +80,7 @@ namespace TalkingPaper.Welcome
             this.nuovoCartellone.Name = "nuovoCartellone";
             this.nuovoCartellone.Size = new System.Drawing.Size(193, 95);
             this.nuovoCartellone.TabIndex = 2;
-            this.nuovoCartellone.Text = "Nuovo Cartellone";
+            this.nuovoCartellone.Text = "Crea nuovo Cartellone";
             this.nuovoCartellone.UseVisualStyleBackColor = false;
             this.nuovoCartellone.Click += new System.EventHandler(this.nuovoCartellone_Click);
             // 

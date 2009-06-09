@@ -54,7 +54,7 @@ namespace TalkingPaper.Common
             this.annulla.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.annulla.Cursor = System.Windows.Forms.Cursors.Hand;
             this.annulla.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.annulla.Location = new System.Drawing.Point(396, 12);
+            this.annulla.Location = new System.Drawing.Point(423, 12);
             this.annulla.Name = "annulla";
             this.annulla.Size = new System.Drawing.Size(89, 55);
             this.annulla.TabIndex = 42;
@@ -82,7 +82,7 @@ namespace TalkingPaper.Common
             this.helpBox.Multiline = true;
             this.helpBox.Name = "helpBox";
             this.helpBox.ReadOnly = true;
-            this.helpBox.Size = new System.Drawing.Size(277, 481);
+            this.helpBox.Size = new System.Drawing.Size(313, 481);
             this.helpBox.TabIndex = 47;
             // 
             // HelpFormSchema
@@ -90,7 +90,7 @@ namespace TalkingPaper.Common
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
-            this.ClientSize = new System.Drawing.Size(497, 589);
+            this.ClientSize = new System.Drawing.Size(533, 589);
             this.ControlBox = false;
             this.Controls.Add(this.helpBox);
             this.Controls.Add(this.label1);

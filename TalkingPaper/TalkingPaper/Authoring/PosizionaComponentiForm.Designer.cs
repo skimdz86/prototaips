@@ -31,10 +31,10 @@ namespace TalkingPaper.Authoring
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PosizionaComponentiForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.noComponenti = new System.Windows.Forms.Label();
             this.ElencoRisorse = new System.Windows.Forms.Panel();
             this.play = new System.Windows.Forms.Label();
@@ -60,8 +60,8 @@ namespace TalkingPaper.Authoring
             // sottotitolo
             // 
             this.sottotitolo.Location = new System.Drawing.Point(13, 60);
-            this.sottotitolo.Size = new System.Drawing.Size(304, 33);
-            this.sottotitolo.Text = "Posiziona i contenuti";
+            this.sottotitolo.Size = new System.Drawing.Size(500, 33);
+            this.sottotitolo.Text = "Inserisci gli elementi nel cartellone";
             // 
             // help
             // 
@@ -102,9 +102,9 @@ namespace TalkingPaper.Authoring
             this.ElencoRisorse.AutoScroll = true;
             this.ElencoRisorse.Controls.Add(this.noComponenti);
             this.ElencoRisorse.ImeMode = System.Windows.Forms.ImeMode.Off;
-            this.ElencoRisorse.Location = new System.Drawing.Point(8, 257);
+            this.ElencoRisorse.Location = new System.Drawing.Point(8, 286);
             this.ElencoRisorse.Name = "ElencoRisorse";
-            this.ElencoRisorse.Size = new System.Drawing.Size(336, 325);
+            this.ElencoRisorse.Size = new System.Drawing.Size(336, 297);
             this.ElencoRisorse.TabIndex = 42;
             // 
             // play
@@ -176,22 +176,22 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.BackgroundColor = System.Drawing.Color.DarkOrange;
             this.schemaGriglia.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.schemaGriglia.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schemaGriglia.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.schemaGriglia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.schemaGriglia.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.schemaGriglia.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.schemaGriglia.DefaultCellStyle = dataGridViewCellStyle10;
             this.schemaGriglia.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.schemaGriglia.EnableHeadersVisualStyles = false;
             this.schemaGriglia.GridColor = System.Drawing.Color.Black;
@@ -201,21 +201,21 @@ namespace TalkingPaper.Authoring
             this.schemaGriglia.Name = "schemaGriglia";
             this.schemaGriglia.ReadOnly = true;
             this.schemaGriglia.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Cyan;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.schemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Cyan;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.schemaGriglia.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.schemaGriglia.RowHeadersVisible = false;
             this.schemaGriglia.RowHeadersWidth = 120;
             this.schemaGriglia.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.SaddleBrown;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Peru;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.schemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.SaddleBrown;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Peru;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.schemaGriglia.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.schemaGriglia.RowTemplate.Height = 33;
             this.schemaGriglia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.schemaGriglia.ShowEditingIcon = false;
@@ -232,9 +232,9 @@ namespace TalkingPaper.Authoring
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(31, 584);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(345, 33);
+            this.label4.Size = new System.Drawing.Size(300, 33);
             this.label4.TabIndex = 68;
-            this.label4.Text = "Componenti di controllo";
+            this.label4.Text = "Elementi di controllo";
             // 
             // modifica
             // 
@@ -246,7 +246,7 @@ namespace TalkingPaper.Authoring
             this.modifica.Name = "modifica";
             this.modifica.Size = new System.Drawing.Size(124, 62);
             this.modifica.TabIndex = 69;
-            this.modifica.Text = "Modifica contenuto";
+            this.modifica.Text = "Modifica elemento";
             this.modifica.UseVisualStyleBackColor = false;
             this.modifica.Click += new System.EventHandler(this.modifica_Click);
             // 
@@ -260,7 +260,7 @@ namespace TalkingPaper.Authoring
             this.elimina.Name = "elimina";
             this.elimina.Size = new System.Drawing.Size(124, 62);
             this.elimina.TabIndex = 70;
-            this.elimina.Text = "Elimina contenuto";
+            this.elimina.Text = "Elimina elemento";
             this.elimina.UseVisualStyleBackColor = false;
             this.elimina.Click += new System.EventHandler(this.elimina_Click);
             // 
@@ -284,7 +284,7 @@ namespace TalkingPaper.Authoring
             this.scegliOggetto.ForeColor = System.Drawing.Color.White;
             this.scegliOggetto.Location = new System.Drawing.Point(13, 90);
             this.scegliOggetto.Name = "scegliOggetto";
-            this.scegliOggetto.Size = new System.Drawing.Size(586, 170);
+            this.scegliOggetto.Size = new System.Drawing.Size(586, 193);
             this.scegliOggetto.TabIndex = 64;
             this.scegliOggetto.Text = resources.GetString("scegliOggetto.Text");
             // 

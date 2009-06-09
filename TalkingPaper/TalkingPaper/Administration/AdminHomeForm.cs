@@ -72,7 +72,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Non è disponibile un aiuto per questa schermata");
+            HelpFormSchema helpForm = new HelpFormSchema("In questa schermata si può scegliere di creare una griglia da taggare o modificarne una già esistente, oppure di eliminare dei cartelloni. ");
             NavigationControl.showDialog(helpForm);
         }
 

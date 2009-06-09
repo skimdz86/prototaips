@@ -102,7 +102,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Non è disponibile un aiuto per questa schermata");
+            HelpFormSchema helpForm = new HelpFormSchema("Inserisci un nome per la griglia non più lungo di 15 caratteri, e un numero di righe e colonne non superiore a 9. \nAttenzione: controllare che il lettore RFID sia collegato prima di proseguire!");
             NavigationControl.showDialog(helpForm);
         }
     }

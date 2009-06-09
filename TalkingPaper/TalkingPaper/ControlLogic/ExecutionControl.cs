@@ -71,7 +71,7 @@ namespace TalkingPaper.ControlLogic
             bool result = Global.reader.startRead();
             lastRead = "";
             resetLastRead = new Timer();
-            resetLastRead.Interval = 5000;
+            resetLastRead.Interval = 8000;
             resetLastRead.Tick += reset;
             resetLastRead.Start();
             if (!result)

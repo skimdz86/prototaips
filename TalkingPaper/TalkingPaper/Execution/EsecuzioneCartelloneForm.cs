@@ -275,36 +275,42 @@ namespace TalkingPaper.Execution
                     {
                         stato.Text = "Interrotto";
                         messaggioStart.Visible = true;
+                        label1.Visible = false;
                         break;
                     }
                 case MediaStatus.Paused:
                     {
                         stato.Text = "In Pausa";
                         messaggioStart.Visible = true;
+                        label1.Visible = false;
                         break;
                     }
                 case MediaStatus.Running:
                     {
                         stato.Text = "In Esecuzione";
                         messaggioStart.Visible = false;
+                        label1.Visible = false;
                         break;
                     }
                 case MediaStatus.Stopped:
                     {
                         stato.Text = "Interrotto";
                         messaggioStart.Visible = true;
+                        label1.Visible = false;
                         break;
                     }
                 case MediaStatus.End:
                     {
                         stato.Text = "Terminato";
                         messaggioStart.Visible = true;
+                        label1.Visible = false;
                         break;
                     }
                 default:
                     {
                         stato.Text = "";
                         messaggioStart.Visible = true;
+                        label1.Visible = true;
                         break;
                     }
             }
@@ -424,6 +430,7 @@ namespace TalkingPaper.Execution
                         updateTimer.Stop();
 
                         messaggioStart.Visible = false;
+                        label1.Visible = false;
                         labelEsecuzioneDi.Visible = false;
                         nomeContenuto.Visible = false;
                         labelStato.Visible = false;
@@ -441,8 +448,13 @@ namespace TalkingPaper.Execution
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Suggerimento: per essere sicuro che il lettore funzioni, controlla che lampeggi la luce rossa. \n");
+            HelpFormSchema helpForm = new HelpFormSchema("Attenzione: per essere sicuro che il lettore funzioni, controlla che lampeggi la luce rossa. \n");
             NavigationControl.showDialog(helpForm);
+        }
+
+        private void annulla1_Click(object sender, EventArgs e)
+        {
+            /////////////aaaaaaaaa ma se chiamo la dialog poi mi ririporta alla home!
         }
 
         

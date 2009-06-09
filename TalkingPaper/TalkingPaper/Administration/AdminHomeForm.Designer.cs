@@ -81,7 +81,7 @@ namespace TalkingPaper.Administration
             this.nuovaGriglia.Name = "nuovaGriglia";
             this.nuovaGriglia.Size = new System.Drawing.Size(202, 109);
             this.nuovaGriglia.TabIndex = 4;
-            this.nuovaGriglia.Text = "Nuova Griglia";
+            this.nuovaGriglia.Text = "Crea nuova Griglia";
             this.nuovaGriglia.UseVisualStyleBackColor = false;
             this.nuovaGriglia.Click += new System.EventHandler(this.nuovaGriglia_Click);
             // 
