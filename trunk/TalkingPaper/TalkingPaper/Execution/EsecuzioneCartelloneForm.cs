@@ -3,6 +3,8 @@ using QuartzTypeLib;
 using TalkingPaper.Common;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
+using System.Drawing;
 
 
 namespace TalkingPaper.Execution
@@ -11,7 +13,7 @@ namespace TalkingPaper.Execution
     {
         
         private ControlLogic.ExecutionControl control;
-        private string poster;
+        private String poster1;
         private Model.Contenuto contenuto;
         
         Timer updateTimer;
@@ -33,7 +35,10 @@ namespace TalkingPaper.Execution
         private const int EC_COMPLETE = 0x01;
         private const int WS_CHILD = 0x40000000;
         private const int WS_CLIPCHILDREN = 0x2000000;
-        
+
+        private Model.Griglia griglia;
+        private List<Model.Contenuto> listaContenuti;
+        private Model.Contenuto[,] matrix;
 
         public EsecuzioneCartelloneForm(string nomePoster)
         {
@@ -42,14 +47,46 @@ namespace TalkingPaper.Execution
                 InitializeComponent();
 
                 control = new ControlLogic.ExecutionControl();
+                
+                poster1 = nomePoster;
+                sottotitolo.Text += " " + poster1;
 
-                poster = nomePoster;
-                sottotitolo.Text += " " + poster;
-
-                if (Global.isEmpty(poster))
+                if (Global.isEmpty(poster1))
                 {
                     throw new Exception("Errore!! Il poster non esiste!!");
                 }
+
+                /*Inizializzazione della griglia in grafica*/
+                Model.Poster p1 = control.getPoster(nomePoster);
+                griglia = control.getGriglia(p1.getNomeGriglia());
+
+                disegnaGriglia();
+                listaContenuti = new List<Model.Contenuto>();
+                matrix = new Model.Contenuto[griglia.getNumRighe() + 1, griglia.getNumColonne() + 1];
+
+                Model.Poster poster = Global.dataHandler.getPoster(nomePoster);
+
+                if ((poster != null) && (poster.getNome() != null))
+                {
+                    List<Model.Contenuto> contenuti = poster.getContenuti();
+                    if (contenuti != null)
+                    {
+                        foreach (Model.Contenuto contenuto in contenuti)
+                        {
+                            int[] coord = contenuto.getCoordinate();
+                            if (coord != null)
+                            {
+                                matrix[coord[0], coord[1]] = contenuto;
+                                if (!(contenuto.getNomeContenuto().Equals("Play")) && !(contenuto.getNomeContenuto().Equals("Pausa")) && !(contenuto.getNomeContenuto().Equals("Stop")))
+                                    listaContenuti.Add(contenuto);
+                            }
+                        }
+
+                    }
+
+                }
+                riempiGriglia();
+                /*fine parte griglia*/
 
                 control.inizializzaReader(this);
 
@@ -66,6 +103,93 @@ namespace TalkingPaper.Execution
             catch (Exception e) { MessageBox.Show(e.Message); }
         }
 
+        /// <summary>
+        /// Metodo per la rappresentazione della griglia vuota
+        /// </summary>
+        private void disegnaGriglia()
+        {
+            try
+            {
+                schemaGriglia.Rows.Clear();
+                schemaGriglia.Columns.Clear();
+
+                schemaGriglia.ColumnCount = griglia.getNumColonne() + 1;
+                schemaGriglia.Rows.Add(griglia.getNumRighe() + 1);
+
+                schemaGriglia.Rows[0].Height = 35;
+                schemaGriglia.Columns[0].Width = 50;
+
+                schemaGriglia[0, 0].Style.BackColor = Color.ForestGreen;
+                schemaGriglia[0, 0].Style.SelectionBackColor = Color.ForestGreen;
+
+                Font font = new Font("Arial", 16);
+
+                //header righe
+                for (int i = 1; i <= griglia.getNumRighe(); i++)
+                {
+                    schemaGriglia[0, i].Value = i;
+                    schemaGriglia[0, i].Style.Font = font;
+                    schemaGriglia[0, i].Style.BackColor = Color.ForestGreen;
+                    schemaGriglia[0, i].Style.SelectionBackColor = Color.ForestGreen;
+                }
+
+                //header colonne
+                for (int j = 1; j <= griglia.getNumColonne(); j++)
+                {
+                    schemaGriglia.Columns[j].Width = 120;
+                    schemaGriglia[j, 0].Value = (char)('A' + j - 1);
+                    schemaGriglia[j, 0].Style.Font = font;
+                    schemaGriglia[j, 0].Style.BackColor = Color.ForestGreen;
+                    schemaGriglia[j, 0].Style.SelectionBackColor = Color.ForestGreen;
+                }
+
+                //singole celle
+                font = new Font("Arial", 12);
+                for (int i = 0; i < (griglia.getNumRighe() * griglia.getNumColonne()); i++)
+                {
+                    int c = (i % griglia.getNumColonne()) + 1;
+                    int r = (i / griglia.getNumColonne()) + 1;
+
+                    //celle valide
+                    if (Global.isNotEmpty(griglia.getTagFromIndex(i)))
+                    {
+                        schemaGriglia[c, r].Style.Font = font;
+                        schemaGriglia[c, r].Style.BackColor = Color.White;
+                        schemaGriglia[c, r].Style.ForeColor = Color.Black;
+                        schemaGriglia[c, r].Style.SelectionBackColor = Color.PowderBlue;
+                        schemaGriglia[c, r].Style.SelectionForeColor = Color.Black;
+                    }
+                    //celle non valide (no tag)
+                    else
+                    {
+                        schemaGriglia[c, r].Style.BackColor = Color.Gray;
+                        schemaGriglia[c, r].Style.SelectionBackColor = Color.Gray;
+                    }
+                }
+
+            }
+            catch (Exception e) { MessageBox.Show(e.Message); }
+
+        }
+
+        /// <summary>
+        /// Metodo per riempire la griglia con tutti i contenuti finora inseriti
+        /// </summary>
+        private void riempiGriglia()
+        {
+
+            for (int i = 1; i <= matrix.GetUpperBound(0); i++)
+            {
+                for (int j = 1; j <= matrix.GetUpperBound(1); j++)
+                {
+                    if ((matrix[i, j] != null) && (matrix[i, j].getNomeContenuto() != null))
+                        schemaGriglia[j, i].Value = matrix[i, j].getNomeContenuto();
+                    else
+                        schemaGriglia[j, i].Value = null;
+                }
+            }
+        }
+
 
         /// <summary>
         /// Metodo per la gestione della lettura del tag
@@ -79,7 +203,7 @@ namespace TalkingPaper.Execution
                 //verifico di non aver letto lo stesso tag in breve tempo
                 if (control.verificaId(id))
                 {
-                    contenuto = control.getContenutoFromTag(poster, id);
+                    contenuto = control.getContenutoFromTag(poster1, id);
                     if (contenuto == null)
                     {
                         Console.WriteLine("Al tag " + id + " non corrisponde un contenuto");
