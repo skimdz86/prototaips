@@ -62,7 +62,7 @@ namespace TalkingPaper.Administration
 
         private void help_Click(object sender, EventArgs e)
         {
-            HelpFormSchema helpForm = new HelpFormSchema("Inserendo nome e password dell'amministratore è possibile accedere alla sezione di gestione delle griglie e di eliminazione dei poster. Se per caso il nome e la password non funzionassero, provare con quelli di default, cioè nome utente:\"admin\" e password:\"admin\"");
+            HelpFormSchema helpForm = new HelpFormSchema("Inserendo nome e password dell'amministratore è possibile accedere alla sezione di gestione delle griglie e di eliminazione dei cartelloni. Se per caso il nome e la password non funzionassero, provare con quelli di default, cioè nome utente:\"admin\" e password:\"admin\"");
             NavigationControl.showDialog(helpForm);
         }
 
