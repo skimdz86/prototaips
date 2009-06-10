@@ -137,5 +137,11 @@ namespace TalkingPaper.Welcome
             NavigationControl.showDialog(helpForm);
         }
 
+        private void accessoAmministratore_Click(object sender, EventArgs e)
+        {
+            Administration.LoginAdmin loginAdmin = new Administration.LoginAdmin(isConfigured);
+            NavigationControl.goTo(this, loginAdmin);
+        }
+
     }
 }
