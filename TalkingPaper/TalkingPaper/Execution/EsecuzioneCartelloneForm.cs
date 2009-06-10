@@ -97,7 +97,7 @@ namespace TalkingPaper.Execution
                 
 
                 CleanUp();
-                UpdateStatusBar(null, null);
+                
 
             }
             catch (Exception e) { MessageBox.Show(e.Message); }
@@ -399,42 +399,42 @@ namespace TalkingPaper.Execution
                     {
                         stato.Text = "Interrotto";
                         messaggioStart.Visible = true;
-                        label1.Visible = false;
+                        verificaLabel.Visible = false;
                         break;
                     }
                 case MediaStatus.Paused:
                     {
                         stato.Text = "In Pausa";
                         messaggioStart.Visible = true;
-                        label1.Visible = false;
+                        verificaLabel.Visible = false;
                         break;
                     }
                 case MediaStatus.Running:
                     {
                         stato.Text = "In Esecuzione";
                         messaggioStart.Visible = false;
-                        label1.Visible = false;
+                        verificaLabel.Visible = false;
                         break;
                     }
                 case MediaStatus.Stopped:
                     {
                         stato.Text = "Interrotto";
                         messaggioStart.Visible = true;
-                        label1.Visible = false;
+                        verificaLabel.Visible = false;
                         break;
                     }
                 case MediaStatus.End:
                     {
                         stato.Text = "Terminato";
                         messaggioStart.Visible = true;
-                        label1.Visible = false;
+                        verificaLabel.Visible = false;
                         break;
                     }
                 default:
                     {
                         stato.Text = "";
                         messaggioStart.Visible = true;
-                        label1.Visible = true;
+                        verificaLabel.Visible = true;
                         break;
                     }
             }
@@ -542,28 +542,16 @@ namespace TalkingPaper.Execution
                         NavigationControl.goHome(this);
                     }
                 }
+
                 else if ((param != null) && (param.Equals("2")))
                 {
                     if ((response != null) && (response.Equals("yes")))
                     {
-                        
-
                         CleanUp();
                         UpdateStatusBar(null, null);
                         control.stopReader();
                         updateTimer.Stop();
-
-                        messaggioStart.Visible = false;
-                        label1.Visible = false;
-                        labelEsecuzioneDi.Visible = false;
-                        nomeContenuto.Visible = false;
-                        labelStato.Visible = false;
-                        stato.Visible = false;
-                        tempoTotale.Visible = false;
-                        labelSu.Visible = false;
-                        tempoTrascorso.Visible = false;
-
-                        
+                        NavigationControl.goBack(this);
                     }
                 }
             }
@@ -578,7 +566,24 @@ namespace TalkingPaper.Execution
 
         private void annulla1_Click(object sender, EventArgs e)
         {
-            /////////////aaaaaaaaa ma se chiamo la dialog poi mi ririporta alla home!
+            try
+            {
+                //controllo se sto eseguendo un contenuto
+                if (m_CurrentStatus == MediaStatus.Running || m_CurrentStatus == MediaStatus.Paused)
+                {
+                    QuestionSchema dialog = new QuestionSchema("Un contenuto è in esecuzione.\nSei sicuro di voler tornare indietro?", this, "2");
+                    NavigationControl.showDialog(dialog);
+                }
+                else
+                {
+                    CleanUp();
+                    UpdateStatusBar(null, null);
+                    control.stopReader();
+                    updateTimer.Stop();
+                    NavigationControl.goBack(this);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         
