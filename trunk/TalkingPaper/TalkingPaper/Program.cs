@@ -6,6 +6,13 @@ using TalkingPaper.Common;
 
 namespace TalkingPaper
 {
+    /*Copyright® by Prototaips, 2009*/
+    /*Autori: 
+     * Marco De Zorzi
+     * Massimiliano Gentile
+     * Manuel Fossemò
+     * Yanick Fratantonio
+     */
     static class Program
     {
         /// <summary>
