@@ -57,6 +57,8 @@ namespace TalkingPaper.Administration
             // 
             // home
             // 
+            this.home.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("home.BackgroundImage")));
+            this.home.Text = "Esci";
             this.home.Click += new System.EventHandler(this.home_Click);
             // 
             // annulla

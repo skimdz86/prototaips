@@ -44,6 +44,7 @@ namespace TalkingPaper.Welcome
             this.messaggioOK = new System.Windows.Forms.Label();
             this.multiPorta = new System.Windows.Forms.Label();
             this.accessoAmministratore = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.boxSotto.SuspendLayout();
             this.boxSopra.SuspendLayout();
             this.SuspendLayout();
@@ -133,7 +134,7 @@ namespace TalkingPaper.Welcome
             // 
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label5.Location = new System.Drawing.Point(21, 395);
+            this.label5.Location = new System.Drawing.Point(21, 375);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(433, 34);
             this.label5.TabIndex = 6;
@@ -146,7 +147,7 @@ namespace TalkingPaper.Welcome
             this.RegistrazioneButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RegistrazioneButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RegistrazioneButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistrazioneButton.Location = new System.Drawing.Point(638, 370);
+            this.RegistrazioneButton.Location = new System.Drawing.Point(638, 350);
             this.RegistrazioneButton.Name = "RegistrazioneButton";
             this.RegistrazioneButton.Size = new System.Drawing.Size(180, 88);
             this.RegistrazioneButton.TabIndex = 7;
@@ -159,7 +160,7 @@ namespace TalkingPaper.Welcome
             // 
             this.erroreRfid.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.erroreRfid.ForeColor = System.Drawing.Color.Red;
-            this.erroreRfid.Location = new System.Drawing.Point(20, 518);
+            this.erroreRfid.Location = new System.Drawing.Point(20, 582);
             this.erroreRfid.Name = "erroreRfid";
             this.erroreRfid.Size = new System.Drawing.Size(731, 117);
             this.erroreRfid.TabIndex = 8;
@@ -190,7 +191,7 @@ namespace TalkingPaper.Welcome
             this.config.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.config.Cursor = System.Windows.Forms.Cursors.Hand;
             this.config.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.config.Location = new System.Drawing.Point(806, 521);
+            this.config.Location = new System.Drawing.Point(806, 585);
             this.config.Name = "config";
             this.config.Size = new System.Drawing.Size(180, 88);
             this.config.TabIndex = 43;
@@ -203,7 +204,7 @@ namespace TalkingPaper.Welcome
             // 
             this.messaggioOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.messaggioOK.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.messaggioOK.Location = new System.Drawing.Point(20, 521);
+            this.messaggioOK.Location = new System.Drawing.Point(20, 585);
             this.messaggioOK.Name = "messaggioOK";
             this.messaggioOK.Size = new System.Drawing.Size(731, 41);
             this.messaggioOK.TabIndex = 44;
@@ -214,7 +215,7 @@ namespace TalkingPaper.Welcome
             // 
             this.multiPorta.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.multiPorta.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.multiPorta.Location = new System.Drawing.Point(21, 521);
+            this.multiPorta.Location = new System.Drawing.Point(21, 585);
             this.multiPorta.Name = "multiPorta";
             this.multiPorta.Size = new System.Drawing.Size(878, 70);
             this.multiPorta.TabIndex = 45;
@@ -228,13 +229,23 @@ namespace TalkingPaper.Welcome
             this.accessoAmministratore.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.accessoAmministratore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.accessoAmministratore.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.accessoAmministratore.Location = new System.Drawing.Point(27, 639);
+            this.accessoAmministratore.Location = new System.Drawing.Point(633, 471);
             this.accessoAmministratore.Name = "accessoAmministratore";
             this.accessoAmministratore.Size = new System.Drawing.Size(198, 81);
             this.accessoAmministratore.TabIndex = 46;
             this.accessoAmministratore.Text = "Entra come Amministratore";
             this.accessoAmministratore.UseVisualStyleBackColor = false;
             this.accessoAmministratore.Click += new System.EventHandler(this.accessoAmministratore_Click);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label1.Location = new System.Drawing.Point(21, 490);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(433, 34);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Oppure entra come amministratore";
             // 
             // IndexForm
             // 
@@ -243,6 +254,7 @@ namespace TalkingPaper.Welcome
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkOrange;
             this.ClientSize = new System.Drawing.Size(1028, 732);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.accessoAmministratore);
             this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.RegistrazioneButton);
@@ -275,6 +287,7 @@ namespace TalkingPaper.Welcome
             this.Controls.SetChildIndex(this.sottotitolo, 0);
             this.Controls.SetChildIndex(this.titolo, 0);
             this.Controls.SetChildIndex(this.accessoAmministratore, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
             this.boxSotto.ResumeLayout(false);
             this.boxSotto.PerformLayout();
             this.boxSopra.ResumeLayout(false);
@@ -299,5 +312,6 @@ namespace TalkingPaper.Welcome
         private Label messaggioOK;
         private Label multiPorta;
         private Button accessoAmministratore;
+        private Label label1;
     }
 }
